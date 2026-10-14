@@ -187,7 +187,7 @@ export const HomeView: React.FC = () => {
             {/* Subtitle */}
             <p className="mt-6 text-base sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
               {lang === "ru"
-                ? "Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром GoMVP. Обучение персонала, ежемесячная поддержка по абонплате и фотореалистичные AI-аватары."
+                ? "Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром GoMVP. Онбординг персонала, регулярное сопровождение (Retainer) и фотореалистичные AI-аватары."
                 : "Engineering migrations from WordPress, Tilda, Webflow, and monolithic CMSs to Next.js in partnership with GoMVP. Staff onboarding, monthly retainer maintenance, and photorealistic AI avatars."}
             </p>
 
@@ -324,7 +324,7 @@ export const HomeView: React.FC = () => {
                   </h3>
                   <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {lang === "ru"
-                      ? "Сопровождение сайтов по фиксированной абонплате: доработки, верстка, обучение персонала и мониторинг 24/7 без штатного веб-мастера."
+                      ? "Сопровождение сайтов по фиксированному тарифу: доработки, верстка, обучение команды и мониторинг 24/7 без затрат на штатного разработчика."
                       : "Fractional web engineering team on monthly retainer: feature rollouts, content updates, staff video tutorials, and SLA monitoring."}
                   </p>
                 </div>

@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
             </Link>
             <p className="text-xs text-slate-500 leading-relaxed mb-4">
               {lang === "ru"
-                ? "Веб-инженерия, миграция с устаревших CMS, техническая поддержка по абонплате и AI-видеопродакшн."
+                ? "Веб-инженерия, миграция с устаревших CMS, абонентское обслуживание сайтов и AI-видеопродакшн."
                 : "Web engineering, legacy CMS migration, retainer tech support, and AI video production."}
             </p>
             <div className="text-xs text-slate-400">

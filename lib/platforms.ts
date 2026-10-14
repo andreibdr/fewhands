@@ -109,7 +109,7 @@ export const platformsData: Record<string, PlatformData> = {
       en: "GoMVP rebuilds Tilda visual blocks into modular, high-performance React components with enterprise engineering standards.",
     },
     fewHandsRole: {
-      ru: "Few Hands сопровождает перенос, обучает команду управлять сайтом и обеспечивает ежемесячную контентную и техническую поддержку по абонплате.",
+      ru: "Few Hands сопровождает проект, обучает команду управлять сайтом и обеспечивает ежемесячное техническое сопровождение по тарифу Retainer.",
       en: "Few Hands oversees project delivery, trains your team, and provides ongoing monthly technical and content maintenance.",
     },
   },
@@ -211,7 +211,7 @@ export const platformsData: Record<string, PlatformData> = {
       en: "GoMVP engineers an ultra-fast Go API gateway and React frontend, connecting smoothly with your legacy ERP.",
     },
     fewHandsRole: {
-      ru: "Few Hands берет на себя обучение контент-менеджеров, аудит конверсий и плановую ежемесячную техподдержку витрины по абонплате.",
+      ru: "Few Hands берет на себя онбординг команды, аудит конверсий и плановую техническую поддержку витрины по тарифу Retainer.",
       en: "Few Hands manages team training, conversion optimization, and dedicated monthly retainer support for your storefront.",
     },
   },
@@ -313,7 +313,7 @@ export const platformsData: Record<string, PlatformData> = {
       en: "GoMVP rebuilds promo logic, carts, and inventory in a scalable Go backend built for Black Friday spikes.",
     },
     fewHandsRole: {
-      ru: "Few Hands берет на себя обучение персонала, подготовку медиа-материалов (видео, графика) и постоянную поддержку витрины по абонплате.",
+      ru: "Few Hands берет на себя обучение персонала, подготовку медиа-материалов (видео, графика) и постоянную поддержку витрины по тарифу Retainer.",
       en: "Few Hands provides operational training, media production assets, and dedicated retainer support for your store.",
     },
   },

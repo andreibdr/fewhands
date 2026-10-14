@@ -201,14 +201,14 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-xs font-mono uppercase text-emerald-600 font-bold">
-                      {lang === "ru" ? "2. Сопровождение & Обучение" : "2. Training & Retainer Support"}
+                      {lang === "ru" ? "2. Техподдержка & Сопровождение" : "2. Retainer Support & Care"}
                     </span>
                     <span className="text-xs text-slate-400 font-mono">Few Hands</span>
                   </div>
                   <h3 className="text-lg font-bold text-slate-900 mb-2">
                     {lang === "ru"
-                      ? "Обучение и абонентская поддержка (Few Hands)"
-                      : "Staff Onboarding & Retainer Support (Few Hands)"}
+                      ? "Техническая поддержка и сопровождение (Few Hands)"
+                      : "Ongoing Maintenance & Retainer Support (Few Hands)"}
                   </h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
                     {platform.fewHandsRole[lang]}
@@ -216,8 +216,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 </div>
                 <div className="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500 font-mono">
                   {lang === "ru"
-                    ? "Формат: ежемесячный Retainer (абонплата), персональный менеджер, мониторинг 24/7."
-                    : "Model: monthly retainer subscription, dedicated account manager, 24/7 monitoring."}
+                    ? "Формат: ежемесячный Retainer (фиксированный тариф), персональный менеджер, мониторинг 24/7 и онбординг команды."
+                    : "Model: predictable monthly retainer, dedicated technical account manager, 24/7 monitoring, and staff onboarding."}
                 </div>
               </div>
             </div>

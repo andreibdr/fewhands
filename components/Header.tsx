@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
             {lang === "ru" ? "Разработка" : "Development"}
           </Link>
           <Link href="/maintenance" className="hover:text-indigo-600 transition-colors">
-            {lang === "ru" ? "Поддержка & Обучение" : "Support & Retainer"}
+            {lang === "ru" ? "Поддержка сайтов" : "Support & Retainer"}
           </Link>
           <Link href="/ai-video" className="hover:text-indigo-600 transition-colors">
             {lang === "ru" ? "AI & Видео" : "AI & Video"}
@@ -121,7 +121,7 @@ export const Header: React.FC = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 hover:bg-slate-50"
           >
-            {lang === "ru" ? "Поддержка & Обучение" : "Support & Retainer"}
+            {lang === "ru" ? "Поддержка сайтов" : "Support & Retainer"}
           </Link>
           <Link
             href="/ai-video"

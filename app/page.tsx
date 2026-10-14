@@ -4,7 +4,7 @@ import { HomeView } from "@/components/HomeView";
 export const metadata: Metadata = {
   title: "Few Hands — Студия Веб-Инженерии, Миграции CMS на Next.js и AI-Видео",
   description:
-    "Инженерная миграция сайтов с WordPress, Tilda, 1C-Битрикс на ультрабыстрый Next.js с сохранением 100% SEO-позиций. Веб-разработка с нуля, абонентская техподдержка по абонплате и AI-видеопродакшн.",
+    "Инженерная миграция сайтов с WordPress, Tilda, 1C-Битрикс на ультрабыстрый Next.js с сохранением 100% SEO-позиций. Веб-разработка с нуля, абонентское обслуживание сайтов и AI-видеопродакшн.",
   keywords: [
     "разработка сайтов next.js",
     "миграция с wordpress на next.js",

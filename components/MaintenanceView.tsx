@@ -223,14 +223,14 @@ export const MaintenanceView: React.FC = () => {
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
             {lang === "ru"
-              ? "Техподдержка сайтов и обучение персонала по фиксированной абонплате"
-              : "Ongoing Website Maintenance, Retainer SLA & Staff Training"}
+              ? "Техническая поддержка и сопровождение сайтов (Retainer)"
+              : "Ongoing Website Maintenance, Retainer SLA & Support"}
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
             {lang === "ru"
-              ? "После релиза или миграции сайта самое главное — не оставлять бизнес без технического плеча. Few Hands берёт на себя обучение вашей команды, регулярное обновление контента, защиту от сбоев, круглосуточный мониторинг и доработку новых фич по прозрачной ежемесячной подписке."
-              : "We don't abandon your team post-launch. Few Hands provides hands-on staff onboarding, scheduled content rollouts, 24/7 uptime monitoring, and proactive engineering under a predictable monthly subscription."}
+              ? "После релиза или миграции сайта самое главное — надежное техническое плечо. Команда инженеров Few Hands берет на себя регулярное обновление контента, защиту от сбоев, круглосуточный мониторинг, онбординг персонала и доработку новых фич по фиксированному тарифу без затрат на штатного разработчика."
+              : "We ensure your digital platform stays fast, secure, and always operational. Few Hands delivers proactive maintenance, scheduled content rollouts, 24/7 uptime monitoring, and engineering iterations under a predictable monthly retainer."}
           </p>
         </div>
 
@@ -519,7 +519,7 @@ export const MaintenanceView: React.FC = () => {
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl mx-auto">
             {lang === "ru"
-              ? "Оставьте заявку с адресом вашего сайта. Мы проведем первичный аудит и подберем подходящий тариф абонплаты."
+              ? "Оставьте заявку с адресом вашего сайта. Мы проведем экспресс-аудит проекта и предложим оптимальный план сопровождения."
               : "Submit your website URL for a complimentary code audit and personalized retainer proposal."}
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
