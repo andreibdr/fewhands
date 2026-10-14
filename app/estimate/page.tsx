@@ -343,8 +343,8 @@ export default function EstimatePage() {
                 <Check className="w-5 h-5 text-emerald-400 shrink-0" />
                 <span>
                   {lang === "ru"
-                    ? "Заявка на расчет успешно отправлена! Мы свяжемся с вами по указанным контактам в течение 1–2 часов."
-                    : "Estimate inquiry sent successfully! We will contact you via email or phone within 1–2 business hours."}
+                    ? "Заявка на расчет успешно отправлена! Мы свяжемся с вами в течение 1 рабочего дня."
+                    : "Estimate inquiry sent successfully! We will contact you within 1 business day."}
                 </span>
               </div>
             ) : (

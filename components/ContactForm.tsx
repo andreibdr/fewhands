@@ -116,8 +116,8 @@ export const ContactForm: React.FC = () => {
               <Clock className="w-4 h-4 text-sky-400 shrink-0" />
               <span>
                 {lang === "ru"
-                  ? "Ответ в течение 1–2 часов в рабочее время (Mon–Fri)"
-                  : "Response within 1–2 business hours (Mon–Fri)"}
+                  ? "Ответ в рабочие часы (Mon–Fri, 10:00–19:00)"
+                  : "Response during business hours (Mon–Fri, 10:00–19:00 UTC)"}
               </span>
             </div>
 

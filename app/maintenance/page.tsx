@@ -25,14 +25,14 @@ export default function MaintenancePage() {
               "Регулярные резервные копии и аудит безопасности",
               "Обновление пакетов и серверных зависимостей",
               "До 3 часов мелких контентных правок в месяц",
-              "Поддержка по Email и в WhatsApp с ответом до 4 часов",
+              "Поддержка по Email и в WhatsApp (ответ в течение рабочего дня)",
             ]
           : [
               "24/7 Uptime & Core Web Vitals monitoring",
               "Automated scheduled backups & security audits",
               "Dependency and package version maintenance",
               "Up to 3 hours of content and text adjustments monthly",
-              "Email & WhatsApp support (SLA response under 4h)",
+              "Email & WhatsApp support (next business day response)",
             ],
       popular: false,
     },
@@ -52,7 +52,7 @@ export default function MaintenancePage() {
               "Обучение и онбординг сотрудников (видео-инструкции)",
               "До 10 часов верстки, доработок и новых блоков",
               "Публикация контента, акций, товаров и баннеров",
-              "Приоритетный саппорт (ответ до 1 часа в рабочее время)",
+              "Приоритетный ответ в рабочие часы (Mon–Fri)",
               "Контроль скорости Google PageSpeed (держим 95-100)",
             ]
           : [
@@ -60,7 +60,7 @@ export default function MaintenancePage() {
               "Team onboarding & step-by-step video tutorials",
               "Up to 10 engineering hours for new sections and UI tweaks",
               "Continuous publication of articles, banners, and products",
-              "Priority business communication (SLA response under 1h)",
+              "Priority response during business hours (Mon–Fri)",
               "Continuous Core Web Vitals audits (target 95–100)",
             ],
       popular: true,
