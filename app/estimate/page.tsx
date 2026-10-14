@@ -1,139 +1,217 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/components/LanguageContext";
-import { Calculator, DollarSign, Clock, Send, ShieldCheck, Check, Mail } from "lucide-react";
+import {
+  Calculator,
+  DollarSign,
+  Clock,
+  Send,
+  ShieldCheck,
+  Check,
+  Mail,
+  Repeat,
+  Code2,
+  Video,
+  Sparkles,
+  Headphones,
+} from "lucide-react";
 
-export default function EstimatePage() {
+function EstimatorInner() {
   const { lang } = useLanguage();
-  const [projectType, setProjectType] = useState<string>("migration");
-  const [scope, setScope] = useState<string>("medium");
-  const [urgency, setUrgency] = useState<string>("standard");
+  const searchParams = useSearchParams();
 
-  // Inline form state
+  // Active calculator mode: 'migration' | 'development' | 'video'
+  const [activeTab, setActiveTab] = useState<"migration" | "development" | "video">("migration");
+
+  useEffect(() => {
+    const service = searchParams.get("service");
+    if (service === "development" || service === "dev") {
+      setActiveTab("development");
+    } else if (service === "video" || service === "ai-video" || service === "avatar") {
+      setActiveTab("video");
+    } else if (service === "migration" || service === "migrate" || service === "maintenance") {
+      setActiveTab("migration");
+    }
+  }, [searchParams]);
+
+  // Form states
   const [name, setName] = useState<string>("");
   const [contact, setContact] = useState<string>("");
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  const estimates: Record<
-    string,
-    { priceRu: string; priceEn: string; timeRu: string; timeEn: string; labelRu: string; labelEn: string }
-  > = {
-    "migration-small": {
-      priceRu: "от $400",
-      priceEn: "from $400",
-      timeRu: "3–6 дней",
-      timeEn: "3–6 days",
-      labelRu: "Миграция базового сайта",
-      labelEn: "Basic site migration",
-    },
-    "migration-medium": {
-      priceRu: "от $750",
-      priceEn: "from $750",
-      timeRu: "7–12 дней",
-      timeEn: "7–12 days",
-      labelRu: "Миграция стандартного сайта/каталога",
-      labelEn: "Standard site/catalog migration",
-    },
-    "migration-large": {
-      priceRu: "от $1,400",
-      priceEn: "from $1,400",
-      timeRu: "2–3 недели",
-      timeEn: "2–3 weeks",
-      labelRu: "Миграция крупного магазина/портала",
-      labelEn: "Large portal/e-commerce migration",
-    },
+  // --- Calculator 1: Migration & Maintenance States ---
+  const [migPlatform, setMigPlatform] = useState<string>("wordpress");
+  const [migScale, setMigScale] = useState<string>("catalog");
+  const [migSupport, setMigSupport] = useState<string>("business");
 
-    "dev-small": {
-      priceRu: "от $500",
-      priceEn: "from $500",
-      timeRu: "4–7 дней",
-      timeEn: "4–7 days",
-      labelRu: "Создание мини-лендинга",
-      labelEn: "Micro landing page",
-    },
-    "dev-medium": {
-      priceRu: "от $950",
-      priceEn: "from $950",
-      timeRu: "1–2 недели",
-      timeEn: "1–2 weeks",
-      labelRu: "Создание полного продающего лендинга",
-      labelEn: "High-converting landing page",
-    },
-    "dev-large": {
-      priceRu: "от $1,800",
-      priceEn: "from $1,800",
-      timeRu: "3–4 недели",
-      timeEn: "3–4 weeks",
-      labelRu: "Создание каталога / платформы",
-      labelEn: "Custom catalog / web platform",
-    },
+  // --- Calculator 2: Custom Development States ---
+  const [devType, setDevType] = useState<string>("landing");
+  const [devDesign, setDevDesign] = useState<string>("turnkey");
+  const [devMultiLang, setDevMultiLang] = useState<boolean>(false);
+  const [devPayment, setDevPayment] = useState<boolean>(false);
 
-    "maintenance-small": {
-      priceRu: "$190 / мес",
-      priceEn: "$190 / mo",
-      timeRu: "старт за 24 ч",
-      timeEn: "launch in 24h",
-      labelRu: "Техподдержка: тариф Старт",
-      labelEn: "Starter Retainer",
-    },
-    "maintenance-medium": {
-      priceRu: "$450 / мес",
-      priceEn: "$450 / mo",
-      timeRu: "старт за 24 ч",
-      timeEn: "launch in 24h",
-      labelRu: "Техподдержка: тариф Бизнес Retainer",
-      labelEn: "Business Retainer",
-    },
-    "maintenance-large": {
-      priceRu: "$950 / мес",
-      priceEn: "$950 / mo",
-      timeRu: "старт за 24 ч",
-      timeEn: "launch in 24h",
-      labelRu: "Техподдержка: тариф Pro & Media",
-      labelEn: "Pro & Media Retainer",
-    },
+  // --- Calculator 3: AI Video & YouTube States ---
+  const [vidFormat, setVidFormat] = useState<string>("shorts");
+  const [vidCount, setVidCount] = useState<string>("pack3");
+  const [vidLanguages, setVidLanguages] = useState<string>("single");
+  const [vidScript, setVidScript] = useState<string>("studio");
 
-    "avatar-small": {
-      priceRu: "от $250",
-      priceEn: "from $250",
-      timeRu: "2–3 дня",
-      timeEn: "2–3 days",
-      labelRu: "1 AI Видео-аватар под ключ",
-      labelEn: "1 Turnkey AI Video Avatar",
-    },
-    "avatar-medium": {
-      priceRu: "от $550",
-      priceEn: "from $550",
-      timeRu: "4–6 дней",
-      timeEn: "4–6 days",
-      labelRu: "Пакет 3 AI Видео-аватаров",
-      labelEn: "Pack of 3 AI Video Avatars",
-    },
-    "avatar-large": {
-      priceRu: "от $900",
-      priceEn: "from $900",
-      timeRu: "1–2 недели",
-      timeEn: "1–2 weeks",
-      labelRu: "Пакет 6 AI аватаров + озвучка на 3 языках",
-      labelEn: "Pack of 6 AI Avatars + Multilingual Voiceover",
-    },
+  // Dynamic Calculation: Migration & Maintenance
+  const calcMigration = () => {
+    let basePrice = 500;
+    let daysMin = 5;
+    let daysMax = 9;
+
+    if (migScale === "landing") {
+      basePrice = 400;
+      daysMin = 3;
+      daysMax = 6;
+    } else if (migScale === "corporate") {
+      basePrice = 750;
+      daysMin = 7;
+      daysMax = 12;
+    } else if (migScale === "catalog") {
+      basePrice = 1100;
+      daysMin = 10;
+      daysMax = 16;
+    } else if (migScale === "portal") {
+      basePrice = 1800;
+      daysMin = 14;
+      daysMax = 25;
+    }
+
+    if (migPlatform === "bitrix" || migPlatform === "legacy-php") {
+      basePrice += 300;
+      daysMax += 4;
+    }
+
+    let supportLabelRu = "без абонплаты";
+    let supportLabelEn = "no retainer";
+    let supportPrice = "";
+
+    if (migSupport === "start") {
+      supportLabelRu = "+ поддержка $190/мес";
+      supportLabelEn = "+ $190/mo retainer";
+      supportPrice = " + $190 / mo";
+    } else if (migSupport === "business") {
+      supportLabelRu = "+ поддержка $450/мес";
+      supportLabelEn = "+ $450/mo retainer";
+      supportPrice = " + $450 / mo";
+    } else if (migSupport === "pro") {
+      supportLabelRu = "+ Pro Retainer $950/мес";
+      supportLabelEn = "+ $950/mo retainer";
+      supportPrice = " + $950 / mo";
+    }
+
+    return {
+      priceRu: `от $${basePrice}${supportPrice}`,
+      priceEn: `from $${basePrice}${supportPrice}`,
+      timeRu: `${daysMin}–${daysMax} раб. дней`,
+      timeEn: `${daysMin}–${daysMax} business days`,
+      detailsRu: `Миграция с ${migPlatform.toUpperCase()} (${migScale}) ${supportLabelRu}`,
+      detailsEn: `Migration from ${migPlatform.toUpperCase()} (${migScale}) with ${supportLabelEn}`,
+    };
   };
 
-  const key = `${projectType}-${scope}`;
-  const currentEstimate = estimates[key] || estimates["migration-medium"];
+  // Dynamic Calculation: Custom Web Development
+  const calcDevelopment = () => {
+    let basePrice = 700;
+    let daysMin = 6;
+    let daysMax = 12;
+
+    if (devType === "landing") {
+      basePrice = 650;
+      daysMin = 5;
+      daysMax = 9;
+    } else if (devType === "corporate") {
+      basePrice = 1200;
+      daysMin = 10;
+      daysMax = 18;
+    } else if (devType === "catalog") {
+      basePrice = 1600;
+      daysMin = 14;
+      daysMax = 22;
+    } else if (devType === "webapp") {
+      basePrice = 2400;
+      daysMin = 18;
+      daysMax = 30;
+    }
+
+    if (devDesign === "turnkey") {
+      basePrice += 250;
+      daysMax += 3;
+    } else if (devDesign === "scratch") {
+      basePrice += 150;
+      daysMax += 2;
+    }
+
+    if (devMultiLang) basePrice += 200;
+    if (devPayment) basePrice += 250;
+
+    return {
+      priceRu: `от $${basePrice}`,
+      priceEn: `from $${basePrice}`,
+      timeRu: `${daysMin}–${daysMax} раб. дней`,
+      timeEn: `${daysMin}–${daysMax} business days`,
+      detailsRu: `Сайт с нуля (${devType}), дизайн: ${devDesign}, i18n: ${devMultiLang ? "Да" : "Нет"}`,
+      detailsEn: `Custom web dev (${devType}), design: ${devDesign}, i18n: ${devMultiLang ? "Yes" : "No"}`,
+    };
+  };
+
+  // Dynamic Calculation: AI Video & YouTube Production
+  const calcVideo = () => {
+    let basePrice = 250;
+    let daysMin = 2;
+    let daysMax = 4;
+
+    if (vidCount === "single") {
+      basePrice = vidFormat === "youtube" ? 350 : 250;
+      daysMin = 2;
+      daysMax = 4;
+    } else if (vidCount === "pack3") {
+      basePrice = vidFormat === "youtube" ? 850 : 590;
+      daysMin = 4;
+      daysMax = 7;
+    } else if (vidCount === "pack10") {
+      basePrice = vidFormat === "youtube" ? 2200 : 1450;
+      daysMin = 8;
+      daysMax = 14;
+    }
+
+    if (vidLanguages === "dual") basePrice += 150;
+    if (vidLanguages === "multi") basePrice += 350;
+    if (vidScript === "studio") basePrice += 100;
+
+    return {
+      priceRu: `от $${basePrice}`,
+      priceEn: `from $${basePrice}`,
+      timeRu: `${daysMin}–${daysMax} раб. дней`,
+      timeEn: `${daysMin}–${daysMax} business days`,
+      detailsRu: `Видеопродакшн: ${vidFormat}, объём: ${vidCount}, языки: ${vidLanguages}, сценарий: ${vidScript}`,
+      detailsEn: `Video production: ${vidFormat}, count: ${vidCount}, languages: ${vidLanguages}, script: ${vidScript}`,
+    };
+  };
+
+  const currentResult =
+    activeTab === "migration"
+      ? calcMigration()
+      : activeTab === "development"
+      ? calcDevelopment()
+      : calcVideo();
 
   const handleSendEstimate = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
 
-    const message = `Project Estimate Request:\n- Category: ${projectType}\n- Scope: ${scope}\n- Urgency: ${urgency}\n- Estimate: ${
-      lang === "ru" ? currentEstimate.priceRu : currentEstimate.priceEn
-    }, ${lang === "ru" ? currentEstimate.timeRu : currentEstimate.timeEn} (${
-      lang === "ru" ? currentEstimate.labelRu : currentEstimate.labelEn
-    })`;
+    const message = `[Калькулятор: ${activeTab.toUpperCase()}]\n${
+      lang === "ru" ? currentResult.detailsRu : currentResult.detailsEn
+    }\nОценка: ${lang === "ru" ? currentResult.priceRu : currentResult.priceEn}, срок: ${
+      lang === "ru" ? currentResult.timeRu : currentResult.timeEn
+    }`;
 
     try {
       const res = await fetch("/api/contact", {
@@ -145,14 +223,14 @@ export default function EstimatePage() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        window.location.href = `mailto:web@fewhands.com?subject=Project Estimate Request&body=${encodeURIComponent(
-          `Name: ${name}\nContact: ${contact}\n\n${message}`
+        window.location.href = `mailto:web@fewhands.com?subject=Project Estimate (${activeTab})&body=${encodeURIComponent(
+          `Имя: ${name}\nКонтакты: ${contact}\n\n${message}`
         )}`;
         setSubmitted(true);
       }
     } catch {
-      window.location.href = `mailto:web@fewhands.com?subject=Project Estimate Request&body=${encodeURIComponent(
-        `Name: ${name}\nContact: ${contact}\n\n${message}`
+      window.location.href = `mailto:web@fewhands.com?subject=Project Estimate (${activeTab})&body=${encodeURIComponent(
+        `Имя: ${name}\nКонтакты: ${contact}\n\n${message}`
       )}`;
       setSubmitted(true);
     } finally {
@@ -162,7 +240,7 @@ export default function EstimatePage() {
 
   return (
     <div className="py-12 sm:py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb */}
         <div className="text-xs text-slate-400 mb-6 flex items-center gap-2">
@@ -174,154 +252,610 @@ export default function EstimatePage() {
         </div>
 
         {/* Hero Section */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-400 text-xs font-semibold mb-3">
             <Calculator className="w-3.5 h-3.5" />
-            <span>{lang === "ru" ? "Интерактивная оценка" : "Interactive Estimation"}</span>
+            <span>{lang === "ru" ? "Специализированная оценка" : "Specialized Project Estimator"}</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
             {lang === "ru" ? "Калькулятор стоимости и сроков" : "Project Cost & Timeline Estimator"}
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-slate-300">
+          <p className="mt-3 text-sm sm:text-base text-slate-300">
             {lang === "ru"
-              ? "Выберите параметры проекта для ориентировочного расчёта бюджета."
-              : "Select your project parameters to get an instant preliminary budget & timeline."}
+              ? "Выберите нужное направление — каждый калькулятор учитывает специфику конкретной задачи."
+              : "Select the specific service category — each calculator features tailored parameters and pricing."}
           </p>
         </div>
 
-        {/* Calculator Box */}
+        {/* 3 Dedicated Service Tabs */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+          {/* Tab 1: Migration */}
+          <button
+            type="button"
+            onClick={() => setActiveTab("migration")}
+            className={`p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${
+              activeTab === "migration"
+                ? "border-sky-500 bg-sky-950/40 text-white shadow-lg shadow-sky-500/10 ring-1 ring-sky-500"
+                : "border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700"
+            }`}
+          >
+            <div className={`p-2.5 rounded-xl ${activeTab === "migration" ? "bg-sky-500 text-white" : "bg-slate-800 text-slate-400"}`}>
+              <Repeat className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="font-bold text-sm sm:text-base">
+                {lang === "ru" ? "Миграция & Поддержка" : "CMS Migration & Retainer"}
+              </div>
+              <div className="text-xs text-slate-400 mt-0.5">
+                {lang === "ru" ? "Перенос с CMS + абонплата" : "Platform transfer & support"}
+              </div>
+            </div>
+          </button>
+
+          {/* Tab 2: Development */}
+          <button
+            type="button"
+            onClick={() => setActiveTab("development")}
+            className={`p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${
+              activeTab === "development"
+                ? "border-indigo-500 bg-indigo-950/40 text-white shadow-lg shadow-indigo-500/10 ring-1 ring-indigo-500"
+                : "border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700"
+            }`}
+          >
+            <div className={`p-2.5 rounded-xl ${activeTab === "development" ? "bg-indigo-500 text-white" : "bg-slate-800 text-slate-400"}`}>
+              <Code2 className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="font-bold text-sm sm:text-base">
+                {lang === "ru" ? "Разработка с нуля" : "Bespoke Web Development"}
+              </div>
+              <div className="text-xs text-slate-400 mt-0.5">
+                {lang === "ru" ? "Чистый Next.js проект" : "Clean Next.js architecture"}
+              </div>
+            </div>
+          </button>
+
+          {/* Tab 3: Video */}
+          <button
+            type="button"
+            onClick={() => setActiveTab("video")}
+            className={`p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${
+              activeTab === "video"
+                ? "border-violet-500 bg-violet-950/40 text-white shadow-lg shadow-violet-500/10 ring-1 ring-violet-500"
+                : "border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700"
+            }`}
+          >
+            <div className={`p-2.5 rounded-xl ${activeTab === "video" ? "bg-violet-500 text-white" : "bg-slate-800 text-slate-400"}`}>
+              <Video className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="font-bold text-sm sm:text-base">
+                {lang === "ru" ? "AI Видео & YouTube" : "AI Avatars & Video"}
+              </div>
+              <div className="text-xs text-slate-400 mt-0.5">
+                {lang === "ru" ? "9:16 Shorts & 16:9 монтаж" : "Turnkey media & avatar clips"}
+              </div>
+            </div>
+          </button>
+        </div>
+
+        {/* Dynamic Calculator Container */}
         <div className="p-8 sm:p-10 rounded-3xl border border-slate-800 bg-slate-900 shadow-xl space-y-8">
           
-          {/* Step 1: Project Type */}
-          <div>
-            <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
-              {lang === "ru" ? "1. Направление задачи" : "1. Project Category"}
-            </label>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { id: "migration", labelRu: "Миграция CMS", labelEn: "CMS Migration" },
-                { id: "dev", labelRu: "Сайт с нуля", labelEn: "Custom Development" },
-                { id: "maintenance", labelRu: "Техподдержка", labelEn: "Retainer Support" },
-                { id: "avatar", labelRu: "AI Видео-аватар", labelEn: "AI Video Avatar" },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setProjectType(item.id)}
-                  className={`p-3.5 rounded-2xl text-left border text-xs sm:text-sm font-semibold transition-all ${
-                    projectType === item.id
-                      ? "border-sky-500 bg-sky-950/40 text-sky-300 shadow-sm"
-                      : "border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700"
-                  }`}
-                >
-                  {lang === "ru" ? item.labelRu : item.labelEn}
-                </button>
-              ))}
-            </div>
-          </div>
+          {/* ======================================================== */}
+          {/* CALCULATOR 1: CMS MIGRATION & RETAINER SUPPORT           */}
+          {/* ======================================================== */}
+          {activeTab === "migration" && (
+            <div className="space-y-6">
+              
+              {/* Step 1: Source Platform */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "1. Исходная платформа (откуда переезжаем)" : "1. Source Platform (Current CMS)"}
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                  {[
+                    { id: "wordpress", label: "WordPress" },
+                    { id: "tilda", label: "Tilda" },
+                    { id: "webflow", label: "Webflow" },
+                    { id: "bitrix", label: "1C-Битрикс" },
+                    { id: "insales", label: "InSales / OpenCart" },
+                    { id: "shopify", label: "Shopify" },
+                    { id: "modx", label: "MODX" },
+                    { id: "legacy-php", label: "Самописный PHP" },
+                  ].map((p) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => setMigPlatform(p.id)}
+                      className={`p-3 rounded-xl border text-xs sm:text-sm font-semibold transition-all text-center ${
+                        migPlatform === p.id
+                          ? "border-sky-500 bg-sky-950/40 text-sky-300 shadow-sm"
+                          : "border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700"
+                      }`}
+                    >
+                      {p.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-          {/* Step 2: Scope */}
-          <div>
-            <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
-              {lang === "ru" ? "2. Объем и сложность" : "2. Scope & Complexity"}
-            </label>
-            <div className="grid sm:grid-cols-3 gap-3">
-              {[
-                {
-                  id: "small",
-                  labelRu: "Базовый (до 3 экранов / 1 ролик)",
-                  labelEn: "Basic (up to 3 screens / 1 video)",
-                },
-                {
-                  id: "medium",
-                  labelRu: "Стандарт (полный сайт / пакет)",
-                  labelEn: "Standard (full site / complete package)",
-                },
-                {
-                  id: "large",
-                  labelRu: "Сложный (многостраничник / каталог)",
-                  labelEn: "Complex (multi-page / custom portal)",
-                },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setScope(item.id)}
-                  className={`p-3.5 rounded-2xl text-left border text-xs sm:text-sm font-semibold transition-all ${
-                    scope === item.id
-                      ? "border-sky-500 bg-sky-950/40 text-sky-300 shadow-sm"
-                      : "border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700"
-                  }`}
-                >
-                  {lang === "ru" ? item.labelRu : item.labelEn}
-                </button>
-              ))}
-            </div>
-          </div>
+              {/* Step 2: Site Scale */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "2. Масштаб и структура сайта" : "2. Website Scope & Hierarchy"}
+                </label>
+                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+                  {[
+                    {
+                      id: "landing",
+                      titleRu: "Лендинг / Промо",
+                      titleEn: "Landing / Promo",
+                      descRu: "1–5 экранов, формы лидогенерации",
+                      descEn: "1–5 sections, conversion forms",
+                    },
+                    {
+                      id: "corporate",
+                      titleRu: "Корпоративный сайт",
+                      titleEn: "Corporate Site",
+                      descRu: "До 25 страниц, статьи, кейсы",
+                      descEn: "Up to 25 pages, blog, cases",
+                    },
+                    {
+                      id: "catalog",
+                      titleRu: "Каталог / Магазин",
+                      titleEn: "Catalog / E-Commerce",
+                      descRu: "Категории, фильтры, корзина",
+                      descEn: "Faceted search, cart & checkout",
+                    },
+                    {
+                      id: "portal",
+                      titleRu: "Крупный портал",
+                      titleEn: "Complex Web Portal",
+                      descRu: "Базы данных, личный кабинет",
+                      descEn: "High-volume database & portal",
+                    },
+                  ].map((s) => (
+                    <button
+                      key={s.id}
+                      type="button"
+                      onClick={() => setMigScale(s.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        migScale === s.id
+                          ? "border-sky-500 bg-sky-950/40 text-white shadow-sm"
+                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                      }`}
+                    >
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? s.titleRu : s.titleEn}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1">
+                        {lang === "ru" ? s.descRu : s.descEn}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-          {/* Step 3: Timing */}
-          <div>
-            <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
-              {lang === "ru" ? "3. Срочность" : "3. Timeline & Priority"}
-            </label>
-            <div className="grid sm:grid-cols-3 gap-3">
-              {[
-                {
-                  id: "urgent",
-                  labelRu: "Срочно (приоритетный спринт)",
-                  labelEn: "Urgent (priority sprint)",
-                },
-                {
-                  id: "standard",
-                  labelRu: "Стандартные сроки",
-                  labelEn: "Standard schedule",
-                },
-                {
-                  id: "relaxed",
-                  labelRu: "Планомерный запуск",
-                  labelEn: "Flexible / planned release",
-                },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setUrgency(item.id)}
-                  className={`p-3.5 rounded-2xl text-left border text-xs sm:text-sm font-semibold transition-all ${
-                    urgency === item.id
-                      ? "border-sky-500 bg-sky-950/40 text-sky-300 shadow-sm"
-                      : "border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700"
-                  }`}
-                >
-                  {lang === "ru" ? item.labelRu : item.labelEn}
-                </button>
-              ))}
-            </div>
-          </div>
+              {/* Step 3: Retainer Maintenance Package */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "3. Абонентская техподдержка и обучение (Few Hands)" : "3. Ongoing Retainer & Training (Few Hands)"}
+                </label>
+                <div className="grid sm:grid-cols-4 gap-3">
+                  {[
+                    {
+                      id: "none",
+                      nameRu: "Без абонплаты",
+                      nameEn: "No Retainer",
+                      price: "$0",
+                      descRu: "Только разовая сдача проекта",
+                      descEn: "One-off turnkey delivery",
+                    },
+                    {
+                      id: "start",
+                      nameRu: "Тариф Старт",
+                      nameEn: "Starter Retainer",
+                      price: "$190/mo",
+                      descRu: "Мониторинг 24/7, бэкапы, 3ч правок",
+                      descEn: "24/7 Uptime, backups, 3h tweaks",
+                    },
+                    {
+                      id: "business",
+                      nameRu: "Бизнес Retainer",
+                      nameEn: "Business Retainer",
+                      price: "$450/mo",
+                      descRu: "Обучение персонала, 10ч доработок",
+                      descEn: "Team onboarding, 10h sections",
+                    },
+                    {
+                      id: "pro",
+                      nameRu: "Pro & Media",
+                      nameEn: "Pro & Media",
+                      price: "$950/mo",
+                      descRu: "25ч разработки + видеомонтаж",
+                      descEn: "25h engineering + video production",
+                    },
+                  ].map((plan) => (
+                    <button
+                      key={plan.id}
+                      type="button"
+                      onClick={() => setMigSupport(plan.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        migSupport === plan.id
+                          ? "border-emerald-500 bg-emerald-950/30 text-white shadow-sm ring-1 ring-emerald-500/50"
+                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-bold text-xs sm:text-sm text-white">
+                          {lang === "ru" ? plan.nameRu : plan.nameEn}
+                        </span>
+                        <span className="text-xs font-mono font-bold text-emerald-400">{plan.price}</span>
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1">
+                        {lang === "ru" ? plan.descRu : plan.descEn}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-          {/* Results Bar */}
+            </div>
+          )}
+
+          {/* ======================================================== */}
+          {/* CALCULATOR 2: CUSTOM NEXT.JS WEB DEVELOPMENT             */}
+          {/* ======================================================== */}
+          {activeTab === "development" && (
+            <div className="space-y-6">
+              
+              {/* Step 1: Project Type */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "1. Формат и тип сайта с нуля" : "1. Website Concept & Type"}
+                </label>
+                <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+                  {[
+                    {
+                      id: "landing",
+                      titleRu: "Конверсионный лендинг",
+                      titleEn: "High-Converting Landing",
+                      descRu: "Идеально под контекст и таргетинг",
+                      descEn: "Designed for ads & lead capture",
+                    },
+                    {
+                      id: "corporate",
+                      titleRu: "Корпоративный сайт",
+                      titleEn: "Corporate Hub",
+                      descRu: "Услуги, команда, кейсы, блог",
+                      descEn: "Multi-page brand authority",
+                    },
+                    {
+                      id: "catalog",
+                      titleRu: "Каталог / Магазин",
+                      titleEn: "E-Commerce Catalog",
+                      descRu: "Быстрая витрина без тяжёлой CMS",
+                      descEn: "Sub-second product browsing",
+                    },
+                    {
+                      id: "webapp",
+                      titleRu: "Веб-сервис / Личный кабинет",
+                      titleEn: "Custom Web App / Portal",
+                      descRu: "Интерактивная логика, авторизация",
+                      descEn: "Interactive UI & client auth",
+                    },
+                  ].map((t) => (
+                    <button
+                      key={t.id}
+                      type="button"
+                      onClick={() => setDevType(t.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        devType === t.id
+                          ? "border-indigo-500 bg-indigo-950/40 text-white shadow-sm"
+                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                      }`}
+                    >
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? t.titleRu : t.titleEn}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1">
+                        {lang === "ru" ? t.descRu : t.descEn}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Step 2: Design Readiness */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "2. Состояние дизайна и макетов" : "2. Design Readiness"}
+                </label>
+                <div className="grid sm:grid-cols-3 gap-3">
+                  {[
+                    {
+                      id: "figma",
+                      titleRu: "Есть готовый макет в Figma",
+                      titleEn: "Figma design ready",
+                      descRu: "Только чистая вёрстка и Next.js код",
+                      descEn: "Strictly frontend code & integration",
+                    },
+                    {
+                      id: "scratch",
+                      titleRu: "Требуется веб-дизайн",
+                      titleEn: "UI/UX design needed",
+                      descRu: "Проектирование прототипа и UI",
+                      descEn: "Wireframing & custom UI concept",
+                    },
+                    {
+                      id: "turnkey",
+                      titleRu: "Полный цикл «под ключ»",
+                      titleEn: "Full Turnkey Delivery",
+                      descRu: "Дизайн, продающий текст и анимации",
+                      descEn: "Copywriting, design & animations",
+                    },
+                  ].map((d) => (
+                    <button
+                      key={d.id}
+                      type="button"
+                      onClick={() => setDevDesign(d.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        devDesign === d.id
+                          ? "border-indigo-500 bg-indigo-950/40 text-white shadow-sm"
+                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                      }`}
+                    >
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? d.titleRu : d.titleEn}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1">
+                        {lang === "ru" ? d.descRu : d.descEn}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Step 3: Add-on Features */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "3. Дополнительные опции" : "3. Technical Extensions"}
+                </label>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setDevMultiLang(!devMultiLang)}
+                    className={`p-3.5 rounded-2xl border text-left transition-all flex items-center justify-between ${
+                      devMultiLang
+                        ? "border-indigo-500 bg-indigo-950/30 text-white"
+                        : "border-slate-800 bg-slate-950 text-slate-400"
+                    }`}
+                  >
+                    <div>
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? "Мультиязычность (RU / EN)" : "Full i18n Localization"}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">
+                        {lang === "ru" ? "Раздельные локали и переключатель" : "Language switcher & dual routing"}
+                      </div>
+                    </div>
+                    <span className="text-xs font-mono font-bold text-indigo-400">+$200</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setDevPayment(!devPayment)}
+                    className={`p-3.5 rounded-2xl border text-left transition-all flex items-center justify-between ${
+                      devPayment
+                        ? "border-indigo-500 bg-indigo-950/30 text-white"
+                        : "border-slate-800 bg-slate-950 text-slate-400"
+                    }`}
+                  >
+                    <div>
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? "Эквайринг и онлайн-оплата" : "Online Payment Integration"}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">
+                        {lang === "ru" ? "Stripe, СБП или банковский шлюз" : "Stripe, bank gateways & checkout"}
+                      </div>
+                    </div>
+                    <span className="text-xs font-mono font-bold text-indigo-400">+$250</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          )}
+
+          {/* ======================================================== */}
+          {/* CALCULATOR 3: AI VIDEO AVATARS & YOUTUBE PRODUCTION      */}
+          {/* ======================================================== */}
+          {activeTab === "video" && (
+            <div className="space-y-6">
+              
+              {/* Step 1: Video Format */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "1. Формат видеоматериалов" : "1. Video Production Format"}
+                </label>
+                <div className="grid sm:grid-cols-3 gap-3">
+                  {[
+                    {
+                      id: "shorts",
+                      titleRu: "AI-Аватары 9:16 (Shorts / Reels)",
+                      titleEn: "AI Avatars 9:16 (Shorts / Reels)",
+                      descRu: "Вертикальный формат под соцсети и сайты",
+                      descEn: "Vertical mobile format with neural lip-sync",
+                    },
+                    {
+                      id: "youtube",
+                      titleRu: "YouTube-выпуски 16:9",
+                      titleEn: "YouTube Episodes 16:9",
+                      descRu: "Полный монтаж экспертных видео, интро",
+                      descEn: "Full editing, dynamic B-roll & sound FX",
+                    },
+                    {
+                      id: "hybrid",
+                      titleRu: "Комплекс (Shorts + YouTube)",
+                      titleEn: "Hybrid (Shorts + 16:9 Master)",
+                      descRu: "Большой ролик + нарезка на вертикалки",
+                      descEn: "Long-form master sliced into Shorts clips",
+                    },
+                  ].map((f) => (
+                    <button
+                      key={f.id}
+                      type="button"
+                      onClick={() => setVidFormat(f.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        vidFormat === f.id
+                          ? "border-violet-500 bg-violet-950/40 text-white shadow-sm"
+                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                      }`}
+                    >
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? f.titleRu : f.titleEn}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1">
+                        {lang === "ru" ? f.descRu : f.descEn}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Step 2: Volume / Quantity */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "2. Количество роликов" : "2. Video Batch Quantity"}
+                </label>
+                <div className="grid sm:grid-cols-3 gap-3">
+                  {[
+                    {
+                      id: "single",
+                      titleRu: "1 ролик (Пилотный выпуск)",
+                      titleEn: "1 Video (Pilot Episode)",
+                      descRu: "Для тестирования отклика и формата",
+                      descEn: "Testing campaign traction",
+                    },
+                    {
+                      id: "pack3",
+                      titleRu: "Пакет из 3 роликов",
+                      titleEn: "Pack of 3 Videos",
+                      descRu: "Оптимально для воронки продаж и рекламы",
+                      descEn: "Recommended for sales funnels",
+                    },
+                    {
+                      id: "pack10",
+                      titleRu: "Пакет из 10 роликов",
+                      titleEn: "Pack of 10 Videos",
+                      descRu: "Месячный контент-план под ключ",
+                      descEn: "Full monthly editorial pipeline",
+                    },
+                  ].map((q) => (
+                    <button
+                      key={q.id}
+                      type="button"
+                      onClick={() => setVidCount(q.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        vidCount === q.id
+                          ? "border-violet-500 bg-violet-950/40 text-white shadow-sm"
+                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                      }`}
+                    >
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? q.titleRu : q.titleEn}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1">
+                        {lang === "ru" ? q.descRu : q.descEn}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Step 3: Languages & Voiceover */}
+              <div>
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                  {lang === "ru" ? "3. Языки озвучки" : "3. Languages & Synthesis"}
+                </label>
+                <div className="grid sm:grid-cols-3 gap-3">
+                  {[
+                    {
+                      id: "single",
+                      titleRu: "1 язык",
+                      titleEn: "Single Language",
+                      descRu: "Русский или Английский",
+                      descEn: "English or target primary language",
+                    },
+                    {
+                      id: "dual",
+                      titleRu: "2 языка (+150$)",
+                      titleEn: "Dual Language (+$150)",
+                      descRu: "Нейродубляж с сохранением мимики",
+                      descEn: "Bilingual sync with matched lip-sync",
+                    },
+                    {
+                      id: "multi",
+                      titleRu: "Мультиязычный (+350$)",
+                      titleEn: "Global Multi (+$350)",
+                      descRu: "3+ мировых языка для экспансии",
+                      descEn: "3+ languages for international reach",
+                    },
+                  ].map((l) => (
+                    <button
+                      key={l.id}
+                      type="button"
+                      onClick={() => setVidLanguages(l.id)}
+                      className={`p-3.5 rounded-2xl border text-left transition-all ${
+                        vidLanguages === l.id
+                          ? "border-violet-500 bg-violet-950/40 text-white shadow-sm"
+                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                      }`}
+                    >
+                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                        {lang === "ru" ? l.titleRu : l.titleEn}
+                      </div>
+                      <div className="text-[11px] text-slate-400 mt-1">
+                        {lang === "ru" ? l.descRu : l.descEn}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          )}
+
+          {/* ======================================================== */}
+          {/* COMMON RESULTS & SUBMISSION BAR                          */}
+          {/* ======================================================== */}
           <div className="pt-6 border-t border-slate-800 bg-slate-950/80 -mx-8 sm:-mx-10 -mb-8 sm:-mb-10 p-6 sm:p-8 rounded-b-3xl">
             <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
-                  {lang === "ru" ? "Предварительная оценка:" : "Preliminary Estimate:"}
+                  {lang === "ru" ? "Предварительный расчёт:" : "Calculated Estimate:"}
                 </div>
                 <div className="flex flex-wrap items-center gap-6">
                   <div className="flex items-center gap-2">
                     <DollarSign className="w-5 h-5 text-emerald-400" />
                     <span className="text-2xl sm:text-3xl font-black text-white">
-                      {lang === "ru" ? currentEstimate.priceRu : currentEstimate.priceEn}
+                      {lang === "ru" ? currentResult.priceRu : currentResult.priceEn}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-5 h-5 text-sky-400" />
                     <span className="text-base sm:text-lg font-bold text-slate-300">
-                      {lang === "ru" ? currentEstimate.timeRu : currentEstimate.timeEn}
+                      {lang === "ru" ? currentResult.timeRu : currentResult.timeEn}
                     </span>
                   </div>
                 </div>
+                <div className="text-xs text-slate-400 mt-1.5 font-mono">
+                  {lang === "ru" ? currentResult.detailsRu : currentResult.detailsEn}
+                </div>
               </div>
 
-              {/* Direct Email inquiry alternate */}
+              {/* Direct corporate email link */}
               <a
                 href="mailto:web@fewhands.com"
                 className="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
@@ -331,7 +865,7 @@ export default function EstimatePage() {
               </a>
             </div>
 
-            {/* Direct Form Submission without Telegram */}
+            {/* Direct Form Submission */}
             {submitted ? (
               <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-3">
                 <Check className="w-5 h-5 text-emerald-400 shrink-0" />
@@ -373,7 +907,7 @@ export default function EstimatePage() {
                       <span>{lang === "ru" ? "Отправка..." : "Submitting..."}</span>
                     ) : (
                       <>
-                        <span>{lang === "ru" ? "Получить смету" : "Get Detailed Estimate"}</span>
+                        <span>{lang === "ru" ? "Зафиксировать смету" : "Lock in Estimate"}</span>
                         <Send className="w-3.5 h-3.5" />
                       </>
                     )}
@@ -391,11 +925,19 @@ export default function EstimatePage() {
           <span>
             {lang === "ru"
               ? "Техническое задание, сроки и бюджет фиксируются до старта работ."
-              : "Project scope, milestones, and budget are strictly confirmed before kickoff."}
+              : "Project scope, delivery milestones, and budget are strictly locked before kickoff."}
           </span>
         </div>
 
       </div>
     </div>
+  );
+}
+
+export default function EstimatePage() {
+  return (
+    <Suspense fallback={<div className="py-20 text-center text-slate-400">Loading calculator...</div>}>
+      <EstimatorInner />
+    </Suspense>
   );
 }
