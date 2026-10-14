@@ -243,24 +243,24 @@ function EstimatorInner() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb */}
-        <div className="text-xs text-slate-400 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-white transition-colors">
+        <div className="text-xs text-slate-500 mb-6 flex items-center gap-2">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
-          <span className="text-sky-400">{lang === "ru" ? "Калькулятор проекта" : "Project Estimator"}</span>
+          <span className="text-indigo-600 font-semibold">{lang === "ru" ? "Калькулятор проекта" : "Project Estimator"}</span>
         </div>
 
         {/* Hero Section */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-400 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-3">
             <Calculator className="w-3.5 h-3.5" />
             <span>{lang === "ru" ? "Специализированная оценка" : "Specialized Project Estimator"}</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
             {lang === "ru" ? "Калькулятор стоимости и сроков" : "Project Cost & Timeline Estimator"}
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-slate-300">
+          <p className="mt-3 text-sm sm:text-base text-slate-600">
             {lang === "ru"
               ? "Выберите нужное направление — каждый калькулятор учитывает специфику конкретной задачи."
               : "Select the specific service category — each calculator features tailored parameters and pricing."}
@@ -275,18 +275,18 @@ function EstimatorInner() {
             onClick={() => setActiveTab("migration")}
             className={`p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${
               activeTab === "migration"
-                ? "border-sky-500 bg-sky-950/40 text-white shadow-lg shadow-sky-500/10 ring-1 ring-sky-500"
-                : "border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700"
+                ? "border-2 border-indigo-600 bg-white text-slate-900 shadow-md ring-1 ring-indigo-600"
+                : "border-slate-200/80 bg-white/70 text-slate-600 hover:text-slate-900 hover:bg-white shadow-sm"
             }`}
           >
-            <div className={`p-2.5 rounded-xl ${activeTab === "migration" ? "bg-sky-500 text-white" : "bg-slate-800 text-slate-400"}`}>
+            <div className={`p-2.5 rounded-xl ${activeTab === "migration" ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-500"}`}>
               <Repeat className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-bold text-sm sm:text-base">
+              <div className="font-bold text-sm sm:text-base text-slate-900">
                 {lang === "ru" ? "Миграция & Поддержка" : "CMS Migration & Retainer"}
               </div>
-              <div className="text-xs text-slate-400 mt-0.5">
+              <div className="text-xs text-slate-500 mt-0.5">
                 {lang === "ru" ? "Перенос с CMS + абонплата" : "Platform transfer & support"}
               </div>
             </div>
@@ -298,18 +298,18 @@ function EstimatorInner() {
             onClick={() => setActiveTab("development")}
             className={`p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${
               activeTab === "development"
-                ? "border-indigo-500 bg-indigo-950/40 text-white shadow-lg shadow-indigo-500/10 ring-1 ring-indigo-500"
-                : "border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700"
+                ? "border-2 border-indigo-600 bg-white text-slate-900 shadow-md ring-1 ring-indigo-600"
+                : "border-slate-200/80 bg-white/70 text-slate-600 hover:text-slate-900 hover:bg-white shadow-sm"
             }`}
           >
-            <div className={`p-2.5 rounded-xl ${activeTab === "development" ? "bg-indigo-500 text-white" : "bg-slate-800 text-slate-400"}`}>
+            <div className={`p-2.5 rounded-xl ${activeTab === "development" ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-500"}`}>
               <Code2 className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-bold text-sm sm:text-base">
+              <div className="font-bold text-sm sm:text-base text-slate-900">
                 {lang === "ru" ? "Разработка с нуля" : "Bespoke Web Development"}
               </div>
-              <div className="text-xs text-slate-400 mt-0.5">
+              <div className="text-xs text-slate-500 mt-0.5">
                 {lang === "ru" ? "Чистый Next.js проект" : "Clean Next.js architecture"}
               </div>
             </div>
@@ -321,18 +321,18 @@ function EstimatorInner() {
             onClick={() => setActiveTab("video")}
             className={`p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${
               activeTab === "video"
-                ? "border-violet-500 bg-violet-950/40 text-white shadow-lg shadow-violet-500/10 ring-1 ring-violet-500"
-                : "border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white hover:border-slate-700"
+                ? "border-2 border-purple-600 bg-white text-slate-900 shadow-md ring-1 ring-purple-600"
+                : "border-slate-200/80 bg-white/70 text-slate-600 hover:text-slate-900 hover:bg-white shadow-sm"
             }`}
           >
-            <div className={`p-2.5 rounded-xl ${activeTab === "video" ? "bg-violet-500 text-white" : "bg-slate-800 text-slate-400"}`}>
+            <div className={`p-2.5 rounded-xl ${activeTab === "video" ? "bg-purple-600 text-white" : "bg-slate-100 text-slate-500"}`}>
               <Video className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-bold text-sm sm:text-base">
+              <div className="font-bold text-sm sm:text-base text-slate-900">
                 {lang === "ru" ? "AI Видео & YouTube" : "AI Avatars & Video"}
               </div>
-              <div className="text-xs text-slate-400 mt-0.5">
+              <div className="text-xs text-slate-500 mt-0.5">
                 {lang === "ru" ? "9:16 Shorts & 16:9 монтаж" : "Turnkey media & avatar clips"}
               </div>
             </div>
@@ -340,7 +340,7 @@ function EstimatorInner() {
         </div>
 
         {/* Dynamic Calculator Container */}
-        <div className="p-8 sm:p-10 rounded-3xl border border-slate-800 bg-slate-900 shadow-xl space-y-8">
+        <div className="p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/95 backdrop-blur-md shadow-sm space-y-8">
           
           {/* ======================================================== */}
           {/* CALCULATOR 1: CMS MIGRATION & RETAINER SUPPORT           */}
@@ -350,7 +350,7 @@ function EstimatorInner() {
               
               {/* Step 1: Source Platform */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "1. Исходная платформа (откуда переезжаем)" : "1. Source Platform (Current CMS)"}
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -370,8 +370,8 @@ function EstimatorInner() {
                       onClick={() => setMigPlatform(p.id)}
                       className={`p-3 rounded-xl border text-xs sm:text-sm font-semibold transition-all text-center ${
                         migPlatform === p.id
-                          ? "border-sky-500 bg-sky-950/40 text-sky-300 shadow-sm"
-                          : "border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700"
+                          ? "border-2 border-indigo-600 bg-indigo-50 text-indigo-950 font-bold shadow-sm"
+                          : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50"
                       }`}
                     >
                       {p.label}
@@ -382,7 +382,7 @@ function EstimatorInner() {
 
               {/* Step 2: Site Scale */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "2. Масштаб и структура сайта" : "2. Website Scope & Hierarchy"}
                 </label>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -422,14 +422,14 @@ function EstimatorInner() {
                       onClick={() => setMigScale(s.id)}
                       className={`p-3.5 rounded-2xl border text-left transition-all ${
                         migScale === s.id
-                          ? "border-sky-500 bg-sky-950/40 text-white shadow-sm"
-                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700 hover:text-slate-200"
+                          ? "border-2 border-indigo-600 bg-indigo-50 text-slate-900 shadow-sm"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? s.titleRu : s.titleEn}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 mt-1">
                         {lang === "ru" ? s.descRu : s.descEn}
                       </div>
                     </button>
@@ -439,7 +439,7 @@ function EstimatorInner() {
 
               {/* Step 3: Retainer Maintenance Package */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "3. Абонентская техподдержка и обучение (Few Hands)" : "3. Ongoing Retainer & Training (Few Hands)"}
                 </label>
                 <div className="grid sm:grid-cols-4 gap-3">
@@ -483,17 +483,17 @@ function EstimatorInner() {
                       onClick={() => setMigSupport(plan.id)}
                       className={`p-3.5 rounded-2xl border text-left transition-all ${
                         migSupport === plan.id
-                          ? "border-emerald-500 bg-emerald-950/30 text-white shadow-sm ring-1 ring-emerald-500/50"
-                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                          ? "border-2 border-emerald-600 bg-emerald-50 text-emerald-950 shadow-sm ring-1 ring-emerald-600"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-bold text-xs sm:text-sm text-white">
+                        <span className="font-bold text-xs sm:text-sm text-slate-900">
                           {lang === "ru" ? plan.nameRu : plan.nameEn}
                         </span>
-                        <span className="text-xs font-mono font-bold text-emerald-400">{plan.price}</span>
+                        <span className="text-xs font-mono font-bold text-emerald-600">{plan.price}</span>
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 mt-1">
                         {lang === "ru" ? plan.descRu : plan.descEn}
                       </div>
                     </button>
@@ -512,7 +512,7 @@ function EstimatorInner() {
               
               {/* Step 1: Project Type */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "1. Формат и тип сайта с нуля" : "1. Website Concept & Type"}
                 </label>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
@@ -552,14 +552,14 @@ function EstimatorInner() {
                       onClick={() => setDevType(t.id)}
                       className={`p-3.5 rounded-2xl border text-left transition-all ${
                         devType === t.id
-                          ? "border-indigo-500 bg-indigo-950/40 text-white shadow-sm"
-                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                          ? "border-2 border-indigo-600 bg-indigo-50 text-slate-900 shadow-sm"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? t.titleRu : t.titleEn}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 mt-1">
                         {lang === "ru" ? t.descRu : t.descEn}
                       </div>
                     </button>
@@ -569,7 +569,7 @@ function EstimatorInner() {
 
               {/* Step 2: Design Readiness */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "2. Состояние дизайна и макетов" : "2. Design Readiness"}
                 </label>
                 <div className="grid sm:grid-cols-3 gap-3">
@@ -602,14 +602,14 @@ function EstimatorInner() {
                       onClick={() => setDevDesign(d.id)}
                       className={`p-3.5 rounded-2xl border text-left transition-all ${
                         devDesign === d.id
-                          ? "border-indigo-500 bg-indigo-950/40 text-white shadow-sm"
-                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                          ? "border-2 border-indigo-600 bg-indigo-50 text-slate-900 shadow-sm"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? d.titleRu : d.titleEn}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 mt-1">
                         {lang === "ru" ? d.descRu : d.descEn}
                       </div>
                     </button>
@@ -619,7 +619,7 @@ function EstimatorInner() {
 
               {/* Step 3: Add-on Features */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "3. Дополнительные опции" : "3. Technical Extensions"}
                 </label>
                 <div className="grid sm:grid-cols-2 gap-3">
@@ -628,19 +628,19 @@ function EstimatorInner() {
                     onClick={() => setDevMultiLang(!devMultiLang)}
                     className={`p-3.5 rounded-2xl border text-left transition-all flex items-center justify-between ${
                       devMultiLang
-                        ? "border-indigo-500 bg-indigo-950/30 text-white"
-                        : "border-slate-800 bg-slate-950 text-slate-400"
+                        ? "border-2 border-indigo-600 bg-indigo-50 text-slate-900 shadow-sm"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
                     }`}
                   >
                     <div>
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? "Мультиязычность (RU / EN)" : "Full i18n Localization"}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">
+                      <div className="text-[11px] text-slate-500 mt-0.5">
                         {lang === "ru" ? "Раздельные локали и переключатель" : "Language switcher & dual routing"}
                       </div>
                     </div>
-                    <span className="text-xs font-mono font-bold text-indigo-400">+$200</span>
+                    <span className="text-xs font-mono font-bold text-indigo-600">+$200</span>
                   </button>
 
                   <button
@@ -648,19 +648,19 @@ function EstimatorInner() {
                     onClick={() => setDevPayment(!devPayment)}
                     className={`p-3.5 rounded-2xl border text-left transition-all flex items-center justify-between ${
                       devPayment
-                        ? "border-indigo-500 bg-indigo-950/30 text-white"
-                        : "border-slate-800 bg-slate-950 text-slate-400"
+                        ? "border-2 border-indigo-600 bg-indigo-50 text-slate-900 shadow-sm"
+                        : "border-slate-200 bg-white text-slate-600 hover:border-slate-300"
                     }`}
                   >
                     <div>
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? "Эквайринг и онлайн-оплата" : "Online Payment Integration"}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-0.5">
+                      <div className="text-[11px] text-slate-500 mt-0.5">
                         {lang === "ru" ? "Stripe, СБП или банковский шлюз" : "Stripe, bank gateways & checkout"}
                       </div>
                     </div>
-                    <span className="text-xs font-mono font-bold text-indigo-400">+$250</span>
+                    <span className="text-xs font-mono font-bold text-indigo-600">+$250</span>
                   </button>
                 </div>
               </div>
@@ -676,7 +676,7 @@ function EstimatorInner() {
               
               {/* Step 1: Video Format */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "1. Формат видеоматериалов" : "1. Video Production Format"}
                 </label>
                 <div className="grid sm:grid-cols-3 gap-3">
@@ -709,14 +709,14 @@ function EstimatorInner() {
                       onClick={() => setVidFormat(f.id)}
                       className={`p-3.5 rounded-2xl border text-left transition-all ${
                         vidFormat === f.id
-                          ? "border-violet-500 bg-violet-950/40 text-white shadow-sm"
-                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                          ? "border-2 border-purple-600 bg-purple-50 text-slate-900 shadow-sm"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? f.titleRu : f.titleEn}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 mt-1">
                         {lang === "ru" ? f.descRu : f.descEn}
                       </div>
                     </button>
@@ -726,7 +726,7 @@ function EstimatorInner() {
 
               {/* Step 2: Volume / Quantity */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "2. Количество роликов" : "2. Video Batch Quantity"}
                 </label>
                 <div className="grid sm:grid-cols-3 gap-3">
@@ -759,14 +759,14 @@ function EstimatorInner() {
                       onClick={() => setVidCount(q.id)}
                       className={`p-3.5 rounded-2xl border text-left transition-all ${
                         vidCount === q.id
-                          ? "border-violet-500 bg-violet-950/40 text-white shadow-sm"
-                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                          ? "border-2 border-purple-600 bg-purple-50 text-slate-900 shadow-sm"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? q.titleRu : q.titleEn}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 mt-1">
                         {lang === "ru" ? q.descRu : q.descEn}
                       </div>
                     </button>
@@ -776,7 +776,7 @@ function EstimatorInner() {
 
               {/* Step 3: Languages & Voiceover */}
               <div>
-                <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
+                <label className="block text-xs uppercase tracking-wider font-bold text-slate-700 mb-3">
                   {lang === "ru" ? "3. Языки озвучки" : "3. Languages & Synthesis"}
                 </label>
                 <div className="grid sm:grid-cols-3 gap-3">
@@ -809,14 +809,14 @@ function EstimatorInner() {
                       onClick={() => setVidLanguages(l.id)}
                       className={`p-3.5 rounded-2xl border text-left transition-all ${
                         vidLanguages === l.id
-                          ? "border-violet-500 bg-violet-950/40 text-white shadow-sm"
-                          : "border-slate-800 bg-slate-950 text-slate-400 hover:border-slate-700"
+                          ? "border-2 border-purple-600 bg-purple-50 text-slate-900 shadow-sm"
+                          : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-sm text-slate-200">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900">
                         {lang === "ru" ? l.titleRu : l.titleEn}
                       </div>
-                      <div className="text-[11px] text-slate-400 mt-1">
+                      <div className="text-[11px] text-slate-500 mt-1">
                         {lang === "ru" ? l.descRu : l.descEn}
                       </div>
                     </button>
@@ -830,27 +830,27 @@ function EstimatorInner() {
           {/* ======================================================== */}
           {/* COMMON RESULTS & SUBMISSION BAR                          */}
           {/* ======================================================== */}
-          <div className="pt-6 border-t border-slate-800 bg-slate-950/80 -mx-8 sm:-mx-10 -mb-8 sm:-mb-10 p-6 sm:p-8 rounded-b-3xl">
+          <div className="pt-6 border-t border-slate-200 bg-slate-50/90 -mx-8 sm:-mx-10 -mb-8 sm:-mb-10 p-6 sm:p-8 rounded-b-3xl">
             <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">
                   {lang === "ru" ? "Предварительный расчёт:" : "Calculated Estimate:"}
                 </div>
                 <div className="flex flex-wrap items-center gap-6">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="w-5 h-5 text-emerald-400" />
-                    <span className="text-2xl sm:text-3xl font-black text-white">
+                    <DollarSign className="w-5 h-5 text-emerald-600" />
+                    <span className="text-2xl sm:text-3xl font-black text-slate-900">
                       {lang === "ru" ? currentResult.priceRu : currentResult.priceEn}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="w-5 h-5 text-sky-400" />
-                    <span className="text-base sm:text-lg font-bold text-slate-300">
+                    <Clock className="w-5 h-5 text-indigo-600" />
+                    <span className="text-base sm:text-lg font-bold text-slate-700">
                       {lang === "ru" ? currentResult.timeRu : currentResult.timeEn}
                     </span>
                   </div>
                 </div>
-                <div className="text-xs text-slate-400 mt-1.5 font-mono">
+                <div className="text-xs text-slate-500 mt-1.5 font-mono">
                   {lang === "ru" ? currentResult.detailsRu : currentResult.detailsEn}
                 </div>
               </div>
@@ -858,7 +858,7 @@ function EstimatorInner() {
               {/* Direct corporate email link */}
               <a
                 href="mailto:web@fewhands.com"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 <span>web@fewhands.com</span>
@@ -867,8 +867,8 @@ function EstimatorInner() {
 
             {/* Direct Form Submission */}
             {submitted ? (
-              <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-3">
-                <Check className="w-5 h-5 text-emerald-400 shrink-0" />
+              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3">
+                <Check className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span>
                   {lang === "ru"
                     ? "Заявка на расчет успешно отправлена! Мы свяжемся с вами в течение 1 рабочего дня."
@@ -884,7 +884,7 @@ function EstimatorInner() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder={lang === "ru" ? "Ваше имя" : "Your Name"}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-900 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
                   />
                 </div>
                 <div className="sm:col-span-5">
@@ -894,14 +894,14 @@ function EstimatorInner() {
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
                     placeholder={lang === "ru" ? "Email или телефон для связи" : "Work email or phone"}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-900 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
                   />
                 </div>
                 <div className="sm:col-span-3">
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full py-3 px-4 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm shadow-md shadow-sky-500/25 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-500/25 transition-all flex items-center justify-center gap-2"
                   >
                     {submitting ? (
                       <span>{lang === "ru" ? "Отправка..." : "Submitting..."}</span>
@@ -920,8 +920,8 @@ function EstimatorInner() {
         </div>
 
         {/* Guarantee */}
-        <div className="mt-8 flex items-center justify-center gap-2 text-xs text-slate-400">
-          <ShieldCheck className="w-4 h-4 text-emerald-400" />
+        <div className="mt-8 flex items-center justify-center gap-2 text-xs text-slate-500">
+          <ShieldCheck className="w-4 h-4 text-emerald-600" />
           <span>
             {lang === "ru"
               ? "Техническое задание, сроки и бюджет фиксируются до старта работ."

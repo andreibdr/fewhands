@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background: #030712;
-  --foreground: #f8fafc;
-  color-scheme: dark;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  color-scheme: light;
 }
 
 body {
@@ -15,22 +15,73 @@ body {
   overflow-x: hidden;
 }
 
-/* Glassmorphism */
-.glass {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* Dot grid background texture */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
 }
 
-.glow-sky {
-  box-shadow: 0 0 40px -5px rgba(14, 165, 233, 0.2);
+/* Glassmorphism for clean light surfaces */
+.glass-light {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+/* Floating Aurora Animation Keyframes */
+@keyframes auroraMove1 {
+  0% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate3d(40px, -60px, 0px) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-30px, 40px, 0px) scale(0.95);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
 }
 
-.animate-float {
-  animation: floatSlow 6s ease-in-out infinite;
+@keyframes auroraMove2 {
+  0% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate3d(-50px, 50px, 0px) scale(0.96);
+  }
+  66% {
+    transform: translate3d(35px, -35px, 0px) scale(1.06);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+}
+
+@keyframes auroraMove3 {
+  0% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate3d(-40px, -50px, 0px) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0px) scale(1);
+  }
+}
+
+.animate-aurora-1 {
+  animation: auroraMove1 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-aurora-2 {
+  animation: auroraMove2 26s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-aurora-3 {
+  animation: auroraMove3 22s ease-in-out infinite;
+  will-change: transform;
 }

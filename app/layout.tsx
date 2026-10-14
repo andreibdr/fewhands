@@ -3,6 +3,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 export const metadata: Metadata = {
   title: "Few Hands — Веб-инженерия, миграция CMS и AI-медиа",
@@ -43,11 +44,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="dark scroll-smooth">
-      <body className="min-h-screen flex flex-col antialiased bg-slate-950 text-slate-100 selection:bg-sky-500 selection:text-white">
+    <html lang="ru" className="scroll-smooth">
+      <body className="min-h-screen flex flex-col antialiased text-slate-800 selection:bg-indigo-600 selection:text-white">
+        <AnimatedBackground />
         <LanguageProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 relative z-10">{children}</main>
           <Footer />
         </LanguageProvider>
       </body>

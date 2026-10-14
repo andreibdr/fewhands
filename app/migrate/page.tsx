@@ -197,26 +197,26 @@ export default function MigrationHubPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb */}
-        <div className="text-xs text-slate-400 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-white transition-colors">
+        <div className="text-xs text-slate-500 mb-6 flex items-center gap-2">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
-          <span className="text-sky-400">{lang === "ru" ? "Миграция CMS" : "CMS Migration"}</span>
+          <span className="text-indigo-600 font-semibold">{lang === "ru" ? "Миграция CMS" : "CMS Migration"}</span>
         </div>
 
         {/* Hero Header */}
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-300 text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-4">
             <Cpu className="w-3.5 h-3.5" />
             <span>{lang === "ru" ? "Хаб модернизации веб-платформ" : "Web Modernization Hub"}</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
             {lang === "ru"
               ? "Миграция сайтов и интернет-магазинов с устаревших CMS на Next.js"
               : "Migrate Websites & Stores from Legacy CMS to Modern Next.js"}
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+          <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
             {lang === "ru"
               ? "Избавьтесь от плагинного ада WordPress, ограничений конструкторов Tilda/Webflow и неповоротливости Битрикса. Переносим проекты на сверхбыстрый стек Next.js со 100/100 по Google PageSpeed, гарантированным сохранением позиций в SEO и полной поддержкой вашей команды."
               : "Eliminate WordPress plugin vulnerabilities, constructor limitations, and monolithic database bottlenecks. Seamless migration to ultra-fast Next.js with preserved SEO equity, turnkey Go backend engineering, and ongoing retainer maintenance."}
@@ -224,16 +224,16 @@ export default function MigrationHubPage() {
         </div>
 
         {/* Tandem Banner (GoMVP + Few Hands) */}
-        <div className="mt-12 p-8 rounded-3xl border border-sky-500/30 bg-gradient-to-br from-slate-900/90 via-slate-900/60 to-slate-950 text-white shadow-xl">
-          <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
-            <div className="p-2.5 rounded-xl bg-sky-500/20 text-sky-400">
+        <div className="mt-12 p-8 rounded-3xl border border-indigo-100 bg-gradient-to-br from-indigo-50/70 via-white to-sky-50/70 text-slate-900 shadow-sm">
+          <div className="flex items-center gap-3 mb-6 pb-4 border-b border-indigo-100/80">
+            <div className="p-2.5 rounded-xl bg-indigo-100 text-indigo-700">
               <Handshake className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-bold">
+              <h2 className="text-lg sm:text-xl font-bold text-slate-900">
                 {lang === "ru" ? "Как устроена работа: Тандем GoMVP & Few Hands" : "Execution Model: GoMVP & Few Hands Tandem"}
               </h2>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-500 mt-0.5">
                 {lang === "ru"
                   ? "Четкое разделение ответственности между глубокой инженерией и заботливой поддержкой"
                   : "Clear division between technical execution and ongoing client support"}
@@ -243,26 +243,26 @@ export default function MigrationHubPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* GoMVP Role */}
-            <div className="p-6 rounded-2xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+            <div className="p-6 rounded-2xl bg-white/95 border border-slate-200/80 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-sky-400">
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-indigo-600">
                     {lang === "ru" ? "Техническая инженерия" : "Engineering Execution"}
                   </span>
                   <a
                     href="https://gomvp.dev/en/migrate"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-sky-400 font-mono"
+                    className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-indigo-600 font-mono transition"
                   >
                     <span>gomvp.dev</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   {lang === "ru" ? "Наш партнёр GoMVP" : "Our Partner GoMVP"}
                 </h3>
-                <ul className="text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                <ul className="text-xs sm:text-sm text-slate-600 space-y-2 leading-relaxed">
                   {lang === "ru" ? (
                     <>
                       <li>• Глубокий аудит старой архитектуры и перенос баз данных</li>
@@ -283,18 +283,18 @@ export default function MigrationHubPage() {
             </div>
 
             {/* Few Hands Role */}
-            <div className="p-6 rounded-2xl bg-slate-950/70 border border-slate-800 flex flex-col justify-between">
+            <div className="p-6 rounded-2xl bg-white/95 border border-slate-200/80 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-emerald-400">
+                  <span className="text-xs font-mono uppercase tracking-wider font-bold text-emerald-600">
                     {lang === "ru" ? "Обучение & Сопровождение" : "Training & Retainer Support"}
                   </span>
                   <span className="text-xs text-slate-400 font-mono">Few Hands</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
                   {lang === "ru" ? "Студия Few Hands" : "Few Hands Studio"}
                 </h3>
-                <ul className="text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+                <ul className="text-xs sm:text-sm text-slate-600 space-y-2 leading-relaxed">
                   {lang === "ru" ? (
                     <>
                       <li>• Первичный консалтинг, сбор требований и контроль ТЗ</li>
@@ -320,10 +320,10 @@ export default function MigrationHubPage() {
         <div className="mt-16">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 {lang === "ru" ? "Выберите вашу платформу для миграции" : "Select Your Current Platform"}
               </h2>
-              <p className="text-sm text-slate-400 mt-1">
+              <p className="text-sm text-slate-600 mt-1">
                 {lang === "ru"
                   ? "Детальный разбор ограничений платформы и готовый пошаговый план переезда"
                   : "In-depth platform constraints & engineered transition blueprint"}
@@ -336,28 +336,28 @@ export default function MigrationHubPage() {
               <Link
                 key={p.slug}
                 href={`/migrate/${p.slug}`}
-                className="p-6 rounded-3xl border border-slate-800 bg-slate-900/80 hover:bg-slate-900 hover:border-sky-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="p-6 rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md hover:bg-white hover:border-indigo-400 shadow-sm hover:shadow-xl hover:shadow-indigo-500/5 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className={`text-[11px] font-mono font-bold text-white px-2.5 py-1 rounded-lg ${p.badgeColor}`}>
                       {p.category[lang]}
                     </span>
-                    <span className="text-xs text-slate-500 group-hover:text-sky-400 transition-colors">
+                    <span className="text-xs text-slate-400 group-hover:text-indigo-600 transition-colors">
                       {lang === "ru" ? "Подробнее →" : "Details →"}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                     {p.title[lang]}
                   </h3>
 
-                  <p className="mt-3 text-xs sm:text-sm text-slate-400 line-clamp-3 leading-relaxed">
+                  <p className="mt-3 text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
                     {p.painPoints[lang][0]}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-semibold text-sky-400">
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-indigo-600">
                   <span>{lang === "ru" ? "План миграции" : "Migration Blueprint"}</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -367,17 +367,17 @@ export default function MigrationHubPage() {
         </div>
 
         {/* Detailed Technical Comparison Table (SEO Booster) */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-slate-800 bg-slate-900/60 shadow-xl">
+        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md shadow-sm">
           <div className="max-w-3xl mb-8">
-            <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-indigo-600 uppercase tracking-wider">
               {lang === "ru" ? "Инженерное сравнение" : "Technical Comparison"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
               {lang === "ru"
                 ? "Устаревшие CMS против современного стека Next.js"
                 : "Monolithic CMS vs Modern Serverless Next.js"}
             </h2>
-            <p className="text-sm text-slate-300 mt-2">
+            <p className="text-sm text-slate-600 mt-2">
               {lang === "ru"
                 ? "Почему глобальные компании отказываются от неповоротливых монолитов в пользу модульной архитектуры."
                 : "Why modern businesses migrate from heavy monolithic backends to headless edge architectures."}
@@ -387,29 +387,29 @@ export default function MigrationHubPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-mono text-xs uppercase">
+                <tr className="border-b border-slate-200 text-slate-500 font-mono text-xs uppercase">
                   <th className="py-4 px-4 font-semibold">{lang === "ru" ? "Параметр" : "Parameter"}</th>
-                  <th className="py-4 px-4 font-semibold text-rose-400">
+                  <th className="py-4 px-4 font-semibold text-rose-500">
                     {lang === "ru" ? "WordPress / Tilda / Битрикс" : "Legacy CMS / Builders"}
                   </th>
-                  <th className="py-4 px-4 font-semibold text-sky-400">
+                  <th className="py-4 px-4 font-semibold text-indigo-600">
                     {lang === "ru" ? "Next.js + Go (GoMVP & Few Hands)" : "Next.js + Go Stack"}
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-100">
                 {comparisonRows.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-800/30 transition-colors">
-                    <td className="py-4 px-4 font-bold text-white">{row.metric}</td>
-                    <td className="py-4 px-4 text-slate-400">
+                  <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                    <td className="py-4 px-4 font-bold text-slate-900">{row.metric}</td>
+                    <td className="py-4 px-4 text-slate-600">
                       <div className="flex items-center gap-2">
                         <XCircle className="w-4 h-4 text-rose-500 shrink-0" />
                         <span>{row.legacy}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-4 text-sky-200 font-medium">
+                    <td className="py-4 px-4 text-slate-900 font-semibold">
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                         <span>{row.nextjs}</span>
                       </div>
                     </td>
@@ -423,16 +423,16 @@ export default function MigrationHubPage() {
         {/* 5-Step SEO Retention Protocol (SEO Depth Booster) */}
         <div className="mt-20">
           <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-3">
               <Search className="w-3.5 h-3.5" />
               <span>{lang === "ru" ? "Гарантия поисковой видимости" : "Organic Search Guarantee"}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
               {lang === "ru"
                 ? "Протокол 100% сохранения SEO-позиций при переезде"
                 : "Lossless SEO Retention Protocol"}
             </h2>
-            <p className="text-sm text-slate-300 mt-2">
+            <p className="text-sm text-slate-600 mt-2">
               {lang === "ru"
                 ? "Пошаговый регламент сохранения органического трафика и ссылочной массы."
                 : "Strict step-by-step methodology ensuring uninterrupted organic search equity and ranking momentum."}
@@ -443,12 +443,12 @@ export default function MigrationHubPage() {
             {seoProtocols.map((step, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl border border-slate-800 bg-slate-900/60 flex flex-col justify-between"
+                className="p-5 rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-md shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="text-xl font-mono font-black text-sky-500 mb-3">{step.step}</div>
-                  <h3 className="font-bold text-sm text-white mb-2 leading-snug">{step.title}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
+                  <div className="text-xl font-mono font-black text-indigo-600 mb-3">{step.step}</div>
+                  <h3 className="font-bold text-sm text-slate-900 mb-2 leading-snug">{step.title}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -456,17 +456,17 @@ export default function MigrationHubPage() {
         </div>
 
         {/* FAQ Section with Accordion (SEO & Schema.org) */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-slate-800 bg-slate-900/40">
+        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/60 backdrop-blur-md shadow-sm">
           <div className="max-w-3xl mb-10">
-            <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-indigo-600 uppercase tracking-wider">
               {lang === "ru" ? "Часто задаваемые вопросы" : "Frequently Asked Questions"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
               {lang === "ru"
                 ? "Ответы на ключевые вопросы по миграции сайтов"
                 : "Everything You Need to Know About Platform Migration"}
             </h2>
-            <p className="text-sm text-slate-300 mt-2">
+            <p className="text-sm text-slate-600 mt-2">
               {lang === "ru"
                 ? "Подробно разбираем технические детали, риски, сроки и процесс поддержки."
                 : "Transparent breakdown of technical mechanics, guarantees, turnaround, and retainer operations."}
@@ -479,21 +479,21 @@ export default function MigrationHubPage() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-800 bg-slate-900/80 overflow-hidden transition-all"
+                  className="rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-md overflow-hidden transition-all shadow-sm"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 text-white hover:text-sky-300 transition-colors"
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 text-slate-900 hover:text-indigo-600 transition-colors"
                   >
                     <span className="font-bold text-sm sm:text-base">{faq.q}</span>
                     <ChevronDown
                       className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${
-                        isOpen ? "rotate-180 text-sky-400" : ""
+                        isOpen ? "rotate-180 text-indigo-600" : ""
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                       {faq.a}
                     </div>
                   )}
@@ -505,13 +505,13 @@ export default function MigrationHubPage() {
 
         {/* Guarantees Strip */}
         <div className="mt-16 grid sm:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+          <div className="p-6 rounded-2xl bg-white/90 border border-slate-200/80 shadow-sm flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-sm text-white">
+              <h4 className="font-bold text-sm text-slate-900">
                 {lang === "ru" ? "100% Сохранение SEO" : "100% SEO Retention"}
               </h4>
-              <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                 {lang === "ru"
                   ? "Точный перенос URL, метатегов и настройка 301-редиректов без потери позиций."
                   : "Lossless migration of URL hierarchy, metadata, and 301 redirects."}
@@ -519,13 +519,13 @@ export default function MigrationHubPage() {
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
-            <GraduationCap className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+          <div className="p-6 rounded-2xl bg-white/90 border border-slate-200/80 shadow-sm flex items-start gap-3">
+            <GraduationCap className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-sm text-white">
+              <h4 className="font-bold text-sm text-slate-900">
                 {lang === "ru" ? "Обучение персонала" : "Team Onboarding"}
               </h4>
-              <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                 {lang === "ru"
                   ? "Пошаговые видео-инструкции и консультации для ваших менеджеров от Few Hands."
                   : "Video guides and hands-on consulting for your content team."}
@@ -533,13 +533,13 @@ export default function MigrationHubPage() {
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-start gap-3">
-            <Headphones className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
+          <div className="p-6 rounded-2xl bg-white/90 border border-slate-200/80 shadow-sm flex items-start gap-3">
+            <Headphones className="w-5 h-5 text-sky-600 shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-sm text-white">
+              <h4 className="font-bold text-sm text-slate-900">
                 {lang === "ru" ? "Ежемесячный Retainer" : "Monthly Retainer"}
               </h4>
-              <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                 {lang === "ru"
                   ? "Регулярная поддержка по абонплате: доработки, контент, бэкапы и мониторинг."
                   : "Continuous monthly support: feature tweaks, content updates, and monitoring."}
@@ -549,11 +549,11 @@ export default function MigrationHubPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 p-8 rounded-3xl border border-slate-800 bg-slate-900 text-center max-w-3xl mx-auto">
-          <h3 className="text-2xl font-bold text-white">
+        <div className="mt-16 p-8 rounded-3xl border border-slate-200/80 bg-gradient-to-b from-white/90 to-slate-100/90 text-center max-w-3xl mx-auto shadow-sm">
+          <h3 className="text-2xl font-bold text-slate-900">
             {lang === "ru" ? "Хотите узнать точные сроки миграции вашего сайта?" : "Ready to Audit and Plan Your Migration?"}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-300 mt-2">
+          <p className="text-xs sm:text-sm text-slate-600 mt-2">
             {lang === "ru"
               ? "Оставьте адрес сайта для бесплатного предварительного аудита структуры и базы данных."
               : "Submit your existing website URL for a complimentary code & architecture evaluation."}
@@ -561,13 +561,13 @@ export default function MigrationHubPage() {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               href="/estimate"
-              className="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-xs sm:text-sm shadow-md transition"
+              className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-md transition"
             >
               {lang === "ru" ? "Рассчитать стоимость" : "Calculate Estimate"}
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-xl border border-slate-700 bg-slate-950 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm transition"
+              className="px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-xs sm:text-sm shadow-sm transition"
             >
               {lang === "ru" ? "Запросить аудит" : "Request Audit"}
             </Link>
