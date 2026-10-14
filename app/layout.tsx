@@ -1,26 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Few Hands — Веб-разработка, миграция CMS, видеомонтаж и AI-аватары",
+  title: "Few Hands — Веб-инженерия, миграция CMS и AI-медиа",
   description:
-    "Профессиональный перенос сайтов с WordPress, Tilda, Webflow на Next.js. Создание сайтов, видеомонтаж для YouTube и фотореалистичные AI-видеоаватары под ключ.",
+    "Профессиональная миграция сайтов с WordPress, Tilda, Webflow, Bitrix на Next.js в партнёрстве с GoMVP. Обучение персонала, ежемесячная техподдержка по абонплате и AI-видеопродакшн под ключ.",
   keywords: [
     "Next.js",
     "миграция с wordpress",
     "миграция с тильды",
-    "перенос сайта",
+    "перенос с битрикс",
+    "поддержка сайтов абонплата",
+    "обучение персонала cms",
     "ai видео аватары",
-    "видеомонтаж",
-    "разработка сайтов",
+    "видеомонтаж youtube",
+    "gomvp партнёр",
     "few hands",
   ],
   authors: [{ name: "Few Hands" }],
   openGraph: {
     title: "Few Hands — Веб-инженерия, миграция CMS и AI-медиа",
     description:
-      "Модернизация сайтов, перенос на Next.js, видеомонтаж и AI-видеоаватары под ключ.",
+      "Модернизация сайтов, перенос на Next.js в партнёрстве с GoMVP, техническая поддержка перенесённых сайтов и AI-видеоаватары под ключ.",
     url: "https://fewhands.com",
     siteName: "Few Hands",
     locale: "ru_RU",
@@ -37,25 +41,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="scroll-smooth">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                var t = localStorage.getItem('theme');
-                if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch(e) {}
-            `,
-          }}
-        />
-      </head>
-      <body className="min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
-        <LanguageProvider>{children}</LanguageProvider>
+    <html lang="ru" className="dark scroll-smooth">
+      <body className="min-h-screen flex flex-col antialiased bg-slate-950 text-slate-100 selection:bg-sky-500 selection:text-white">
+        <LanguageProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

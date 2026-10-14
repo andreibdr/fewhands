@@ -1,51 +1,147 @@
-"use client";
-
-import React from "react";
-import { useLanguage } from "./LanguageContext";
+import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
-
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 py-12 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Brand */}
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M4 8l8-5 8 5v8l-8 5-8-5V8z" />
-            </svg>
+    <footer className="border-t border-slate-800 bg-slate-950 py-16 text-slate-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          
+          {/* Col 1: Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <Link href="/" className="flex items-center gap-2.5 font-bold text-white text-lg mb-3">
+              <div className="w-8 h-8 rounded-lg bg-sky-500 flex items-center justify-center text-white font-bold text-sm">
+                FH
+              </div>
+              <span>Few Hands</span>
+            </Link>
+            <p className="text-xs text-slate-400 leading-relaxed mb-4">
+              Веб-инженерия, миграция с устаревших CMS, техническая поддержка по абонплате и AI-видеопродакшн.
+            </p>
+            <div className="text-xs text-slate-500">
+              © 2008–{new Date().getFullYear()} Few Hands Studio.
+            </div>
           </div>
-          <span className="font-bold text-slate-900 dark:text-white">Few Hands</span>
-          <span className="text-xs text-slate-500">© {new Date().getFullYear()}</span>
-        </div>
 
-        {/* GoMVP partner note */}
-        <a
-          href="https://gomvp.dev/en/migrate"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-sky-500 dark:hover:text-sky-400 transition"
-        >
-          <span>{t.footer.partnerText}</span>
-          <ExternalLink className="w-3 h-3" />
-        </a>
+          {/* Col 2: Migration Hub */}
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
+              Миграция CMS
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/migrate/wordpress" className="hover:text-white transition">
+                  WordPress / WooCommerce
+                </Link>
+              </li>
+              <li>
+                <Link href="/migrate/tilda" className="hover:text-white transition">
+                  Tilda Publishing
+                </Link>
+              </li>
+              <li>
+                <Link href="/migrate/webflow" className="hover:text-white transition">
+                  Webflow
+                </Link>
+              </li>
+              <li>
+                <Link href="/migrate/bitrix" className="hover:text-white transition">
+                  1C-Битрикс
+                </Link>
+              </li>
+              <li>
+                <Link href="/migrate/insales" className="hover:text-white transition">
+                  InSales / OpenCart
+                </Link>
+              </li>
+              <li>
+                <Link href="/migrate" className="text-sky-400 font-semibold hover:underline">
+                  Все платформы →
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-        {/* Nav Links */}
-        <div className="flex items-center gap-6 text-xs font-medium text-slate-500 dark:text-slate-400">
-          <a href="#migration" className="hover:text-sky-500">
-            {t.nav.migration}
-          </a>
-          <a href="#development" className="hover:text-sky-500">
-            {t.nav.development}
-          </a>
-          <a href="#video" className="hover:text-sky-500">
-            {t.nav.video}
-          </a>
-          <a href="#portfolio" className="hover:text-sky-500">
-            {t.nav.portfolio}
-          </a>
+          {/* Col 3: Services */}
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
+              Услуги
+            </h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/development" className="hover:text-white transition">
+                  Создание сайтов с нуля
+                </Link>
+              </li>
+              <li>
+                <Link href="/maintenance" className="hover:text-white transition">
+                  Абонентская техподдержка
+                </Link>
+              </li>
+              <li>
+                <Link href="/maintenance" className="hover:text-white transition">
+                  Обучение персонала
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai-video" className="hover:text-white transition">
+                  AI Видео-аватары (9:16)
+                </Link>
+              </li>
+              <li>
+                <Link href="/ai-video" className="hover:text-white transition">
+                  Монтаж YouTube (16:9)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Contacts & Partner */}
+          <div>
+            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
+              Связь & Партнёр
+            </h4>
+            <ul className="space-y-2 text-xs mb-4">
+              <li>
+                <a
+                  href="https://t.me/Strashilamudry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-sky-400 transition"
+                >
+                  Telegram: @Strashilamudry
+                </a>
+              </li>
+              <li>
+                <a href="mailto:web@fewhands.com" className="hover:text-sky-400 transition">
+                  web@fewhands.com
+                </a>
+              </li>
+              <li>
+                <Link href="/estimate" className="hover:text-sky-400 transition">
+                  Калькулятор проекта
+                </Link>
+              </li>
+              <li>
+                <Link href="/portfolio" className="hover:text-white transition">
+                  Портфолио кейсов
+                </Link>
+              </li>
+            </ul>
+
+            <div className="pt-3 border-t border-slate-800">
+              <a
+                href="https://gomvp.dev/en/migrate"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition"
+              >
+                <span>Инженерный партнёр GoMVP</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </footer>
