@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IG Square Cropper — нарезка 3×2</title>
+<style>
+  :root { --bg:#0b1220; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --accent:#38bdf8; }
+  html,body{height:100%}
+  body{margin:0;background:linear-gradient(180deg,#0b1220,#0b1220 40%,#0f172a);color:var(--text);font:14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial}
+  .wrap{max-width:1000px;margin:40px auto;padding:0 16px}
+  .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:16px}
+  .row{display:flex;flex-wrap:wrap;gap:16px}
+  .col{flex:1 1 280px}
+  h1{font-size:22px;margin:0 0 8px}
+  .muted{color:var(--muted)}
+  label{display:block;margin:8px 0 4px}
+  input[type="number"],input[type="text"],input[type="range"]{width:100%;box-sizing:border-box;background:#0b1220;border:1px solid #263244;border-radius:10px;color:var(--text);padding:8px}
+  input[type="range"]{padding:0}
+  input[type="file"]{display:block;margin:8px 0}
+  button{background:var(--accent);color:#001221;border:0;border-radius:12px;padding:10px 14px;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  canvas{width:100%;height:auto;background:#0b1220;border:1px solid #1f2a3c;border-radius:10px}
+  .thumb{position:relative}
+  .dl{display:block;text-align:center;margin-top:6px;color:#a8e9ff;text-decoration:none}
+  .preview{max-height:60vh;display:block;max-width:100%;border-radius:12px;border:1px dashed #334155;background:#0b1220;object-fit:contain}
+  .controls small{display:block;color:#94a3b8}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>IG Square Cropper</h1>
+    <p class="muted">Быстро нарезает один скрин ленты Instagram на 6 квадратов (сеткой 3×2). Всё в браузере, без сервера.</p>
+
+    <div class="row">
+      <div class="col card">
+        <label>Скриншот ленты (PNG/JPG)</label>
+        <input id="file" type="file" accept="image/*" />
+        <img id="src" class="preview" alt="Предпросмотр"/>
+        <div class="controls" style="margin-top:12px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px">
+          <div>
+            <label>Колонки</label>
+            <input id="cols" type="number" min="1" value="3">
+          </div>
+          <div>
+            <label>Ряды</label>
+            <input id="rows" type="number" min="1" value="2">
+          </div>
+          <div>
+            <label>Отступ X (px)</label>
+            <input id="offx" type="number" value="0">
+          </div>
+          <div>
+            <label>Отступ Y (px)</label>
+            <input id="offy" type="number" value="0">
+          </div>
+          <div>
+            <label>Зазор X между постами (px)</label>
+            <input id="gapx" type="number" value="0">
+          </div>
+          <div>
+            <label>Зазор Y между постами (px)</label>
+            <input id="gapy" type="number" value="0">
+          </div>
+          <div>
+            <label>Размер квадрата (px)
+              <small>0 = авто по картинке</small>
+            </label>
+            <input id="cell" type="number" value="0">
+          </div>
+          <div>
+            <label>Качество JPG</label>
+            <input id="quality" type="range" min="60" max="100" value="92">
+          </div>
+          <div style="grid-column:1/-1">
+            <label>Префикс имени файлов</label>
+            <input id="prefix" type="text" value="ig-sample">
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button id="cutBtn" disabled>Нарезать 3×2</button>
+          <button id="dlAllBtn" disabled>Скачать всё (по очереди)</button>
+        </div>
+        <p class="muted" style="margin-top:8px">Подсказка: если скрин включает шапку профиля, подвиньте «Отступ Y». Если между постами есть белые поля — укажите «Зазор X/Y».</p>
+      </div>
+
+      <div class="col card">
+        <div class="grid" id="out"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const $ = (id)=>document.getElementById(id);
+const file = $("file"), img = $("src"), out = $("out");
+const cols = $("cols"), rows=$("rows"), offx=$("offx"), offy=$("offy"), gapx=$("gapx"), gapy=$("gapy"), cell=$("cell"), quality=$("quality"), prefix=$("prefix");
+const cutBtn=$("cutBtn"), dlAllBtn=$("dlAllBtn");
+let imageLoaded=false, lastURLs=[];
+
+file.addEventListener('change', e=>{
+  const f = e.target.files && e.target.files[0];
+  if(!f) return;
+  const reader = new FileReader();
+  reader.onload = ev => { img.src = ev.target.result; };
+  reader.readAsDataURL(f);
+});
+
+img.onload = ()=>{ imageLoaded=true; cutBtn.disabled=false; };
+
+function cropAll(){
+  if(!imageLoaded) return;
+  out.innerHTML=''; lastURLs=[]; dlAllBtn.disabled=true;
+
+  const C = parseInt(cols.value)||3; const R = parseInt(rows.value)||2;
+  const OX = parseInt(offx.value)||0; const OY = parseInt(offy.value)||0;
+  const GX = parseInt(gapx.value)||0; const GY = parseInt(gapy.value)||0;
+  const desired = Math.max(0, parseInt(cell.value)||0);
+
+  const iw = img.naturalWidth, ih = img.naturalHeight;
+
+  // авто-расчёт квадрата так, чтобы влезло по ширине и высоте, учитывая зазоры
+  const autoW = Math.floor((iw - OX - GX*(C-1)) / C);
+  const autoH = Math.floor((ih - OY - GY*(R-1)) / R);
+  const size = desired>0 ? desired : Math.min(autoW, autoH);
+
+  for(let r=0;r<R;r++){
+    for(let c=0;c<C;c++){
+      const sx = OX + c*(size+GX);
+      const sy = OY + r*(size+GY);
+
+      // защита от выхода за границы
+      if(sx+size>iw || sy+size>ih) continue;
+
+      const cnv = document.createElement('canvas');
+      cnv.width=size; cnv.height=size;
+      const ctx = cnv.getContext('2d');
+      ctx.drawImage(img, sx, sy, size, size, 0, 0, size, size);
+
+      const wrap = document.createElement('div');
+      wrap.className='thumb';
+      wrap.appendChild(cnv);
+
+      const q = (parseInt(quality.value)||92)/100;
+      const url = cnv.toDataURL('image/jpeg', q);
+      lastURLs.push(url);
+
+      const a = document.createElement('a');
+      a.className='dl';
+      a.textContent='Скачать JPG';
+      a.href=url; a.download=`${prefix.value||'ig'}-${r*C + c + 1}.jpg`;
+      wrap.appendChild(a);
+
+      out.appendChild(wrap);
+    }
+  }
+
+  if(lastURLs.length) dlAllBtn.disabled=false;
+}
+
+cutBtn.addEventListener('click', cropAll);
+
+// последовательно скачиваем, чтобы браузер не блокировал множество загрузок
+function downloadAll(){
+  const links = [...out.querySelectorAll('a.dl')];
+  let i=0; function next(){ if(i>=links.length) return; const a=links[i++]; a.click(); setTimeout(next, 350); }
+  next();
+}
+
+dlAllBtn.addEventListener('click', downloadAll);
+</script>
+</body>
+</html>
