@@ -111,19 +111,14 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs mb-4">
               <li>
-                <a
-                  href="https://wa.me/+79611809004"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition"
-                >
-                  WhatsApp: +7 (961) 180-90-04
+                <a href="mailto:web@fewhands.com" className="hover:text-sky-400 transition font-semibold text-white">
+                  web@fewhands.com
                 </a>
               </li>
               <li>
-                <a href="mailto:web@fewhands.com" className="hover:text-sky-400 transition">
-                  web@fewhands.com
-                </a>
+                <Link href="/contact" className="hover:text-sky-400 transition">
+                  {lang === "ru" ? "Форма обратной связи" : "Online Inquiry"}
+                </Link>
               </li>
               <li>
                 <Link href="/estimate" className="hover:text-sky-400 transition">

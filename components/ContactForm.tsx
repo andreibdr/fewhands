@@ -95,20 +95,16 @@ export const ContactForm: React.FC = () => {
               </div>
             </div>
 
-            {/* Direct WhatsApp Card */}
+            {/* Global Remote Delivery Card */}
             <div className="pt-4 border-t border-slate-800">
-              <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2">
-                {lang === "ru" ? "Быстрый чат в WhatsApp" : "Instant WhatsApp"}
+              <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                {lang === "ru" ? "Формат работы" : "Client Geography"}
               </div>
-              <a
-                href="https://wa.me/+79611809004"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-semibold text-sm hover:bg-emerald-500/20 transition"
-              >
-                <MessageSquare className="w-4 h-4" />
-                <span>+7 (961) 180-90-04</span>
-              </a>
+              <div className="text-sm font-semibold text-slate-200">
+                {lang === "ru"
+                  ? "Удалённая разработка · Клиенты в США, Европе и по всему миру"
+                  : "Remote Engineering · Serving clients in US, EU & Worldwide"}
+              </div>
             </div>
 
             {/* Response Time Guarantee */}

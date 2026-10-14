@@ -25,14 +25,14 @@ export default function MaintenancePage() {
               "Регулярные резервные копии и аудит безопасности",
               "Обновление пакетов и серверных зависимостей",
               "До 3 часов мелких контентных правок в месяц",
-              "Поддержка по Email и в WhatsApp (ответ в течение рабочего дня)",
+              "Поддержка по Email и в рабочем чате (ответ в течение рабочего дня)",
             ]
           : [
               "24/7 Uptime & Core Web Vitals monitoring",
               "Automated scheduled backups & security audits",
               "Dependency and package version maintenance",
               "Up to 3 hours of content and text adjustments monthly",
-              "Email & WhatsApp support (next business day response)",
+              "Corporate email & team chat support (next business day response)",
             ],
       popular: false,
     },
@@ -184,8 +184,8 @@ export default function MaintenancePage() {
             </h3>
             <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
               {lang === "ru"
-                ? "Оперативная связь по почте, WhatsApp или в вашем корпоративном мессенджере без бюрократии."
-                : "Direct access via corporate email or WhatsApp with no ticket-system bureaucracy."}
+                ? "Оперативная связь по корпоративной почте или в удобном для вашей команды мессенджере без бюрократии."
+                : "Direct access via corporate email or your preferred team channel with no ticket-system bureaucracy."}
             </p>
           </div>
         </div>

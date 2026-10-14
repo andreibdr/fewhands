@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
-import { Calculator, DollarSign, Clock, Send, ShieldCheck, Check, MessageSquare } from "lucide-react";
+import { Calculator, DollarSign, Clock, Send, ShieldCheck, Check, Mail } from "lucide-react";
 
 export default function EstimatePage() {
   const { lang } = useLanguage();
@@ -321,19 +321,13 @@ export default function EstimatePage() {
                 </div>
               </div>
 
-              {/* Direct WhatsApp alternate */}
+              {/* Direct Email inquiry alternate */}
               <a
-                href={`https://wa.me/+79611809004?text=${encodeURIComponent(
-                  lang === "ru"
-                    ? `Здравствуйте! Рассчитал проект на сайте Few Hands: ${projectType}, ${scope}, ${urgency}. Оценка: ${currentEstimate.priceRu}.`
-                    : `Hello! Calculated estimate on Few Hands: ${projectType}, ${scope}, ${urgency}. Estimate: ${currentEstimate.priceEn}.`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300"
+                href="mailto:web@fewhands.com"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors"
               >
-                <MessageSquare className="w-4 h-4" />
-                <span>{lang === "ru" ? "Обсудить в WhatsApp" : "Discuss in WhatsApp"}</span>
+                <Mail className="w-4 h-4" />
+                <span>web@fewhands.com</span>
               </a>
             </div>
 
