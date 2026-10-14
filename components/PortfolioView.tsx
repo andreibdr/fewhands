@@ -117,15 +117,34 @@ export const PortfolioView: React.FC = () => {
               >
                 <div>
                   {/* Media Preview */}
-                  <div className="relative aspect-video w-full bg-slate-100 overflow-hidden">
-                    {item.image ? (
-                      <Image
-                        src={item.image}
-                        alt={`${item.title} — кейс агентства Few Hands`}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    ) : item.youtubeId ? (
+                  {item.image ? (
+                    <div className="w-full bg-slate-100 border-b border-slate-200/60 overflow-hidden">
+                      {/* Browser Bar */}
+                      <div className="px-3.5 py-2 bg-slate-100/90 border-b border-slate-200/80 flex items-center justify-between">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-rose-400/80" />
+                          <span className="w-2 h-2 rounded-full bg-amber-400/80" />
+                          <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
+                        </div>
+                        <div className="text-[10px] font-mono text-slate-500 truncate max-w-[200px] bg-white px-2 py-0.5 rounded border border-slate-200/60">
+                          {item.url ? item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : item.title}
+                        </div>
+                        <div className="w-6" />
+                      </div>
+
+                      {/* Screenshot Container */}
+                      <div className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={`${item.title} — кейс агентства Few Hands`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    </div>
+                  ) : item.youtubeId ? (
+                    <div className="relative aspect-video w-full bg-slate-900 overflow-hidden">
                       <div
                         onClick={() => setModalVideo(item.youtubeId || null)}
                         className="relative w-full h-full cursor-pointer group/media"
@@ -142,8 +161,8 @@ export const PortfolioView: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                    ) : null}
-                  </div>
+                    </div>
+                  ) : null}
 
                   {/* Content */}
                   <div className="p-6">

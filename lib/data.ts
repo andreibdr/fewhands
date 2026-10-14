@@ -12,6 +12,30 @@ export interface PortfolioItem {
 
 export const portfolioItems: PortfolioItem[] = [
   {
+    id: "bigdata-realty",
+    title: "Big Data Realty",
+    category: "web",
+    tags: ["Fintech/Proptech", "Analytics", "USA Portal"],
+    description: {
+      ru: "Аналитический портал и блог о трендах на рынке недвижимости США.",
+      en: "Analytics portal & research platform tracking US real estate market data.",
+    },
+    image: "/bigdata.jpg",
+    url: "https://bigdatarealty.com",
+  },
+  {
+    id: "american-med-travel",
+    title: "American Med Travel",
+    category: "web",
+    tags: ["Healthcare", "USA Directory", "Glassmorphism"],
+    description: {
+      ru: "Премиальный портал медицинского туризма и каталог ведущих клиник США (онкология, кардиохирургия).",
+      en: "Curated directory & portal connecting international patients with top-ranked US hospitals.",
+    },
+    image: "/americanmedtravel.jpg",
+    url: "https://www.americanmedtravel.com/",
+  },
+  {
     id: "stazhkova",
     title: "Elena Stazhkova",
     category: "web",
@@ -46,42 +70,6 @@ export const portfolioItems: PortfolioItem[] = [
     },
     image: "/mipt.jpg",
     url: "https://miptglobal.com",
-  },
-  {
-    id: "amt-g",
-    title: "AMT-G 3D Printers",
-    category: "web",
-    tags: ["High-Tech", "Industrial", "Manufacturing"],
-    description: {
-      ru: "Сайт производителя строительных 3D-принтеров и технологических комплексов.",
-      en: "Industrial showcase for construction 3D printer manufacturers.",
-    },
-    image: "/amt-g.jpg",
-    url: "https://amt-g.net",
-  },
-  {
-    id: "bigdata-realty",
-    title: "Big Data Realty",
-    category: "web",
-    tags: ["Fintech/Proptech", "Analytics", "Blog"],
-    description: {
-      ru: "Аналитический портал и блог о трендах на рынке недвижимости.",
-      en: "Analytics portal & research blog tracking real estate market data.",
-    },
-    image: "/bigdata.jpg",
-    url: "https://bigdatarealty.com",
-  },
-  {
-    id: "vivasan",
-    title: "Vivasan USA",
-    category: "web",
-    tags: ["E-Commerce", "Health & Wellness", "USA"],
-    description: {
-      ru: "Интернет-магазин натуральной швейцарской косметики и эфирных масел.",
-      en: "E-Commerce store for Swiss wellness & essential oils in the US market.",
-    },
-    image: "/vivasan.jpg",
-    url: "https://vivasan.us",
   },
   // Video & AI showcases
   {

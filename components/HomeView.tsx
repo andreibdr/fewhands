@@ -29,6 +29,26 @@ export const HomeView: React.FC = () => {
 
   const featuredCases = [
     {
+      title: "Big Data Realty",
+      tag: "USA / Proptech",
+      image: "/bigdata.jpg",
+      desc: {
+        ru: "Аналитический портал и блог о трендах на рынке недвижимости США.",
+        en: "Analytics portal & research platform tracking US real estate market data.",
+      },
+      url: "https://bigdatarealty.com",
+    },
+    {
+      title: "American Med Travel",
+      tag: "USA / Healthcare",
+      image: "/americanmedtravel.jpg",
+      desc: {
+        ru: "Премиальный портал медицинского туризма и каталог ведущих клиник США.",
+        en: "Curated directory & portal connecting international patients with top-ranked US hospitals.",
+      },
+      url: "https://www.americanmedtravel.com/",
+    },
+    {
       title: "Elena Stazhkova",
       tag: "Real Estate Broker",
       image: "/stazhkova.jpg",
@@ -37,26 +57,6 @@ export const HomeView: React.FC = () => {
         en: "Flagship portfolio & website for an elite luxury real estate broker.",
       },
       url: "https://stazhkova.com",
-    },
-    {
-      title: "Impact Windows & Doors",
-      tag: "USA / Florida",
-      image: "/windoor.jpg",
-      desc: {
-        ru: "Корпоративный сайт производителя ударопрочных окон и дверей.",
-        en: "Corporate portal for impact-resistant window & door installations in Florida, US.",
-      },
-      url: "https://iwdsolutions.com",
-    },
-    {
-      title: "MIPT Global",
-      tag: "Alumni Network",
-      image: "/mipt.jpg",
-      desc: {
-        ru: "Международный портал сообщества выпускников МФТИ.",
-        en: "International portal for the global university alumni association.",
-      },
-      url: "https://miptglobal.com",
     },
   ];
 
@@ -403,13 +403,30 @@ export const HomeView: React.FC = () => {
                   rel="noopener noreferrer"
                   className="group rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md hover:bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
                 >
-                  <div className="relative aspect-video w-full bg-slate-100 overflow-hidden">
-                    <Image
-                      src={c.image}
-                      alt={c.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                  <div className="w-full bg-slate-100 border-b border-slate-200/60 overflow-hidden">
+                    {/* Browser Bar */}
+                    <div className="px-3.5 py-2 bg-slate-100/90 border-b border-slate-200/80 flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-rose-400/80" />
+                        <span className="w-2 h-2 rounded-full bg-amber-400/80" />
+                        <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
+                      </div>
+                      <div className="text-[10px] font-mono text-slate-500 truncate max-w-[180px] bg-white px-2 py-0.5 rounded border border-slate-200/60">
+                        {c.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                      </div>
+                      <div className="w-6" />
+                    </div>
+
+                    {/* Screenshot Container */}
+                    <div className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden">
+                      <Image
+                        src={c.image}
+                        alt={c.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
                   </div>
                   <div className="p-6">
                     <span className="text-[11px] font-mono text-indigo-600 font-semibold">{c.tag}</span>
