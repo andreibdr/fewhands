@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   const { lang } = useLanguage();
 
   return (
-    <footer className="border-t border-slate-200/80 bg-white/90 backdrop-blur-md py-16 text-slate-600">
+    <footer className="relative z-10 border-t border-slate-200/80 bg-white/80 backdrop-blur-md py-16 text-slate-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           
