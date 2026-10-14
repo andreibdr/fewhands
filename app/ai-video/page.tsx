@@ -1,242 +1,32 @@
-"use client";
+import { Metadata } from "next";
+import { AiVideoView } from "@/components/AiVideoView";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { useLanguage } from "@/components/LanguageContext";
-import { Sparkles, Play, Video, ArrowRight } from "lucide-react";
+export const metadata: Metadata = {
+  title: "AI Видео и Цифровые Аватары для Сайта под Ключ | Few Hands",
+  description:
+    "Продакшн AI-видео, виртуальных спикеров и мультиязычных аватаров для бизнеса. Повышение конверсии сайта до +40%, ролики для YouTube, Shorts, Reels за 24 часа без студий и операторов.",
+  keywords: [
+    "AI видео для сайта",
+    "цифровые аватары спикеры",
+    "генеративные видео нейросети",
+    "мультиязычные аватары для бизнеса",
+    "видеомаркетинг нейросети",
+    "видеопродакшн AI",
+    "HeyGen Synthesia интеграция",
+    "few hands ai video",
+  ],
+  alternates: {
+    canonical: "https://fewhands.com/ai-video",
+  },
+  openGraph: {
+    title: "AI Видео и Цифровые Аватары для Сайта | Few Hands",
+    description:
+      "Мультиязычные цифровые аватары, продающие презентации и видеоролики для YouTube/Reels. Сократите расходы на видеопродакшн на 85%.",
+    url: "https://fewhands.com/ai-video",
+    type: "website",
+  },
+};
 
 export default function AiVideoPage() {
-  const { lang } = useLanguage();
-  const [activeIframe, setActiveIframe] = useState<string | null>(null);
-
-  const shorts = [
-    {
-      id: "M8g2gJlwH7M",
-      title: lang === "ru" ? "AI Avatar Presenter — Презентация продукта" : "AI Avatar Presenter — Product Explainer",
-    },
-    {
-      id: "9_jdjXBknOw",
-      title: lang === "ru" ? "AI Avatar Presenter — Рекламный ролик" : "AI Avatar Presenter — Commercial Ad",
-    },
-    {
-      id: "-UE0CTWQwD4",
-      title: lang === "ru" ? "AI Avatar Presenter — Лид-магнит" : "AI Avatar Presenter — Social Lead Hook",
-    },
-  ];
-
-  const youtubeVideos = [
-    {
-      id: "KjhW0NmL2v0",
-      title: lang === "ru" ? "YouTube Production — Полный монтаж выпуска" : "YouTube Production — Full Episode Edit",
-    },
-    {
-      id: "wm9bt16QY_Q",
-      title: lang === "ru" ? "YouTube Production — Экспертное интервью" : "YouTube Production — In-Depth Interview",
-    },
-    {
-      id: "_9Z-gfKJRBU",
-      title: lang === "ru" ? "YouTube Production — Коммерческий шоукейс" : "YouTube Production — Commercial Showcase",
-    },
-  ];
-
-  return (
-    <div className="py-12 sm:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Breadcrumb */}
-        <div className="text-xs text-slate-500 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-slate-900 transition-colors">
-            {lang === "ru" ? "Главная" : "Home"}
-          </Link>
-          <span>/</span>
-          <span className="text-indigo-600 font-semibold">{lang === "ru" ? "AI & Видео" : "AI & Video"}</span>
-        </div>
-
-        {/* Hero Section */}
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/60 text-purple-700 text-xs font-semibold mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{lang === "ru" ? "AI Продакшн & Видеомонтаж" : "AI Production & Video Editing"}</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-            {lang === "ru"
-              ? "Цифровые AI-аватары и профессиональный монтаж видео"
-              : "Turnkey AI Video Avatars & High-Impact Production"}
-          </h1>
-
-          <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
-            {lang === "ru"
-              ? "Создаём говорящих фотореалистичных аватаров для сайтов, рекламы и соцсетей. Любой язык, безупречная дикция и идеальная синхронизация губ — без затрат на студию и актеров. А также комплексный монтаж YouTube-выпусков под ключ."
-              : "We engineer photorealistic digital presenters for landing pages, commercials, and social funnels. Fluent in 30+ languages with synchronized neural articulation — eliminating studio rental and actor costs. Plus complete YouTube video editing."}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/estimate"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 transition-all"
-            >
-              <span>{lang === "ru" ? "Заказать видео-аватар" : "Order AI Video Avatar"}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-sm shadow-sm transition-all"
-            >
-              <span>{lang === "ru" ? "Связаться с нами" : "Contact Studio"}</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* AI Avatars Section */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md shadow-sm">
-          <div className="max-w-2xl mb-8">
-            <span className="text-xs font-mono font-bold text-purple-600 uppercase tracking-wider">
-              {lang === "ru" ? "Формат 9:16 (Shorts, Reels, Сайты)" : "9:16 Vertical Format (Shorts, Reels, Web)"}
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
-              {lang === "ru" ? "Примеры видео с цифровыми аватарами" : "Interactive AI Avatar Showcases"}
-            </h2>
-            <p className="text-sm text-slate-500 mt-2">
-              {lang === "ru"
-                ? "Нажмите на видео, чтобы запустить интерактивный просмотр."
-                : "Click any preview card below to play interactive sample."}
-            </p>
-          </div>
-
-          {/* Grid of Shorts */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {shorts.map((item) => (
-              <div
-                key={item.id}
-                className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-md bg-black group border border-slate-200"
-              >
-                {activeIframe === item.id ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1`}
-                    title={item.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full border-0"
-                  />
-                ) : (
-                  <div
-                    onClick={() => setActiveIframe(item.id)}
-                    className="w-full h-full cursor-pointer relative"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={`https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                      <span className="text-xs font-medium text-white line-clamp-2">{item.title}</span>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 fill-white translate-x-0.5" />
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Steps */}
-          <div className="mt-12 grid sm:grid-cols-3 gap-6 border-t border-slate-100 pt-8">
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-              <span className="text-xs font-mono font-bold text-indigo-600">
-                {lang === "ru" ? "01. Сценарий" : "01. Script & Angle"}
-              </span>
-              <h4 className="font-bold text-slate-900 mt-1">
-                {lang === "ru" ? "Хук и продающий текст" : "Hook & Core Narrative"}
-              </h4>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                {lang === "ru"
-                  ? "Составляем лаконичный сценарий, цепляющий зрителя в первые 3 секунды."
-                  : "Crafting sharp hook-driven copy engineered to retain viewer attention in the first 3 seconds."}
-              </p>
-            </div>
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-              <span className="text-xs font-mono font-bold text-purple-600">
-                {lang === "ru" ? "02. Синтез" : "02. Synthesis & Voice"}
-              </span>
-              <h4 className="font-bold text-slate-900 mt-1">
-                {lang === "ru" ? "Озвучка и мимика" : "Neural Articulation"}
-              </h4>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                {lang === "ru"
-                  ? "Генерируем реалистичный аватар с нейронным голосом на любом языке мира."
-                  : "Generating high-definition visual avatars paired with studio-grade neural voice synthesis."}
-              </p>
-            </div>
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-              <span className="text-xs font-mono font-bold text-emerald-600">
-                {lang === "ru" ? "03. Монтаж" : "03. Dynamic Polish"}
-              </span>
-              <h4 className="font-bold text-slate-900 mt-1">
-                {lang === "ru" ? "Субтитры и графика" : "Captions & Delivery"}
-              </h4>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                {lang === "ru"
-                  ? "Добавляем динамичные титры, саунд-дизайн, плашки и встраиваем в сайт."
-                  : "Animated kinetic typography, sound effects, motion B-roll, and web embed ready."}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* YouTube Production Section */}
-        <div className="mt-20">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 rounded-xl bg-red-50 text-red-600">
-              <Video className="w-5 h-5" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              {lang === "ru" ? "Монтаж длинных YouTube-выпусков (16:9)" : "Full-Length YouTube Video Production (16:9)"}
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {youtubeVideos.map((yt) => (
-              <div
-                key={yt.id}
-                className="relative aspect-video rounded-2xl overflow-hidden shadow-sm bg-black group border border-slate-200"
-              >
-                {activeIframe === yt.id ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${yt.id}?autoplay=1`}
-                    title={yt.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full border-0"
-                  />
-                ) : (
-                  <div
-                    onClick={() => setActiveIframe(yt.id)}
-                    className="w-full h-full cursor-pointer relative"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={`https://i.ytimg.com/vi/${yt.id}/hqdefault.jpg`}
-                      alt={yt.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
-                      <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-5 h-5 fill-white translate-x-0.5" />
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-      </div>
-    </div>
-  );
+  return <AiVideoView />;
 }
