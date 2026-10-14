@@ -4,9 +4,9 @@ import { ContactForm } from "@/components/ContactForm";
 import { Mail, MessageCircle, Send } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Контакты студии Few Hands | Telegram, WhatsApp, Email",
+  title: "Контакты студии Few Hands | Email, WhatsApp, Заявка",
   description:
-    "Свяжитесь с нами для аудита сайта, миграции с CMS или заказа AI-видеоаватаров. Быстрый ответ в Telegram и WhatsApp в течение 1–2 часов.",
+    "Свяжитесь с нами для аудита сайта, миграции с CMS или заказа AI-видеоаватаров. Быстрый ответ по почте и в WhatsApp в течение 1–2 часов.",
 };
 
 export default function ContactPage() {

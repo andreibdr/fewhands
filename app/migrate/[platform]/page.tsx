@@ -87,14 +87,12 @@ export default function PlatformMigrationPage({ params }: Props) {
               <span>Оценить стоимость миграции</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-            <a
-              href="https://t.me/Strashilamudry"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-200 hover:text-white font-semibold text-sm transition-all"
             >
-              <span>Задать вопрос в Telegram</span>
-            </a>
+              <span>Запросить аудит проекта</span>
+            </Link>
           </div>
         </div>
 

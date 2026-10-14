@@ -191,7 +191,7 @@ export const translations: Record<Language, TranslationContent> = {
           icon: "Layout",
           title: "Конверсионные лендинги",
           desc: "Идеально выверенная структура, ясные акценты, убедительный визуал и максимальная конверсия посетителей в заявки.",
-          features: ["Быстрая загрузка < 1 сек", "Адаптив под все смартфоны", "Интеграция с Telegram и CRM"],
+          features: ["Быстрая загрузка < 1 сек", "Адаптив под все смартфоны", "Интеграция с почтой и CRM"],
         },
         {
           icon: "ShoppingBag",
@@ -230,7 +230,7 @@ export const translations: Record<Language, TranslationContent> = {
       scopeLabel: "Сложность и объем",
       timingLabel: "Желаемые сроки",
       estimateLabel: "Ориентировочная оценка:",
-      cta: "Зафиксировать стоимость в Telegram",
+      cta: "Отправить заявку на оценку",
     },
     portfolio: {
       badge: "Портфолио",
@@ -245,12 +245,12 @@ export const translations: Record<Language, TranslationContent> = {
     contacts: {
       badge: "Связь",
       title: "Давайте обсудим вашу задачу",
-      subtitle: "Напишите в мессенджер или оставьте заявку — ответим в течение 1–2 часов с конкретными предложениями.",
+      subtitle: "Отправьте заявку или напишите на email — ответим в течение 1–2 часов с конкретными предложениями.",
       nameLabel: "Ваше имя",
-      contactLabel: "Email или Telegram",
+      contactLabel: "Email или WhatsApp",
       messageLabel: "Коротко о проекте",
       sendBtn: "Отправить заявку",
-      directChat: "Или напишите напрямую в удобный мессенджер:",
+      directChat: "Прямые контакты:",
       email: "web@fewhands.com",
     },
     footer: {
@@ -349,7 +349,7 @@ export const translations: Record<Language, TranslationContent> = {
           icon: "Layout",
           title: "High-Converting Landings",
           desc: "Laser-focused narrative, compelling typography, and clean layouts that turn cold visitors into qualified inquiries.",
-          features: ["Sub-second load times", "Flawless mobile UX", "Instant Telegram/CRM alerts"],
+          features: ["Sub-second load times", "Flawless mobile UX", "Instant Email & CRM alerts"],
         },
         {
           icon: "ShoppingBag",
@@ -388,7 +388,7 @@ export const translations: Record<Language, TranslationContent> = {
       scopeLabel: "Scope & Complexity",
       timingLabel: "Target Timeline",
       estimateLabel: "Estimated Benchmark:",
-      cta: "Lock In Estimate via Telegram",
+      cta: "Submit Estimate Request",
     },
     portfolio: {
       badge: "Showcase",
@@ -403,12 +403,12 @@ export const translations: Record<Language, TranslationContent> = {
     contacts: {
       badge: "Get In Touch",
       title: "Let's Discuss Your Project",
-      subtitle: "Reach out via direct messenger or send an inquiry. We respond within 1–2 hours with concrete next steps.",
+      subtitle: "Submit an inquiry or reach out directly. We respond within 1–2 business hours with concrete next steps.",
       nameLabel: "Your Name",
-      contactLabel: "Email or Telegram",
+      contactLabel: "Work Email or Phone",
       messageLabel: "Tell us about your project",
       sendBtn: "Send Inquiry",
-      directChat: "Or connect directly via messenger:",
+      directChat: "Direct communication:",
       email: "web@fewhands.com",
     },
     footer: {

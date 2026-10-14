@@ -104,12 +104,12 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs mb-4">
               <li>
                 <a
-                  href="https://t.me/Strashilamudry"
+                  href="https://wa.me/+79611809004"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-sky-400 transition"
+                  className="hover:text-emerald-400 transition"
                 >
-                  Telegram: @Strashilamudry
+                  WhatsApp: +7 (961) 180-90-04
                 </a>
               </li>
               <li>

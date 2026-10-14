@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Headphones, GraduationCap, Clock, ShieldCheck, Check, ArrowRight } from "lucide-react";
+import { Headphones, GraduationCap, Clock, ShieldCheck, Check, ArrowRight, MessageSquare } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Абонентская техподдержка и обучение персонала — Few Hands",
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default function MaintenancePage() {
   const plans = [
     {
+      id: "start",
       name: "Старт (Контроль & Бэкапы)",
       price: "$190",
       period: "/ месяц",
@@ -20,11 +21,12 @@ export default function MaintenancePage() {
         "Регулярные резервные копии и аудит безопасности",
         "Обновление пакетов и серверных зависимостей",
         "До 3 часов мелких контентных правок в месяц",
-        "Поддержка в Telegram с ответом до 4 часов",
+        "Поддержка по Email и в WhatsApp с ответом до 4 часов",
       ],
       popular: false,
     },
     {
+      id: "business",
       name: "Бизнес Retainer",
       price: "$450",
       period: "/ месяц",
@@ -34,12 +36,13 @@ export default function MaintenancePage() {
         "Обучение и онбординг сотрудников (видео-инструкции)",
         "До 10 часов верстки, доработок и новых блоков",
         "Публикация контента, акций, товаров и баннеров",
-        "Приоритетный саппорт в Telegram (ответ до 1 часа)",
+        "Приоритетный саппорт (ответ до 1 часа в рабочее время)",
         "Контроль скорости Google PageSpeed (держим 95-100)",
       ],
       popular: true,
     },
     {
+      id: "pro",
       name: "Pro & Media Retainer",
       price: "$950",
       period: "/ месяц",
@@ -49,8 +52,8 @@ export default function MaintenancePage() {
         "До 25 часов технической разработки и доработок",
         "Монтаж 4 YouTube-выпусков или 10 Shorts/Reels в месяц",
         "Генерация и интеграция AI-видеоаватаров под акции",
-        "Персональный менеджер и еженедельный созвон",
-        "Непрерывный A/B аудит конверсий и воронок",
+        "Персональный менеджер и еженедельный Zoom-созвон",
+        "Непрерывный аудит конверсий и воронки",
       ],
       popular: false,
     },
@@ -121,9 +124,9 @@ export default function MaintenancePage() {
             <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
               <Headphones className="w-6 h-6" />
             </div>
-            <h3 className="font-bold text-base text-white">Прямой чат в Telegram</h3>
+            <h3 className="font-bold text-base text-white">Прямой канал связи</h3>
             <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
-              Выделенный канал связи без тикетов и бюрократии. Задачи ставятся голосовыми или текстом.
+              Оперативная связь по почте, WhatsApp или в вашем корпоративном мессенджере без бюрократии.
             </p>
           </div>
         </div>
@@ -135,14 +138,14 @@ export default function MaintenancePage() {
               Тарифные планы сопровождения
             </h2>
             <p className="text-sm text-slate-400 mt-2">
-              Прозрачные условия без скрытых доплат. Возможность менять тариф в зависимости от нагрузки.
+              Прозрачные условия без скрытых доплат. Возможность менять тариф в зависимости от сезонной нагрузки.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
-            {plans.map((plan, i) => (
+            {plans.map((plan) => (
               <div
-                key={i}
+                key={plan.id}
                 className={`p-8 rounded-3xl border transition-all flex flex-col justify-between ${
                   plan.popular
                     ? "border-sky-500 bg-slate-900 shadow-xl shadow-sky-500/10 ring-1 ring-sky-500"
@@ -175,12 +178,8 @@ export default function MaintenancePage() {
                 </div>
 
                 <div className="mt-8 pt-6">
-                  <a
-                    href={`https://t.me/Strashilamudry?text=${encodeURIComponent(
-                      `Привет! Интересует тариф техподдержки Few Hands: ${plan.name} (${plan.price}). Расскажите подробнее!`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={`/contact?plan=${plan.id}`}
                     className={`w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition ${
                       plan.popular
                         ? "bg-sky-500 hover:bg-sky-600 text-white shadow-md shadow-sky-500/25"
@@ -189,7 +188,7 @@ export default function MaintenancePage() {
                   >
                     <span>Выбрать тариф</span>
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

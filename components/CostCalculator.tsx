@@ -162,9 +162,7 @@ export const CostCalculator: React.FC = () => {
             </div>
 
             <a
-              href={`https://t.me/Strashilamudry?text=${tgMessage}`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/estimate"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all hover:scale-[1.02] shrink-0"
             >
               <span>{t.calculator.cta}</span>

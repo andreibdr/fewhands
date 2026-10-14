@@ -165,7 +165,7 @@ export default function HomePage() {
                 </h3>
 
                 <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Продающие лендинги, интернет-витрины и представительские корпоративные платформы. Адаптивная вёрстка под все устройства, интеграция Telegram/CRM и идеальный мобильный отклик.
+                  Продающие лендинги, интернет-витрины и представительские корпоративные платформы. Адаптивная вёрстка под все устройства, интеграция почтовых форм/CRM и идеальный мобильный отклик.
                 </p>
               </div>
 
@@ -313,7 +313,7 @@ export default function HomePage() {
             Готовы модернизировать ваш сайт или запустить новый?
           </h2>
           <p className="mt-4 text-base text-slate-300 max-w-2xl mx-auto">
-            Оставьте заявку на бесплатный аудит текущей платформы или напишите нам в Telegram для быстрого старта.
+            Оставьте заявку на бесплатный аудит текущей платформы или отправьте нам запрос для быстрого старта.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
@@ -322,14 +322,12 @@ export default function HomePage() {
             >
               Калькулятор стоимости
             </Link>
-            <a
-              href="https://t.me/Strashilamudry"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="px-8 py-4 rounded-2xl border border-slate-700 bg-slate-900 text-slate-200 hover:text-white font-bold text-sm sm:text-base transition-all"
             >
-              Написать в Telegram
-            </a>
+              Связаться с нами
+            </Link>
           </div>
         </div>
       </section>
