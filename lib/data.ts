@@ -20,7 +20,7 @@ export const portfolioItems: PortfolioItem[] = [
       ru: "Персональный сайт и портфолио агента по элитной недвижимости.",
       en: "Personal website & portfolio for a luxury real estate broker.",
     },
-    image: "/stazhkova.webp",
+    image: "/stazhkova.jpg",
     url: "https://stazhkova.com",
   },
   {
@@ -32,7 +32,7 @@ export const portfolioItems: PortfolioItem[] = [
       ru: "Сайт компании по установке ударопрочных окон и дверей во Флориде, США.",
       en: "Corporate website for impact-resistant window & door installations in Florida, USA.",
     },
-    image: "/windoor.webp",
+    image: "/windoor.jpg",
     url: "https://iwdsolutions.com",
   },
   {
@@ -44,7 +44,7 @@ export const portfolioItems: PortfolioItem[] = [
       ru: "Международная площадка сообщества выпускников МФТИ.",
       en: "International portal for the MIPT alumni global network.",
     },
-    image: "/mipt.webp",
+    image: "/mipt.jpg",
     url: "https://miptglobal.com",
   },
   {
@@ -56,7 +56,7 @@ export const portfolioItems: PortfolioItem[] = [
       ru: "Сайт производителя строительных 3D-принтеров и технологических комплексов.",
       en: "Industrial showcase for construction 3D printer manufacturers.",
     },
-    image: "/amt-g.webp",
+    image: "/amt-g.jpg",
     url: "https://amt-g.net",
   },
   {
@@ -68,7 +68,7 @@ export const portfolioItems: PortfolioItem[] = [
       ru: "Аналитический портал и блог о трендах на рынке недвижимости.",
       en: "Analytics portal & research blog tracking real estate market data.",
     },
-    image: "/bigdata.webp",
+    image: "/bigdata.jpg",
     url: "https://bigdatarealty.com",
   },
   {
@@ -80,7 +80,7 @@ export const portfolioItems: PortfolioItem[] = [
       ru: "Интернет-магазин натуральной швейцарской косметики и эфирных масел.",
       en: "E-Commerce store for Swiss wellness & essential oils in the US market.",
     },
-    image: "/vivasan.webp",
+    image: "/vivasan.jpg",
     url: "https://vivasan.us",
   },
   // Video & AI showcases

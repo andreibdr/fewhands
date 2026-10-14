@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
@@ -10,16 +11,23 @@ import {
   Headphones,
   Sparkles,
   ExternalLink,
+  ChevronDown,
+  HelpCircle,
 } from "lucide-react";
 
 export default function HomePage() {
   const { lang } = useLanguage();
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
 
   const featuredCases = [
     {
       title: "Elena Stazhkova",
       tag: "Real Estate Broker",
-      image: "/stazhkova.webp",
+      image: "/stazhkova.jpg",
       desc: {
         ru: "Персональный сайт и портфолио агента по элитной недвижимости.",
         en: "Flagship portfolio & website for an elite luxury real estate broker.",
@@ -29,7 +37,7 @@ export default function HomePage() {
     {
       title: "Impact Windows & Doors",
       tag: "USA / Florida",
-      image: "/windoor.webp",
+      image: "/windoor.jpg",
       desc: {
         ru: "Корпоративный сайт производителя ударопрочных окон и дверей.",
         en: "Corporate portal for impact-resistant window & door installations in Florida, US.",
@@ -39,7 +47,7 @@ export default function HomePage() {
     {
       title: "MIPT Global",
       tag: "Alumni Network",
-      image: "/mipt.webp",
+      image: "/mipt.jpg",
       desc: {
         ru: "Международный портал сообщества выпускников МФТИ.",
         en: "International portal for the global university alumni association.",
@@ -358,7 +366,97 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. Final CTA Box */}
+      {/* 4. Frequently Asked Questions (SEO Content Enrichment) */}
+      <section className="py-16 sm:py-24 border-t border-slate-800/80 bg-slate-900/40">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-400 text-xs font-semibold mb-3">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>{lang === "ru" ? "Частые вопросы" : "FAQ"}</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
+              {lang === "ru" ? "Ответы на ключевые вопросы о работе с нами" : "Frequently Asked Questions"}
+            </h2>
+            <p className="mt-3 text-sm text-slate-300">
+              {lang === "ru"
+                ? "Всё, что важно знать о стеке Next.js, партнёрстве с GoMVP и сохранении поискового трафика."
+                : "Key facts about our Next.js architecture, GoMVP tandem, and zero-loss SEO retention."}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q:
+                  lang === "ru"
+                    ? "Зачем бизнесу переходить на Next.js с WordPress, Tilda или Битрикса?"
+                    : "Why migrate a commercial website to Next.js from WordPress, Tilda, or Bitrix?",
+                a:
+                  lang === "ru"
+                    ? "Монолитные CMS и no-code конструкторы неизбежно упираются в технологический потолок: уязвимости сторонних плагинов, регулярные падения серверов под рекламой, растущие ежемесячные сборы платформ и медленная загрузка мобильных страниц (Core Web Vitals в красной зоне). Next.js на глобальном Edge CDN загружается за 50 мс, выдаёт 100/100 в PageSpeed, не имеет открытых уязвимостей баз данных и не требует абонплаты сторонним платформам."
+                    : "Monolithic CMSs and hosted builders quickly hit scaling limits: vulnerable plugin ecosystems, server crashes under traffic spikes, recurring builder subscription taxes, and degraded mobile Web Vitals. Next.js on a global Edge CDN loads in under 50ms, scores 100/100 on PageSpeed, eliminates database exploit vectors, and incurs zero recurring platform fees.",
+              },
+              {
+                q:
+                  lang === "ru"
+                    ? "Как распределяются роли между студией Few Hands и партнёром GoMVP?"
+                    : "How do Few Hands and engineering partner GoMVP split project delivery?",
+                a:
+                  lang === "ru"
+                    ? "GoMVP выполняет глубокую техническую инженерию: проектирование масштабируемого бэкенда на Go, перенос баз данных, микросервисы и сборку фронтенда на React / Next.js. Студия Few Hands выступает вашим надёжным партнёром в бизнесе: проводит первичный аудит, онбординг и обучение ваших контент-менеджеров, а также обеспечивает непрерывную ежемесячную техподдержку по абонплате."
+                    : "GoMVP delivers deep software engineering: high-throughput Go microservices, database extraction, and modular React/Next.js UI. Few Hands leads client operations: requirements discovery, hands-on team onboarding and CMS tutorials, plus dedicated monthly retainer support.",
+              },
+              {
+                q:
+                  lang === "ru"
+                    ? "Сохранятся ли позиции сайта в Google и Яндекс при переносе?"
+                    : "Will our organic Google search rankings be preserved during migration?",
+                a:
+                  lang === "ru"
+                    ? "Да, 100%. Мы переносим всю структуру URL один к одному, сохраняем микроразметку Schema.org и настраиваем серверные 301-редиректы для всех изменённых страниц. За счёт кратного ускорения загрузки и идеальных Core Web Vitals сайт получает естественное преимущество в ранжировании поисковых систем."
+                    : "Yes, 100%. We preserve full URL hierarchy, Schema.org metadata, and configure edge 301 redirect mappings for all modified endpoints. The dramatic boost in Core Web Vitals and TTFB gives your site a direct organic ranking advantage.",
+              },
+              {
+                q:
+                  lang === "ru"
+                    ? "Что включает в себя ежемесячная техподдержка по тарифу Retainer?"
+                    : "What is included in the monthly retainer support package?",
+                a:
+                  lang === "ru"
+                    ? "В абонплату входит круглосуточный автоматический мониторинг Uptime, регулярные резервные копии, устранение уязвимостей, выделенные часы на верстку новых страниц, акций и баннеров, а также консультации и онбординг для ваших контент-менеджеров."
+                    : "The retainer includes automated 24/7 uptime monitoring, scheduled backups, security patching, dedicated hours for rolling out campaign pages and banners, plus continuous consulting and training for your internal staff.",
+              },
+            ].map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-slate-800 bg-slate-900/80 overflow-hidden transition-all"
+                >
+                  <button
+                    onClick={() => toggleFaq(idx)}
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 text-white hover:text-sky-300 transition-colors"
+                  >
+                    <span className="font-bold text-sm sm:text-base">{faq.q}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180 text-sky-400" : ""
+                      }`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Final CTA Box */}
       <section className="py-16 border-t border-slate-800/80 bg-gradient-to-b from-slate-900/60 to-slate-950">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
