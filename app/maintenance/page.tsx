@@ -66,31 +66,31 @@ export default function MaintenancePage() {
       popular: true,
     },
     {
-      id: "pro",
-      name: lang === "ru" ? "Pro & Media Retainer" : "Pro & Media Retainer",
+      id: "enterprise",
+      name: lang === "ru" ? "Enterprise Retainer" : "Enterprise Retainer",
       price: "$950",
       period: lang === "ru" ? "/ месяц" : "/ month",
       desc:
         lang === "ru"
-          ? "Комплексное ведение сайта и видеопродакшна: регулярные доработки, видеомонтаж и AI-аватары."
-          : "Full-service web engineering combined with turnkey multimedia production and AI avatar generation.",
+          ? "Максимальный приоритет для высоконагруженных проектов и масштабных платформ, требующих непрерывных спринтов разработки."
+          : "Maximum priority for high-traffic platforms requiring continuous engineering sprints, architectural tuning, and strict SLA.",
       features:
         lang === "ru"
           ? [
               "Всё из тарифа «Бизнес»",
-              "До 25 часов технической разработки и доработок",
-              "Монтаж 4 YouTube-выпусков или 10 Shorts/Reels в месяц",
-              "Генерация и интеграция AI-видеоаватаров под акции",
-              "Персональный менеджер и еженедельный Zoom-созвон",
-              "Непрерывный аудит конверсий и воронки",
+              "До 25 часов глубокой веб-разработки и новых разделов",
+              "Выделенный Senior-инженер и персональный тимлид",
+              "Приоритетный SLA (время реакции до 1 часа в рабочее время)",
+              "Еженедельные спринты и синхронизация по дорожной карте",
+              "Непрерывный аудит конверсий, скорости и нагрузочное тестирование",
             ]
           : [
               "All features included in Business",
-              "Up to 25 dedicated engineering and design hours monthly",
-              "4 full-length YouTube episodes or 10 Shorts/Reels edited monthly",
-              "Custom photorealistic AI video avatars for campaigns",
-              "Dedicated account lead & weekly strategy sync",
-              "Conversion rate optimization & funnel audits",
+              "Up to 25 dedicated senior engineering hours monthly",
+              "Dedicated technical lead & account manager",
+              "Priority SLA (response under 1 hour during business hours)",
+              "Weekly roadmap sprints & architecture reviews",
+              "Continuous conversion rate optimization & load testing",
             ],
       popular: false,
     },

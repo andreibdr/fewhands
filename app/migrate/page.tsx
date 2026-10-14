@@ -168,8 +168,8 @@ export default function MigrationHubPage() {
           : "What is included in Few Hands monthly retainer support packages?",
       a:
         lang === "ru"
-          ? "Абонентская поддержка включает: 24/7 автоматический мониторинг доступности и скорости, еженедельные резервные копии, обновление библиотек безопасности, верстку новых страниц и промо-блоков, консультации сотрудников, а в старших тарифах — регулярный монтаж видеоматериалов и генерацию AI-видеоаватаров."
-          : "Retainer maintenance includes 24/7 automated uptime and Web Vitals monitoring, scheduled backups, security dependency patching, new promotional page builds, team consulting, and multimedia/AI avatar production in higher tiers.",
+          ? "Абонентская поддержка включает: 24/7 автоматический мониторинг доступности и скорости, еженедельные резервные копии, обновление библиотек безопасности, верстку новых страниц и промо-блоков, консультации сотрудников, а в тарифе Enterprise — до 25 часов выделенной технической веб-разработки, оптимизации конверсий и еженедельные спринты."
+          : "Retainer maintenance includes 24/7 automated uptime and Web Vitals monitoring, scheduled backups, security dependency patching, new promotional page builds, team consulting, and in Enterprise tier — up to 25 dedicated engineering hours for feature sprints and performance tuning.",
     },
   ];
 

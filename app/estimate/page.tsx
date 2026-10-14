@@ -102,8 +102,8 @@ function EstimatorInner() {
       supportLabelEn = "+ $450/mo retainer";
       supportPrice = " + $450 / mo";
     } else if (migSupport === "pro") {
-      supportLabelRu = "+ Pro Retainer $950/мес";
-      supportLabelEn = "+ $950/mo retainer";
+      supportLabelRu = "+ Enterprise Retainer $950/мес";
+      supportLabelEn = "+ $950/mo Enterprise retainer";
       supportPrice = " + $950 / mo";
     }
 
@@ -470,11 +470,11 @@ function EstimatorInner() {
                     },
                     {
                       id: "pro",
-                      nameRu: "Pro & Media",
-                      nameEn: "Pro & Media",
+                      nameRu: "Тариф Enterprise",
+                      nameEn: "Enterprise Retainer",
                       price: "$950/mo",
-                      descRu: "25ч разработки + видеомонтаж",
-                      descEn: "25h engineering + video production",
+                      descRu: "До 25ч веб-разработки и спринтов",
+                      descEn: "Up to 25h dev sprints & priority SLA",
                     },
                   ].map((plan) => (
                     <button
