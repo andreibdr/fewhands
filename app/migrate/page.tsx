@@ -80,10 +80,21 @@ export default function MigrationHubPage() {
                   {lang === "ru" ? "Наш партнёр GoMVP" : "Our Partner GoMVP"}
                 </h3>
                 <ul className="text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
-                  <li>• Глубокий аудит старой архитектуры и перенос баз данных</li>
-                  <li>• Разработка кастомного бэкенда на Go и микросервисов</li>
-                  <li>• Верстка и интеграция на React / Next.js</li>
-                  <li>• Настройка серверной инфраструктуры и бесперебойного развертывания</li>
+                  {lang === "ru" ? (
+                    <>
+                      <li>• Глубокий аудит старой архитектуры и перенос баз данных</li>
+                      <li>• Разработка кастомного бэкенда на Go и микросервисов</li>
+                      <li>• Верстка и интеграция на React / Next.js</li>
+                      <li>• Настройка серверной инфраструктуры и бесперебойного развертывания</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>• Full legacy architecture audit & lossless database extraction</li>
+                      <li>• Custom Go backend engineering & microservices</li>
+                      <li>• High-performance React / Next.js UI integration</li>
+                      <li>• Production serverless infrastructure & zero-downtime deployment</li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -101,10 +112,21 @@ export default function MigrationHubPage() {
                   {lang === "ru" ? "Студия Few Hands" : "Few Hands Studio"}
                 </h3>
                 <ul className="text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
-                  <li>• Первичный консалтинг, сбор требований и контроль ТЗ</li>
-                  <li>• <strong>Обучение вашей команды</strong> работе с новой панелью и каталогом</li>
-                  <li>• <strong>Ежемесячная техподдержка по абонплате</strong> (обновление контента, баннеров, страниц)</li>
-                  <li>• 24/7 мониторинг доступности, резервные копии и медиа-сопровождение</li>
+                  {lang === "ru" ? (
+                    <>
+                      <li>• Первичный консалтинг, сбор требований и контроль ТЗ</li>
+                      <li>• <strong>Обучение вашей команды</strong> работе с новой панелью и каталогом</li>
+                      <li>• <strong>Ежемесячная техподдержка по абонплате</strong> (обновление контента, баннеров, страниц)</li>
+                      <li>• 24/7 мониторинг доступности, резервные копии и медиа-сопровождение</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>• Discovery, technical specification & stakeholder consulting</li>
+                      <li>• <strong>Comprehensive team onboarding</strong> & hands-on CMS training</li>
+                      <li>• <strong>Monthly retainer maintenance</strong> (content updates, new page rollouts, banner refreshes)</li>
+                      <li>• 24/7 uptime monitoring, automated backups & multimedia production</li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
@@ -136,7 +158,7 @@ export default function MigrationHubPage() {
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className={`text-[11px] font-mono font-bold text-white px-2.5 py-1 rounded-lg ${p.badgeColor}`}>
-                      {p.category}
+                      {p.category[lang]}
                     </span>
                     <span className="text-xs text-slate-500 group-hover:text-sky-400 transition-colors">
                       {lang === "ru" ? "Подробнее →" : "Details →"}
@@ -144,7 +166,7 @@ export default function MigrationHubPage() {
                   </div>
 
                   <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                    {p.title}
+                    {p.title[lang]}
                   </h3>
 
                   <p className="mt-3 text-xs sm:text-sm text-slate-400 line-clamp-3 leading-relaxed">

@@ -1,7 +1,13 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 export const Footer: React.FC = () => {
+  const { lang } = useLanguage();
+
   return (
     <footer className="border-t border-slate-800 bg-slate-950 py-16 text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +22,9 @@ export const Footer: React.FC = () => {
               <span>Few Hands</span>
             </Link>
             <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              Веб-инженерия, миграция с устаревших CMS, техническая поддержка по абонплате и AI-видеопродакшн.
+              {lang === "ru"
+                ? "Веб-инженерия, миграция с устаревших CMS, техническая поддержка по абонплате и AI-видеопродакшн."
+                : "Web engineering, legacy CMS migration, retainer tech support, and AI video production."}
             </p>
             <div className="text-xs text-slate-500">
               © 2008–{new Date().getFullYear()} Few Hands Studio.
@@ -26,7 +34,7 @@ export const Footer: React.FC = () => {
           {/* Col 2: Migration Hub */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-              Миграция CMS
+              {lang === "ru" ? "Миграция CMS" : "CMS Migration"}
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
@@ -56,7 +64,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/migrate" className="text-sky-400 font-semibold hover:underline">
-                  Все платформы →
+                  {lang === "ru" ? "Все платформы →" : "All platforms →"}
                 </Link>
               </li>
             </ul>
@@ -65,32 +73,32 @@ export const Footer: React.FC = () => {
           {/* Col 3: Services */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-              Услуги
+              {lang === "ru" ? "Услуги" : "Services"}
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/development" className="hover:text-white transition">
-                  Создание сайтов с нуля
+                  {lang === "ru" ? "Создание сайтов с нуля" : "Custom Web Development"}
                 </Link>
               </li>
               <li>
                 <Link href="/maintenance" className="hover:text-white transition">
-                  Абонентская техподдержка
+                  {lang === "ru" ? "Абонентская техподдержка" : "Retainer Tech Support"}
                 </Link>
               </li>
               <li>
                 <Link href="/maintenance" className="hover:text-white transition">
-                  Обучение персонала
+                  {lang === "ru" ? "Обучение персонала" : "Staff Onboarding & Training"}
                 </Link>
               </li>
               <li>
                 <Link href="/ai-video" className="hover:text-white transition">
-                  AI Видео-аватары (9:16)
+                  {lang === "ru" ? "AI Видео-аватары (9:16)" : "AI Video Avatars (9:16)"}
                 </Link>
               </li>
               <li>
                 <Link href="/ai-video" className="hover:text-white transition">
-                  Монтаж YouTube (16:9)
+                  {lang === "ru" ? "Монтаж YouTube (16:9)" : "YouTube Production (16:9)"}
                 </Link>
               </li>
             </ul>
@@ -99,7 +107,7 @@ export const Footer: React.FC = () => {
           {/* Col 4: Contacts & Partner */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-              Связь & Партнёр
+              {lang === "ru" ? "Связь & Партнёр" : "Contact & Partner"}
             </h4>
             <ul className="space-y-2 text-xs mb-4">
               <li>
@@ -119,12 +127,12 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/estimate" className="hover:text-sky-400 transition">
-                  Калькулятор проекта
+                  {lang === "ru" ? "Калькулятор проекта" : "Project Estimator"}
                 </Link>
               </li>
               <li>
                 <Link href="/portfolio" className="hover:text-white transition">
-                  Портфолио кейсов
+                  {lang === "ru" ? "Портфолио кейсов" : "Case Studies Portfolio"}
                 </Link>
               </li>
             </ul>
@@ -136,7 +144,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-sky-400 transition"
               >
-                <span>Инженерный партнёр GoMVP</span>
+                <span>{lang === "ru" ? "Инженерный партнёр GoMVP" : "Engineering Partner GoMVP"}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

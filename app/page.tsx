@@ -1,37 +1,49 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/components/LanguageContext";
 import {
   ArrowRight,
   Zap,
   Repeat,
   Headphones,
   Sparkles,
-  ShieldCheck,
-  Globe,
   ExternalLink,
 } from "lucide-react";
 
 export default function HomePage() {
+  const { lang } = useLanguage();
+
   const featuredCases = [
     {
       title: "Elena Stazhkova",
       tag: "Real Estate Broker",
       image: "/stazhkova.webp",
-      desc: "Персональный сайт и портфолио агента по элитной недвижимости.",
+      desc: {
+        ru: "Персональный сайт и портфолио агента по элитной недвижимости.",
+        en: "Flagship portfolio & website for an elite luxury real estate broker.",
+      },
       url: "https://stazhkova.com",
     },
     {
       title: "Impact Windows & Doors",
       tag: "USA / Florida",
       image: "/windoor.webp",
-      desc: "Корпоративный сайт производителя ударопрочных окон и дверей.",
+      desc: {
+        ru: "Корпоративный сайт производителя ударопрочных окон и дверей.",
+        en: "Corporate portal for impact-resistant window & door installations in Florida, US.",
+      },
       url: "https://iwdsolutions.com",
     },
     {
       title: "MIPT Global",
       tag: "Alumni Network",
       image: "/mipt.webp",
-      desc: "Международный портал сообщества выпускников МФТИ.",
+      desc: {
+        ru: "Международный портал сообщества выпускников МФТИ.",
+        en: "International portal for the global university alumni association.",
+      },
       url: "https://miptglobal.com",
     },
   ];
@@ -47,21 +59,39 @@ export default function HomePage() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-semibold mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
-            <span>Веб-инженерия · Миграция CMS · AI Видеопродакшн</span>
+            <span>
+              {lang === "ru"
+                ? "Веб-инженерия · Миграция CMS · AI Видеопродакшн"
+                : "Web Engineering · CMS Migration · AI Video Production"}
+            </span>
           </div>
 
           {/* Main Title */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12] max-w-4xl mx-auto">
-            Освобождаем сайты от{" "}
-            <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-cyan-300 bg-clip-text text-transparent">
-              устаревших CMS
-            </span>{" "}
-            и создаём конверсионные веб-продукты
+            {lang === "ru" ? (
+              <>
+                Освобождаем сайты от{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-cyan-300 bg-clip-text text-transparent">
+                  устаревших CMS
+                </span>{" "}
+                и создаём конверсионные веб-продукты
+              </>
+            ) : (
+              <>
+                Freeing web platforms from{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-cyan-300 bg-clip-text text-transparent">
+                  legacy CMS bloat
+                </span>{" "}
+                to engineer high-converting web products
+              </>
+            )}
           </h1>
 
           {/* Subtitle */}
           <p className="mt-6 text-base sm:text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
-            Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром <strong>GoMVP</strong>. Обучение персонала, ежемесячная поддержка по абонплате и фотореалистичные AI-аватары.
+            {lang === "ru"
+              ? "Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром GoMVP. Обучение персонала, ежемесячная поддержка по абонплате и фотореалистичные AI-аватары."
+              : "Engineering migrations from WordPress, Tilda, Webflow, and monolithic CMSs to Next.js in partnership with GoMVP. Staff onboarding, monthly retainer maintenance, and photorealistic AI avatars."}
           </p>
 
           {/* Quick Action CTAs */}
@@ -70,30 +100,38 @@ export default function HomePage() {
               href="/estimate"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all hover:-translate-y-0.5"
             >
-              <span>Оценить стоимость проекта</span>
+              <span>{lang === "ru" ? "Оценить стоимость проекта" : "Estimate Project Budget"}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/migrate"
               className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl border border-slate-700 bg-slate-900 text-slate-200 hover:text-white font-bold text-sm sm:text-base transition-all"
             >
-              <span>Хаб миграции CMS</span>
+              <span>{lang === "ru" ? "Хаб миграции CMS" : "CMS Migration Hub"}</span>
             </Link>
           </div>
 
           {/* Key Trust Metrics */}
           <div className="mt-14 pt-10 border-t border-slate-800/80 max-w-4xl mx-auto grid grid-cols-3 gap-6">
             <div>
-              <div className="text-2xl sm:text-3xl font-black text-white">16+ лет</div>
-              <div className="text-xs text-slate-400 mt-1">Опыт разработки (с 2008 г.)</div>
+              <div className="text-2xl sm:text-3xl font-black text-white">
+                {lang === "ru" ? "16+ лет" : "16+ Yrs"}
+              </div>
+              <div className="text-xs text-slate-400 mt-1">
+                {lang === "ru" ? "Опыт разработки (с 2008 г.)" : "Engineering heritage (since 2008)"}
+              </div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-black text-white">50+</div>
-              <div className="text-xs text-slate-400 mt-1">Проектов в США, ЕС и СНГ</div>
+              <div className="text-xs text-slate-400 mt-1">
+                {lang === "ru" ? "Проектов в США, ЕС и СНГ" : "Delivered in US, EU & worldwide"}
+              </div>
             </div>
             <div>
               <div className="text-2xl sm:text-3xl font-black text-sky-400">100/100</div>
-              <div className="text-xs text-slate-400 mt-1">Google PageSpeed рейтинг</div>
+              <div className="text-xs text-slate-400 mt-1">
+                {lang === "ru" ? "Google PageSpeed рейтинг" : "Google PageSpeed benchmark"}
+              </div>
             </div>
           </div>
 
@@ -106,10 +144,12 @@ export default function HomePage() {
           
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-              Выберите интересующее направление
+              {lang === "ru" ? "Выберите интересующее направление" : "Our Core Capabilities"}
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-400">
-              Каждое направление решает конкретную бизнес-задачу без лишних компромиссов.
+              {lang === "ru"
+                ? "Каждое направление решает конкретную бизнес-задачу без лишних компромиссов."
+                : "Engineered solutions tailored to specific commercial milestones."}
             </p>
           </div>
 
@@ -123,16 +163,18 @@ export default function HomePage() {
                     <Repeat className="w-6 h-6" />
                   </div>
                   <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-sky-500/20 text-sky-300 font-bold">
-                    GoMVP Партнёрство
+                    {lang === "ru" ? "GoMVP Партнёрство" : "GoMVP Partnership"}
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white group-hover:text-sky-400 transition-colors">
-                  Миграция с CMS на Next.js
+                  {lang === "ru" ? "Миграция с CMS на Next.js" : "CMS Migration to Next.js"}
                 </h3>
 
                 <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Перенос сайтов с <strong>WordPress, Tilda, Webflow, Битрикс, InSales</strong> на чистый современный код. Ускорение в 5 раз, избавление от уязвимостей плагинов и сохранение 100% SEO-позиций.
+                  {lang === "ru"
+                    ? "Перенос сайтов с WordPress, Tilda, Webflow, Битрикс, InSales на чистый современный код. Ускорение в 5 раз, избавление от уязвимостей плагинов и сохранение 100% SEO-позиций."
+                    : "Migrate from WordPress, Tilda, Webflow, Bitrix, and Shopify to clean code. 5x faster speed, zero plugin vulnerabilities, and 100% preserved SEO rankings."}
                 </p>
               </div>
 
@@ -141,10 +183,12 @@ export default function HomePage() {
                   href="/migrate"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300"
                 >
-                  <span>Перейти в хаб миграции</span>
+                  <span>{lang === "ru" ? "Перейти в хаб миграции" : "Explore Migration Hub"}</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <span className="text-[11px] text-slate-500 font-mono">9 платформ</span>
+                <span className="text-[11px] text-slate-500 font-mono">
+                  {lang === "ru" ? "9 платформ" : "9 Platforms"}
+                </span>
               </div>
             </div>
 
@@ -161,11 +205,13 @@ export default function HomePage() {
                 </div>
 
                 <h3 className="text-2xl font-bold text-white group-hover:text-indigo-400 transition-colors">
-                  Создание сайтов с нуля
+                  {lang === "ru" ? "Создание сайтов с нуля" : "Bespoke Web Development"}
                 </h3>
 
                 <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Продающие лендинги, интернет-витрины и представительские корпоративные платформы. Адаптивная вёрстка под все устройства, интеграция почтовых форм/CRM и идеальный мобильный отклик.
+                  {lang === "ru"
+                    ? "Продающие лендинги, интернет-витрины и представительские корпоративные платформы. Адаптивная вёрстка под все устройства, интеграция почтовых форм/CRM и идеальный мобильный отклик."
+                    : "High-converting landing pages, catalogs, and enterprise corporate hubs. Engineered for sub-second mobile response and seamless CRM/email workflows."}
                 </p>
               </div>
 
@@ -174,7 +220,7 @@ export default function HomePage() {
                   href="/development"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 hover:text-indigo-300"
                 >
-                  <span>Подробнее о разработке</span>
+                  <span>{lang === "ru" ? "Подробнее о разработке" : "Custom Development"}</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <span className="text-[11px] text-slate-500 font-mono">100% PageSpeed</span>
@@ -189,16 +235,18 @@ export default function HomePage() {
                     <Headphones className="w-6 h-6" />
                   </div>
                   <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">
-                    Retainer от $190/мес
+                    {lang === "ru" ? "Retainer от $190/мес" : "Retainer from $190/mo"}
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
-                  Поддержка & Обучение по абонплате
+                  {lang === "ru" ? "Поддержка & Обучение по абонплате" : "Support, Retainer & Staff Training"}
                 </h3>
 
                 <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Обучаем ваших сотрудников управлению сайтом (видеоуроки, Zoom-онбординг), регулярно обновляем контент, мониторим 24/7 и внедряем новые фичи по фиксированной ежемесячной подписке.
+                  {lang === "ru"
+                    ? "Обучаем ваших сотрудников управлению сайтом (видеоуроки, Zoom-онбординг), регулярно обновляем контент, мониторим 24/7 и внедряем новые фичи по фиксированной ежемесячной подписке."
+                    : "Hands-on team onboarding, continuous content rollouts, 24/7 uptime monitoring, and feature iteration backed by dedicated monthly retainer SLA."}
                 </p>
               </div>
 
@@ -207,10 +255,12 @@ export default function HomePage() {
                   href="/maintenance"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300"
                 >
-                  <span>Тарифные планы поддержки</span>
+                  <span>{lang === "ru" ? "Тарифные планы поддержки" : "Retainer Support Plans"}</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
-                <span className="text-[11px] text-slate-500 font-mono">Саппорт 24/7</span>
+                <span className="text-[11px] text-slate-500 font-mono">
+                  {lang === "ru" ? "Саппорт 24/7" : "24/7 Support"}
+                </span>
               </div>
             </div>
 
@@ -222,16 +272,18 @@ export default function HomePage() {
                     <Sparkles className="w-6 h-6" />
                   </div>
                   <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-violet-500/20 text-violet-300 font-bold">
-                    Neural Tech
+                    Neural Video
                   </span>
                 </div>
 
                 <h3 className="text-2xl font-bold text-white group-hover:text-violet-400 transition-colors">
-                  AI-Видеоаватары & YouTube
+                  {lang === "ru" ? "AI-Видеоаватары & YouTube" : "AI Video Avatars & Production"}
                 </h3>
 
                 <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                  Говорящие цифровые персонажи для сайтов и рекламы (9:16 Shorts) на 30+ языках мира без студии и актеров. Профессиональный монтаж и оформление YouTube-выпусков.
+                  {lang === "ru"
+                    ? "Говорящие цифровые персонажи для сайтов и рекламы (9:16 Shorts) на 30+ языках мира без студии и актеров. Профессиональный монтаж и оформление YouTube-выпусков."
+                    : "Photorealistic AI presenters for websites and video ads (9:16 Shorts) across 30+ languages without film crews. Professional full-length YouTube editing."}
                 </p>
               </div>
 
@@ -240,7 +292,7 @@ export default function HomePage() {
                   href="/ai-video"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-violet-400 hover:text-violet-300"
                 >
-                  <span>Смотреть примеры аватаров</span>
+                  <span>{lang === "ru" ? "Смотреть примеры аватаров" : "View AI Video Samples"}</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </Link>
                 <span className="text-[11px] text-slate-500 font-mono">Shorts & 16:9</span>
@@ -259,17 +311,17 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
               <span className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
-                Избранные проекты
+                {lang === "ru" ? "Избранные проекты" : "Selected Client Work"}
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">
-                Кейсы клиентов Few Hands
+                {lang === "ru" ? "Кейсы клиентов Few Hands" : "Few Hands Client Showcase"}
               </h2>
             </div>
             <Link
               href="/portfolio"
               className="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-sky-300 self-start sm:self-end"
             >
-              <span>Смотреть всё портфолио</span>
+              <span>{lang === "ru" ? "Смотреть всё портфолио" : "View Full Portfolio"}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -297,7 +349,7 @@ export default function HomePage() {
                     <span>{c.title}</span>
                     <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-sky-400" />
                   </h3>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">{c.desc}</p>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">{c.desc[lang]}</p>
                 </div>
               </a>
             ))}
@@ -310,23 +362,27 @@ export default function HomePage() {
       <section className="py-16 border-t border-slate-800/80 bg-gradient-to-b from-slate-900/60 to-slate-950">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Готовы модернизировать ваш сайт или запустить новый?
+            {lang === "ru"
+              ? "Готовы модернизировать ваш сайт или запустить новый?"
+              : "Ready to modernize your platform or launch a new product?"}
           </h2>
           <p className="mt-4 text-base text-slate-300 max-w-2xl mx-auto">
-            Оставьте заявку на бесплатный аудит текущей платформы или отправьте нам запрос для быстрого старта.
+            {lang === "ru"
+              ? "Оставьте заявку на бесплатный аудит текущей платформы или отправьте нам запрос для быстрого старта."
+              : "Request a free code audit of your existing platform or submit an estimate request."}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/estimate"
               className="px-8 py-4 rounded-2xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-500/25 transition-all"
             >
-              Калькулятор стоимости
+              {lang === "ru" ? "Калькулятор стоимости" : "Project Cost Estimator"}
             </Link>
             <Link
               href="/contact"
               className="px-8 py-4 rounded-2xl border border-slate-700 bg-slate-900 text-slate-200 hover:text-white font-bold text-sm sm:text-base transition-all"
             >
-              Связаться с нами
+              {lang === "ru" ? "Связаться с нами" : "Contact Studio"}
             </Link>
           </div>
         </div>

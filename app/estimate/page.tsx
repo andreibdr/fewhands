@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Calculator, DollarSign, Clock, Send, ShieldCheck, Check, Mail, MessageSquare } from "lucide-react";
+import { useLanguage } from "@/components/LanguageContext";
+import { Calculator, DollarSign, Clock, Send, ShieldCheck, Check, MessageSquare } from "lucide-react";
 
 export default function EstimatePage() {
+  const { lang } = useLanguage();
   const [projectType, setProjectType] = useState<string>("migration");
   const [scope, setScope] = useState<string>("medium");
   const [urgency, setUrgency] = useState<string>("standard");
@@ -15,22 +17,109 @@ export default function EstimatePage() {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
-  const estimates: Record<string, { price: string; time: string; label: string }> = {
-    "migration-small": { price: "от $400", time: "3–6 дней", label: "Миграция базового сайта" },
-    "migration-medium": { price: "от $750", time: "7–12 дней", label: "Миграция стандартного сайта/каталога" },
-    "migration-large": { price: "от $1,400", time: "2–3 недели", label: "Миграция крупного магазина/портала" },
+  const estimates: Record<
+    string,
+    { priceRu: string; priceEn: string; timeRu: string; timeEn: string; labelRu: string; labelEn: string }
+  > = {
+    "migration-small": {
+      priceRu: "от $400",
+      priceEn: "from $400",
+      timeRu: "3–6 дней",
+      timeEn: "3–6 days",
+      labelRu: "Миграция базового сайта",
+      labelEn: "Basic site migration",
+    },
+    "migration-medium": {
+      priceRu: "от $750",
+      priceEn: "from $750",
+      timeRu: "7–12 дней",
+      timeEn: "7–12 days",
+      labelRu: "Миграция стандартного сайта/каталога",
+      labelEn: "Standard site/catalog migration",
+    },
+    "migration-large": {
+      priceRu: "от $1,400",
+      priceEn: "from $1,400",
+      timeRu: "2–3 недели",
+      timeEn: "2–3 weeks",
+      labelRu: "Миграция крупного магазина/портала",
+      labelEn: "Large portal/e-commerce migration",
+    },
 
-    "dev-small": { price: "от $500", time: "4–7 дней", label: "Создание мини-лендинга" },
-    "dev-medium": { price: "от $950", time: "1–2 недели", label: "Создание полного продающего лендинга" },
-    "dev-large": { price: "от $1,800", time: "3–4 недели", label: "Создание каталога / платформы" },
+    "dev-small": {
+      priceRu: "от $500",
+      priceEn: "from $500",
+      timeRu: "4–7 дней",
+      timeEn: "4–7 days",
+      labelRu: "Создание мини-лендинга",
+      labelEn: "Micro landing page",
+    },
+    "dev-medium": {
+      priceRu: "от $950",
+      priceEn: "from $950",
+      timeRu: "1–2 недели",
+      timeEn: "1–2 weeks",
+      labelRu: "Создание полного продающего лендинга",
+      labelEn: "High-converting landing page",
+    },
+    "dev-large": {
+      priceRu: "от $1,800",
+      priceEn: "from $1,800",
+      timeRu: "3–4 недели",
+      timeEn: "3–4 weeks",
+      labelRu: "Создание каталога / платформы",
+      labelEn: "Custom catalog / web platform",
+    },
 
-    "maintenance-small": { price: "$190 / мес", time: "старт за 24 ч", label: "Техподдержка: тариф Старт" },
-    "maintenance-medium": { price: "$450 / мес", time: "старт за 24 ч", label: "Техподдержка: тариф Бизнес Retainer" },
-    "maintenance-large": { price: "$950 / мес", time: "старт за 24 ч", label: "Техподдержка: тариф Pro & Media" },
+    "maintenance-small": {
+      priceRu: "$190 / мес",
+      priceEn: "$190 / mo",
+      timeRu: "старт за 24 ч",
+      timeEn: "launch in 24h",
+      labelRu: "Техподдержка: тариф Старт",
+      labelEn: "Starter Retainer",
+    },
+    "maintenance-medium": {
+      priceRu: "$450 / мес",
+      priceEn: "$450 / mo",
+      timeRu: "старт за 24 ч",
+      timeEn: "launch in 24h",
+      labelRu: "Техподдержка: тариф Бизнес Retainer",
+      labelEn: "Business Retainer",
+    },
+    "maintenance-large": {
+      priceRu: "$950 / мес",
+      priceEn: "$950 / mo",
+      timeRu: "старт за 24 ч",
+      timeEn: "launch in 24h",
+      labelRu: "Техподдержка: тариф Pro & Media",
+      labelEn: "Pro & Media Retainer",
+    },
 
-    "avatar-small": { price: "от $250", time: "2–3 дня", label: "1 AI Видео-аватар под ключ" },
-    "avatar-medium": { price: "от $550", time: "4–6 дней", label: "Пакет 3 AI Видео-аватаров" },
-    "avatar-large": { price: "от $900", time: "1–2 недели", label: "Пакет 6 AI аватаров + озвучка на 3 языках" },
+    "avatar-small": {
+      priceRu: "от $250",
+      priceEn: "from $250",
+      timeRu: "2–3 дня",
+      timeEn: "2–3 days",
+      labelRu: "1 AI Видео-аватар под ключ",
+      labelEn: "1 Turnkey AI Video Avatar",
+    },
+    "avatar-medium": {
+      priceRu: "от $550",
+      priceEn: "from $550",
+      timeRu: "4–6 дней",
+      timeEn: "4–6 days",
+      labelRu: "Пакет 3 AI Видео-аватаров",
+      labelEn: "Pack of 3 AI Video Avatars",
+    },
+    "avatar-large": {
+      priceRu: "от $900",
+      priceEn: "from $900",
+      timeRu: "1–2 недели",
+      timeEn: "1–2 weeks",
+      labelRu: "Пакет 6 AI аватаров + озвучка на 3 языках",
+      labelEn: "Pack of 6 AI Avatars + Multilingual Voiceover",
+    },
   };
 
   const key = `${projectType}-${scope}`;
@@ -40,7 +129,11 @@ export default function EstimatePage() {
     e.preventDefault();
     setSubmitting(true);
 
-    const message = `Расчет с калькулятора Few Hands:\n- Направление: ${projectType}\n- Объем: ${scope}\n- Срочность: ${urgency}\n- Оценка: ${currentEstimate.price}, ${currentEstimate.time} (${currentEstimate.label})`;
+    const message = `Project Estimate Request:\n- Category: ${projectType}\n- Scope: ${scope}\n- Urgency: ${urgency}\n- Estimate: ${
+      lang === "ru" ? currentEstimate.priceRu : currentEstimate.priceEn
+    }, ${lang === "ru" ? currentEstimate.timeRu : currentEstimate.timeEn} (${
+      lang === "ru" ? currentEstimate.labelRu : currentEstimate.labelEn
+    })`;
 
     try {
       const res = await fetch("/api/contact", {
@@ -53,13 +146,13 @@ export default function EstimatePage() {
         setSubmitted(true);
       } else {
         window.location.href = `mailto:web@fewhands.com?subject=Project Estimate Request&body=${encodeURIComponent(
-          `Имя: ${name}\nКонтакты: ${contact}\n\n${message}`
+          `Name: ${name}\nContact: ${contact}\n\n${message}`
         )}`;
         setSubmitted(true);
       }
     } catch {
       window.location.href = `mailto:web@fewhands.com?subject=Project Estimate Request&body=${encodeURIComponent(
-        `Имя: ${name}\nКонтакты: ${contact}\n\n${message}`
+        `Name: ${name}\nContact: ${contact}\n\n${message}`
       )}`;
       setSubmitted(true);
     } finally {
@@ -74,23 +167,25 @@ export default function EstimatePage() {
         {/* Breadcrumb */}
         <div className="text-xs text-slate-400 mb-6 flex items-center gap-2">
           <Link href="/" className="hover:text-white transition-colors">
-            Главная
+            {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
-          <span className="text-sky-400">Калькулятор проекта</span>
+          <span className="text-sky-400">{lang === "ru" ? "Калькулятор проекта" : "Project Estimator"}</span>
         </div>
 
         {/* Hero Section */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-400 text-xs font-semibold mb-3">
             <Calculator className="w-3.5 h-3.5" />
-            <span>Интерактивная оценка</span>
+            <span>{lang === "ru" ? "Интерактивная оценка" : "Interactive Estimation"}</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Калькулятор стоимости и сроков
+            {lang === "ru" ? "Калькулятор стоимости и сроков" : "Project Cost & Timeline Estimator"}
           </h1>
           <p className="mt-4 text-sm sm:text-base text-slate-300">
-            Выберите параметры проекта для ориентировочного расчёта бюджета.
+            {lang === "ru"
+              ? "Выберите параметры проекта для ориентировочного расчёта бюджета."
+              : "Select your project parameters to get an instant preliminary budget & timeline."}
           </p>
         </div>
 
@@ -100,14 +195,14 @@ export default function EstimatePage() {
           {/* Step 1: Project Type */}
           <div>
             <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
-              1. Направление задачи
+              {lang === "ru" ? "1. Направление задачи" : "1. Project Category"}
             </label>
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
               {[
-                { id: "migration", label: "Миграция CMS" },
-                { id: "dev", label: "Сайт с нуля" },
-                { id: "maintenance", label: "Техподдержка" },
-                { id: "avatar", label: "AI Видео-аватар" },
+                { id: "migration", labelRu: "Миграция CMS", labelEn: "CMS Migration" },
+                { id: "dev", labelRu: "Сайт с нуля", labelEn: "Custom Development" },
+                { id: "maintenance", labelRu: "Техподдержка", labelEn: "Retainer Support" },
+                { id: "avatar", labelRu: "AI Видео-аватар", labelEn: "AI Video Avatar" },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -119,7 +214,7 @@ export default function EstimatePage() {
                       : "border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700"
                   }`}
                 >
-                  {item.label}
+                  {lang === "ru" ? item.labelRu : item.labelEn}
                 </button>
               ))}
             </div>
@@ -128,13 +223,25 @@ export default function EstimatePage() {
           {/* Step 2: Scope */}
           <div>
             <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
-              2. Объем и сложность
+              {lang === "ru" ? "2. Объем и сложность" : "2. Scope & Complexity"}
             </label>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
-                { id: "small", label: "Базовый (до 3 экранов / 1 ролик)" },
-                { id: "medium", label: "Стандарт (полный сайт / пакет)" },
-                { id: "large", label: "Сложный (многостраничник / каталог)" },
+                {
+                  id: "small",
+                  labelRu: "Базовый (до 3 экранов / 1 ролик)",
+                  labelEn: "Basic (up to 3 screens / 1 video)",
+                },
+                {
+                  id: "medium",
+                  labelRu: "Стандарт (полный сайт / пакет)",
+                  labelEn: "Standard (full site / complete package)",
+                },
+                {
+                  id: "large",
+                  labelRu: "Сложный (многостраничник / каталог)",
+                  labelEn: "Complex (multi-page / custom portal)",
+                },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -146,7 +253,7 @@ export default function EstimatePage() {
                       : "border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700"
                   }`}
                 >
-                  {item.label}
+                  {lang === "ru" ? item.labelRu : item.labelEn}
                 </button>
               ))}
             </div>
@@ -155,13 +262,25 @@ export default function EstimatePage() {
           {/* Step 3: Timing */}
           <div>
             <label className="block text-xs uppercase tracking-wider font-bold text-slate-400 mb-3">
-              3. Срочность
+              {lang === "ru" ? "3. Срочность" : "3. Timeline & Priority"}
             </label>
             <div className="grid sm:grid-cols-3 gap-3">
               {[
-                { id: "urgent", label: "Срочно (приоритетный спринт)" },
-                { id: "standard", label: "Стандартные сроки" },
-                { id: "relaxed", label: "Планомерный запуск" },
+                {
+                  id: "urgent",
+                  labelRu: "Срочно (приоритетный спринт)",
+                  labelEn: "Urgent (priority sprint)",
+                },
+                {
+                  id: "standard",
+                  labelRu: "Стандартные сроки",
+                  labelEn: "Standard schedule",
+                },
+                {
+                  id: "relaxed",
+                  labelRu: "Планомерный запуск",
+                  labelEn: "Flexible / planned release",
+                },
               ].map((item) => (
                 <button
                   key={item.id}
@@ -173,7 +292,7 @@ export default function EstimatePage() {
                       : "border-slate-800 bg-slate-950/60 text-slate-300 hover:border-slate-700"
                   }`}
                 >
-                  {item.label}
+                  {lang === "ru" ? item.labelRu : item.labelEn}
                 </button>
               ))}
             </div>
@@ -184,19 +303,19 @@ export default function EstimatePage() {
             <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <div className="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
-                  Предварительная оценка:
+                  {lang === "ru" ? "Предварительная оценка:" : "Preliminary Estimate:"}
                 </div>
                 <div className="flex flex-wrap items-center gap-6">
                   <div className="flex items-center gap-2">
                     <DollarSign className="w-5 h-5 text-emerald-400" />
                     <span className="text-2xl sm:text-3xl font-black text-white">
-                      {currentEstimate.price}
+                      {lang === "ru" ? currentEstimate.priceRu : currentEstimate.priceEn}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-5 h-5 text-sky-400" />
                     <span className="text-base sm:text-lg font-bold text-slate-300">
-                      {currentEstimate.time}
+                      {lang === "ru" ? currentEstimate.timeRu : currentEstimate.timeEn}
                     </span>
                   </div>
                 </div>
@@ -205,14 +324,16 @@ export default function EstimatePage() {
               {/* Direct WhatsApp alternate */}
               <a
                 href={`https://wa.me/+79611809004?text=${encodeURIComponent(
-                  `Здравствуйте! Рассчитал проект на сайте Few Hands: ${projectType}, ${scope}, ${urgency}. Оценка: ${currentEstimate.price}.`
+                  lang === "ru"
+                    ? `Здравствуйте! Рассчитал проект на сайте Few Hands: ${projectType}, ${scope}, ${urgency}. Оценка: ${currentEstimate.priceRu}.`
+                    : `Hello! Calculated estimate on Few Hands: ${projectType}, ${scope}, ${urgency}. Estimate: ${currentEstimate.priceEn}.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>Обсудить в WhatsApp</span>
+                <span>{lang === "ru" ? "Обсудить в WhatsApp" : "Discuss in WhatsApp"}</span>
               </a>
             </div>
 
@@ -221,7 +342,9 @@ export default function EstimatePage() {
               <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-sm flex items-center gap-3">
                 <Check className="w-5 h-5 text-emerald-400 shrink-0" />
                 <span>
-                  Заявка на расчет успешно отправлена! Мы свяжемся с вами по указанным контактам в течение 1–2 часов.
+                  {lang === "ru"
+                    ? "Заявка на расчет успешно отправлена! Мы свяжемся с вами по указанным контактам в течение 1–2 часов."
+                    : "Estimate inquiry sent successfully! We will contact you via email or phone within 1–2 business hours."}
                 </span>
               </div>
             ) : (
@@ -232,7 +355,7 @@ export default function EstimatePage() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    placeholder="Ваше имя"
+                    placeholder={lang === "ru" ? "Ваше имя" : "Your Name"}
                     className="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-900 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500"
                   />
                 </div>
@@ -242,7 +365,7 @@ export default function EstimatePage() {
                     required
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
-                    placeholder="Email или телефон для связи"
+                    placeholder={lang === "ru" ? "Email или телефон для связи" : "Work email or phone"}
                     className="w-full px-4 py-3 rounded-xl border border-slate-700 bg-slate-900 text-white text-sm outline-none focus:ring-2 focus:ring-sky-500"
                   />
                 </div>
@@ -253,10 +376,10 @@ export default function EstimatePage() {
                     className="w-full py-3 px-4 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm shadow-md shadow-sky-500/25 transition-all flex items-center justify-center gap-2"
                   >
                     {submitting ? (
-                      <span>Отправка...</span>
+                      <span>{lang === "ru" ? "Отправка..." : "Submitting..."}</span>
                     ) : (
                       <>
-                        <span>Получить смету</span>
+                        <span>{lang === "ru" ? "Получить смету" : "Get Detailed Estimate"}</span>
                         <Send className="w-3.5 h-3.5" />
                       </>
                     )}
@@ -271,7 +394,11 @@ export default function EstimatePage() {
         {/* Guarantee */}
         <div className="mt-8 flex items-center justify-center gap-2 text-xs text-slate-400">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
-          <span>Техническое задание, сроки и бюджет фиксируются до старта работ.</span>
+          <span>
+            {lang === "ru"
+              ? "Техническое задание, сроки и бюджет фиксируются до старта работ."
+              : "Project scope, milestones, and budget are strictly confirmed before kickoff."}
+          </span>
         </div>
 
       </div>

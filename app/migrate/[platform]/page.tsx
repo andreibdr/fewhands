@@ -1,7 +1,10 @@
-import { Metadata } from "next";
+"use client";
+
+import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { platformsData, PlatformData } from "@/lib/platforms";
+import { useLanguage } from "@/components/LanguageContext";
+import { platformsData } from "@/lib/platforms";
 import {
   ArrowRight,
   AlertTriangle,
@@ -9,38 +12,16 @@ import {
   Handshake,
   ExternalLink,
   ShieldCheck,
-  GraduationCap,
-  Headphones,
 } from "lucide-react";
 
 interface Props {
   params: { platform: string };
 }
 
-export function generateStaticParams() {
-  return Object.keys(platformsData).map((platform) => ({
-    platform,
-  }));
-}
-
-export function generateMetadata({ params }: Props): Metadata {
-  const platform = platformsData[params.platform];
-  if (!platform) {
-    return { title: "Миграция платформы — Few Hands" };
-  }
-
-  return {
-    title: platform.metaTitle.ru,
-    description: platform.metaDescription.ru,
-    openGraph: {
-      title: platform.metaTitle.ru,
-      description: platform.metaDescription.ru,
-    },
-  };
-}
-
 export default function PlatformMigrationPage({ params }: Props) {
+  const { lang } = useLanguage();
   const platform = platformsData[params.platform];
+
   if (!platform) {
     notFound();
   }
@@ -54,29 +35,31 @@ export default function PlatformMigrationPage({ params }: Props) {
         {/* Breadcrumb */}
         <div className="text-xs text-slate-400 mb-6 flex items-center gap-2">
           <Link href="/" className="hover:text-white transition-colors">
-            Главная
+            {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
           <Link href="/migrate" className="hover:text-white transition-colors">
-            Миграция CMS
+            {lang === "ru" ? "Миграция CMS" : "CMS Migration"}
           </Link>
           <span>/</span>
-          <span className="text-sky-400">{platform.title}</span>
+          <span className="text-sky-400">{platform.title[lang]}</span>
         </div>
 
         {/* Hero Section */}
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold mb-4">
             <span className={`w-2 h-2 rounded-full ${platform.badgeColor}`} />
-            <span className="text-slate-300">{platform.category}</span>
+            <span className="text-slate-300">{platform.category[lang]}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Миграция с {platform.title} на чистый Next.js
+            {lang === "ru"
+              ? `Миграция с ${platform.title[lang]} на чистый Next.js`
+              : `Migrate from ${platform.title[lang]} to Modern Next.js`}
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed">
-            {platform.metaDescription.ru}
+            {platform.metaDescription[lang]}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -84,14 +67,14 @@ export default function PlatformMigrationPage({ params }: Props) {
               href="/estimate"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/25 transition-all"
             >
-              <span>Оценить стоимость миграции</span>
+              <span>{lang === "ru" ? "Оценить стоимость миграции" : "Estimate Migration Cost"}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-200 hover:text-white font-semibold text-sm transition-all"
             >
-              <span>Запросить аудит проекта</span>
+              <span>{lang === "ru" ? "Запросить аудит проекта" : "Request Code Audit"}</span>
             </Link>
           </div>
         </div>
@@ -106,11 +89,13 @@ export default function PlatformMigrationPage({ params }: Props) {
                 <AlertTriangle className="w-5 h-5" />
               </div>
               <h2 className="text-xl font-bold text-white">
-                С чем сталкиваются владельцы {platform.title}
+                {lang === "ru"
+                  ? `С чем сталкиваются владельцы ${platform.title[lang]}`
+                  : `Core Challenges on ${platform.title[lang]}`}
               </h2>
             </div>
             <ul className="space-y-4">
-              {platform.painPoints.ru.map((pain, i) => (
+              {platform.painPoints[lang].map((pain, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
                   <span className="text-rose-500 font-bold shrink-0 mt-0.5">✕</span>
                   <span>{pain}</span>
@@ -126,11 +111,13 @@ export default function PlatformMigrationPage({ params }: Props) {
                 <CheckCircle2 className="w-5 h-5" />
               </div>
               <h2 className="text-xl font-bold text-white">
-                Что вы получаете после миграции на Next.js
+                {lang === "ru"
+                  ? "Что вы получаете после миграции на Next.js"
+                  : "What You Gain After Next.js Migration"}
               </h2>
             </div>
             <ul className="space-y-4">
-              {platform.solutions.ru.map((sol, i) => (
+              {platform.solutions[lang].map((sol, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
                   <span className="text-emerald-400 font-bold shrink-0 mt-0.5">✓</span>
                   <span>{sol}</span>
@@ -146,7 +133,9 @@ export default function PlatformMigrationPage({ params }: Props) {
           <div className="flex items-center gap-3 mb-8">
             <Handshake className="w-6 h-6 text-sky-400" />
             <h2 className="text-2xl font-bold text-white">
-              Как выполняется проект: Инженерия GoMVP + Поддержка Few Hands
+              {lang === "ru"
+                ? "Как выполняется проект: Инженерия GoMVP + Поддержка Few Hands"
+                : "Execution Model: GoMVP Engineering + Few Hands Retainer Support"}
             </h2>
           </div>
 
@@ -154,7 +143,9 @@ export default function PlatformMigrationPage({ params }: Props) {
             {/* GoMVP Part */}
             <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono uppercase text-sky-400 font-bold">1. Техническая разработка</span>
+                <span className="text-xs font-mono uppercase text-sky-400 font-bold">
+                  {lang === "ru" ? "1. Техническая разработка" : "1. Engineering Execution"}
+                </span>
                 <a
                   href="https://gomvp.dev/en/migrate"
                   target="_blank"
@@ -165,27 +156,39 @@ export default function PlatformMigrationPage({ params }: Props) {
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Перенос и инженерия (GoMVP)</h3>
+              <h3 className="text-lg font-bold text-white mb-2">
+                {lang === "ru" ? "Перенос и инженерия (GoMVP)" : "Migration & Engineering (GoMVP)"}
+              </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                {platform.whyGoMvp.ru}
+                {platform.whyGoMvp[lang]}
               </p>
               <div className="mt-4 pt-4 border-t border-slate-800/80 text-xs text-slate-400">
-                Стек: Next.js 14, React, Go microservices, Edge CDN, PostgreSQL.
+                {lang === "ru"
+                  ? "Стек: Next.js 14, React, Go microservices, Edge CDN, PostgreSQL."
+                  : "Stack: Next.js 14, React, Go microservices, Edge CDN, PostgreSQL."}
               </div>
             </div>
 
             {/* Few Hands Part */}
             <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-mono uppercase text-emerald-400 font-bold">2. Сопровождение & Обучение</span>
+                <span className="text-xs font-mono uppercase text-emerald-400 font-bold">
+                  {lang === "ru" ? "2. Сопровождение & Обучение" : "2. Training & Retainer Support"}
+                </span>
                 <span className="text-xs text-slate-400 font-mono">Few Hands</span>
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">Обучение и абонентская поддержка (Few Hands)</h3>
+              <h3 className="text-lg font-bold text-white mb-2">
+                {lang === "ru"
+                  ? "Обучение и абонентская поддержка (Few Hands)"
+                  : "Staff Onboarding & Retainer Support (Few Hands)"}
+              </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                {platform.fewHandsRole.ru}
+                {platform.fewHandsRole[lang]}
               </p>
               <div className="mt-4 pt-4 border-t border-slate-800/80 text-xs text-slate-400">
-                Формат: ежемесячный Retainer (абонплата), персональный менеджер, мониторинг 24/7.
+                {lang === "ru"
+                  ? "Формат: ежемесячный Retainer (абонплата), персональный менеджер, мониторинг 24/7."
+                  : "Model: monthly retainer subscription, dedicated account manager, 24/7 monitoring."}
               </div>
             </div>
           </div>
@@ -196,14 +199,16 @@ export default function PlatformMigrationPage({ params }: Props) {
           <div className="flex items-center gap-3">
             <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
             <span className="text-sm text-slate-300">
-              Полный перенос базы данных, статей, товаров и 100% гарантия сохранения позиций в SEO.
+              {lang === "ru"
+                ? "Полный перенос базы данных, статей, товаров и 100% гарантия сохранения позиций в SEO."
+                : "Lossless migration of articles, products, database, and 100% SEO position retention."}
             </span>
           </div>
           <Link
             href="/estimate"
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 shrink-0"
           >
-            <span>Рассчитать сроки</span>
+            <span>{lang === "ru" ? "Рассчитать сроки" : "Calculate Timeline"}</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -211,7 +216,7 @@ export default function PlatformMigrationPage({ params }: Props) {
         {/* Other Platforms Navigation */}
         <div className="mt-20 pt-10 border-t border-slate-800">
           <h3 className="text-lg font-bold text-white mb-6">
-            Миграция с других систем
+            {lang === "ru" ? "Миграция с других систем" : "Explore Other Platform Migrations"}
           </h3>
           <div className="flex flex-wrap gap-2.5">
             {allPlatforms.map((p) => (
@@ -224,7 +229,7 @@ export default function PlatformMigrationPage({ params }: Props) {
                     : "border-slate-800 bg-slate-900 text-slate-300 hover:border-slate-700"
                 }`}
               >
-                {p.title}
+                {p.title[lang]}
               </Link>
             ))}
           </div>

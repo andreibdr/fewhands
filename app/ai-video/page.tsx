@@ -2,21 +2,41 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Sparkles, Play, Video, ArrowRight, Check } from "lucide-react";
+import { useLanguage } from "@/components/LanguageContext";
+import { Sparkles, Play, Video, ArrowRight } from "lucide-react";
 
 export default function AiVideoPage() {
+  const { lang } = useLanguage();
   const [activeIframe, setActiveIframe] = useState<string | null>(null);
 
   const shorts = [
-    { id: "M8g2gJlwH7M", title: "AI Avatar Presenter — Презентация продукта" },
-    { id: "9_jdjXBknOw", title: "AI Avatar Presenter — Рекламный ролик" },
-    { id: "-UE0CTWQwD4", title: "AI Avatar Presenter — Лид-магнит" },
+    {
+      id: "M8g2gJlwH7M",
+      title: lang === "ru" ? "AI Avatar Presenter — Презентация продукта" : "AI Avatar Presenter — Product Explainer",
+    },
+    {
+      id: "9_jdjXBknOw",
+      title: lang === "ru" ? "AI Avatar Presenter — Рекламный ролик" : "AI Avatar Presenter — Commercial Ad",
+    },
+    {
+      id: "-UE0CTWQwD4",
+      title: lang === "ru" ? "AI Avatar Presenter — Лид-магнит" : "AI Avatar Presenter — Social Lead Hook",
+    },
   ];
 
   const youtubeVideos = [
-    { id: "KjhW0NmL2v0", title: "YouTube Production — Полный монтаж выпуска" },
-    { id: "wm9bt16QY_Q", title: "YouTube Production — Экспертное интервью" },
-    { id: "_9Z-gfKJRBU", title: "YouTube Production — Коммерческий шоукейс" },
+    {
+      id: "KjhW0NmL2v0",
+      title: lang === "ru" ? "YouTube Production — Полный монтаж выпуска" : "YouTube Production — Full Episode Edit",
+    },
+    {
+      id: "wm9bt16QY_Q",
+      title: lang === "ru" ? "YouTube Production — Экспертное интервью" : "YouTube Production — In-Depth Interview",
+    },
+    {
+      id: "_9Z-gfKJRBU",
+      title: lang === "ru" ? "YouTube Production — Коммерческий шоукейс" : "YouTube Production — Commercial Showcase",
+    },
   ];
 
   return (
@@ -26,25 +46,29 @@ export default function AiVideoPage() {
         {/* Breadcrumb */}
         <div className="text-xs text-slate-400 mb-6 flex items-center gap-2">
           <Link href="/" className="hover:text-white transition-colors">
-            Главная
+            {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
-          <span className="text-sky-400">AI & Видео</span>
+          <span className="text-sky-400">{lang === "ru" ? "AI & Видео" : "AI & Video"}</span>
         </div>
 
         {/* Hero Section */}
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-950/60 border border-violet-500/30 text-violet-300 text-xs font-semibold mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>AI Production & Video Editing</span>
+            <span>{lang === "ru" ? "AI Продакшн & Видеомонтаж" : "AI Production & Video Editing"}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Цифровые AI-аватары и профессиональный монтаж видео
+            {lang === "ru"
+              ? "Цифровые AI-аватары и профессиональный монтаж видео"
+              : "Turnkey AI Video Avatars & High-Impact Production"}
           </h1>
 
           <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
-            Создаём говорящих фотореалистичных аватаров для сайтов, рекламы и соцсетей. Любой язык, безупречная дикция и идеальная синхронизация губ — без затрат на студию и актеров. А также комплексный монтаж YouTube-выпусков под ключ.
+            {lang === "ru"
+              ? "Создаём говорящих фотореалистичных аватаров для сайтов, рекламы и соцсетей. Любой язык, безупречная дикция и идеальная синхронизация губ — без затрат на студию и актеров. А также комплексный монтаж YouTube-выпусков под ключ."
+              : "We engineer photorealistic digital presenters for landing pages, commercials, and social funnels. Fluent in 30+ languages with synchronized neural articulation — eliminating studio rental and actor costs. Plus complete YouTube video editing."}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -52,14 +76,14 @@ export default function AiVideoPage() {
               href="/estimate"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/25 transition-all"
             >
-              <span>Заказать видео-аватар</span>
+              <span>{lang === "ru" ? "Заказать видео-аватар" : "Order AI Video Avatar"}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-200 hover:text-white font-semibold text-sm transition-all"
             >
-              <span>Связаться с нами</span>
+              <span>{lang === "ru" ? "Связаться с нами" : "Contact Studio"}</span>
             </Link>
           </div>
         </div>
@@ -68,13 +92,15 @@ export default function AiVideoPage() {
         <div className="mt-16 p-8 sm:p-10 rounded-3xl border border-slate-800 bg-slate-900/60 shadow-xl">
           <div className="max-w-2xl mb-8">
             <span className="text-xs font-mono font-bold text-violet-400 uppercase tracking-wider">
-              Формат 9:16 (Shorts, Reels, Сайты)
+              {lang === "ru" ? "Формат 9:16 (Shorts, Reels, Сайты)" : "9:16 Vertical Format (Shorts, Reels, Web)"}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-              Примеры видео с цифровыми аватарами
+              {lang === "ru" ? "Примеры видео с цифровыми аватарами" : "Interactive AI Avatar Showcases"}
             </h2>
             <p className="text-sm text-slate-400 mt-2">
-              Нажмите на видео, чтобы запустить интерактивный просмотр.
+              {lang === "ru"
+                ? "Нажмите на видео, чтобы запустить интерактивный просмотр."
+                : "Click any preview card below to play interactive sample."}
             </p>
           </div>
 
@@ -121,24 +147,42 @@ export default function AiVideoPage() {
           {/* Steps */}
           <div className="mt-12 grid sm:grid-cols-3 gap-6 border-t border-slate-800 pt-8">
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800">
-              <span className="text-xs font-mono font-bold text-sky-400">01. Сценарий</span>
-              <h4 className="font-bold text-white mt-1">Хук и продающий текст</h4>
+              <span className="text-xs font-mono font-bold text-sky-400">
+                {lang === "ru" ? "01. Сценарий" : "01. Script & Angle"}
+              </span>
+              <h4 className="font-bold text-white mt-1">
+                {lang === "ru" ? "Хук и продающий текст" : "Hook & Core Narrative"}
+              </h4>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Составляем лаконичный сценарий, цепляющий зрителя в первые 3 секунды.
+                {lang === "ru"
+                  ? "Составляем лаконичный сценарий, цепляющий зрителя в первые 3 секунды."
+                  : "Crafting sharp hook-driven copy engineered to retain viewer attention in the first 3 seconds."}
               </p>
             </div>
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800">
-              <span className="text-xs font-mono font-bold text-violet-400">02. Синтез</span>
-              <h4 className="font-bold text-white mt-1">Озвучка и мимика</h4>
+              <span className="text-xs font-mono font-bold text-violet-400">
+                {lang === "ru" ? "02. Синтез" : "02. Synthesis & Voice"}
+              </span>
+              <h4 className="font-bold text-white mt-1">
+                {lang === "ru" ? "Озвучка и мимика" : "Neural Articulation"}
+              </h4>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Генерируем реалистичный аватар с нейронным голосом на любом языке мира.
+                {lang === "ru"
+                  ? "Генерируем реалистичный аватар с нейронным голосом на любом языке мира."
+                  : "Generating high-definition visual avatars paired with studio-grade neural voice synthesis."}
               </p>
             </div>
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800">
-              <span className="text-xs font-mono font-bold text-emerald-400">03. Монтаж</span>
-              <h4 className="font-bold text-white mt-1">Субтитры и графика</h4>
+              <span className="text-xs font-mono font-bold text-emerald-400">
+                {lang === "ru" ? "03. Монтаж" : "03. Dynamic Polish"}
+              </span>
+              <h4 className="font-bold text-white mt-1">
+                {lang === "ru" ? "Субтитры и графика" : "Captions & Delivery"}
+              </h4>
               <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                Добавляем динамичные титры, саунд-дизайн, плашки и встраиваем в сайт.
+                {lang === "ru"
+                  ? "Добавляем динамичные титры, саунд-дизайн, плашки и встраиваем в сайт."
+                  : "Animated kinetic typography, sound effects, motion B-roll, and web embed ready."}
               </p>
             </div>
           </div>
@@ -151,7 +195,7 @@ export default function AiVideoPage() {
               <Video className="w-5 h-5" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-              Монтаж длинных YouTube-выпусков (16:9)
+              {lang === "ru" ? "Монтаж длинных YouTube-выпусков (16:9)" : "Full-Length YouTube Video Production (16:9)"}
             </h2>
           </div>
 

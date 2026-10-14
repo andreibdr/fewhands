@@ -1,7 +1,7 @@
 export interface PlatformData {
   slug: string;
-  title: string;
-  category: string;
+  title: { ru: string; en: string };
+  category: { ru: string; en: string };
   badgeColor: string;
   metaTitle: { ru: string; en: string };
   metaDescription: { ru: string; en: string };
@@ -14,8 +14,8 @@ export interface PlatformData {
 export const platformsData: Record<string, PlatformData> = {
   wordpress: {
     slug: "wordpress",
-    title: "WordPress / WooCommerce",
-    category: "CMS & E-Commerce",
+    title: { ru: "WordPress / WooCommerce", en: "WordPress / WooCommerce" },
+    category: { ru: "CMS & Интернет-магазины", en: "CMS & E-Commerce" },
     badgeColor: "bg-blue-600",
     metaTitle: {
       ru: "Миграция с WordPress на Next.js | Ускорение сайта и отказ от плагинов — Few Hands & GoMVP",
@@ -65,8 +65,8 @@ export const platformsData: Record<string, PlatformData> = {
 
   tilda: {
     slug: "tilda",
-    title: "Tilda Publishing",
-    category: "Конструктор сайтов",
+    title: { ru: "Tilda Publishing", en: "Tilda Publishing" },
+    category: { ru: "Конструктор сайтов", en: "Website Builders" },
     badgeColor: "bg-orange-600",
     metaTitle: {
       ru: "Перенос сайта с Tilda на чистый код Next.js | Снятие лимитов — Few Hands & GoMVP",
@@ -116,8 +116,8 @@ export const platformsData: Record<string, PlatformData> = {
 
   webflow: {
     slug: "webflow",
-    title: "Webflow",
-    category: "No-Code Builder",
+    title: { ru: "Webflow", en: "Webflow" },
+    category: { ru: "No-Code платформы", en: "No-Code Builders" },
     badgeColor: "bg-blue-500",
     metaTitle: {
       ru: "Миграция с Webflow на Next.js | Независимость от валютных подписок — Few Hands & GoMVP",
@@ -167,8 +167,8 @@ export const platformsData: Record<string, PlatformData> = {
 
   bitrix: {
     slug: "bitrix",
-    title: "1C-Битрикс / Bitrix24",
-    category: "CMS & Корпоративные порталы",
+    title: { ru: "1C-Битрикс / Bitrix24", en: "1C-Bitrix / Bitrix24" },
+    category: { ru: "Корпоративные CMS", en: "Enterprise CMS & Portals" },
     badgeColor: "bg-red-600",
     metaTitle: {
       ru: "Миграция с 1C-Битрикс на Headless Next.js | Ускорение в 5 раз — Few Hands & GoMVP",
@@ -218,8 +218,8 @@ export const platformsData: Record<string, PlatformData> = {
 
   insales: {
     slug: "insales",
-    title: "InSales / OpenCart / PrestaShop",
-    category: "Интернет-магазины",
+    title: { ru: "InSales / OpenCart / PrestaShop", en: "InSales / OpenCart / PrestaShop" },
+    category: { ru: "Интернет-магазины", en: "E-Commerce Platforms" },
     badgeColor: "bg-sky-600",
     metaTitle: {
       ru: "Миграция интернет-магазина с InSales/OpenCart на Next.js — Few Hands & GoMVP",
@@ -269,8 +269,8 @@ export const platformsData: Record<string, PlatformData> = {
 
   shopify: {
     slug: "shopify",
-    title: "Shopify",
-    category: "SaaS E-Commerce",
+    title: { ru: "Shopify", en: "Shopify" },
+    category: { ru: "SaaS E-Commerce", en: "SaaS E-Commerce" },
     badgeColor: "bg-emerald-600",
     metaTitle: {
       ru: "Миграция с Shopify на Headless Next.js | Без комиссий и ограничений — Few Hands & GoMVP",
@@ -320,8 +320,8 @@ export const platformsData: Record<string, PlatformData> = {
 
   modx: {
     slug: "modx",
-    title: "MODX",
-    category: "Гибкая CMS",
+    title: { ru: "MODX Revolution / Evolution", en: "MODX Revolution / Evolution" },
+    category: { ru: "Гибкие CMS", en: "Flexible CMS" },
     badgeColor: "bg-slate-700",
     metaTitle: {
       ru: "Миграция с MODX на Next.js | Избавление от легаси — Few Hands & GoMVP",
@@ -371,8 +371,8 @@ export const platformsData: Record<string, PlatformData> = {
 
   "legacy-php": {
     slug: "legacy-php",
-    title: "Самописный PHP / Старые фреймворки",
-    category: "Legacy Monoliths",
+    title: { ru: "Самописный PHP / Монолиты", en: "Custom Legacy PHP & Monoliths" },
+    category: { ru: "Устаревшие монолиты", en: "Legacy Monoliths" },
     badgeColor: "bg-indigo-600",
     metaTitle: {
       ru: "Модернизация самописных сайтов на PHP | Перенос на Next.js — Few Hands & GoMVP",

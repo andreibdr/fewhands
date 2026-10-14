@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/components/LanguageContext";
 import { portfolioItems } from "@/lib/data";
 import { ExternalLink, Play, Layers } from "lucide-react";
 
 export default function PortfolioPage() {
+  const { lang } = useLanguage();
   const [activeTab, setActiveTab] = useState<string>("all");
   const [modalVideo, setModalVideo] = useState<string | null>(null);
 
@@ -22,10 +24,10 @@ export default function PortfolioPage() {
         {/* Breadcrumb */}
         <div className="text-xs text-slate-400 mb-6 flex items-center gap-2">
           <Link href="/" className="hover:text-white transition-colors">
-            Главная
+            {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
-          <span className="text-sky-400">Портфолио</span>
+          <span className="text-sky-400">{lang === "ru" ? "Портфолио" : "Portfolio"}</span>
         </div>
 
         {/* Hero Section */}
@@ -33,22 +35,24 @@ export default function PortfolioPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 text-sky-300 text-xs font-semibold mb-4">
               <Layers className="w-3.5 h-3.5" />
-              <span>Реализованные кейсы</span>
+              <span>{lang === "ru" ? "Реализованные кейсы" : "Client Work"}</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Портфолио проектов Few Hands
+              {lang === "ru" ? "Портфолио проектов Few Hands" : "Few Hands Selected Works"}
             </h1>
             <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-              Реальные действующие сайты, интернет-магазины, порталы и видеоматериалы наших клиентов в США, Европе и СНГ.
+              {lang === "ru"
+                ? "Реальные действующие сайты, интернет-магазины, порталы и видеоматериалы наших клиентов в США, Европе и СНГ."
+                : "Live production websites, e-commerce storefronts, and video productions engineered for international and domestic clients."}
             </p>
           </div>
 
           {/* Filters */}
           <div className="flex items-center bg-slate-900 border border-slate-800 p-1.5 rounded-2xl shrink-0">
             {[
-              { id: "all", label: "Все кейсы" },
-              { id: "web", label: "Сайты & Миграция" },
-              { id: "video", label: "Видео & AI" },
+              { id: "all", label: lang === "ru" ? "Все кейсы" : "All Projects" },
+              { id: "web", label: lang === "ru" ? "Сайты & Миграция" : "Web & Migration" },
+              { id: "video", label: lang === "ru" ? "Видео & AI" : "Video & AI" },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -122,7 +126,7 @@ export default function PortfolioPage() {
                   </h3>
 
                   <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
-                    {item.description.ru}
+                    {item.description[lang]}
                   </p>
                 </div>
               </div>
@@ -136,7 +140,7 @@ export default function PortfolioPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300"
                   >
-                    <span>Перейти на сайт</span>
+                    <span>{lang === "ru" ? "Перейти на сайт" : "Visit Website"}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 ) : item.youtubeId ? (
@@ -144,7 +148,7 @@ export default function PortfolioPage() {
                     onClick={() => setModalVideo(item.youtubeId || null)}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300"
                   >
-                    <span>Смотреть ролик</span>
+                    <span>{lang === "ru" ? "Смотреть ролик" : "Watch Video"}</span>
                     <Play className="w-3.5 h-3.5 fill-current" />
                   </button>
                 ) : null}
