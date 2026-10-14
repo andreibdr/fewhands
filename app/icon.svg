@@ -1,0 +1,127 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded Background -->
+  <rect width="100" height="100" rx="22" fill="#0f172a" />
+  
+  <!-- Subtle inner gradient glow -->
+  <circle cx="50" cy="50" r="46" fill="#1e293b" opacity="0.6" />
+
+  <!-- HAND 1: Green Waving Hand (Left) -->
+  <g transform="translate(10, 14) rotate(-10 20 40)">
+    <path
+      d="M12 48 C10 38 10 30 14 26 C16 24 20 24 22 28 C23 30 24 35 24 40 L24 52 C20 54 14 53 12 48 Z"
+      fill="#22c55e"
+      stroke="#15803d"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M12 36 C8 34 3 34 2 38 C1 42 6 44 11 42"
+      fill="#4ade80"
+      stroke="#15803d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M13 26 C12 18 13 10 17 10 C21 10 21 18 20 25"
+      fill="#4ade80"
+      stroke="#15803d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M20 24 C20 15 22 6 26 6 C30 6 30 15 29 25"
+      fill="#22c55e"
+      stroke="#15803d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M28 26 C29 18 31 11 35 12 C38 13 37 20 35 28"
+      fill="#4ade80"
+      stroke="#15803d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M34 32 C37 26 40 20 44 23 C47 26 43 32 39 38"
+      fill="#22c55e"
+      stroke="#15803d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- HAND 2: Magenta OK Sign (Center) -->
+  <g transform="translate(36, 10)">
+    <path
+      d="M12 46 C11 40 12 34 16 31 C20 28 25 30 26 35 L27 54 C21 55 14 53 12 46 Z"
+      fill="#ec4899"
+      stroke="#be185d"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+    <ellipse cx="11" cy="27" rx="6.5" ry="7" fill="#f472b6" stroke="#be185d" stroke-width="2" />
+    <ellipse cx="11" cy="27" rx="2.5" ry="2.8" fill="#ffffff" stroke="#be185d" stroke-width="1.6" />
+    <path
+      d="M17 25 C17 17 18 8 22 8 C26 8 26 17 25 25"
+      fill="#ec4899"
+      stroke="#be185d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M24 25 C25 18 26 12 30 12 C33 12 33 19 31 27"
+      fill="#f472b6"
+      stroke="#be185d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path
+      d="M30 28 C32 22 34 17 38 18 C41 19 40 26 36 32"
+      fill="#ec4899"
+      stroke="#be185d"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- HAND 3: Cyan Thumbs-Up / Flex Gesture (Right) -->
+  <g transform="translate(62, 16) rotate(12 20 40)">
+    <path
+      d="M8 48 C6 38 8 32 14 30 C20 28 26 32 27 38 L25 52 C20 54 12 53 8 48 Z"
+      fill="#06b6d4"
+      stroke="#0e7490"
+      stroke-width="2"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M12 29 C11 20 12 12 16 11 C20 10 21 17 20 27"
+      fill="#38bdf8"
+      stroke="#0e7490"
+      stroke-width="2"
+      stroke-linecap="round"
+    />
+    <path d="M20 27 C24 27 26 30 26 34" stroke="#0e7490" stroke-width="2" stroke-linecap="round" />
+    <path d="M20 33 C25 33 27 36 26 40" stroke="#0e7490" stroke-width="2" stroke-linecap="round" />
+    <path d="M19 39 C23 39 25 42 24 45" stroke="#0e7490" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <!-- Bottom Banner: FEW HANDS -->
+  <g transform="translate(6, 64)">
+    <rect x="0" y="0" width="88" height="26" rx="6" fill="#ffffff" stroke="#334155" stroke-width="2.5" />
+    <circle cx="6" cy="13" r="1.5" fill="#64748b" />
+    <circle cx="82" cy="13" r="1.5" fill="#64748b" />
+    <text
+      x="44"
+      y="18"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-weight="900"
+      font-size="12"
+      letter-spacing="0.8"
+      fill="#0f172a"
+    >
+      FEW HANDS
+    </text>
+  </g>
+</svg>

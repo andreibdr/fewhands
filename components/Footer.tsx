@@ -4,9 +4,12 @@ import React from "react";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
+import { useLogo } from "./LogoContext";
+import { FewHandsLogo } from "./FewHandsLogo";
 
 export const Footer: React.FC = () => {
   const { lang } = useLanguage();
+  const { logoVariant } = useLogo();
 
   return (
     <footer className="relative z-10 border-t border-slate-200/80 bg-white/80 backdrop-blur-md py-16 text-slate-600">
@@ -15,15 +18,12 @@ export const Footer: React.FC = () => {
           
           {/* Col 1: Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 font-bold text-slate-900 text-lg mb-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center text-white font-bold text-sm shadow-sm">
-                FH
-              </div>
-              <span>Few Hands</span>
+            <Link href="/" className="inline-block mb-3 group">
+              <FewHandsLogo variant={logoVariant} size="sm" />
             </Link>
             <p className="text-xs text-slate-500 leading-relaxed mb-4">
               {lang === "ru"
-                ? "Веб-инженерия, миграция с устаревших CMS, абонентское обслуживание сайтов и AI-видеопродакшн."
+                ? "Веб-инженерия, миграция с устаревших CMS, техническая поддержка сайтов (Retainer) и AI-видеопродакшн."
                 : "Web engineering, legacy CMS migration, retainer tech support, and AI video production."}
             </p>
             <div className="text-xs text-slate-400">

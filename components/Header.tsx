@@ -3,32 +3,21 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "./LanguageContext";
+import { useLogo } from "./LogoContext";
+import { FewHandsLogo } from "./FewHandsLogo";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export const Header: React.FC = () => {
   const { lang, setLang } = useLanguage();
+  const { logoVariant, setLogoVariant } = useLogo();
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-bold shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 8l8-5 8 5v8l-8 5-8-5V8z" />
-              <path d="M12 3v18" opacity=".6" />
-            </svg>
-          </div>
-          <div>
-            <div className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 flex items-center gap-1.5">
-              <span>Few Hands</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
-            </div>
-            <div className="text-[10px] text-slate-500 font-mono tracking-wider uppercase -mt-0.5 font-medium">
-              Engineering Studio
-            </div>
-          </div>
+        {/* Brand Logo with dynamic variant */}
+        <Link href="/" className="flex items-center group">
+          <FewHandsLogo variant={logoVariant} />
         </Link>
 
         {/* Desktop Navigation */}
@@ -54,7 +43,50 @@ export const Header: React.FC = () => {
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Logo Comparison Switcher */}
+          <div
+            className="hidden sm:flex items-center bg-slate-100/90 border border-slate-200/90 rounded-xl p-0.5 text-[11px] font-semibold text-slate-600"
+            title={lang === "ru" ? "Сравнение вариантов логотипа" : "Compare logo variants"}
+          >
+            <button
+              onClick={() => setLogoVariant("heritage")}
+              className={`px-2 py-1 rounded-lg transition-all flex items-center gap-1 ${
+                logoVariant === "heritage"
+                  ? "bg-white text-indigo-700 shadow-sm font-bold"
+                  : "text-slate-500 hover:text-slate-900"
+              }`}
+              title="Оригинальный воссозданный логотип (Цветные руки)"
+            >
+              <span>👌</span>
+              <span className="hidden xl:inline">Оригинал</span>
+            </button>
+            <button
+              onClick={() => setLogoVariant("modern")}
+              className={`px-2 py-1 rounded-lg transition-all flex items-center gap-1 ${
+                logoVariant === "modern"
+                  ? "bg-white text-indigo-700 shadow-sm font-bold"
+                  : "text-slate-500 hover:text-slate-900"
+              }`}
+              title="Современная интерпретация"
+            >
+              <span>⚡</span>
+              <span className="hidden xl:inline">Modern</span>
+            </button>
+            <button
+              onClick={() => setLogoVariant("cube")}
+              className={`px-2 py-1 rounded-lg transition-all flex items-center gap-1 ${
+                logoVariant === "cube"
+                  ? "bg-white text-indigo-700 shadow-sm font-bold"
+                  : "text-slate-500 hover:text-slate-900"
+              }`}
+              title="Куб"
+            >
+              <span>🧊</span>
+              <span className="hidden xl:inline">Куб</span>
+            </button>
+          </div>
+
           {/* Language Switcher */}
           <div className="flex items-center bg-slate-100 border border-slate-200/80 rounded-xl p-1 text-xs font-semibold">
             <button
@@ -151,6 +183,45 @@ export const Header: React.FC = () => {
           >
             {lang === "ru" ? "Контакты" : "Contact"}
           </Link>
+
+          {/* Mobile Logo Switcher */}
+          <div className="pt-3 border-t border-slate-100 mt-2">
+            <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 px-1">
+              {lang === "ru" ? "Вариант логотипа:" : "Logo Style:"}
+            </div>
+            <div className="grid grid-cols-3 gap-1 bg-slate-100 p-1 rounded-xl text-xs font-medium">
+              <button
+                onClick={() => setLogoVariant("heritage")}
+                className={`py-2 px-2 rounded-lg text-center ${
+                  logoVariant === "heritage"
+                    ? "bg-white text-indigo-700 shadow-sm font-bold"
+                    : "text-slate-600"
+                }`}
+              >
+                👌 Оригинал
+              </button>
+              <button
+                onClick={() => setLogoVariant("modern")}
+                className={`py-2 px-2 rounded-lg text-center ${
+                  logoVariant === "modern"
+                    ? "bg-white text-indigo-700 shadow-sm font-bold"
+                    : "text-slate-600"
+                }`}
+              >
+                ⚡ Modern
+              </button>
+              <button
+                onClick={() => setLogoVariant("cube")}
+                className={`py-2 px-2 rounded-lg text-center ${
+                  logoVariant === "cube"
+                    ? "bg-white text-indigo-700 shadow-sm font-bold"
+                    : "text-slate-600"
+                }`}
+              >
+                🧊 Куб
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </header>
