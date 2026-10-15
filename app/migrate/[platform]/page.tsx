@@ -4,7 +4,7 @@ import { platformsData } from "@/lib/platforms";
 import { PlatformDetailView } from "@/components/PlatformDetailView";
 
 interface Props {
-  params: { platform: string };
+  params: Promise<{ platform: string }>;
 }
 
 export function generateStaticParams() {
@@ -13,8 +13,9 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const platform = platformsData[params.platform];
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { platform: slug } = await params;
+  const platform = platformsData[slug];
   if (!platform) {
     return {
       title: "CMS Migration to Next.js | Few Hands",
@@ -32,22 +33,23 @@ export function generateMetadata({ params }: Props): Metadata {
       "few hands gomvp",
     ],
     alternates: {
-      canonical: `https://fewhands.com/migrate/${params.platform}`,
+      canonical: `https://fewhands.com/migrate/${slug}`,
     },
     openGraph: {
       title: platform.metaTitle.en,
       description: platform.metaDescription.en,
-      url: `https://fewhands.com/migrate/${params.platform}`,
+      url: `https://fewhands.com/migrate/${slug}`,
       type: "article",
     },
   };
 }
 
-export default function PlatformMigrationPage({ params }: Props) {
-  const platform = platformsData[params.platform];
+export default async function PlatformMigrationPage({ params }: Props) {
+  const { platform: slug } = await params;
+  const platform = platformsData[slug];
   if (!platform) {
     notFound();
   }
 
-  return <PlatformDetailView platformSlug={params.platform} />;
+  return <PlatformDetailView platformSlug={slug} />;
 }
