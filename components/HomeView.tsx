@@ -155,7 +155,7 @@ export const HomeView: React.FC = () => {
 
       <div>
         {/* 1. Hero Portal Header */}
-        <section className="relative overflow-hidden pt-12 pb-20 sm:pt-24 sm:pb-28">
+        <section className="relative overflow-hidden pt-8 pb-10 sm:pt-14 sm:pb-12">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-[#7ea368]/10 via-[#9c386d]/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -173,7 +173,7 @@ export const HomeView: React.FC = () => {
             <div className="text-center max-w-4xl mx-auto">
               
               {/* Studio Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#e5e1eb] text-[#2d263b] text-xs font-semibold mb-6 shadow-sm backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#e5e1eb] text-[#2d263b] text-xs font-semibold mb-5 shadow-sm backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[#7ea368] animate-pulse" />
                 <span>
                   {lang === "ru"
@@ -204,14 +204,14 @@ export const HomeView: React.FC = () => {
               </h1>
 
               {/* Subtitle */}
-              <p className="mt-6 text-base sm:text-xl text-[#585068] leading-relaxed max-w-3xl mx-auto">
+              <p className="mt-5 text-base sm:text-lg lg:text-xl text-[#585068] leading-relaxed max-w-3xl mx-auto">
                 {lang === "ru"
                   ? "Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром GoMVP. Онбординг персонала, регулярное сопровождение (Retainer) и фотореалистичные AI-аватары."
                   : "Engineering migrations from WordPress, Tilda, Webflow, and monolithic CMSs to Next.js in partnership with GoMVP. Staff onboarding, monthly retainer maintenance, and photorealistic AI avatars."}
               </p>
 
               {/* Quick Action CTAs with Hand-drawn Doodle Arrow */}
-              <div className="mt-8 flex flex-col items-center">
+              <div className="mt-7 flex flex-col items-center">
                 <div className="relative inline-flex flex-wrap justify-center items-center gap-4">
                   {/* Hand-drawn arrow pointing to button (Desktop/Tablet) */}
                   <div className="hidden md:block absolute -left-56 top-2">
@@ -220,14 +220,14 @@ export const HomeView: React.FC = () => {
 
                   <Link
                     href="/estimate"
-                    className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-bold text-sm sm:text-base shadow-lg shadow-[#2d263b]/15 transition-all hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-bold text-sm sm:text-base shadow-lg shadow-[#2d263b]/15 transition-all hover:-translate-y-0.5"
                   >
                     <span>{lang === "ru" ? "Оценить стоимость проекта" : "Estimate Project Budget"}</span>
                     <ArrowRight className="w-4 h-4 text-[#e5e1eb]" />
                   </Link>
                   <Link
                     href="/migrate"
-                    className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl border border-[#e5e1eb] bg-white/90 text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-bold text-sm sm:text-base shadow-sm hover:bg-white transition-all"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl border border-[#e5e1eb] bg-white/90 text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-bold text-sm sm:text-base shadow-sm hover:bg-white transition-all"
                   >
                     <span>{lang === "ru" ? "Хаб миграции CMS" : "CMS Migration Hub"}</span>
                   </Link>
@@ -240,10 +240,10 @@ export const HomeView: React.FC = () => {
         </section>
 
         {/* 2. Four Doors Funnel (4 направления в палитре рук) */}
-        <section className="py-16 sm:py-24 border-t border-[#e5e1eb] bg-white/60 backdrop-blur-md">
+        <section className="py-10 sm:py-14 border-t border-[#e5e1eb] bg-white/60 backdrop-blur-md">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b]">
                 {lang === "ru" ? "Ключевые направления студии" : "Our Core Capabilities"}
               </h2>
@@ -402,7 +402,7 @@ export const HomeView: React.FC = () => {
         </section>
 
         {/* 2.5 Trust Metrics & Engineering Standards */}
-        <section className="py-14 sm:py-20 border-t border-[#e5e1eb] bg-[#faf9fb]">
+        <section className="py-8 sm:py-12 border-t border-[#e5e1eb] bg-[#faf9fb]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
             {/* Key Trust Metrics */}
@@ -430,7 +430,7 @@ export const HomeView: React.FC = () => {
             </div>
 
             {/* Editorial Stamp & P.S. Engineering Callout */}
-            <div className="mt-10 max-w-3xl mx-auto grid sm:grid-cols-12 gap-4 items-center">
+            <div className="mt-6 sm:mt-8 max-w-3xl mx-auto grid sm:grid-cols-12 gap-4 items-center">
               <div className="sm:col-span-5 flex justify-center sm:justify-start">
                 <SpeedRatingStamp className="w-full" />
               </div>
@@ -440,7 +440,7 @@ export const HomeView: React.FC = () => {
             </div>
 
             {/* Responsive Cards Row for Tablet & Mobile where desktop sidebars are hidden */}
-            <div className="xl:hidden mt-8 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+            <div className="xl:hidden mt-6 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
               <ScientificAuditCard className="rotate-0 hover:rotate-1" />
               <EditorialStyleCard className="rotate-0 hover:-rotate-1" />
             </div>
@@ -449,9 +449,9 @@ export const HomeView: React.FC = () => {
         </section>
 
         {/* 3. Featured Portfolio Preview */}
-        <section className="py-16 sm:py-24 border-t border-[#e5e1eb]">
+        <section className="py-10 sm:py-14 border-t border-[#e5e1eb]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#386161] font-bold">
                   {lang === "ru" ? "Избранные работы" : "Selected Client Works"}
@@ -519,9 +519,9 @@ export const HomeView: React.FC = () => {
         </section>
 
         {/* 4. Frequently Asked Questions (SEO Content Enrichment) */}
-        <section className="py-16 sm:py-24 border-t border-[#e5e1eb] bg-white/60 backdrop-blur-md">
+        <section className="py-10 sm:py-14 border-t border-[#e5e1eb] bg-white/60 backdrop-blur-md">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#e5e1eb] text-[#386161] text-xs font-semibold mb-3">
                 <HelpCircle className="w-3.5 h-3.5" />
                 <span>{lang === "ru" ? "Частые вопросы" : "FAQ"}</span>
@@ -568,7 +568,7 @@ export const HomeView: React.FC = () => {
         </section>
 
         {/* 5. Final CTA Box */}
-        <section className="py-16 border-t border-[#e5e1eb] bg-gradient-to-b from-white/80 via-[#faf9fb] to-[#f1f0f5]">
+        <section className="py-10 sm:py-14 border-t border-[#e5e1eb] bg-gradient-to-b from-white/80 via-[#faf9fb] to-[#f1f0f5]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2d263b]">
               {lang === "ru"
