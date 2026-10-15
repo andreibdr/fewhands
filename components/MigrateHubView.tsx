@@ -327,7 +327,7 @@ export const MigrateHubView: React.FC = () => {
               <DoodlePointer
                 text={lang === "ru" ? "выберите CMS для дорожной карты ↘" : lang === "sr" ? "izaberite CMS za plan migracije ↘" : "pick source CMS for roadmap ↘"}
                 direction="curved-right"
-                className="hidden md:inline-flex shrink-0 self-end mb-1"
+                className="hidden lg:inline-flex shrink-0 self-end mb-1"
               />
             </div>
 

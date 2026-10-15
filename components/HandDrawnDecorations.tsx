@@ -430,10 +430,10 @@ export const DoodlePointer: React.FC<{
   className?: string;
 }> = ({ text, direction = "curved-right", className = "" }) => {
   return (
-    <div className={`inline-flex items-center gap-2 select-none pointer-events-none ${className}`}>
+    <div className={`inline-flex items-center gap-2 select-none pointer-events-none whitespace-nowrap ${className}`}>
       {direction === "curved-right" && (
         <>
-          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight -rotate-3">
+          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight -rotate-3 whitespace-nowrap">
             {text}
           </span>
           <svg
@@ -452,7 +452,7 @@ export const DoodlePointer: React.FC<{
 
       {direction === "curved-down-right" && (
         <div className="flex flex-col items-center gap-1">
-          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight -rotate-2">
+          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight -rotate-2 whitespace-nowrap">
             {text}
           </span>
           <svg
@@ -471,7 +471,7 @@ export const DoodlePointer: React.FC<{
 
       {direction === "curved-down-left" && (
         <div className="flex flex-col items-center gap-1">
-          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight rotate-2">
+          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight rotate-2 whitespace-nowrap">
             {text}
           </span>
           <svg
@@ -490,7 +490,7 @@ export const DoodlePointer: React.FC<{
 
       {direction === "curved-up-right" && (
         <>
-          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight -rotate-3">
+          <span className="font-handwriting text-base sm:text-lg text-[#386161] font-bold leading-tight -rotate-3 whitespace-nowrap">
             {text}
           </span>
           <svg

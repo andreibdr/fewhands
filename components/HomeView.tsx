@@ -179,13 +179,13 @@ export const HomeView: React.FC = () => {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             
-            {/* Desktop Left Hand-drawn card: Empirical Audit (Visible on XL screens) */}
-            <div className="hidden xl:block absolute -left-2 2xl:-left-6 top-16 w-60 z-20">
+            {/* Desktop Left Hand-drawn card: Empirical Audit (Visible on 2XL wide screens) */}
+            <div className="hidden 2xl:block absolute -left-6 top-16 w-60 z-20">
               <ScientificAuditCard />
             </div>
 
-            {/* Desktop Right Hand-drawn card: Style & Clean Code (Visible on XL screens) */}
-            <div className="hidden xl:block absolute -right-2 2xl:-right-6 top-10 w-60 z-20">
+            {/* Desktop Right Hand-drawn card: Style & Clean Code (Visible on 2XL wide screens) */}
+            <div className="hidden 2xl:block absolute -right-6 top-10 w-60 z-20">
               <EditorialStyleCard />
             </div>
 
@@ -238,8 +238,8 @@ export const HomeView: React.FC = () => {
               {/* Quick Action CTAs with Hand-drawn Doodle Arrow */}
               <div className="mt-7 flex flex-col items-center">
                 <div className="relative inline-flex flex-wrap justify-center items-center gap-4">
-                  {/* Hand-drawn arrow pointing to button (Desktop/Tablet) */}
-                  <div className="hidden md:block absolute right-full mr-4 top-2 pointer-events-none">
+                  {/* Hand-drawn arrow pointing to button (Desktop) */}
+                  <div className="hidden lg:block absolute right-full mr-4 top-2 pointer-events-none">
                     <DoodleArrowCTA />
                   </div>
 
@@ -474,8 +474,8 @@ export const HomeView: React.FC = () => {
               </div>
             </div>
 
-            {/* Responsive Cards Row for Tablet & Mobile where desktop sidebars are hidden */}
-            <div className="xl:hidden mt-6 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+            {/* Responsive Cards Row for screens where hero side cards are hidden */}
+            <div className="2xl:hidden mt-6 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
               <ScientificAuditCard className="rotate-0 hover:rotate-1" />
               <EditorialStyleCard className="rotate-0 hover:-rotate-1" />
             </div>

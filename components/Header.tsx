@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
         </Link>
 
         {/* Desktop Navigation in Studio Palette */}
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#585068]">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-[#585068]">
           <Link href="/migrate" className="hover:text-[#386161] transition-colors">
             {lang === "ru" ? "Миграция CMS" : lang === "sr" ? "Migracija CMS-a" : "CMS Migration"}
           </Link>

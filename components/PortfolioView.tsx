@@ -118,7 +118,7 @@ export const PortfolioView: React.FC = () => {
               <DoodlePointer
                 text={lang === "ru" ? "выберите категорию кейсов ↘" : lang === "sr" ? "izaberite kategoriju projekata ↘" : "filter projects by type ↘"}
                 direction="curved-right"
-                className="hidden md:inline-flex self-end mb-1"
+                className="hidden lg:inline-flex shrink-0 self-end mb-1"
               />
               <div className="flex items-center bg-[#f1f0f5] border border-[#e5e1eb] p-1.5 rounded-2xl shrink-0">
                 {[
