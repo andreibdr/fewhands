@@ -186,6 +186,11 @@ function EstimatorInner() {
       detailsRu: `Миграция с ${platformNamesRu[migPlatform] || migPlatform} (${scaleNamesRu[migScale] || migScale}) ${supportLabelRu}`,
       detailsEn: `Migration from ${platformNamesEn[migPlatform] || migPlatform} (${scaleNamesEn[migScale] || migScale}) with ${supportLabelEn}`,
       detailsSr: `Migracija sa ${platformNamesSr[migPlatform] || migPlatform} (${scaleNamesSr[migScale] || migScale}) uz ${supportLabelSr}`,
+      platform: platformNamesRu[migPlatform] || migPlatform,
+      scale: scaleNamesRu[migScale] || migScale,
+      support: supportLabelRu,
+      price: `от $${basePrice}${supportPrice}`,
+      timeline: `${daysMin}-${daysMax} раб. дней`,
     };
   };
 
@@ -275,6 +280,12 @@ function EstimatorInner() {
       detailsRu: `Разработка: ${devTypeNamesRu[devType] || devType} (${devDesignNamesRu[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Оплата" : ""})`,
       detailsEn: `Development: ${devTypeNamesEn[devType] || devType} (${devDesignNamesEn[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Payments" : ""})`,
       detailsSr: `Razvoj: ${devTypeNamesSr[devType] || devType} (${devDesignNamesSr[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Plaćanja" : ""})`,
+      type: devTypeNamesRu[devType] || devType,
+      design: devDesignNamesRu[devDesign] || devDesign,
+      multiLang: devMultiLang ? "Да (+ i18n)" : "Нет",
+      payment: devPayment ? "Да (+ Эквайринг)" : "Нет",
+      price: `от $${basePrice}`,
+      timeline: `${daysMin}-${daysMax} раб. дней`,
     };
   };
 
@@ -369,6 +380,16 @@ function EstimatorInner() {
       pack10: "Serija od 10 videa",
     };
 
+    const langNamesRu: Record<string, string> = {
+      single: "1 язык (оригинал)",
+      multilingual: "Мультиязычный (AI дубляж / перевод)",
+    };
+    const scriptNamesRu: Record<string, string> = {
+      turnkey: "Сценарий под ключ",
+      studio: "Сценарий под ключ",
+      client: "Готовый сценарий клиента",
+    };
+
     return {
       priceRu: `от $${basePrice}`,
       priceEn: `from $${basePrice}`,
@@ -376,9 +397,15 @@ function EstimatorInner() {
       timeRu: `${daysMin}-${daysMax} раб. дней`,
       timeEn: `${daysMin}-${daysMax} business days`,
       timeSr: `${daysMin}-${daysMax} radnih dana`,
-      detailsRu: `Видео: ${vidFormatNamesRu[vidFormat] || vidFormat} (${vidCountNamesRu[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "мультиязычный" : "1 язык"}, ${vidScript === "turnkey" ? "сценарий под ключ" : "готовый сценарий"})`,
-      detailsEn: `Video: ${vidFormatNamesEn[vidFormat] || vidFormat} (${vidCountNamesEn[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "multilingual" : "single language"}, ${vidScript === "turnkey" ? "turnkey script" : "client script"})`,
-      detailsSr: `Video: ${vidFormatNamesSr[vidFormat] || vidFormat} (${vidCountNamesSr[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "višejezični" : "1 jezik"}, ${vidScript === "turnkey" ? "scenario ključ u ruke" : "scenario klijenta"})`,
+      detailsRu: `Видео: ${vidFormatNamesRu[vidFormat] || vidFormat} (${vidCountNamesRu[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "мультиязычный" : "1 язык"}, ${vidScript === "turnkey" || vidScript === "studio" ? "сценарий под ключ" : "готовый сценарий"})`,
+      detailsEn: `Video: ${vidFormatNamesEn[vidFormat] || vidFormat} (${vidCountNamesEn[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "multilingual" : "single language"}, ${vidScript === "turnkey" || vidScript === "studio" ? "turnkey script" : "client script"})`,
+      detailsSr: `Video: ${vidFormatNamesSr[vidFormat] || vidFormat} (${vidCountNamesSr[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "višejezični" : "1 jezik"}, ${vidScript === "turnkey" || vidScript === "studio" ? "scenario ključ u ruke" : "scenario klijenta"})`,
+      format: vidFormatNamesRu[vidFormat] || vidFormat,
+      count: vidCountNamesRu[vidCount] || vidCount,
+      languages: langNamesRu[vidLanguages] || vidLanguages,
+      script: scriptNamesRu[vidScript] || vidScript,
+      price: `от $${basePrice}`,
+      timeline: `${daysMin}-${daysMax} раб. дней`,
     };
   };
 
@@ -398,6 +425,7 @@ function EstimatorInner() {
       result: currentResult,
       clientName: name,
       contact: contact,
+      lang: lang,
     };
 
     try {

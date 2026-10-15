@@ -13,7 +13,7 @@ function escapeHtml(text: string): string {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { calculator, result, clientName, contact } = body;
+    const { calculator, result, clientName, contact, lang } = body;
 
     const dateStr = new Date().toLocaleString("ru-RU", {
       timeZone: "Europe/Moscow",
@@ -27,6 +27,7 @@ export async function POST(request: Request) {
       result,
       clientName,
       contact,
+      lang,
     });
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN?.trim().replace(/^["']|["']$/g, "");
@@ -36,38 +37,64 @@ export async function POST(request: Request) {
       let detailsHtml = "";
       let detailsPlain = "";
 
+      const price = result?.price || result?.priceRu || result?.priceEn || "-";
+      const timeline = result?.timeline || result?.timeRu || result?.timeEn || "-";
+      const summary = result?.detailsRu || result?.detailsEn || result?.detailsSr || "-";
+
+      let categoryName = "Калькулятор сметы";
+
       if (calculator === "migration") {
+        categoryName = "Миграция и поддержка";
+        const platform = result?.platform || "-";
+        const scale = result?.scale || "-";
+        const support = result?.support || "-";
+
         detailsHtml = [
-          `📦 <b>Платформа:</b> ${escapeHtml(result?.platform || "-")}`,
-          `📊 <b>Масштаб:</b> ${escapeHtml(result?.scale || "-")}`,
-          `🛡 <b>Поддержка:</b> ${escapeHtml(result?.support || "-")}`,
-          `💰 <b>Оценка:</b> <b>$${result?.priceMin || 0} - $${result?.priceMax || 0}</b>`,
-          `⏱ <b>Сроки:</b> ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`,
+          `📦 <b>Платформа:</b> ${escapeHtml(platform)}`,
+          `📊 <b>Масштаб:</b> ${escapeHtml(scale)}`,
+          `🛡 <b>Поддержка:</b> ${escapeHtml(support)}`,
+          `💰 <b>Оценка:</b> <b>${escapeHtml(price)}</b>`,
+          `⏱ <b>Сроки:</b> ${escapeHtml(timeline)}`,
+          `📝 <b>Конфигурация:</b> ${escapeHtml(summary)}`,
         ].join("\n");
 
-        detailsPlain = `Платформа: ${result?.platform || "-"}\nМасштаб: ${result?.scale || "-"}\nПоддержка: ${result?.support || "-"}\nОценка: $${result?.priceMin || 0} - $${result?.priceMax || 0}\nСроки: ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`;
+        detailsPlain = `Платформа: ${platform}\nМасштаб: ${scale}\nПоддержка: ${support}\nОценка: ${price}\nСроки: ${timeline}\nКонфигурация: ${summary}`;
       } else if (calculator === "development") {
+        categoryName = "Кастомная веб-разработка";
+        const type = result?.type || "-";
+        const design = result?.design || "-";
+        const multiLang = typeof result?.multiLang === "boolean" ? (result.multiLang ? "Да" : "Нет") : (result?.multiLang || "Нет");
+        const payment = typeof result?.payment === "boolean" ? (result.payment ? "Да" : "Нет") : (result?.payment || "Нет");
+
         detailsHtml = [
-          `🛠 <b>Тип проекта:</b> ${escapeHtml(result?.type || "-")}`,
-          `🎨 <b>Дизайн:</b> ${escapeHtml(result?.design || "-")}`,
-          `🌐 <b>Мультиязычность:</b> ${result?.multiLang ? "Да" : "Нет"}`,
-          `💳 <b>Эквайринг:</b> ${result?.payment ? "Да" : "Нет"}`,
-          `💰 <b>Оценка:</b> <b>$${result?.priceMin || 0} - $${result?.priceMax || 0}</b>`,
-          `⏱ <b>Сроки:</b> ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`,
+          `🛠 <b>Тип проекта:</b> ${escapeHtml(type)}`,
+          `🎨 <b>Дизайн:</b> ${escapeHtml(design)}`,
+          `🌐 <b>Мультиязычность:</b> ${escapeHtml(multiLang)}`,
+          `💳 <b>Эквайринг:</b> ${escapeHtml(payment)}`,
+          `💰 <b>Оценка:</b> <b>${escapeHtml(price)}</b>`,
+          `⏱ <b>Сроки:</b> ${escapeHtml(timeline)}`,
+          `📝 <b>Конфигурация:</b> ${escapeHtml(summary)}`,
         ].join("\n");
 
-        detailsPlain = `Тип проекта: ${result?.type || "-"}\nДизайн: ${result?.design || "-"}\nМультиязычность: ${result?.multiLang ? "Да" : "Нет"}\nЭквайринг: ${result?.payment ? "Да" : "Нет"}\nОценка: $${result?.priceMin || 0} - $${result?.priceMax || 0}\nСроки: ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`;
+        detailsPlain = `Тип проекта: ${type}\nДизайн: ${design}\nМультиязычность: ${multiLang}\nЭквайринг: ${payment}\nОценка: ${price}\nСроки: ${timeline}\nКонфигурация: ${summary}`;
       } else {
+        categoryName = "AI Видео и YouTube продакшн";
+        const format = result?.format || "-";
+        const count = result?.count || "-";
+        const languages = result?.languages || "-";
+        const script = result?.script || "-";
+
         detailsHtml = [
-          `🎬 <b>Формат видео:</b> ${escapeHtml(result?.format || "-")}`,
-          `📦 <b>Объем:</b> ${escapeHtml(result?.count || "-")}`,
-          `🌍 <b>Языки:</b> ${escapeHtml(result?.languages || "-")}`,
-          `✍ <b>Сценарий:</b> ${escapeHtml(result?.script || "-")}`,
-          `💰 <b>Оценка:</b> <b>$${result?.priceMin || 0} - $${result?.priceMax || 0}</b>`,
-          `⏱ <b>Сроки:</b> ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`,
+          `🎬 <b>Формат видео:</b> ${escapeHtml(format)}`,
+          `📦 <b>Объем:</b> ${escapeHtml(count)}`,
+          `🌍 <b>Языки:</b> ${escapeHtml(languages)}`,
+          `✍ <b>Сценарий:</b> ${escapeHtml(script)}`,
+          `💰 <b>Оценка:</b> <b>${escapeHtml(price)}</b>`,
+          `⏱ <b>Сроки:</b> ${escapeHtml(timeline)}`,
+          `📝 <b>Конфигурация:</b> ${escapeHtml(summary)}`,
         ].join("\n");
 
-        detailsPlain = `Формат видео: ${result?.format || "-"}\nОбъем: ${result?.count || "-"}\nЯзыки: ${result?.languages || "-"}\nСценарий: ${result?.script || "-"}\nОценка: $${result?.priceMin || 0} - $${result?.priceMax || 0}\nСроки: ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`;
+        detailsPlain = `Формат видео: ${format}\nОбъем: ${count}\nЯзыки: ${languages}\nСценарий: ${script}\nОценка: ${price}\nСроки: ${timeline}\nКонфигурация: ${summary}`;
       }
 
       const htmlText = [
@@ -76,8 +103,9 @@ export async function POST(request: Request) {
         `👤 <b>Имя:</b> ${escapeHtml(clientName || "Не указано")}`,
         `📞 <b>Контакт:</b> <code>${escapeHtml(contact || "Не указан")}</code>`,
         `🕒 <b>Время:</b> ${dateStr}`,
+        `📁 <b>Направление:</b> ${escapeHtml(categoryName)}`,
         ``,
-        `⚙️ <b>Параметры сметы (${calculator}):</b>`,
+        `⚙️ <b>Параметры сметы:</b>`,
         detailsHtml,
       ].join("\n");
 
@@ -99,7 +127,7 @@ export async function POST(request: Request) {
         const tgErr = await tgRes.text();
         console.error("Telegram HTML estimate dispatch failed, trying plain text fallback:", tgErr);
 
-        const plainText = `📊 Новый расчет сметы с сайта fewhands.com\n\nИмя: ${clientName || "Не указано"}\nКонтакт: ${contact || "Не указан"}\nВремя: ${dateStr}\n\nПараметры (${calculator}):\n${detailsPlain}`;
+        const plainText = `📊 Новый расчет сметы с сайта fewhands.com\n\nИмя: ${clientName || "Не указано"}\nКонтакт: ${contact || "Не указан"}\nВремя: ${dateStr}\nНаправление: ${categoryName}\n\nПараметры сметы:\n${detailsPlain}`;
 
         await fetch(
           `https://api.telegram.org/bot${botToken}/sendMessage`,
