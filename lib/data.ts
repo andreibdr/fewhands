@@ -3,7 +3,7 @@ export interface PortfolioItem {
   title: string;
   category: 'web' | 'video';
   tags: string[];
-  description: { ru: string; en: string };
+  description: { ru: string; en: string; sr: string };
   image?: string;
   url?: string;
   status?: 'live' | 'archived';
@@ -22,6 +22,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Аналитическая платформа рынка недвижимости Майами: прогнозирование цен, инвестиционные дашборды и метрики доходности.",
       en: "Miami real estate market analytics platform: price trend prediction, investment dashboards, and ROI yield metrics.",
+      sr: "Analitička platforma za tržište nekretnina u Majamiju: predviđanje kretanja cena, investicioni kontrolni paneli i metrički pokazatelji prinosa.",
     },
     image: "/portfolio/bigdatarealty.jpg",
     url: "https://bigdatarealty.com",
@@ -35,6 +36,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Персональный сайт и портфолио агента по элитной недвижимости во Флориде с каталогом объектов и интерактивными картами.",
       en: "Personal website & portfolio for a Florida luxury real estate agent featuring property listings and neighborhood guides.",
+      sr: "Lični veb-sajt i portfolio agenta za luksuzne nekretnine na Floridi sa katalogom objekata i interaktivnim vodičima kroz lokacije.",
     },
     image: "/portfolio/stazhkova.png",
     url: "https://stazhkova.com",
@@ -48,6 +50,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Информационно-образовательный портал международного сообщества выпускников и студентов МФТИ.",
       en: "Educational community portal connecting global alumni and students of MIPT (Moscow Institute of Physics and Technology).",
+      sr: "Edukativni i informativni portal međunarodne zajednice diplomaca i studenata prestižnog MFTI univerziteta.",
     },
     image: "/portfolio/miptglobal.png",
     url: "https://miptglobal.com",
@@ -61,6 +64,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Премиальный портал медицинского туризма и каталог ведущих клиник США (онкология, кардиохирургия).",
       en: "Curated directory & portal connecting international patients with top-ranked US hospitals.",
+      sr: "Premijum portal medicinskog turizma i katalog vodećih bolnica u SAD (onkologija, kardiohirurgija).",
     },
     image: "/portfolio/americanmedtravel.jpg",
     url: "https://www.americanmedtravel.com/",
@@ -74,6 +78,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Сайт поставщика ураганостойких окон и дверей во Флориде: онлайн-калькулятор остекления, каталог профилей и заявки.",
       en: "Corporate website for a Florida hurricane impact windows and doors contractor: quote flows, product specs, and commercial portfolio.",
+      sr: "Veb-sajt izvođača radova za ugradnju vrata i prozora otpornih na uragane na Floridi: online proračun, specifikacije profila i komercijalni portfolio.",
     },
     image: "/portfolio/iwdsolutions.png",
     url: "https://iwdsolutions.com",
@@ -87,6 +92,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Каталог швейцарских эфирных масел, фитопрепаратов и натуральной косметики регионального представительства.",
       en: "Regional distributor web catalog for premium Swiss essential oils, phytotherapy, and natural wellness skincare.",
+      sr: "Katalog švajcarskih eteričnih ulja, fitoterapijskih preparata i prirodne kozmetike regionalnog distributera.",
     },
     image: "/portfolio/vivasan.jpg",
     url: "http://vivasan.us",
@@ -100,6 +106,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Персональная платформа финансового аналитика и исследователя рынка жилой недвижимости Южной Флориды.",
       en: "Research and quantitative analytics platform for South Florida residential and commercial real estate.",
+      sr: "Platforma za kvantitativnu analitiku i istraživanje stambenog tržišta nekretnina Južne Floride.",
     },
     image: "/portfolio/bugera.png",
     url: "http://bugera.com",
@@ -113,6 +120,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Консьерж-сервис и городской портал Майами: аренда яхт, вилл, автомобили и организация мероприятий под ключ.",
       en: "Miami city guide and luxury lifestyle concierge: yacht charters, exotic rentals, villa booking, and VIP services.",
+      sr: "Vodič kroz Majami i luksuzni konsijerž servis: iznajmljivanje jahti, vila, egzotičnih automobila i VIP organizacija događaja.",
     },
     image: "/portfolio/miamireach.jpg",
     url: "https://miamireach.com/en/",
@@ -126,6 +134,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Крупный региональный медиа-портал: афиша событий, новости округа Майами-Дейд, справочник заведений и сообщество.",
       en: "Regional media and community news portal covering South Florida culture, events calendar, and local business directory.",
+      sr: "Veliki regionalni medijski portal: kalendar događaja, vesti okruga Majami-Dejd, vodič kroz lokalne objekte i zajednica.",
     },
     image: "/portfolio/moemiami.jpg",
     url: "http://moemiami.com",
@@ -139,6 +148,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Официальный сайт поставщика пищевых ингредиентов, заквасок и технологических решений для молочной промышленности.",
       en: "Corporate portal for dairy industry enzyme cultures, ingredients supply, and bio-technological production solutions.",
+      sr: "Zvanični sajt dobavljača prehrambenih sastojaka, starter kultura i biotehnoloških rešenja za mlekarsku industriju.",
     },
     image: "/portfolio/maysa.jpg",
     url: "https://maysa.ru/",
@@ -154,6 +164,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Официальный сайт производителя строительных 3D-принтеров для возведения зданий и малых архитектурных форм.",
       en: "Official website for the manufacturer of industrial 3D construction printers for additive building and architectural manufacturing.",
+      sr: "Zvanični sajt proizvođača industrijskih 3D građevinskih štampača za podizanje zgrada i arhitektonskih formi.",
     },
     image: "/portfolio/amt-g.jpg",
     status: "archived",
@@ -167,6 +178,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Сайт брокерского агентства недвижимости полного цикла: аренда, покупка премиальных резиденций и кондоминиумов.",
       en: "Full-service real estate brokerage agency website: residential leasing, commercial investment, and luxury condominiums.",
+      sr: "Veb-sajt agencije za posredovanje u prometu nekretnina: iznajmljivanje, kupovina premijum rezidencija i kondominijuma.",
     },
     image: "/portfolio/cabaes-group.png",
     status: "archived",
@@ -180,6 +192,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Интернет-магазин чугунных казанов, мангалов, печей и аутентичной кухонной утвари с удобным чекаутом и каталогом.",
       en: "E-commerce store specializing in cast-iron cauldrons, grills, wood-fired stoves, and outdoor culinary cookware.",
+      sr: "Online prodavnica livenih kotlića, roštilja, peći i autentičnog kulinarskog posuđa sa jednostavnom kupovinom.",
     },
     image: "/portfolio/shefkazan.jpg",
     status: "archived",
@@ -193,6 +206,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Бутик редкой селективной парфюмерии: карточки ароматов по нотам, фильтрация по брендам и удобная корзина покупок.",
       en: "Selective and niche perfumery online boutique: fragrance pyramids, olfactory notes filtering, and curated collections.",
+      sr: "Boutique retkih selektivnih i nišnih parfema: piramide mirisa, filtriranje po notama i pregledna korpa.",
     },
     image: "/portfolio/parfdeman.jpg",
     status: "archived",
@@ -206,6 +220,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Элегантный сайт спа-центра и салона косметологии: прайс-лист, галерея процедур, профили мастеров и онлайн-запись.",
       en: "Refined beauty salon and medical aesthetics center website: service menu, treatment gallery, master profiles, and booking.",
+      sr: "Elegantan sajt spa i estetskog centra: cenovnik usluga, galerija tretmana, profili stručnjaka i online zakazivanje.",
     },
     image: "/portfolio/aquarium.jpg",
     status: "archived",
@@ -219,6 +234,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Студия аквадизайна: проектирование рифовых комплексов, обслуживание морских биотопов и индивидуальное изготовление аквариумов.",
       en: "Aquatic design studio: bespoke marine reef ecosystems, custom freshwater installations, and professional maintenance.",
+      sr: "Studio za akvadizajn: projektovanje morskih grebenskih sistema, održavanje biotope akvarijuma i unikatna izrada po meri.",
     },
     image: "/portfolio/coralman.jpg",
     status: "archived",
@@ -232,6 +248,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Официальный сайт экспертно-информационного центра: сопровождение тендеров, правовой консалтинг и аудит процедур.",
       en: "Legal advisory & procurement consulting portal: public tender management, compliance audit, and corporate bidding advisory.",
+      sr: "Zvanični sajt ekspertsko-informativnog centra: vođenje javnih nabavki, pravni konsalting i revizija procedura.",
     },
     image: "/portfolio/sovetnik.jpg",
     status: "archived",
@@ -245,6 +262,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Корпоративный портал консалтинговой группы по обеспечению участия бизнеса в крупных государственных контрактах.",
       en: "Consultancy firm web portal assisting enterprises in securing municipal and federal government procurement contracts.",
+      sr: "Korporativni portal konsultantske grupe za učešće privrednih subjekata u javnim i državnim nabavkama.",
     },
     image: "/portfolio/expertus.jpg",
     status: "archived",
@@ -258,6 +276,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Платформа консалтинговых услуг по инкорпорации, налоговому планированию и открытию бизнеса во Флориде и США.",
       en: "Business advisory platform for international entrepreneurs: corporate registration, compliance, and Florida market entry.",
+      sr: "Konsultantska platforma za osnivanje firmi, poresko planiranje i pokretanje poslovanja na Floridi i u SAD.",
     },
     image: "/portfolio/expertllc.jpg",
     status: "archived",
@@ -271,6 +290,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Презентационный портал инвестиционной группы по программе EB-5: девелопмент, инфраструктурные проекты и привлечение инвесторов.",
       en: "Investment group presentation portal for the EB-5 immigrant investor program: commercial development and EB-5 fund structuring.",
+      sr: "Prezentacioni portal investicione grupe za EB-5 program: razvoj komercijalnih nekretnina i privlačenje investitora.",
     },
     image: "/portfolio/bart.jpg",
     status: "archived",
@@ -284,6 +304,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Детский образовательный центр: программы раннего развития, ментальная арифметика, творческие мастерские и расписание занятий.",
       en: "Early childhood development and creativity academy: STEM enrichment, mental math, arts workshops, and class scheduling.",
+      sr: "Dečji edukativni centar: programi ranog razvoja, mentalna aritmetika, kreativne radionice i raspored časova.",
     },
     image: "/portfolio/kangaroo.jpg",
     status: "archived",
@@ -299,6 +320,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Презентация продукта с фотореалистичным цифровым аватаром.",
       en: "Product explainer featuring a photorealistic AI presenter.",
+      sr: "Prezentacija proizvoda sa fotorealističnim digitalnim avatarom.",
     },
     youtubeId: "M8g2gJlwH7M",
     isShort: true,
@@ -311,6 +333,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Рекламный ролик с говорящим аватаром и динамичными субтитрами.",
       en: "Promotional spot with talking avatar and animated captions.",
+      sr: "Promotivni video sa digitalnim prezenterom i dinamičnim titlovima.",
     },
     youtubeId: "9_jdjXBknOw",
     isShort: true,
@@ -323,6 +346,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Короткий хук для привлечения лидов в воронку продаж.",
       en: "Short-form video hook engineered for social lead generation.",
+      sr: "Kratak video format kreiran za privlačenje potencijalnih klijenata.",
     },
     youtubeId: "-UE0CTWQwD4",
     isShort: true,
@@ -335,6 +359,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Комплексный монтаж длинного YouTube-выпуска: графика, звук, динамика.",
       en: "Full YouTube production: audio mastering, dynamic B-roll & graphics.",
+      sr: "Kompletna produkcija duge YouTube epizode: grafika, audio mastering i dinamika.",
     },
     youtubeId: "KjhW0NmL2v0",
     isShort: false,
@@ -347,6 +372,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Монтаж экспертного интервью с цветокоррекцией и саунд-дизайном.",
       en: "Expert interview editing with custom motion graphics & color grading.",
+      sr: "Montaža stručnog intervjua sa prilagođenim animacijama i korekcijom boja.",
     },
     youtubeId: "wm9bt16QY_Q",
     isShort: false,
@@ -359,6 +385,7 @@ export const portfolioItems: PortfolioItem[] = [
     description: {
       ru: "Презентационный ролик для коммерческого канала.",
       en: "High-paced commercial video showcase.",
+      sr: "Dinamičan video spot za komercijalni YouTube kanal.",
     },
     youtubeId: "_9Z-gfKJRBU",
     isShort: false,

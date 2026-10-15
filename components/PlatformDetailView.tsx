@@ -42,8 +42,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: platform.metaTitle.ru,
-    description: platform.metaDescription.ru,
+    name: platform.metaTitle[lang] || platform.metaTitle.en,
+    description: platform.metaDescription[lang] || platform.metaDescription.en,
     provider: {
       "@type": "Organization",
       name: "Few Hands & GoMVP",
@@ -73,6 +73,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
                 {lang === "ru"
                   ? `Миграция с ${platform.title[lang]} на чистый Next.js 15`
+                  : lang === "sr"
+                  ? `Migracija sa ${platform.title[lang]} na čist Next.js 15`
                   : `Migrate from ${platform.title[lang]} to Modern Next.js 15`}
               </h1>
 
@@ -82,7 +84,7 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
 
               <div className="mt-8 flex flex-col items-start gap-2">
                 <DoodlePointer
-                  text={lang === "ru" ? "быстрый расчет проекта ↘" : "instant project estimate ↘"}
+                  text={lang === "ru" ? "быстрый расчет проекта ↘" : lang === "sr" ? "brza procena projekta ↘" : "instant project estimate ↘"}
                   direction="curved-down-right"
                   className="mb-1"
                 />
@@ -91,14 +93,14 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                     href="/estimate?service=migration"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
                   >
-                    <span>{lang === "ru" ? "Оценить стоимость миграции" : "Estimate Migration Cost"}</span>
+                    <span>{lang === "ru" ? "Оценить стоимость миграции" : lang === "sr" ? "Procenite cenu migracije" : "Estimate Migration Cost"}</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
                   >
-                    <span>{lang === "ru" ? "Запросить аудит проекта" : "Request Code Audit"}</span>
+                    <span>{lang === "ru" ? "Запросить аудит проекта" : lang === "sr" ? "Zatražite analizu koda" : "Request Code Audit"}</span>
                   </Link>
                 </div>
               </div>
@@ -106,11 +108,11 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
 
             <div className="lg:col-span-5 flex justify-center lg:justify-end pt-2">
               <AuditMetricsCard
-                title={lang === "ru" ? "ИНЖЕНЕРНЫЙ АУДИТ СТЕКА" : "ENGINEERING BENCHMARK"}
+                title={lang === "ru" ? "ИНЖЕНЕРНЫЙ АУДИТ СТЕКА" : lang === "sr" ? "INŽENJERSKA REVIZIJA STEKA" : "ENGINEERING BENCHMARK"}
                 subtitle={`${platform.title[lang]} → Next.js 15`}
                 metrics={[
                   {
-                    label: lang === "ru" ? "Время отклика TTFB" : "Edge TTFB",
+                    label: lang === "ru" ? "Время отклика TTFB" : lang === "sr" ? "Vreme odziva TTFB" : "Edge TTFB",
                     value: "< 45ms",
                     color: "text-[#386161]",
                   },
@@ -120,17 +122,17 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                     color: "text-[#7ea368]",
                   },
                   {
-                    label: lang === "ru" ? "Уязвимости плагинов" : "Plugin Vulnerabilities",
+                    label: lang === "ru" ? "Уязвимости плагинов" : lang === "sr" ? "Ranjivosti dodataka" : "Plugin Vulnerabilities",
                     value: "0%",
                     color: "text-[#386161]",
                   },
                   {
-                    label: lang === "ru" ? "Абонентская плата CMS" : "Platform Rent Fee",
+                    label: lang === "ru" ? "Абонентская плата CMS" : lang === "sr" ? "Mesečna licenca za CMS" : "Platform Rent Fee",
                     value: "$0/mo",
                     color: "text-[#2d263b]",
                   },
                 ]}
-                marginError={lang === "ru" ? "±0.00% (чистый код)" : "±0.00% (clean code)"}
+                marginError={lang === "ru" ? "±0.00% (чистый код)" : lang === "sr" ? "±0.00% (čist kod)" : "±0.00% (clean code)"}
                 rotate="rotate-1"
                 className="w-full max-w-sm"
               />
@@ -149,6 +151,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 <h2 className="text-xl font-bold text-slate-900">
                   {lang === "ru"
                     ? `С чем сталкиваются владельцы ${platform.title[lang]}`
+                    : lang === "sr"
+                    ? `Sa čime se suočavaju vlasnici ${platform.title[lang]}`
                     : `Core Bottlenecks on ${platform.title[lang]}`}
                 </h2>
               </div>
@@ -171,6 +175,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 <h2 className="text-xl font-bold text-slate-900">
                   {lang === "ru"
                     ? "Что вы получаете после миграции на Next.js"
+                    : lang === "sr"
+                    ? "Šta dobijate nakon migracije na Next.js"
                     : "What You Gain After Next.js Migration"}
                 </h2>
               </div>
@@ -189,10 +195,12 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
           {/* Hand-drawn editorial annotations */}
           <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <CustomStampBadge
-              label={lang === "ru" ? "ЭТАЛОН СКОРОСТИ" : "PERFORMANCE INDEX"}
+              label={lang === "ru" ? "ЭТАЛОН СКОРОСТИ" : lang === "sr" ? "ETALON BRZINE" : "PERFORMANCE INDEX"}
               caption={
                 lang === "ru"
                   ? "Статический пререндеринг и Edge CDN"
+                  : lang === "sr"
+                  ? "Statički prerendering i Edge CDN"
                   : "Static pre-rendering & Edge CDN"
               }
               starsCount={5}
@@ -200,10 +208,12 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
             />
 
             <CustomPSCard
-              noteTitle={lang === "ru" ? "P.S. Архитектурная гарантия:" : "P.S. Migration Guarantee:"}
+              noteTitle={lang === "ru" ? "P.S. Архитектурная гарантия:" : lang === "sr" ? "P.S. Arhitektonska garancija:" : "P.S. Migration Guarantee:"}
               text={
                 lang === "ru"
                   ? "Ни одна ссылка и ни один байт контента не теряется. 301-редиректы прописываются на уровне Edge-маршрутизации без падения позиций."
+                  : lang === "sr"
+                  ? "Nijedan link i nijedan bajt sadržaja se ne gubi. Pravila 301 preusmeravanja se podešavaju na Edge nivou bez pada pozicija."
                   : "Every inbound backlink and asset is preserved byte-for-byte. Edge 301 redirect maps ensure zero organic rank loss."
               }
               className="rotate-1 flex-1 w-full"
@@ -217,6 +227,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
               <h2 className="text-2xl font-bold text-[#2d263b]">
                 {lang === "ru"
                   ? "Как выполняется проект: Инженерия GoMVP + Поддержка Few Hands"
+                  : lang === "sr"
+                  ? "Model realizacije: GoMVP inženjering + Few Hands Retainer podrška"
                   : "Execution Model: GoMVP Engineering + Few Hands Retainer Support"}
               </h2>
             </div>
@@ -227,7 +239,7 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-xs font-mono uppercase text-[#386161] font-bold">
-                      {lang === "ru" ? "1. Техническая разработка" : "1. Engineering Execution"}
+                      {lang === "ru" ? "1. Техническая разработка" : lang === "sr" ? "1. Tehnički inženjering" : "1. Engineering Execution"}
                     </span>
                     <a
                       href="https://gomvp.dev/en/migrate"
@@ -240,7 +252,7 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                     </a>
                   </div>
                   <h3 className="text-lg font-bold text-[#2d263b] mb-2">
-                    {lang === "ru" ? "Перенос и инженерия (GoMVP)" : "Migration & Engineering (GoMVP)"}
+                    {lang === "ru" ? "Перенос и инженерия (GoMVP)" : lang === "sr" ? "Migracija i inženjering (GoMVP)" : "Migration & Engineering (GoMVP)"}
                   </h3>
                   <p className="text-sm text-[#585068] leading-relaxed">
                     {platform.whyGoMvp[lang]}
@@ -249,6 +261,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 <div className="mt-6 pt-4 border-t border-[#2d263b]/10 text-xs text-[#585068] font-mono">
                   {lang === "ru"
                     ? "Стек: Next.js 15, React 19, TypeScript, Edge CDN, PostgreSQL."
+                    : lang === "sr"
+                    ? "Stek: Next.js 15, React 19, TypeScript, Edge CDN, PostgreSQL."
                     : "Stack: Next.js 15, React 19, TypeScript, Edge CDN, PostgreSQL."}
                 </div>
               </div>
@@ -258,13 +272,15 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-xs font-mono uppercase text-[#7ea368] font-bold">
-                      {lang === "ru" ? "2. Техподдержка & Сопровождение" : "2. Retainer Support & Care"}
+                      {lang === "ru" ? "2. Техподдержка & Сопровождение" : lang === "sr" ? "2. Retainer podrška i održavanje" : "2. Retainer Support & Care"}
                     </span>
                     <span className="text-xs text-[#585068] font-mono">Few Hands</span>
                   </div>
                   <h3 className="text-lg font-bold text-[#2d263b] mb-2">
                     {lang === "ru"
                       ? "Техническая поддержка и сопровождение (Few Hands)"
+                      : lang === "sr"
+                      ? "Tehnička podrška i održavanje (Few Hands)"
                       : "Ongoing Maintenance & Retainer Support (Few Hands)"}
                   </h3>
                   <p className="text-sm text-[#585068] leading-relaxed">
@@ -274,6 +290,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                 <div className="mt-6 pt-4 border-t border-[#2d263b]/10 text-xs text-[#585068] font-mono">
                   {lang === "ru"
                     ? "Формат: ежемесячный Retainer (фиксированный тариф), персональный менеджер, мониторинг 24/7 и онбординг команды."
+                    : lang === "sr"
+                    ? "Format: predvidljiv mesečni Retainer (fiksna tarifa), posvećeni menadžer, 24/7 nadzor i obuka tima."
                     : "Model: predictable monthly retainer, dedicated technical account manager, 24/7 monitoring, and staff onboarding."}
                 </div>
               </div>
@@ -287,6 +305,8 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
               <span className="text-sm text-[#2d263b]">
                 {lang === "ru"
                   ? "Полный перенос базы данных, статей, каталогов и 100% гарантия сохранения органических позиций в Google и Яндекс."
+                  : lang === "sr"
+                  ? "Potpun prenos baze podataka, članaka, kataloga i 100% garancija očuvanja organskih pozicija u Google pretrazi."
                   : "Zero-loss transfer of databases, media, and articles with 100% search ranking equity protection."}
               </span>
             </div>
@@ -294,7 +314,7 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
               href="/estimate?service=migration"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#386161] hover:text-[#2d263b] shrink-0"
             >
-              <span>{lang === "ru" ? "Рассчитать сроки и смету" : "Calculate Timeline"}</span>
+              <span>{lang === "ru" ? "Рассчитать сроки и смету" : lang === "sr" ? "Proračunajte rokove i budžet" : "Calculate Timeline"}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -302,7 +322,7 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
           {/* Other Platforms Navigation */}
           <nav aria-label="Other migration platforms" className="mt-20 pt-10 border-t border-[#2d263b]/10">
             <h3 className="text-lg font-bold text-[#2d263b] mb-6">
-              {lang === "ru" ? "Миграция с других систем и CMS" : "Explore Other Platform Migrations"}
+              {lang === "ru" ? "Миграция с других систем и CMS" : lang === "sr" ? "Migracija sa drugih platformi i CMS-ova" : "Explore Other Platform Migrations"}
             </h3>
             <div className="flex flex-wrap gap-2.5">
               {allPlatforms.map((p) => (

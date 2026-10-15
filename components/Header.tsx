@@ -34,22 +34,22 @@ export const Header: React.FC = () => {
         {/* Desktop Navigation in Studio Palette */}
         <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#585068]">
           <Link href="/migrate" className="hover:text-[#386161] transition-colors">
-            {lang === "ru" ? "Миграция CMS" : "CMS Migration"}
+            {lang === "ru" ? "Миграция CMS" : lang === "sr" ? "Migracija CMS-a" : "CMS Migration"}
           </Link>
           <Link href="/development" className="hover:text-[#4b6c8c] transition-colors">
-            {lang === "ru" ? "Разработка" : "Development"}
+            {lang === "ru" ? "Разработка" : lang === "sr" ? "Razvoj veba" : "Development"}
           </Link>
           <Link href="/maintenance" className="hover:text-[#c6814b] transition-colors">
-            {lang === "ru" ? "Поддержка сайтов" : "Support & Retainer"}
+            {lang === "ru" ? "Поддержка сайтов" : lang === "sr" ? "Održavanje sajtova" : "Support & Retainer"}
           </Link>
           <Link href="/ai-video" className="hover:text-[#9c386d] transition-colors">
-            {lang === "ru" ? "AI & Видео" : "AI & Video"}
+            {lang === "ru" ? "AI & Видео" : lang === "sr" ? "AI & Video" : "AI & Video"}
           </Link>
           <Link href="/portfolio" className="hover:text-[#2d263b] transition-colors">
-            {lang === "ru" ? "Портфолио" : "Portfolio"}
+            {lang === "ru" ? "Портфолио" : lang === "sr" ? "Portfolio" : "Portfolio"}
           </Link>
           <Link href="/contact" className="hover:text-[#2d263b] transition-colors">
-            {lang === "ru" ? "Контакты" : "Contact"}
+            {lang === "ru" ? "Контакты" : lang === "sr" ? "Kontakt" : "Contact"}
           </Link>
         </nav>
 
@@ -77,6 +77,16 @@ export const Header: React.FC = () => {
             >
               RU
             </button>
+            <button
+              onClick={() => setLang("sr")}
+              className={`px-2.5 py-1 rounded-lg transition-all ${
+                lang === "sr"
+                  ? "bg-white text-[#2d263b] shadow-sm font-bold"
+                  : "text-[#585068] hover:text-[#2d263b]"
+              }`}
+            >
+              SR
+            </button>
           </div>
 
           {/* Estimate CTA Button - Studio Ink */}
@@ -84,7 +94,7 @@ export const Header: React.FC = () => {
             href="/estimate"
             className="hidden sm:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 rounded-xl bg-[#2d263b] hover:bg-[#1f1a29] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-sm transition-all hover:shadow-md"
           >
-            <span>{lang === "ru" ? "Рассчитать проект" : "Estimate Project"}</span>
+            <span>{lang === "ru" ? "Рассчитать проект" : lang === "sr" ? "Procenite projekat" : "Estimate Project"}</span>
             <ArrowUpRight className="w-4 h-4 text-[#e5e1eb]" />
           </Link>
 
@@ -105,7 +115,7 @@ export const Header: React.FC = () => {
           {/* Mobile Language Switcher */}
           <div className="flex items-center justify-between pb-3 mb-2 border-b border-[#e5e1eb]">
             <span className="text-xs font-medium text-[#585068]">
-              {lang === "ru" ? "Язык сайта:" : "Language:"}
+              {lang === "ru" ? "Язык сайта:" : lang === "sr" ? "Jezik sajta:" : "Language:"}
             </span>
             <div className="flex items-center bg-[#f1f0f5] border border-[#e5e1eb] rounded-xl p-1 text-xs font-semibold">
               <button
@@ -128,6 +138,16 @@ export const Header: React.FC = () => {
               >
                 RU
               </button>
+              <button
+                onClick={() => setLang("sr")}
+                className={`px-3 py-1 rounded-lg transition-all ${
+                  lang === "sr"
+                    ? "bg-white text-[#2d263b] shadow-sm font-bold"
+                    : "text-[#585068]"
+                }`}
+              >
+                SR
+              </button>
             </div>
           </div>
 
@@ -136,49 +156,49 @@ export const Header: React.FC = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#2d263b] hover:bg-[#f1f0f5]"
           >
-            {lang === "ru" ? "Миграция CMS" : "CMS Migration"}
+            {lang === "ru" ? "Миграция CMS" : lang === "sr" ? "Migracija CMS-a" : "CMS Migration"}
           </Link>
           <Link
             href="/development"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#2d263b] hover:bg-[#f1f0f5]"
           >
-            {lang === "ru" ? "Разработка" : "Development"}
+            {lang === "ru" ? "Разработка" : lang === "sr" ? "Razvoj veba" : "Development"}
           </Link>
           <Link
             href="/maintenance"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#2d263b] hover:bg-[#f1f0f5]"
           >
-            {lang === "ru" ? "Поддержка сайтов" : "Support & Retainer"}
+            {lang === "ru" ? "Поддержка сайтов" : lang === "sr" ? "Održavanje sajtova" : "Support & Retainer"}
           </Link>
           <Link
             href="/ai-video"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#2d263b] hover:bg-[#f1f0f5]"
           >
-            {lang === "ru" ? "AI & Видео" : "AI & Video"}
+            {lang === "ru" ? "AI & Видео" : lang === "sr" ? "AI & Video" : "AI & Video"}
           </Link>
           <Link
             href="/portfolio"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#2d263b] hover:bg-[#f1f0f5]"
           >
-            {lang === "ru" ? "Портфолио" : "Portfolio"}
+            {lang === "ru" ? "Портфолио" : lang === "sr" ? "Portfolio" : "Portfolio"}
           </Link>
           <Link
             href="/estimate"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-semibold text-[#faf9fb] bg-[#2d263b]"
           >
-            {lang === "ru" ? "Калькулятор проекта" : "Project Estimator"}
+            {lang === "ru" ? "Калькулятор проекта" : lang === "sr" ? "Kalkulator projekta" : "Project Estimator"}
           </Link>
           <Link
             href="/contact"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#585068] hover:bg-[#f1f0f5]"
           >
-            {lang === "ru" ? "Контакты" : "Contact"}
+            {lang === "ru" ? "Контакты" : lang === "sr" ? "Kontakt" : "Contact"}
           </Link>
         </div>
       )}

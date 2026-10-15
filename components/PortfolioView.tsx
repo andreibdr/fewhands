@@ -95,16 +95,20 @@ export const PortfolioView: React.FC = () => {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f1f0f5] border border-[#e5e1eb] text-[#386161] text-xs font-semibold mb-4">
                 <Layers className="w-3.5 h-3.5" />
-                <span>{lang === "ru" ? "Реализованные кейсы" : "Client Work & Case Studies"}</span>
+                <span>{lang === "ru" ? "Реализованные кейсы" : lang === "sr" ? "Realizovani projekti" : "Client Work & Case Studies"}</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
                 {lang === "ru"
                   ? "Портфолио веб-проектов, миграций и AI-видео"
+                  : lang === "sr"
+                  ? "Few Hands portfolio: veb projekti, migracije i AI video"
                   : "Few Hands Selected Works: Web, Migrations & AI Video"}
               </h1>
               <p className="mt-4 text-base sm:text-lg text-[#585068] leading-relaxed">
                 {lang === "ru"
                   ? "Реальные действующие цифровые продукты, скоростные интернет-магазины, корпоративные порталы и видеоматериалы для бизнеса в США, Европе и СНГ. Действующие сайты в эфире и архивные авторские концепции."
+                  : lang === "sr"
+                  ? "Aktivni digitalni proizvodi, brze internet prodavnice, korporativni portali i video materijali za poslovanje u SAD, Evropi i širom sveta. Aktivni sajtovi u produkciji i arhivski autorski koncepti."
                   : "Live production websites, e-commerce storefronts, high-traffic portals, and AI video productions engineered for international brands. Live active domains and authentic design archive cases."}
               </p>
             </div>
@@ -112,15 +116,15 @@ export const PortfolioView: React.FC = () => {
             {/* Main Category Filters */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <DoodlePointer
-                text={lang === "ru" ? "выберите категорию кейсов ↘" : "filter projects by type ↘"}
+                text={lang === "ru" ? "выберите категорию кейсов ↘" : lang === "sr" ? "izaberite kategoriju projekata ↘" : "filter projects by type ↘"}
                 direction="curved-right"
                 className="hidden md:inline-flex self-end mb-1"
               />
               <div className="flex items-center bg-[#f1f0f5] border border-[#e5e1eb] p-1.5 rounded-2xl shrink-0">
                 {[
-                  { id: "all", label: lang === "ru" ? "Все кейсы" : "All Projects" },
-                  { id: "web", label: lang === "ru" ? "Сайты & Миграция" : "Web & Migration" },
-                  { id: "video", label: lang === "ru" ? "Видео & AI" : "Video & AI" },
+                  { id: "all", label: lang === "ru" ? "Все кейсы" : lang === "sr" ? "Svi projekti" : "All Projects" },
+                  { id: "web", label: lang === "ru" ? "Сайты & Миграция" : lang === "sr" ? "Sajtovi & Migracija" : "Web & Migration" },
+                  { id: "video", label: lang === "ru" ? "Видео & AI" : lang === "sr" ? "Video & AI" : "Video & AI" },
                 ].map((tab) => (
                   <button
                     key={tab.id}
@@ -145,7 +149,7 @@ export const PortfolioView: React.FC = () => {
           {activeTab !== "video" && (
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 py-3 px-4 rounded-2xl bg-[#faf9fb] border border-[#e5e1eb]">
               <div className="flex items-center gap-2 text-xs font-semibold text-[#585068]">
-                <span>{lang === "ru" ? "Статус проекта:" : "Project status:"}</span>
+                <span>{lang === "ru" ? "Статус проекта:" : lang === "sr" ? "Status projekta:" : "Project status:"}</span>
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -156,7 +160,7 @@ export const PortfolioView: React.FC = () => {
                       : "bg-white text-[#585068] hover:text-[#2d263b] border border-[#e5e1eb]"
                   }`}
                 >
-                  {lang === "ru" ? "Все веб-кейсы" : "All Web Projects"}
+                  {lang === "ru" ? "Все веб-кейсы" : lang === "sr" ? "Svi veb projekti" : "All Web Projects"}
                 </button>
                 <button
                   onClick={() => setStatusFilter("live")}
@@ -167,7 +171,7 @@ export const PortfolioView: React.FC = () => {
                   }`}
                 >
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>{lang === "ru" ? "В эфире (Live)" : "Live Sites"}</span>
+                  <span>{lang === "ru" ? "В эфире (Live)" : lang === "sr" ? "Uživo (Live)" : "Live Sites"}</span>
                 </button>
                 <button
                   onClick={() => setStatusFilter("archived")}
@@ -178,7 +182,7 @@ export const PortfolioView: React.FC = () => {
                   }`}
                 >
                   <Archive className="w-3.5 h-3.5" />
-                  <span>{lang === "ru" ? "Архив макетов" : "Design Archive"}</span>
+                  <span>{lang === "ru" ? "Архив макетов" : lang === "sr" ? "Arhiva dizajna" : "Design Archive"}</span>
                 </button>
               </div>
             </div>
@@ -216,7 +220,7 @@ export const PortfolioView: React.FC = () => {
                         ) : (
                           <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
                             <Archive className="w-2.5 h-2.5" />
-                            {lang === "ru" ? "Архив" : "Archive"}
+                            {lang === "ru" ? "Архив" : lang === "sr" ? "Arhiva" : "Archive"}
                           </span>
                         )}
                       </div>
@@ -228,7 +232,7 @@ export const PortfolioView: React.FC = () => {
                       >
                         <Image
                           src={item.image}
-                          alt={lang === "ru" ? `${item.title} — кейс студии Few Hands` : `${item.title} — Few Hands Case Study`}
+                          alt={lang === "ru" ? `${item.title} — кейс студии Few Hands` : lang === "sr" ? `${item.title} — Few Hands portfolio` : `${item.title} — Few Hands Case Study`}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="object-cover object-top group-hover/screen:scale-105 transition-transform duration-500"
@@ -236,7 +240,7 @@ export const PortfolioView: React.FC = () => {
                         <div className="absolute inset-0 bg-black/0 group-hover/screen:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/screen:opacity-100">
                           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#2d263b] text-xs font-bold shadow-lg backdrop-blur-sm">
                             <Eye className="w-3.5 h-3.5 text-[#386161]" />
-                            <span>{lang === "ru" ? "Открыть макет" : "View Screenshot"}</span>
+                            <span>{lang === "ru" ? "Открыть макет" : lang === "sr" ? "Pogledajte dizajn" : "View Screenshot"}</span>
                           </span>
                         </div>
                       </div>
@@ -250,7 +254,7 @@ export const PortfolioView: React.FC = () => {
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
-                          alt={lang === "ru" ? `${item.title} — видео продакшн Few Hands` : `${item.title} — Few Hands Video Production`}
+                          alt={lang === "ru" ? `${item.title} — видео продакшн Few Hands` : lang === "sr" ? `${item.title} — Few Hands video produkcija` : `${item.title} — Few Hands Video Production`}
                           className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/media:bg-black/10 transition-colors">
@@ -302,7 +306,7 @@ export const PortfolioView: React.FC = () => {
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#386161] hover:text-[#2a4949] transition-colors"
                     >
                       <Globe className="w-3.5 h-3.5" />
-                      <span>{lang === "ru" ? "Перейти на сайт" : "Visit Live Website"}</span>
+                      <span>{lang === "ru" ? "Перейти на сайт" : lang === "sr" ? "Posetite sajt" : "Visit Live Website"}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   ) : item.status === "archived" ? (
@@ -311,7 +315,7 @@ export const PortfolioView: React.FC = () => {
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7a2552] transition-colors"
                     >
                       <Eye className="w-3.5 h-3.5" />
-                      <span>{lang === "ru" ? "Посмотреть макет в архиве" : "View Archived Design"}</span>
+                      <span>{lang === "ru" ? "Посмотреть макет в архиве" : lang === "sr" ? "Pogledajte arhivirani dizajn" : "View Archived Design"}</span>
                     </button>
                   ) : item.youtubeId ? (
                     <button
@@ -319,14 +323,14 @@ export const PortfolioView: React.FC = () => {
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
                     >
                       <Play className="w-3.5 h-3.5 fill-current" />
-                      <span>{lang === "ru" ? "Смотреть ролик" : "Watch Full Video"}</span>
+                      <span>{lang === "ru" ? "Смотреть ролик" : lang === "sr" ? "Gledajte video" : "Watch Full Video"}</span>
                     </button>
                   ) : null}
 
                   {item.image && (
                     <button
                       onClick={() => setModalItem(item)}
-                      title={lang === "ru" ? "Увеличить скриншот" : "Zoom Screenshot"}
+                      title={lang === "ru" ? "Увеличить скриншот" : lang === "sr" ? "Povećajte snimak ekrana" : "Zoom Screenshot"}
                       className="p-1.5 rounded-lg text-[#8c829c] hover:text-[#2d263b] hover:bg-[#f1f0f5] transition-all"
                     >
                       <Eye className="w-4 h-4" />
@@ -342,16 +346,20 @@ export const PortfolioView: React.FC = () => {
             <div className="text-center max-w-3xl mx-auto mb-16">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0f5ec] border border-[#7ea368]/30 text-[#7ea368] text-xs font-semibold mb-4">
                 <BarChart3 className="w-3.5 h-3.5" />
-                <span>{lang === "ru" ? "Измеримый результат" : "Measurable Results"}</span>
+                <span>{lang === "ru" ? "Измеримый результат" : lang === "sr" ? "Merljivi rezultati" : "Measurable Results"}</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] tracking-tight">
                 {lang === "ru"
                   ? "Стандарты производительности и бизнес-метрики проектов"
+                  : lang === "sr"
+                  ? "Standardi performansi i poslovne metrike projekata"
                   : "Performance Benchmarks & Architecture Standards"}
               </h2>
               <p className="mt-4 text-sm sm:text-base text-[#585068] leading-relaxed">
                 {lang === "ru"
                   ? "Мы не создаем шаблонные страницы. Каждый проект проходит строгий аудит производительности Google Lighthouse, оптимизацию мобильного First Input Delay и тонкую настройку конверсионных путей."
+                  : lang === "sr"
+                  ? "Ne pravimo šablonska rešenja. Svaki projekat prolazi rigoroznu reviziju performansi Google Lighthouse, optimizaciju mobilnog odziva i precizno podešavanje konverzija."
                   : "Every deployment undergoes strict Google Lighthouse auditing, sub-second Core Web Vitals optimization, and robust multi-region caching."}
               </p>
             </div>
@@ -359,7 +367,7 @@ export const PortfolioView: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-sm relative overflow-hidden">
                 <AuditMetricsCard
-                  title={lang === "ru" ? "Аудит Core Web Vitals" : "Core Web Vitals Audit"}
+                  title={lang === "ru" ? "Аудит Core Web Vitals" : lang === "sr" ? "Core Web Vitals revizija" : "Core Web Vitals Audit"}
                   metrics={[
                     { label: "Performance", value: "99/100", color: "text-[#7ea368]" },
                     { label: "Accessibility", value: "100/100", color: "text-[#7ea368]" },
@@ -369,52 +377,60 @@ export const PortfolioView: React.FC = () => {
                   className="mb-4"
                 />
                 <h3 className="text-lg font-bold text-[#2d263b] mb-2">
-                  {lang === "ru" ? "Core Web Vitals в зеленой зоне" : "Green-Zone Core Web Vitals"}
+                  {lang === "ru" ? "Core Web Vitals в зеленой зоне" : lang === "sr" ? "Core Web Vitals u zelenoj zoni" : "Green-Zone Core Web Vitals"}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
                   {lang === "ru"
                     ? "Мгновенный LCP до 0.8s, нулевой сдвиг макета (CLS 0.00) и отзывчивый INP. Повышает поисковое ранжирование и снижает стоимость клика в контекстной рекламе."
+                    : lang === "sr"
+                    ? "Trenutni LCP ispod 0.8s, nula pomeranja prikaza (CLS 0.00) i brz INP. Povećava SEO rangiranje i smanjuje cenu po kliku u oglasima."
                     : "Instant LCP under 0.8s, zero Cumulative Layout Shift, and rapid INP for superior search rankings and lower advertising CPC."}
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-sm relative overflow-hidden">
                 <CustomStampBadge
-                  label={lang === "ru" ? "100% ВАЛИДАЦИЯ" : "100% VALIDATED"}
-                  caption={lang === "ru" ? "Чистая верстка без мусора" : "Zero bloat clean markup"}
+                  label={lang === "ru" ? "100% ВАЛИДАЦИЯ" : lang === "sr" ? "100% VALIDACIJA" : "100% VALIDATED"}
+                  caption={lang === "ru" ? "Чистая верстка без мусора" : lang === "sr" ? "Čist kod bez balasta" : "Zero bloat clean markup"}
                   className="mb-4"
                 />
                 <h3 className="text-lg font-bold text-[#2d263b] mb-2">
-                  {lang === "ru" ? "Адаптивность и чистый код" : "Clean Component Architecture"}
+                  {lang === "ru" ? "Адаптивность и чистый код" : lang === "sr" ? "Prilagodljivost i čist kod" : "Clean Component Architecture"}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
                   {lang === "ru"
                     ? "Разработка по принципу Mobile-First. Полная доступность WCAG 2.1 AA, семантическая разметка Schema.org и поддержка темного/светлого режима."
+                    : lang === "sr"
+                    ? "Razvoj po principu Mobile-First. Potpuna usklađenost sa WCAG 2.1 AA pristupačnošću, Schema.org semantičko označavanje i optimizacija za sve uređaje."
                     : "Mobile-first responsive layouts, strict WCAG 2.1 AA accessibility compliance, rich Schema.org JSON-LD microdata, and edge optimization."}
                 </p>
               </div>
 
               <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-sm relative overflow-hidden">
                 <CraftCard
-                  tag={lang === "ru" ? "БЕЗОПАСНОСТЬ ДАННЫХ" : "DATA SECURITY"}
+                  tag={lang === "ru" ? "БЕЗОПАСНОСТЬ ДАННЫХ" : lang === "sr" ? "BEZBEDNOST PODATAKA" : "DATA SECURITY"}
                   issueNo="GRADE A+"
-                  question={lang === "ru" ? "Уязвимости CMS и баз данных?" : "Vulnerable to SQL/CMS exploits?"}
-                  yesLabel={lang === "ru" ? "ДА" : "YES"}
-                  noLabel={lang === "ru" ? "НЕТ" : "NO"}
+                  question={lang === "ru" ? "Уязвимости CMS и баз данных?" : lang === "sr" ? "Ranjivosti CMS-a i baza podataka?" : "Vulnerable to SQL/CMS exploits?"}
+                  yesLabel={lang === "ru" ? "ДА" : lang === "sr" ? "DA" : "YES"}
+                  noLabel={lang === "ru" ? "НЕТ" : lang === "sr" ? "NE" : "NO"}
                   isYesChecked={false}
                   whyText={
                     lang === "ru"
                       ? "Статический код: баз данных нет на сервере, нечего взламывать."
+                      : lang === "sr"
+                      ? "Statički kod: bez baze podataka na serveru, nema šta da se hakuje."
                       : "Static architecture: zero exposed databases, immune to CMS exploits."
                   }
                   className="mb-4"
                 />
                 <h3 className="text-lg font-bold text-[#2d263b] mb-2">
-                  {lang === "ru" ? "Безопасность и автономность" : "Enterprise Grade Security"}
+                  {lang === "ru" ? "Безопасность и автономность" : lang === "sr" ? "Bezbednost i autonomija" : "Enterprise Grade Security"}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
                   {lang === "ru"
                     ? "Статический рендеринг Next.js исключает уязвимости баз данных и спам-ботов через формы. Надежная изоляция API-ключей и SSL/TLS высшего класса A+."
+                    : lang === "sr"
+                    ? "Next.js statički rendering eliminiše ranjivosti baza podataka i spam botove kroz forme. Pouzdana zaštita API ključeva i najviši A+ nivo enkripcije."
                     : "Static export architecture eradicates SQL injection attack surfaces, secures confidential client data, and achieves A+ TLS encryption rating."}
                 </p>
               </div>
@@ -426,13 +442,15 @@ export const PortfolioView: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <CustomStampBadge
-                  label={lang === "ru" ? "НАШ СТАНДАРТ" : "OUR BENCHMARK"}
-                  caption={lang === "ru" ? "100% ручная калибровка" : "100% handcrafted quality"}
+                  label={lang === "ru" ? "НАШ СТАНДАРТ" : lang === "sr" ? "NAŠ STANDARD" : "OUR BENCHMARK"}
+                  caption={lang === "ru" ? "100% ручная калибровка" : lang === "sr" ? "100% ručno fino podešeno" : "100% handcrafted quality"}
                   className="mb-4"
                 />
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b]">
                   {lang === "ru"
                     ? "Что входит в каждый сданный кейс студии"
+                    : lang === "sr"
+                    ? "Šta obuhvata svaki isporučeni projekat studija"
                     : "Standard Deliverables in Every Completed Case"}
                 </h2>
                 <div className="mt-6 space-y-4">
@@ -440,18 +458,22 @@ export const PortfolioView: React.FC = () => {
                     {
                       ru: "Исходный код передается заказчику в приватный репозиторий GitHub/GitLab с подробной документацией по развертыванию.",
                       en: "Complete source code handed over to client's private GitHub/GitLab with automated CI/CD and deployment documentation.",
+                      sr: "Kompletan izvorni kod se predaje klijentu u privatni GitHub/GitLab repozitorijum sa detaljnom dokumentacijom za puštanje u rad.",
                     },
                     {
                       ru: "Настройка аналитики (GA4, Google Tag Manager, Яндекс.Метрика, цели конверсий и пиксели рекламы).",
                       en: "Production analytics integration (Google Analytics 4, Tag Manager, custom conversion events, and ad pixels).",
+                      sr: "Podešavanje analitike (Google Analytics 4, Tag Manager, prilagođeni ciljevi konverzija i reklamni pikseli).",
                     },
                     {
                       ru: "Интерактивные микроанимации интерфейса, адаптивные векторные SVG-иконки и сжатие графики в WebP/AVIF нового поколения.",
                       en: "Polished micro-interactions, responsive SVG graphics, and next-gen WebP/AVIF asset optimization.",
+                      sr: "Uglađene mikroanimacije interfejsa, responzivne vektorske SVG ikonice i optimizacija slika u modernim WebP/AVIF formatima.",
                     },
                     {
                       ru: "30 дней гарантийной технической поддержки и оперативных правок после релиза в эфир.",
                       en: "30 days of complimentary post-launch warranty, monitoring, and priority technical assistance.",
+                      sr: "30 dana garantne tehničke podrške, praćenja rada i operativnih izmena nakon puštanja u rad.",
                     },
                   ].map((feat, fi) => (
                     <div key={fi} className="flex items-start gap-3">
@@ -468,18 +490,20 @@ export const PortfolioView: React.FC = () => {
               <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-md flex flex-col justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-[#2d263b]">
-                    {lang === "ru" ? "Нужен расчет вашего проекта?" : "Need an Exact Estimate for Your Project?"}
+                    {lang === "ru" ? "Нужен расчет вашего проекта?" : lang === "sr" ? "Potrebna vam je procena vašeg projekta?" : "Need an Exact Estimate for Your Project?"}
                   </h3>
                   <p className="mt-3 text-sm text-[#585068] leading-relaxed">
                     {lang === "ru"
                       ? "Воспользуйтесь нашим интерактивным калькулятором с прозрачным расчетом стоимости миграции, разработки с нуля или AI-видеопродакшна."
+                      : lang === "sr"
+                      ? "Iskoristite naš transparentni interaktivni kalkulator za proračun cene migracije, namenskog razvoja ili AI video produkcije."
                       : "Use our transparent 3-in-1 interactive calculator to calculate precise timelines and budget for CMS migration, custom development, or AI video production."}
                   </p>
                 </div>
                 
                 <div className="mt-6 flex flex-col items-start">
                   <DoodlePointer
-                    text={lang === "ru" ? "точный расчет сметы за 60 сек ↘" : "precise calculation in 60s ↘"}
+                    text={lang === "ru" ? "точный расчет сметы за 60 сек ↘" : lang === "sr" ? "tačan proračun budžeta za 60s ↘" : "precise calculation in 60s ↘"}
                     direction="curved-down-right"
                     className="mb-2"
                   />
@@ -488,14 +512,14 @@ export const PortfolioView: React.FC = () => {
                       href="/estimate"
                       className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-semibold text-sm transition-all shadow-md shadow-[#2d263b]/15"
                     >
-                      <span>{lang === "ru" ? "Открыть калькулятор сметы" : "Open Project Calculator"}</span>
+                      <span>{lang === "ru" ? "Открыть калькулятор сметы" : lang === "sr" ? "Otvorite kalkulator budžeta" : "Open Project Calculator"}</span>
                       <ArrowRight className="w-4 h-4 text-[#e5e1eb]" />
                     </Link>
                     <Link
                       href="/migrate"
                       className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#f1f0f5] hover:bg-[#e5e1eb] text-[#2d263b] font-semibold text-sm transition-all"
                     >
-                      <span>{lang === "ru" ? "Узнать о миграции" : "Explore CMS Migration"}</span>
+                      <span>{lang === "ru" ? "Узнать о миграции" : lang === "sr" ? "Saznajte o migraciji" : "Explore CMS Migration"}</span>
                     </Link>
                   </div>
                 </div>
@@ -527,7 +551,7 @@ export const PortfolioView: React.FC = () => {
                     ) : (
                       <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
                         <Archive className="w-3 h-3" />
-                        {lang === "ru" ? "Архивный макет" : "Design Archive"}
+                        {lang === "ru" ? "Архивный макет" : lang === "sr" ? "Arhivski dizajn" : "Design Archive"}
                       </span>
                     )}
                   </div>
@@ -578,7 +602,7 @@ export const PortfolioView: React.FC = () => {
                           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2d263b] text-white hover:bg-[#1a1622] text-xs font-bold transition-all shadow-md"
                         >
                           <Globe className="w-3.5 h-3.5" />
-                          <span>{lang === "ru" ? "Перейти на живой сайт" : "Open Live Website"}</span>
+                          <span>{lang === "ru" ? "Перейти на живой сайт" : lang === "sr" ? "Posetite sajt uživo" : "Open Live Website"}</span>
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                         <span className="text-xs font-mono text-[#8c829c]">
@@ -591,6 +615,8 @@ export const PortfolioView: React.FC = () => {
                         <span>
                           {lang === "ru"
                             ? "Аутентичный макет из портфолио Few Hands. Внешняя ссылка отключена (сайт был обновлен заказчиком или выведен из эксплуатации)."
+                            : lang === "sr"
+                            ? "Autentičan rad iz Few Hands portfolija. Spoljni link je isključen (sajt je izmenio klijent ili je povučen iz upotrebe)."
                             : "Authentic showcase from Few Hands portfolio. External link is disabled (site was updated by client or retired)."}
                         </span>
                       </div>
@@ -600,7 +626,7 @@ export const PortfolioView: React.FC = () => {
                       onClick={() => setModalItem(null)}
                       className="px-4 py-2 rounded-xl bg-[#f1f0f5] hover:bg-[#e5e1eb] text-[#2d263b] text-xs font-semibold transition-colors self-end"
                     >
-                      {lang === "ru" ? "Закрыть окно" : "Close"}
+                      {lang === "ru" ? "Закрыть окно" : lang === "sr" ? "Zatvori" : "Close"}
                     </button>
                   </div>
                 </div>

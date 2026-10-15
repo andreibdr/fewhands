@@ -42,6 +42,7 @@ export const HomeView: React.FC = () => {
       desc: {
         ru: "Аналитический портал и блог о трендах на рынке недвижимости США.",
         en: "Analytics portal & research platform tracking US real estate market data.",
+        sr: "Analitički portal i istraživačka platforma za tržište nekretnina u SAD.",
       },
       url: "https://bigdatarealty.com",
     },
@@ -52,6 +53,7 @@ export const HomeView: React.FC = () => {
       desc: {
         ru: "Премиальный портал медицинского туризма и каталог ведущих клиник США.",
         en: "Curated directory & portal connecting international patients with top-ranked US hospitals.",
+        sr: "Premijum portal medicinskog turizma i katalog vodećih bolnica u SAD.",
       },
       url: "https://www.americanmedtravel.com/",
     },
@@ -62,6 +64,7 @@ export const HomeView: React.FC = () => {
       desc: {
         ru: "Персональный сайт и портфолио агента по элитной недвижимости.",
         en: "Flagship portfolio & website for an elite luxury real estate broker.",
+        sr: "Vodeći portfolio i sajt agenta za luksuzne nekretnine.",
       },
       url: "https://stazhkova.com",
     },
@@ -72,40 +75,56 @@ export const HomeView: React.FC = () => {
       q:
         lang === "ru"
           ? "Зачем бизнесу переходить на Next.js с WordPress, Tilda или Битрикса?"
+          : lang === "sr"
+          ? "Zašto preći na Next.js sa WordPress-a, Tilde ili Bitrix-a?"
           : "Why migrate a commercial website to Next.js from WordPress, Tilda, or Bitrix?",
       a:
         lang === "ru"
           ? "Монолитные CMS и no-code конструкторы неизбежно упираются в технологический потолок: уязвимости сторонних плагинов, регулярные падения серверов под рекламой, растущие ежемесячные сборы платформ и медленная загрузка мобильных страниц (Core Web Vitals в красной зоне). Next.js на глобальном Edge CDN загружается за 50 мс, выдаёт 100/100 в PageSpeed, не имеет открытых уязвимостей баз данных и не требует подписок на сторонние платформы."
+          : lang === "sr"
+          ? "Monolitni CMS sistemi i no-code bilderi brzo dostižu granice: bezbednosni propusti dodataka, padovi servera pri skoku poseta, mesečne pretplate i sporo učitavanje na mobilnim telefonima. Next.js na globalnoj Edge CDN mreži učitava se za 50 ms, ostvaruje 100/100 na PageSpeed testu, eliminiše rizik od napada na bazu i ne zahteva mesečne naknade platformi."
           : "Monolithic CMSs and hosted builders quickly hit scaling limits: vulnerable plugin ecosystems, server crashes under traffic spikes, recurring builder subscription taxes, and degraded mobile Web Vitals. Next.js on a global Edge CDN loads in under 50ms, scores 100/100 on PageSpeed, eliminates database exploit vectors, and incurs zero recurring platform fees.",
     },
     {
       q:
         lang === "ru"
           ? "Как распределяются роли между студией Few Hands и партнёром GoMVP?"
+          : lang === "sr"
+          ? "Kako se dele uloge između studija Few Hands i partnera GoMVP?"
           : "How do Few Hands and engineering partner GoMVP split project delivery?",
       a:
         lang === "ru"
           ? "GoMVP выполняет глубокую техническую инженерию: проектирование масштабируемого бэкенда на Go, перенос баз данных, микросервисы и сборку фронтенда на React / Next.js. Студия Few Hands выступает вашим надёжным партнёром в бизнесе: проводит первичный аудит, онбординг и обучение ваших контент-менеджеров, а также обеспечивает непрерывную ежемесячную техподдержку по тарифу Retainer."
+          : lang === "sr"
+          ? "GoMVP vrši duboki softverski inženjering: projektovanje skalabilnog bekenda u Go jeziku, migraciju baza podataka i izradu modularnog React / Next.js korisničkog interfejsa. Few Hands vodi klijentsku saradnju: analizu zahteva, obuku vašeg tima i posvećeno mesečno održavanje po Retainer modelu."
           : "GoMVP delivers deep software engineering: high-throughput Go microservices, database extraction, and modular React/Next.js UI. Few Hands leads client operations: requirements discovery, hands-on team onboarding and CMS tutorials, plus dedicated monthly retainer support.",
     },
     {
       q:
         lang === "ru"
           ? "Сохранятся ли позиции сайта в Google и Яндекс при переносе?"
+          : lang === "sr"
+          ? "Da li će se sačuvati pozicije sajta na Google-u prilikom migracije?"
           : "Will our organic Google search rankings be preserved during migration?",
       a:
         lang === "ru"
           ? "Да, 100%. Мы переносим всю структуру URL один к одному, сохраняем микроразметку Schema.org и настраиваем серверные 301-редиректы для всех изменённых страниц. За счёт кратного ускорения загрузки и идеальных Core Web Vitals сайт получает естественное преимущество в ранжировании поисковых систем."
+          : lang === "sr"
+          ? "Da, 100%. Prenosimo kompletnu URL hijerarhiju jedan na jedan, čuvamo Schema.org mikrooznake i postavljamo serverska 301 preusmeravanja za sve izmenjene stranice. Zbog višestrukog ubrzanja i odličnih Core Web Vitals rezultata, sajt dobija direktnu prednost u organskom rangiranju."
           : "Yes, 100%. We preserve full URL hierarchy, Schema.org metadata, and configure edge 301 redirect mappings for all modified endpoints. The dramatic boost in Core Web Vitals and TTFB gives your site a direct organic ranking advantage.",
     },
     {
       q:
         lang === "ru"
           ? "Что включает в себя ежемесячная техподдержка по тарифу Retainer?"
+          : lang === "sr"
+          ? "Šta obuhvata paket mesečnog tehničkog održavanja (Retainer)?"
           : "What is included in the monthly retainer support package?",
       a:
         lang === "ru"
           ? "В тариф Retainer входит круглосуточный автоматический мониторинг Uptime, регулярные резервные копии, устранение уязвимостей, выделенные часы на верстку новых страниц, акций и баннеров, а также консультации и онбординг для ваших контент-менеджеров."
+          : lang === "sr"
+          ? "Retainer paket obuhvata 24/7 monitoring dostupnosti, redovne rezervne kopije, bezbednosna ažuriranja, rezervisane sate za izradu novih stranica i banera, kao i stalnu podršku i obuku vaših zaposlenih."
           : "The retainer includes automated 24/7 uptime monitoring, scheduled backups, security patching, dedicated hours for rolling out campaign pages and banners, plus continuous consulting and training for your internal staff.",
     },
   ];
@@ -188,6 +207,14 @@ export const HomeView: React.FC = () => {
                     </span>{" "}
                     и создаём чистые веб-продукты
                   </>
+                ) : lang === "sr" ? (
+                  <>
+                    Oslobađamo veb platforme od{" "}
+                    <span className="text-[#386161] decoration-[#7ea368]/50 underline decoration-2 underline-offset-8">
+                      zastarelih CMS-ova
+                    </span>{" "}
+                    i kreiramo čiste veb proizvode
+                  </>
                 ) : (
                   <>
                     Freeing web platforms from{" "}
@@ -203,6 +230,8 @@ export const HomeView: React.FC = () => {
               <p className="mt-5 text-base sm:text-lg lg:text-xl text-[#585068] leading-relaxed max-w-3xl mx-auto">
                 {lang === "ru"
                   ? "Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром GoMVP. Онбординг персонала, регулярное сопровождение (Retainer) и фотореалистичные AI-аватары."
+                  : lang === "sr"
+                  ? "Inženjerska migracija sa platformi WordPress, Tilda, Webflow i monolitnih CMS-ova na čist Next.js u partnerstvu sa GoMVP. Obuka tima, mesečno održavanje (Retainer) i fotorealistični AI avatari."
                   : "Engineering migrations from WordPress, Tilda, Webflow, and monolithic CMSs to Next.js in partnership with GoMVP. Staff onboarding, monthly retainer maintenance, and photorealistic AI avatars."}
               </p>
 
@@ -218,14 +247,14 @@ export const HomeView: React.FC = () => {
                     href="/estimate"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-bold text-sm sm:text-base shadow-lg shadow-[#2d263b]/15 transition-all hover:-translate-y-0.5"
                   >
-                    <span>{lang === "ru" ? "Оценить стоимость проекта" : "Estimate Project Budget"}</span>
+                    <span>{lang === "ru" ? "Оценить стоимость проекта" : lang === "sr" ? "Procenite budžet projekta" : "Estimate Project Budget"}</span>
                     <ArrowRight className="w-4 h-4 text-[#e5e1eb]" />
                   </Link>
                   <Link
                     href="/migrate"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl border border-[#e5e1eb] bg-white/90 text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-bold text-sm sm:text-base shadow-sm hover:bg-white transition-all"
                   >
-                    <span>{lang === "ru" ? "Хаб миграции CMS" : "CMS Migration Hub"}</span>
+                    <span>{lang === "ru" ? "Хаб миграции CMS" : lang === "sr" ? "Centar za CMS migracije" : "CMS Migration Hub"}</span>
                   </Link>
                 </div>
               </div>
@@ -241,11 +270,13 @@ export const HomeView: React.FC = () => {
             
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b]">
-                {lang === "ru" ? "Ключевые направления студии" : "Our Core Capabilities"}
+                {lang === "ru" ? "Ключевые направления студии" : lang === "sr" ? "Ključne delatnosti studija" : "Our Core Capabilities"}
               </h2>
               <p className="mt-3 text-sm sm:text-base text-[#585068]">
                 {lang === "ru"
                   ? "Каждое направление решает конкретную бизнес-задачу без компромиссов и CMS-балласта."
+                  : lang === "sr"
+                  ? "Svako usmerenje rešava konkretan poslovni cilj bez kompromisa i CMS balasta."
                   : "Engineered solutions tailored to specific commercial milestones."}
               </p>
             </div>
@@ -261,18 +292,20 @@ export const HomeView: React.FC = () => {
                     </div>
                     {/* Hand-drawn craft tag */}
                     <span className="font-handwriting text-sm text-[#386161] font-bold px-2 py-0.5 rounded border border-[#386161]/30 bg-[#edf5f5] rotate-2">
-                      {lang === "ru" ? "100% SEO гарантия" : "100% SEO saved"}
+                      {lang === "ru" ? "100% SEO гарантия" : lang === "sr" ? "100% SEO garancija" : "100% SEO saved"}
                     </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#386161] font-bold">
-                    {lang === "ru" ? "01. Перенос CMS" : "01. CMS Migration"}
+                    {lang === "ru" ? "01. Перенос CMS" : lang === "sr" ? "01. Migracija CMS-a" : "01. CMS Migration"}
                   </span>
                   <h3 className="text-xl font-bold text-[#2d263b] mt-1">
-                    {lang === "ru" ? "Миграция сайтов на Next.js" : "Legacy CMS to Next.js"}
+                    {lang === "ru" ? "Миграция сайтов на Next.js" : lang === "sr" ? "Migracija sajtova na Next.js" : "Legacy CMS to Next.js"}
                   </h3>
                   <p className="mt-3 text-xs sm:text-sm text-[#585068] leading-relaxed">
                     {lang === "ru"
                       ? "Переезд с WordPress, Tilda, Bitrix на чистый код. 100% сохранение SEO, TTFB 50мс, нулевые платежи за конструкторы."
+                      : lang === "sr"
+                      ? "Prelazak sa WordPress-a, Tilde, Bitrix-a na čist kod. 100% očuvan SEO, TTFB 50ms, nula troškova licenci za platforme."
                       : "Escape WordPress, Tilda, Bitrix. 100% SEO preserved, 50ms TTFB, zero monthly builder license fees."}
                   </p>
                 </div>
@@ -281,7 +314,7 @@ export const HomeView: React.FC = () => {
                     href="/migrate"
                     className="inline-flex items-center gap-2 text-xs font-bold text-[#386161] group-hover:text-[#2a4949]"
                   >
-                    <span>{lang === "ru" ? "Подробнее о миграции" : "Explore Migrations"}</span>
+                    <span>{lang === "ru" ? "Подробнее о миграции" : lang === "sr" ? "Saznajte više o migraciji" : "Explore Migrations"}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -300,14 +333,16 @@ export const HomeView: React.FC = () => {
                     </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#4b6c8c] font-bold">
-                    {lang === "ru" ? "02. Разработка с нуля" : "02. Custom Web"}
+                    {lang === "ru" ? "02. Разработка с нуля" : lang === "sr" ? "02. Namenski veb" : "02. Custom Web"}
                   </span>
                   <h3 className="text-xl font-bold text-[#2d263b] mt-1">
-                    {lang === "ru" ? "Веб-разработка с нуля" : "Custom Web Engineering"}
+                    {lang === "ru" ? "Веб-разработка с нуля" : lang === "sr" ? "Namenski veb inženjering" : "Custom Web Engineering"}
                   </h3>
                   <p className="mt-3 text-xs sm:text-sm text-[#585068] leading-relaxed">
                     {lang === "ru"
                       ? "Лендинги, корпоративные порталы и веб-приложения на Next.js 15, React 19, TypeScript и Tailwind CSS. PageSpeed 95-100."
+                      : lang === "sr"
+                      ? "Landing stranice vrhunskih performansi, korporativni portali i veb aplikacije na Next.js 15, React 19, TypeScript i Tailwind CSS."
                       : "High-performance landing pages, corporate portals, and SaaS apps engineered on React 19, Next.js 15, and Tailwind CSS."}
                   </p>
                 </div>
@@ -316,7 +351,7 @@ export const HomeView: React.FC = () => {
                     href="/development"
                     className="inline-flex items-center gap-2 text-xs font-bold text-[#4b6c8c] group-hover:text-[#38536e]"
                   >
-                    <span>{lang === "ru" ? "Подробнее о разработке" : "Explore Web Dev"}</span>
+                    <span>{lang === "ru" ? "Подробнее о разработке" : lang === "sr" ? "Saznajte više o razvoju" : "Explore Web Dev"}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -331,18 +366,20 @@ export const HomeView: React.FC = () => {
                     </div>
                     {/* Hand-drawn craft tag */}
                     <span className="font-handwriting text-sm text-[#c6814b] font-bold px-2 py-0.5 rounded border border-[#c6814b]/30 bg-[#fef7f0] rotate-2">
-                      {lang === "ru" ? "SLA 1 час · без штата" : "1h SLA · dedicated lead"}
+                      {lang === "ru" ? "SLA 1 час · без штата" : lang === "sr" ? "SLA 1h · bez internog tima" : "1h SLA · dedicated lead"}
                     </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#c6814b] font-bold">
-                    {lang === "ru" ? "03. Поддержка сайтов" : "03. Retainer Care"}
+                    {lang === "ru" ? "03. Поддержка сайтов" : lang === "sr" ? "03. Retainer podrška" : "03. Retainer Care"}
                   </span>
                   <h3 className="text-xl font-bold text-[#2d263b] mt-1">
-                    {lang === "ru" ? "Сопровождение Retainer" : "Monthly Retainer Plans"}
+                    {lang === "ru" ? "Сопровождение Retainer" : lang === "sr" ? "Mesečni Retainer paketi" : "Monthly Retainer Plans"}
                   </h3>
                   <p className="mt-3 text-xs sm:text-sm text-[#585068] leading-relaxed">
                     {lang === "ru"
                       ? "Сопровождение сайтов по фиксированному тарифу: доработки, верстка, обучение команды и мониторинг 24/7 без затрат на штатного разработчика."
+                      : lang === "sr"
+                      ? "Održavanje sajtova po fiksnoj mesečnoj tarifi: dorade, optimizacija, obuka tima i 24/7 nadzor bez troškova stalno zaposlenog programera."
                       : "Fractional web engineering team on monthly retainer: feature rollouts, content updates, staff video tutorials, and SLA monitoring."}
                   </p>
                 </div>
@@ -351,7 +388,7 @@ export const HomeView: React.FC = () => {
                     href="/maintenance"
                     className="inline-flex items-center gap-2 text-xs font-bold text-[#c6814b] group-hover:text-[#a66838]"
                   >
-                    <span>{lang === "ru" ? "Тарифы поддержки" : "Explore Retainers"}</span>
+                    <span>{lang === "ru" ? "Тарифы поддержки" : lang === "sr" ? "Pogledajte pakete" : "Explore Retainers"}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -366,18 +403,20 @@ export const HomeView: React.FC = () => {
                     </div>
                     {/* Hand-drawn craft tag */}
                     <span className="font-handwriting text-sm text-[#9c386d] font-bold px-2 py-0.5 rounded border border-[#9c386d]/30 bg-[#fcf0f6] -rotate-2">
-                      {lang === "ru" ? "Ролики за 24-48 ч" : "Ready in 24-48h"}
+                      {lang === "ru" ? "Ролики за 24-48 ч" : lang === "sr" ? "Video za 24-48h" : "Ready in 24-48h"}
                     </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#9c386d] font-bold">
-                    {lang === "ru" ? "04. AI Видеопродакшн" : "04. AI Video"}
+                    {lang === "ru" ? "04. AI Видеопродакшн" : lang === "sr" ? "04. AI Video produkcija" : "04. AI Video"}
                   </span>
                   <h3 className="text-xl font-bold text-[#2d263b] mt-1">
-                    {lang === "ru" ? "AI Видео и Цифровые Аватары" : "AI Avatars & Presenters"}
+                    {lang === "ru" ? "AI Видео и Цифровые Аватары" : lang === "sr" ? "AI Video i digitalni avatari" : "AI Avatars & Presenters"}
                   </h3>
                   <p className="mt-3 text-xs sm:text-sm text-[#585068] leading-relaxed">
                     {lang === "ru"
                       ? "Генерация виртуальных спикеров и видеороликов для сайтов, YouTube и Shorts на десятках языков без студий и операторов."
+                      : lang === "sr"
+                      ? "Kreiranje fotorealističnih virtualnih prezentera i promotivnih videa za sajtove, YouTube i oglase bez kamera i studija."
                       : "Photorealistic AI presenters and viral video reels generated for websites, YouTube, and ads in 24 hours without studios."}
                   </p>
                 </div>
@@ -386,7 +425,7 @@ export const HomeView: React.FC = () => {
                     href="/ai-video"
                     className="inline-flex items-center gap-2 text-xs font-bold text-[#9c386d] group-hover:text-[#7f2856]"
                   >
-                    <span>{lang === "ru" ? "Смотреть шоукейс" : "Watch Showcase"}</span>
+                    <span>{lang === "ru" ? "Смотреть шоукейс" : lang === "sr" ? "Pogledajte primere" : "Watch Showcase"}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -405,22 +444,22 @@ export const HomeView: React.FC = () => {
             <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
               <div>
                 <div className="text-2xl sm:text-4xl font-black text-[#2d263b]">
-                  {lang === "ru" ? "16+ лет" : "16+ Yrs"}
+                  {lang === "ru" ? "16+ лет" : lang === "sr" ? "16+ god" : "16+ Yrs"}
                 </div>
                 <div className="text-xs sm:text-sm text-[#585068] mt-1">
-                  {lang === "ru" ? "Опыт разработки (с 2008 г.)" : "Engineering heritage (since 2008)"}
+                  {lang === "ru" ? "Опыт разработки (с 2008 г.)" : lang === "sr" ? "Inženjersko iskustvo (od 2008.)" : "Engineering heritage (since 2008)"}
                 </div>
               </div>
               <div>
                 <div className="text-2xl sm:text-4xl font-black text-[#2d263b]">50+</div>
                 <div className="text-xs sm:text-sm text-[#585068] mt-1">
-                  {lang === "ru" ? "Проектов в США, ЕС и СНГ" : "Delivered in US, EU & worldwide"}
+                  {lang === "ru" ? "Проектов в США, ЕС и СНГ" : lang === "sr" ? "Projekata u SAD, EU i svetu" : "Delivered in US, EU & worldwide"}
                 </div>
               </div>
               <div>
                 <div className="text-2xl sm:text-4xl font-black text-[#7ea368]">100/100</div>
                 <div className="text-xs sm:text-sm text-[#585068] mt-1">
-                  {lang === "ru" ? "Google PageSpeed рейтинг" : "Google PageSpeed benchmark"}
+                  {lang === "ru" ? "Google PageSpeed рейтинг" : lang === "sr" ? "Google PageSpeed standard" : "Google PageSpeed benchmark"}
                 </div>
               </div>
             </div>
@@ -450,17 +489,17 @@ export const HomeView: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#386161] font-bold">
-                  {lang === "ru" ? "Избранные работы" : "Selected Client Works"}
+                  {lang === "ru" ? "Избранные работы" : lang === "sr" ? "Izabrani radovi" : "Selected Client Works"}
                 </span>
                 <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] mt-1">
-                  {lang === "ru" ? "Реализованные проекты" : "Case Studies"}
+                  {lang === "ru" ? "Реализованные проекты" : lang === "sr" ? "Studije slučaja" : "Case Studies"}
                 </h2>
               </div>
               <Link
                 href="/portfolio"
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#386161] hover:text-[#2a4949] transition"
               >
-                <span>{lang === "ru" ? "Смотреть все кейсы (30+)" : "View all projects (30+)"}</span>
+                <span>{lang === "ru" ? "Смотреть все кейсы (30+)" : lang === "sr" ? "Pogledajte sve projekte (30+)" : "View all projects (30+)"}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -520,14 +559,16 @@ export const HomeView: React.FC = () => {
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#e5e1eb] text-[#386161] text-xs font-semibold mb-3">
                 <HelpCircle className="w-3.5 h-3.5" />
-                <span>{lang === "ru" ? "Частые вопросы" : "FAQ"}</span>
+                <span>{lang === "ru" ? "Частые вопросы" : lang === "sr" ? "Česta pitanja" : "FAQ"}</span>
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b]">
-                {lang === "ru" ? "Ответы на ключевые вопросы о работе с нами" : "Frequently Asked Questions"}
+                {lang === "ru" ? "Ответы на ключевые вопросы о работе с нами" : lang === "sr" ? "Odgovori na ključna pitanja o radu sa nama" : "Frequently Asked Questions"}
               </h2>
               <p className="mt-3 text-sm text-[#585068]">
                 {lang === "ru"
                   ? "Всё, что важно знать о стеке Next.js, партнёрстве с GoMVP и сохранении поискового трафика."
+                  : lang === "sr"
+                  ? "Sve što je važno znati o Next.js tehnologiji, partnerstvu sa GoMVP i očuvanju SEO pozicija."
                   : "Key facts about our Next.js architecture, GoMVP tandem, and zero-loss SEO retention."}
               </p>
             </div>
@@ -569,11 +610,15 @@ export const HomeView: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#2d263b]">
               {lang === "ru"
                 ? "Готовы модернизировать ваш сайт или запустить новый?"
+                : lang === "sr"
+                ? "Spremni ste da modernizujete sajt ili pokrenete novi proizvod?"
                 : "Ready to modernize your platform or launch a new product?"}
             </h2>
             <p className="mt-4 text-base text-[#585068] max-w-2xl mx-auto">
               {lang === "ru"
                 ? "Оставьте заявку на бесплатный аудит текущей платформы или отправьте нам запрос для быстрого старта."
+                : lang === "sr"
+                ? "Pošaljite upit za besplatnu analizu postojeće platforme ili zatražite procenu za brzi početak."
                 : "Request a free code audit of your existing platform or submit an estimate request."}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -581,13 +626,13 @@ export const HomeView: React.FC = () => {
                 href="/estimate"
                 className="px-8 py-4 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-bold text-sm sm:text-base shadow-lg shadow-[#2d263b]/15 transition-all"
               >
-                {lang === "ru" ? "Калькулятор стоимости" : "Project Cost Estimator"}
+                {lang === "ru" ? "Калькулятор стоимости" : lang === "sr" ? "Kalkulator budžeta" : "Project Cost Estimator"}
               </Link>
               <Link
                 href="/contact"
                 className="px-8 py-4 rounded-2xl border border-[#e5e1eb] bg-white text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-bold text-sm sm:text-base shadow-sm hover:bg-[#faf9fb] transition-all"
               >
-                {lang === "ru" ? "Связаться с нами" : "Contact Studio"}
+                {lang === "ru" ? "Связаться с нами" : lang === "sr" ? "Kontaktirajte studio" : "Contact Studio"}
               </Link>
             </div>
           </div>

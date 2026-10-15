@@ -26,6 +26,8 @@ export const Footer: React.FC = () => {
             <p className="text-xs text-[#585068] leading-relaxed mb-4">
               {lang === "ru"
                 ? "Инженерная студия веб-разработки: миграция с устаревших CMS, абонентское сопровождение (Retainer) и AI-видеопродакшн."
+                : lang === "sr"
+                ? "Inženjerski studio za razvoj veba: migracija sa zastarelih CMS platformi, mesečno održavanje (Retainer) i AI video produkcija."
                 : "Boutique web engineering studio: legacy CMS migrations, retainer support, and generative AI video."}
             </p>
             <div className="text-xs text-[#8c829c]">
@@ -41,7 +43,7 @@ export const Footer: React.FC = () => {
           {/* Col 2: Migration Hub */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#2d263b] font-bold mb-4">
-              {lang === "ru" ? "Миграция CMS" : "CMS Migration"}
+              {lang === "ru" ? "Миграция CMS" : lang === "sr" ? "Migracija CMS-a" : "CMS Migration"}
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
@@ -71,7 +73,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/migrate" className="text-[#386161] font-semibold hover:underline">
-                  {lang === "ru" ? "Все платформы →" : "All platforms →"}
+                  {lang === "ru" ? "Все платформы →" : lang === "sr" ? "Sve platforme →" : "All platforms →"}
                 </Link>
               </li>
             </ul>
@@ -80,32 +82,32 @@ export const Footer: React.FC = () => {
           {/* Col 3: Services */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#2d263b] font-bold mb-4">
-              {lang === "ru" ? "Услуги студии" : "Studio Services"}
+              {lang === "ru" ? "Услуги студии" : lang === "sr" ? "Usluge studija" : "Studio Services"}
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <Link href="/development" className="hover:text-[#4b6c8c] transition">
-                  {lang === "ru" ? "Создание сайтов с нуля" : "Custom Web Engineering"}
+                  {lang === "ru" ? "Создание сайтов с нуля" : lang === "sr" ? "Namenski veb razvoj" : "Custom Web Engineering"}
                 </Link>
               </li>
               <li>
                 <Link href="/maintenance" className="hover:text-[#c6814b] transition">
-                  {lang === "ru" ? "Абонентская техподдержка" : "Monthly Retainer Support"}
+                  {lang === "ru" ? "Абонентская техподдержка" : lang === "sr" ? "Mesečna tehnička podrška" : "Monthly Retainer Support"}
                 </Link>
               </li>
               <li>
                 <Link href="/maintenance" className="hover:text-[#c6814b] transition">
-                  {lang === "ru" ? "Обучение персонала" : "Staff Onboarding & Training"}
+                  {lang === "ru" ? "Обучение персонала" : lang === "sr" ? "Obuka osoblja" : "Staff Onboarding & Training"}
                 </Link>
               </li>
               <li>
                 <Link href="/ai-video" className="hover:text-[#9c386d] transition">
-                  {lang === "ru" ? "AI Видео-аватары (9:16)" : "AI Video Avatars (9:16)"}
+                  {lang === "ru" ? "AI Видео-аватары (9:16)" : lang === "sr" ? "AI Video avatari (9:16)" : "AI Video Avatars (9:16)"}
                 </Link>
               </li>
               <li>
                 <Link href="/ai-video" className="hover:text-[#9c386d] transition">
-                  {lang === "ru" ? "Монтаж YouTube (16:9)" : "YouTube Production (16:9)"}
+                  {lang === "ru" ? "Монтаж YouTube (16:9)" : lang === "sr" ? "YouTube produkcija (16:9)" : "YouTube Production (16:9)"}
                 </Link>
               </li>
             </ul>
@@ -114,7 +116,7 @@ export const Footer: React.FC = () => {
           {/* Col 4: Contacts & Partner */}
           <div>
             <h4 className="text-xs font-mono uppercase tracking-wider text-[#2d263b] font-bold mb-4">
-              {lang === "ru" ? "Связь & Партнёр" : "Contact & Partner"}
+              {lang === "ru" ? "Связь & Партнёр" : lang === "sr" ? "Kontakt & Partner" : "Contact & Partner"}
             </h4>
             <ul className="space-y-2.5 text-xs mb-4">
               <li>
@@ -124,17 +126,17 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-[#2d263b] transition">
-                  {lang === "ru" ? "Форма обратной связи" : "Online Inquiry"}
+                  {lang === "ru" ? "Форма обратной связи" : lang === "sr" ? "Online upit" : "Online Inquiry"}
                 </Link>
               </li>
               <li>
                 <Link href="/estimate" className="hover:text-[#2d263b] transition">
-                  {lang === "ru" ? "Калькулятор проекта" : "Project Estimator"}
+                  {lang === "ru" ? "Калькулятор проекта" : lang === "sr" ? "Kalkulator projekta" : "Project Estimator"}
                 </Link>
               </li>
               <li>
                 <Link href="/portfolio" className="hover:text-[#2d263b] transition">
-                  {lang === "ru" ? "Портфолио кейсов" : "Case Studies Portfolio"}
+                  {lang === "ru" ? "Портфолио кейсов" : lang === "sr" ? "Portfolio projekata" : "Case Studies Portfolio"}
                 </Link>
               </li>
             </ul>
@@ -146,7 +148,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-[#8c829c] hover:text-[#2d263b] transition"
               >
-                <span>{lang === "ru" ? "Инженерный партнёр GoMVP" : "Engineering Partner GoMVP"}</span>
+                <span>{lang === "ru" ? "Инженерный партнёр GoMVP" : lang === "sr" ? "Inženjerski partner GoMVP" : "Engineering Partner GoMVP"}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

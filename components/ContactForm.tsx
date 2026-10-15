@@ -63,16 +63,18 @@ export const ContactForm: React.FC = () => {
         <div>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f1f0f5] border border-[#2d263b]/15 text-[#2d263b] text-xs font-semibold mb-4">
             <Mail className="w-3.5 h-3.5 text-[#386161]" />
-            <span>{lang === "ru" ? "Прямая связь" : "Direct Contact"}</span>
+            <span>{lang === "ru" ? "Прямая связь" : lang === "sr" ? "Direktan kontakt" : "Direct Contact"}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#2d263b]">
-            {lang === "ru" ? "Обсудим ваш проект?" : "Let's Discuss Your Project"}
+            {lang === "ru" ? "Обсудим ваш проект?" : lang === "sr" ? "Hajde da razgovaramo o projektu?" : "Let's Discuss Your Project"}
           </h2>
 
           <p className="mt-4 text-[#585068] text-sm sm:text-base leading-relaxed">
             {lang === "ru"
               ? "Оставьте контакты и краткое описание задачи. Мы свяжемся с вами по электронной почте или в мессенджере с предварительным планом и сметой."
+              : lang === "sr"
+              ? "Ostavite kontakt i kratak opis zadatka. Javićemo vam se putem emaila sa preliminarnim planom, procenom i sledećim koracima."
               : "Send us a brief inquiry. We'll reply within 1–2 business hours with an initial evaluation, timeline, and next steps."}
           </p>
 
@@ -81,7 +83,7 @@ export const ContactForm: React.FC = () => {
             {/* Email Card */}
             <div>
               <div className="text-xs uppercase tracking-wider text-[#585068] font-semibold mb-1">
-                {lang === "ru" ? "Корпоративный Email" : "Corporate Email"}
+                {lang === "ru" ? "Корпоративный Email" : lang === "sr" ? "Zvanični Email" : "Corporate Email"}
               </div>
               <div className="flex items-center gap-3">
                 <a
@@ -104,11 +106,13 @@ export const ContactForm: React.FC = () => {
             {/* Global Remote Delivery Card */}
             <div className="pt-4 border-t border-[#2d263b]/10">
               <div className="text-xs uppercase tracking-wider text-[#585068] font-semibold mb-1">
-                {lang === "ru" ? "Формат работы" : "Client Geography"}
+                {lang === "ru" ? "Формат работы" : lang === "sr" ? "Format saradnje" : "Client Geography"}
               </div>
               <div className="text-sm font-semibold text-[#2d263b]">
                 {lang === "ru"
                   ? "Удалённая разработка · Клиенты в США, Европе и по всему миру"
+                  : lang === "sr"
+                  ? "Rad na daljinu · Klijenti u SAD, Evropi i širom sveta"
                   : "Remote Engineering · Serving clients in US, EU & Worldwide"}
               </div>
             </div>
@@ -119,6 +123,8 @@ export const ContactForm: React.FC = () => {
               <span>
                 {lang === "ru"
                   ? "Ответ в рабочие часы (Mon–Fri, 10:00–19:00)"
+                  : lang === "sr"
+                  ? "Odgovor tokom radnog vremena (Pon–Pet, 10:00–19:00)"
                   : "Response during business hours (Mon–Fri, 10:00–19:00 UTC)"}
               </span>
             </div>
@@ -128,15 +134,19 @@ export const ContactForm: React.FC = () => {
           {/* Craft Editorial Card */}
           <div className="mt-8 flex justify-center md:justify-start">
             <CraftCard
-              tag={lang === "ru" ? "ПРЯМОЙ ДОСТУП К ИНЖЕНЕРАМ" : "DIRECT LEAD ACCESS"}
+              tag={lang === "ru" ? "ПРЯМОЙ ДОСТУП К ИНЖЕНЕРАМ" : lang === "sr" ? "DIREKTAN PRISTUP INŽENJERIMA" : "DIRECT LEAD ACCESS"}
               question={
                 lang === "ru"
                   ? "Отделы продаж и менеджеры? НЕТ [X]"
+                  : lang === "sr"
+                  ? "Prodajni menadžeri i birokratija? NE [X]"
                   : "Sales managers & bureaucracy? NO [X]"
               }
               reason={
                 lang === "ru"
                   ? "Вы консультируетесь напрямую с ведущими техническими архитекторами Few Hands без навязчивого спама."
+                  : lang === "sr"
+                  ? "Konsultujete se direktno sa vodećim tehničkim arhitektama Few Hands bez agresivne prodaje."
                   : "You consult directly with senior technical leads and architects with zero aggressive sales fluff."
               }
               checked={false}
@@ -151,21 +161,21 @@ export const ContactForm: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-xs uppercase tracking-wider font-bold text-[#2d263b] mb-1.5">
-                {lang === "ru" ? "Ваше имя" : "Your Name"} *
+                {lang === "ru" ? "Ваше имя" : lang === "sr" ? "Vaše ime" : "Your Name"} *
               </label>
               <input
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder={lang === "ru" ? "Александр / John" : "John Doe"}
+                placeholder={lang === "ru" ? "Александр / John" : lang === "sr" ? "Marko / John" : "John Doe"}
                 className="w-full px-4 py-3 rounded-xl border border-[#2d263b]/20 bg-white text-[#2d263b] placeholder:text-[#585068]/50 focus:ring-2 focus:ring-[#2d263b]/20 focus:border-[#2d263b] outline-none transition text-sm shadow-sm"
               />
             </div>
 
             <div>
               <label className="block text-xs uppercase tracking-wider font-bold text-[#2d263b] mb-1.5">
-                {lang === "ru" ? "Рабочий Email или Телефон" : "Work Email or Phone"} *
+                {lang === "ru" ? "Рабочий Email или Телефон" : lang === "sr" ? "Poslovni Email ili Telefon" : "Work Email or Phone"} *
               </label>
               <input
                 type="text"
@@ -179,7 +189,7 @@ export const ContactForm: React.FC = () => {
 
             <div>
               <label className="block text-xs uppercase tracking-wider font-bold text-[#2d263b] mb-1.5">
-                {lang === "ru" ? "Адрес текущего сайта (если есть)" : "Current Website URL (optional)"}
+                {lang === "ru" ? "Адрес текущего сайта (если есть)" : lang === "sr" ? "Adresa postojećeg sajta (opciono)" : "Current Website URL (optional)"}
               </label>
               <input
                 type="text"
@@ -192,7 +202,7 @@ export const ContactForm: React.FC = () => {
 
             <div>
               <label className="block text-xs uppercase tracking-wider font-bold text-[#2d263b] mb-1.5">
-                {lang === "ru" ? "Опишите задачу или проект" : "Project Details"} *
+                {lang === "ru" ? "Опишите задачу или проект" : lang === "sr" ? "Opišite zadatak ili projekat" : "Project Details"} *
               </label>
               <textarea
                 rows={4}
@@ -202,6 +212,8 @@ export const ContactForm: React.FC = () => {
                 placeholder={
                   lang === "ru"
                     ? "Миграция с WordPress на Next.js / разработка каталога / техподдержка..."
+                    : lang === "sr"
+                    ? "Migracija sa WordPress-a na Next.js / izrada kataloga / tehnička podrška..."
                     : "CMS migration / custom development / retainer support / AI avatars..."
                 }
                 className="w-full px-4 py-3 rounded-xl border border-[#2d263b]/20 bg-white text-[#2d263b] placeholder:text-[#585068]/50 focus:ring-2 focus:ring-[#2d263b]/20 focus:border-[#2d263b] outline-none transition text-sm shadow-sm"
@@ -210,7 +222,7 @@ export const ContactForm: React.FC = () => {
 
             <div className="pt-2 flex flex-col items-center">
               <DoodlePointer
-                text={lang === "ru" ? "ответим в течение 1–2 часов ↘" : "we reply within 1–2 hours ↘"}
+                text={lang === "ru" ? "ответим в течение 1–2 часов ↘" : lang === "sr" ? "odgovaramo u roku od 1–2 sata ↘" : "we reply within 1–2 hours ↘"}
                 direction="curved-down-right"
                 className="mb-2"
               />
@@ -220,15 +232,15 @@ export const ContactForm: React.FC = () => {
                 className="w-full px-6 py-4 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-bold text-sm sm:text-base transition shadow-md shadow-[#2d263b]/20 flex items-center justify-center gap-2"
               >
                 {status === "loading" ? (
-                  <span>{lang === "ru" ? "Отправка..." : "Submitting..."}</span>
+                  <span>{lang === "ru" ? "Отправка..." : lang === "sr" ? "Slanje..." : "Submitting..."}</span>
                 ) : status === "success" ? (
                   <span className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-[#7ea368]" />
-                    {lang === "ru" ? "Заявка успешно отправлена!" : "Inquiry Sent Successfully!"}
+                    {lang === "ru" ? "Заявка успешно отправлена!" : lang === "sr" ? "Upit je uspešno poslat!" : "Inquiry Sent Successfully!"}
                   </span>
                 ) : (
                   <>
-                    <span>{lang === "ru" ? "Отправить заявку" : "Send Inquiry"}</span>
+                    <span>{lang === "ru" ? "Отправить заявку" : lang === "sr" ? "Pošaljite upit" : "Send Inquiry"}</span>
                     <Send className="w-4 h-4" />
                   </>
                 )}
@@ -242,10 +254,12 @@ export const ContactForm: React.FC = () => {
       {/* Craft Annotations: Stamp & PS */}
       <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
         <CustomStampBadge
-          label={lang === "ru" ? "КОНФИДЕНЦИАЛЬНОСТЬ" : "100% CONFIDENTIAL"}
+          label={lang === "ru" ? "КОНФИДЕНЦИАЛЬНОСТЬ" : lang === "sr" ? "100% POVERLJIVO" : "100% CONFIDENTIAL"}
           caption={
             lang === "ru"
               ? "Строгий NDA • Защита коммерческих данных"
+              : lang === "sr"
+              ? "Striktni NDA • Zaštita poslovnih podataka"
               : "Strict NDA • Full commercial privacy"
           }
           starsCount={5}
@@ -253,10 +267,12 @@ export const ContactForm: React.FC = () => {
         />
 
         <CustomPSCard
-          noteTitle={lang === "ru" ? "P.S. Прямая почта ведущих инженеров:" : "P.S. Direct Engineering Inbox:"}
+          noteTitle={lang === "ru" ? "P.S. Прямая почта ведущих инженеров:" : lang === "sr" ? "P.S. Direktan inbox inženjera:" : "P.S. Direct Engineering Inbox:"}
           text={
             lang === "ru"
               ? "Также можете сразу отправить исходное ТЗ, ссылки на GitHub или макеты Figma на web@fewhands.com."
+              : lang === "sr"
+              ? "Takođe možete poslati tehničku specifikaciju, linkove ka GitHub-u ili Figma dizajnu direktno na web@fewhands.com."
               : "Feel free to email your technical specification, repository links, or Figma design files directly to web@fewhands.com."
           }
           className="rotate-1 flex-1 w-full"
