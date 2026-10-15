@@ -389,7 +389,7 @@ function EstimatorInner() {
       ? calcDevelopment()
       : calcVideo();
 
-  const handleSendEstimate = (e: React.FormEvent) => {
+  const handleSendEstimate = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
 
@@ -401,19 +401,17 @@ function EstimatorInner() {
     };
 
     try {
-      fetch("/api/estimate", {
+      await fetch("/api/estimate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(estimateData),
       });
-    } catch {
-      // ignore
-    }
-
-    setTimeout(() => {
+    } catch (err) {
+      console.error("Failed to submit estimate:", err);
+    } finally {
       setSubmitting(false);
       setSubmitted(true);
-    }, 600);
+    }
   };
 
   const faqItems = [
