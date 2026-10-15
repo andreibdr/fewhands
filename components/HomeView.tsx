@@ -38,7 +38,7 @@ export const HomeView: React.FC = () => {
     {
       title: "Big Data Realty",
       tag: "USA / Proptech",
-      image: "/bigdata.jpg",
+      image: "/portfolio/bigdatarealty.jpg",
       desc: {
         ru: "Аналитический портал и блог о трендах на рынке недвижимости США.",
         en: "Analytics portal & research platform tracking US real estate market data.",
@@ -48,7 +48,7 @@ export const HomeView: React.FC = () => {
     {
       title: "American Med Travel",
       tag: "USA / Healthcare",
-      image: "/americanmedtravel.jpg",
+      image: "/portfolio/americanmedtravel.jpg",
       desc: {
         ru: "Премиальный портал медицинского туризма и каталог ведущих клиник США.",
         en: "Curated directory & portal connecting international patients with top-ranked US hospitals.",
@@ -58,7 +58,7 @@ export const HomeView: React.FC = () => {
     {
       title: "Elena Stazhkova",
       tag: "Real Estate Broker",
-      image: "/stazhkova.jpg",
+      image: "/portfolio/stazhkova.png",
       desc: {
         ru: "Персональный сайт и портфолио агента по элитной недвижимости.",
         en: "Flagship portfolio & website for an elite luxury real estate broker.",
