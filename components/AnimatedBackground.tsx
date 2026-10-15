@@ -27,34 +27,34 @@ export const AnimatedBackground: React.FC = () => {
 
   return (
     <>
-      {/* 1. Deep Background Layer (z-0, below content) */}
+      {/* 1. Deep Background Canvas (z-0, below content) */}
       <div
         aria-hidden="true"
         className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#faf9fb]"
       >
         {/* Warm Technical Dot-Matrix Grid */}
         <div
-          className="absolute inset-0 bg-dot-grid opacity-85"
+          className="absolute inset-0 bg-dot-grid opacity-75"
           style={{
             maskImage: "radial-gradient(ellipse at 50% 35%, black 70%, transparent 95%)",
             WebkitMaskImage: "radial-gradient(ellipse at 50% 35%, black 70%, transparent 95%)",
           }}
         />
 
-        {/* Ambient Cursor Aura (illuminating background grid and space) */}
+        {/* Luminous Interactive Cursor Aura (High-key pastel watercolor glow - zero dark pigments) */}
         {mousePos && isHovered && (
           <>
-            {/* Primary cursor glow halo */}
+            {/* Primary bright cursor halo (warm honey & pale rose watercolor) */}
             <div
-              className="fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-[#9c386d]/30 via-[#c6814b]/25 to-[#7ea368]/25 blur-[95px] transition-transform duration-75 ease-out will-change-transform"
+              className="fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#fbe4d0]/60 via-[#fde5ec]/55 to-[#ddede2]/50 blur-[90px] transition-transform duration-75 ease-out will-change-transform"
               style={{
                 left: `${mousePos.x}px`,
                 top: `${mousePos.y}px`,
               }}
             />
-            {/* Secondary trail follower orb (slightly smaller, soft lag effect) */}
+            {/* Secondary trail follower orb (soft sky & lavender mist) */}
             <div
-              className="fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full bg-gradient-to-br from-[#4b6c8c]/25 via-[#386161]/25 to-[#ba5d60]/20 blur-[70px] transition-transform duration-200 ease-out will-change-transform"
+              className="fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full bg-gradient-to-br from-[#dce8f7]/55 via-[#f5e1eb]/50 to-[#faf0df]/45 blur-[65px] transition-transform duration-200 ease-out will-change-transform"
               style={{
                 left: `${mousePos.x}px`,
                 top: `${mousePos.y}px`,
@@ -63,27 +63,27 @@ export const AnimatedBackground: React.FC = () => {
           </>
         )}
 
-        {/* Floating Aurora Mesh Gradients (Hand Artisan Palette) */}
-        {/* Orb 1: Sage Olive & Forest Petrol (Top Left - Hand 1 & 4) */}
-        <div className="absolute -top-[12%] left-[5%] w-[750px] h-[750px] rounded-full bg-gradient-to-tr from-[#7ea368]/30 via-[#386161]/25 to-[#4b6c8c]/20 blur-[105px] animate-aurora-1" />
+        {/* Floating Luminous Watercolor Ambient Blooms (Pure light pastels, zero dark mud) */}
+        {/* Orb 1: Fresh Sage Dew & Soft Mint Mist (Top Left) */}
+        <div className="absolute -top-[12%] left-[5%] w-[720px] h-[720px] rounded-full bg-gradient-to-tr from-[#d7edd2]/50 via-[#d3ebe7]/45 to-[#dbe8f5]/40 blur-[110px] animate-aurora-1" />
 
-        {/* Orb 2: Radiant Plum Magenta & Warm Coral (Top Right - Hand 2 & 6) */}
-        <div className="absolute top-[3%] -right-[8%] w-[720px] h-[720px] rounded-full bg-gradient-to-bl from-[#9c386d]/28 via-[#ba5d60]/22 to-[#585068]/20 blur-[110px] animate-aurora-2" />
+        {/* Orb 2: Pale Rose Quartz & Peach Blossom (Top Right) */}
+        <div className="absolute top-[3%] -right-[8%] w-[700px] h-[700px] rounded-full bg-gradient-to-bl from-[#fae0eb]/50 via-[#fde7e0]/45 to-[#eee8f7]/40 blur-[115px] animate-aurora-2" />
 
-        {/* Orb 3: Warm Ochre Honey & Soft Sage (Mid-Page / Center - Hand 7 & 1) */}
-        <div className="absolute top-[42%] left-[12%] w-[660px] h-[660px] rounded-full bg-gradient-to-tr from-[#c6814b]/26 via-[#f0f5ec]/35 to-[#7ea368]/22 blur-[100px] animate-aurora-3" />
+        {/* Orb 3: Warm Honey Gold & Clotted Cream (Mid-Page / Center) */}
+        <div className="absolute top-[42%] left-[12%] w-[640px] h-[640px] rounded-full bg-gradient-to-tr from-[#fcebd6]/55 via-[#fffaf4]/60 to-[#e2f0e6]/45 blur-[105px] animate-aurora-3" />
 
-        {/* Orb 4: Slate Denim & Deep Plum Ink (Bottom Right - Hand 3 & 5) */}
-        <div className="absolute -bottom-[12%] right-[10%] w-[780px] h-[780px] rounded-full bg-gradient-to-tl from-[#4b6c8c]/28 via-[#9c386d]/20 to-[#352f44]/18 blur-[115px] animate-aurora-1" />
+        {/* Orb 4: Soft Sky Denim & Iris Mist (Bottom Right) */}
+        <div className="absolute -bottom-[12%] right-[10%] w-[750px] h-[750px] rounded-full bg-gradient-to-tl from-[#dde7f7]/50 via-[#f7e4ee]/40 to-[#ede9f5]/35 blur-[120px] animate-aurora-1" />
       </div>
 
-      {/* 2. Foreground Interactive Spotlight (z-20, on top of cards & content, pointer-events-none) */}
+      {/* 2. Foreground Radiant Spotlight (z-20, on top of cards, purely light & brightening - NO dark tint) */}
       {mousePos && isHovered && (
         <div
           aria-hidden="true"
           className="fixed inset-0 pointer-events-none z-20 transition-opacity duration-300"
           style={{
-            background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(156, 56, 109, 0.14), rgba(198, 129, 75, 0.10), rgba(75, 108, 140, 0.07), transparent 75%)`,
+            background: `radial-gradient(550px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.75) 0%, rgba(254, 249, 240, 0.45) 30%, rgba(253, 242, 246, 0.20) 55%, transparent 75%)`,
           }}
         />
       )}
