@@ -175,11 +175,7 @@ export const HomeView: React.FC = () => {
               {/* Studio Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#e5e1eb] text-[#2d263b] text-xs font-semibold mb-5 shadow-sm backdrop-blur-md">
                 <span className="w-2 h-2 rounded-full bg-[#7ea368] animate-pulse" />
-                <span>
-                  {lang === "ru"
-                    ? "Boutique Web Engineering · Est. 2008 · Партнёр GoMVP"
-                    : "Boutique Web Engineering · Est. 2008 · GoMVP Partner"}
-                </span>
+                <span>Boutique Web Engineering · Est. 2008</span>
               </div>
 
               {/* Main Title */}
