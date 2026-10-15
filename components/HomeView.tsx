@@ -234,46 +234,6 @@ export const HomeView: React.FC = () => {
                 </div>
               </div>
 
-              {/* Key Trust Metrics */}
-              <div className="mt-14 pt-10 border-t border-[#e5e1eb] max-w-4xl mx-auto grid grid-cols-3 gap-6 relative">
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#2d263b]">
-                    {lang === "ru" ? "16+ лет" : "16+ Yrs"}
-                  </div>
-                  <div className="text-xs text-[#585068] mt-1">
-                    {lang === "ru" ? "Опыт разработки (с 2008 г.)" : "Engineering heritage (since 2008)"}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#2d263b]">50+</div>
-                  <div className="text-xs text-[#585068] mt-1">
-                    {lang === "ru" ? "Проектов в США, ЕС и СНГ" : "Delivered in US, EU & worldwide"}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#7ea368]">100/100</div>
-                  <div className="text-xs text-[#585068] mt-1">
-                    {lang === "ru" ? "Google PageSpeed рейтинг" : "Google PageSpeed benchmark"}
-                  </div>
-                </div>
-              </div>
-
-              {/* Responsive Cards Row for Tablet & Mobile where sidebars are hidden */}
-              <div className="xl:hidden mt-10 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
-                <ScientificAuditCard className="rotate-0 hover:rotate-1" />
-                <EditorialStyleCard className="rotate-0 hover:-rotate-1" />
-              </div>
-
-              {/* Editorial Stamp & P.S. Footer Callout */}
-              <div className="mt-10 max-w-3xl mx-auto grid sm:grid-cols-12 gap-4 items-center">
-                <div className="sm:col-span-5 flex justify-center sm:justify-start">
-                  <SpeedRatingStamp className="w-full" />
-                </div>
-                <div className="sm:col-span-7">
-                  <PSFootnoteCard className="w-full" />
-                </div>
-              </div>
-
             </div>
 
           </div>
@@ -436,6 +396,53 @@ export const HomeView: React.FC = () => {
                 </div>
               </div>
 
+            </div>
+
+          </div>
+        </section>
+
+        {/* 2.5 Trust Metrics & Engineering Standards */}
+        <section className="py-14 sm:py-20 border-t border-[#e5e1eb] bg-[#faf9fb]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            {/* Key Trust Metrics */}
+            <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div>
+                <div className="text-2xl sm:text-4xl font-black text-[#2d263b]">
+                  {lang === "ru" ? "16+ лет" : "16+ Yrs"}
+                </div>
+                <div className="text-xs sm:text-sm text-[#585068] mt-1">
+                  {lang === "ru" ? "Опыт разработки (с 2008 г.)" : "Engineering heritage (since 2008)"}
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-4xl font-black text-[#2d263b]">50+</div>
+                <div className="text-xs sm:text-sm text-[#585068] mt-1">
+                  {lang === "ru" ? "Проектов в США, ЕС и СНГ" : "Delivered in US, EU & worldwide"}
+                </div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-4xl font-black text-[#7ea368]">100/100</div>
+                <div className="text-xs sm:text-sm text-[#585068] mt-1">
+                  {lang === "ru" ? "Google PageSpeed рейтинг" : "Google PageSpeed benchmark"}
+                </div>
+              </div>
+            </div>
+
+            {/* Editorial Stamp & P.S. Engineering Callout */}
+            <div className="mt-10 max-w-3xl mx-auto grid sm:grid-cols-12 gap-4 items-center">
+              <div className="sm:col-span-5 flex justify-center sm:justify-start">
+                <SpeedRatingStamp className="w-full" />
+              </div>
+              <div className="sm:col-span-7">
+                <PSFootnoteCard className="w-full" />
+              </div>
+            </div>
+
+            {/* Responsive Cards Row for Tablet & Mobile where desktop sidebars are hidden */}
+            <div className="xl:hidden mt-8 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+              <ScientificAuditCard className="rotate-0 hover:rotate-1" />
+              <EditorialStyleCard className="rotate-0 hover:-rotate-1" />
             </div>
 
           </div>
