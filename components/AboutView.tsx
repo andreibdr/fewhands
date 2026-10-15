@@ -448,14 +448,14 @@ export const AboutView: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {/* Card 1: Standard Agency Factory */}
               <div className="p-7 sm:p-9 rounded-3xl bg-white border border-[#e5e1eb] shadow-sm relative overflow-hidden">
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#e5e1eb]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#ba5d60]" />
-                    <h3 className="font-bold text-base sm:text-lg text-[#2d263b]">
-                      {lang === "ru" ? "Типичное конвейерное агентство" : lang === "sr" ? "Tipična kontejnerska agencija" : "Typical Agency Assembly Line"}
+                <div className="flex items-start justify-between gap-3 mb-6 pb-4 border-b border-[#e5e1eb]">
+                  <div className="flex items-start gap-2.5 min-w-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ba5d60] mt-1.5 shrink-0" />
+                    <h3 className="font-bold text-base sm:text-lg text-[#2d263b] leading-snug">
+                      {lang === "ru" ? "Конвейерное агентство" : lang === "sr" ? "Kontejnerska agencija" : "Typical Agency Assembly Line"}
                     </h3>
                   </div>
-                  <span className="text-[10px] font-mono text-[#ba5d60] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#ba5d60]/10">
+                  <span className="text-[10px] font-mono text-[#ba5d60] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#ba5d60]/10 whitespace-nowrap shrink-0 self-start">
                     {lang === "ru" ? "Испорченный телефон" : lang === "sr" ? "Gubitak u prenosu" : "Broken Telephone"}
                   </span>
                 </div>
@@ -506,14 +506,14 @@ export const AboutView: React.FC = () => {
 
               {/* Card 2: Few Hands Boutique Engineering */}
               <div className="p-7 sm:p-9 rounded-3xl bg-[#fbf8f1] border-2 border-[#386161]/50 shadow-md relative overflow-hidden">
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#386161]/20">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#7ea368]" />
-                    <h3 className="font-bold text-base sm:text-lg text-[#2d263b]">
+                <div className="flex items-start justify-between gap-3 mb-6 pb-4 border-b border-[#386161]/20">
+                  <div className="flex items-start gap-2.5 min-w-0">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#7ea368] mt-1.5 shrink-0" />
+                    <h3 className="font-bold text-base sm:text-lg text-[#2d263b] leading-snug">
                       {lang === "ru" ? "Бутик инженерии Few Hands" : lang === "sr" ? "Inženjerski butik Few Hands" : "Few Hands Engineering Boutique"}
                     </h3>
                   </div>
-                  <span className="text-[10px] font-mono text-[#386161] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#386161]/10">
+                  <span className="text-[10px] font-mono text-[#386161] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#386161]/10 whitespace-nowrap shrink-0 self-start">
                     {lang === "ru" ? "Senior-Only" : lang === "sr" ? "Samo Seniori" : "Senior-Only"}
                   </span>
                 </div>
