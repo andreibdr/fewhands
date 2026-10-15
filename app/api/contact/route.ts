@@ -21,7 +21,6 @@ export async function POST(request: Request) {
       timeStyle: "short",
     });
 
-    // Server-side diagnostic log
     console.log("New FewHands Lead Received:", {
       timestamp: new Date().toISOString(),
       name,
@@ -29,9 +28,9 @@ export async function POST(request: Request) {
       message,
     });
 
-    // If Telegram bot credentials are set in environment variables, dispatch message
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    // Sanitize credentials from environment variables
+    const botToken = process.env.TELEGRAM_BOT_TOKEN?.trim().replace(/^["']|["']$/g, "");
+    const chatId = process.env.TELEGRAM_CHAT_ID?.trim().replace(/^["']|["']$/g, "");
 
     if (botToken && chatId) {
       const htmlText = [
@@ -41,8 +40,7 @@ export async function POST(request: Request) {
         `📞 <b>Контакт:</b> <code>${escapeHtml(contact || "Не указан")}</code>`,
         `🕒 <b>Время:</b> ${dateStr}`,
         ``,
-        `📝 <b>Детали проекта:</b>`,
-        `<blockquote>${escapeHtml(message || "Без комментария")}</blockquote>`,
+        `📝 <b>Детали проекта:</b>\n${escapeHtml(message || "Без комментария")}`,
       ].join("\n");
 
       const tgRes = await fetch(
@@ -58,10 +56,27 @@ export async function POST(request: Request) {
         }
       );
 
+      // Safe fallback to plain text if HTML parsing fails on Telegram side
       if (!tgRes.ok) {
         const tgErr = await tgRes.text();
-        console.error("Telegram API dispatch failed:", tgErr);
+        console.error("Telegram HTML dispatch failed, trying plain text fallback:", tgErr);
+
+        const plainText = `⚡ Новая заявка с сайта fewhands.com\n\nИмя: ${name || "Не указано"}\nКонтакт: ${contact || "Не указан"}\nВремя: ${dateStr}\n\nДетали проекта:\n${message || "Без комментария"}`;
+
+        await fetch(
+          `https://api.telegram.org/bot${botToken}/sendMessage`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: plainText,
+            }),
+          }
+        );
       }
+    } else {
+      console.warn("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing on the server.");
     }
 
     return NextResponse.json({ success: true, message: "Inquiry received" });

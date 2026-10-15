@@ -29,21 +29,25 @@ export async function POST(request: Request) {
       contact,
     });
 
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const botToken = process.env.TELEGRAM_BOT_TOKEN?.trim().replace(/^["']|["']$/g, "");
+    const chatId = process.env.TELEGRAM_CHAT_ID?.trim().replace(/^["']|["']$/g, "");
 
     if (botToken && chatId) {
-      let detailsText = "";
+      let detailsHtml = "";
+      let detailsPlain = "";
+
       if (calculator === "migration") {
-        detailsText = [
+        detailsHtml = [
           `📦 <b>Платформа:</b> ${escapeHtml(result?.platform || "-")}`,
           `📊 <b>Масштаб:</b> ${escapeHtml(result?.scale || "-")}`,
           `🛡 <b>Поддержка:</b> ${escapeHtml(result?.support || "-")}`,
           `💰 <b>Оценка:</b> <b>$${result?.priceMin || 0} - $${result?.priceMax || 0}</b>`,
           `⏱ <b>Сроки:</b> ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`,
         ].join("\n");
+
+        detailsPlain = `Платформа: ${result?.platform || "-"}\nМасштаб: ${result?.scale || "-"}\nПоддержка: ${result?.support || "-"}\nОценка: $${result?.priceMin || 0} - $${result?.priceMax || 0}\nСроки: ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`;
       } else if (calculator === "development") {
-        detailsText = [
+        detailsHtml = [
           `🛠 <b>Тип проекта:</b> ${escapeHtml(result?.type || "-")}`,
           `🎨 <b>Дизайн:</b> ${escapeHtml(result?.design || "-")}`,
           `🌐 <b>Мультиязычность:</b> ${result?.multiLang ? "Да" : "Нет"}`,
@@ -51,8 +55,10 @@ export async function POST(request: Request) {
           `💰 <b>Оценка:</b> <b>$${result?.priceMin || 0} - $${result?.priceMax || 0}</b>`,
           `⏱ <b>Сроки:</b> ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`,
         ].join("\n");
+
+        detailsPlain = `Тип проекта: ${result?.type || "-"}\nДизайн: ${result?.design || "-"}\nМультиязычность: ${result?.multiLang ? "Да" : "Нет"}\nЭквайринг: ${result?.payment ? "Да" : "Нет"}\nОценка: $${result?.priceMin || 0} - $${result?.priceMax || 0}\nСроки: ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`;
       } else {
-        detailsText = [
+        detailsHtml = [
           `🎬 <b>Формат видео:</b> ${escapeHtml(result?.format || "-")}`,
           `📦 <b>Объем:</b> ${escapeHtml(result?.count || "-")}`,
           `🌍 <b>Языки:</b> ${escapeHtml(result?.languages || "-")}`,
@@ -60,6 +66,8 @@ export async function POST(request: Request) {
           `💰 <b>Оценка:</b> <b>$${result?.priceMin || 0} - $${result?.priceMax || 0}</b>`,
           `⏱ <b>Сроки:</b> ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`,
         ].join("\n");
+
+        detailsPlain = `Формат видео: ${result?.format || "-"}\nОбъем: ${result?.count || "-"}\nЯзыки: ${result?.languages || "-"}\nСценарий: ${result?.script || "-"}\nОценка: $${result?.priceMin || 0} - $${result?.priceMax || 0}\nСроки: ${result?.daysMin || 0}-${result?.daysMax || 0} раб. дней`;
       }
 
       const htmlText = [
@@ -70,7 +78,7 @@ export async function POST(request: Request) {
         `🕒 <b>Время:</b> ${dateStr}`,
         ``,
         `⚙️ <b>Параметры сметы (${calculator}):</b>`,
-        detailsText,
+        detailsHtml,
       ].join("\n");
 
       const tgRes = await fetch(
@@ -86,12 +94,27 @@ export async function POST(request: Request) {
         }
       );
 
+      // Fallback if HTML fails
       if (!tgRes.ok) {
         const tgErr = await tgRes.text();
-        console.error("Telegram API estimate dispatch failed:", tgErr);
+        console.error("Telegram HTML estimate dispatch failed, trying plain text fallback:", tgErr);
+
+        const plainText = `📊 Новый расчет сметы с сайта fewhands.com\n\nИмя: ${clientName || "Не указано"}\nКонтакт: ${contact || "Не указан"}\nВремя: ${dateStr}\n\nПараметры (${calculator}):\n${detailsPlain}`;
+
+        await fetch(
+          `https://api.telegram.org/bot${botToken}/sendMessage`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: plainText,
+            }),
+          }
+        );
       }
     } else {
-      console.warn("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing in environment variables.");
+      console.warn("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is missing on the server.");
     }
 
     return NextResponse.json({ success: true, message: "Estimate received" });
