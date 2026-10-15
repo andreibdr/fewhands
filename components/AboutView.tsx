@@ -64,11 +64,27 @@ export const AboutView: React.FC = () => {
     },
   };
 
-  // Evolution eras from 2008 to present
+  // Evolution eras from 1998 to present
   const eras = [
     {
+      year: "1998–2007",
+      badge: lang === "ru" ? "Истоки & Блокнот" : lang === "sr" ? "Koreni & Notepad" : "Notepad Era & Passion",
+      title: lang === "ru" ? "HTML в блокноте, работа в студиях и ремесло" : lang === "sr" ? "HTML u Notepad-u, rad u studijima i zanat" : "Raw HTML in Notepad & The Studio Years",
+      summary:
+        lang === "ru"
+          ? "Путь начался в 1998 году: вёрстка первых сайтов на чистом HTML в стандартном блокноте Windows на заре коммерческого веба. Работа в нескольких веб-студиях, совмещение инженерной практики с увлечённым хобби и накопление глубокого опыта, который в 2008 году привёл к решению основать собственный независимый бутик Few Hands."
+          : lang === "sr"
+          ? "Put je počeo 1998. godine: izrada prvih sajtova na čistom HTML-u u običnom Notepad-u u osvit komercijalnog interneta. Rad u nekoliko veb agencija, spajanje inženjerske prakse sa strastvenim hobijem i sticanje iskustva koje je 2008. godine dovelo do odluke o osnivanju sopstvenog butika Few Hands."
+          : "The journey started in 1998: hand-coding first websites in raw HTML inside Windows Notepad during the internet's infancy. Years spent across digital studios balancing passion hobby with engineering rigor, culminating in the decision to establish Few Hands in 2008.",
+      highlights: [
+        lang === "ru" ? "Вёрстка в блокноте: фундаментальное знание стандартов W3C" : lang === "sr" ? "Pisanje koda u Notepad-u: fundamentalno znanje W3C standarda" : "Notepad hand-coding: foundational mastery of W3C web standards",
+        lang === "ru" ? "Опыт работы изнутри в нескольких классических веб-студиях" : lang === "sr" ? "Radno iskustvo iznutra u nekoliko klasičnih veb agencija" : "Hands-on studio tenure: witnessing early agency workflows firsthand",
+        lang === "ru" ? "Осознание потребности в независимом бутиковом подходе" : lang === "sr" ? "Prepoznavanje potrebe za nezavisnim butičkim pristupom" : "Recognizing the vital need for an authentic boutique model",
+      ],
+    },
+    {
       year: "2008–2012",
-      badge: lang === "ru" ? "Истоки и чистый код" : lang === "sr" ? "Koreni i čist kod" : "Roots & Native Web",
+      badge: lang === "ru" ? "Основание студии" : lang === "sr" ? "Osnivanje studija" : "Studio Founded",
       title: lang === "ru" ? "Рождение Few Hands & Эпоха нативного веба" : lang === "sr" ? "Osnivanje Few Hands i era izvornog veba" : "Birth of Few Hands & The Native Web Era",
       summary:
         lang === "ru"
@@ -311,10 +327,10 @@ export const AboutView: React.FC = () => {
                     </div>
                     <div className="text-xs text-[#585068] font-mono mt-0.5">
                       {lang === "ru"
-                        ? "Основатель и ведущий инженер Few Hands Studio · в вебе с 2008 года"
+                        ? "Основатель и ведущий инженер Few Hands Studio · в вебе с 1998 года"
                         : lang === "sr"
-                        ? "Osnivač i vodeći inženjer Few Hands Studio · u vebu od 2008. godine"
-                        : "Founder & Lead Architect, Few Hands Studio · Web Engineering since 2008"}
+                        ? "Osnivač i vodeći inženjer Few Hands Studio · u vebu od 1998. godine"
+                        : "Founder & Lead Architect, Few Hands Studio · Web Engineering since 1998"}
                     </div>
                   </div>
                 </div>
@@ -329,18 +345,18 @@ export const AboutView: React.FC = () => {
               <div className="space-y-4 text-sm sm:text-base text-[#2d263b] leading-relaxed">
                 <p>
                   {lang === "ru"
-                    ? "«Я запустил Few Hands в 2008 году. За 17+ лет технологии сделали колоссальный скачок, но индустрия заказной разработки пошла по опасному пути: агентства превратились в конвейеры, где проект продает харизматичный сейлз, а пилят уставшие стажёры или случайный субподряд. Клиент платит за раздутый офис и цепочку из пяти менеджеров, а на выходе получает тормозящий монолит, набитый чужими плагинами»."
+                    ? "«Мой путь в веб-инженерии начался ещё в 1998 году — с вёрстки на чистом HTML в обычном блокноте Windows, когда интернет только зарождался. Долгие годы я работал в различных веб-студиях, совмещая это как увлечённое хобби и инженерную практику, изучая изнутри все скрытые болезни заказной разработки. Со временем я увидел, как индустрия свернула на опасный путь конвейера: агентства превратились в фабрики, где проект вам продаёт харизматичный сейлз, а пилят уставшие стажёры на субподряде. Клиент платит за раздутый офис и цепочку из пяти менеджеров, получая на выходе медленный монолит, набитый чужими плагинами»."
                     : lang === "sr"
-                    ? "«Pokrenuo sam Few Hands 2008. godine. Za ovih 17+ godina tehnologija je napravila ogroman skok, ali je industrija veb razvoja krenula rizičnim putem: agencije su postale fabričke trake gde vam projekat prodaje harizmatični prodavac, a stvarni kod pišu preopterećeni pripravnici ili jeftini podizvođači. Klijent plaća ogroman kancelarijski aparat i lanac od pet menadžera, a zauzvrat dobija spor monolit pun nasumičnih dodataka»."
-                    : "«I founded Few Hands in 2008. Over these 17+ years, web technology has leaped forward, yet the agency industry took a troubling turn: digital shops turned into assembly-line factories where a polished sales director pitches the vision, but overworked junior contractors write the actual code. Clients pay for bloated office overhead and five management layers, only to receive a sluggish monolith packed with fragile plugins»."}
+                    ? "«Moj put u veb inženjeringu počeo je još 1998. godine — pisanjem čistog HTML-a u običnom Notepad-u, u vreme kada je moderni internet tek nastajao. Godinama sam radio u različitim veb studijima, spajajući strastveni hobi i inženjersku praksu, i iznutra upoznao sve slabosti agencijskog razvoja. Vremenom sam video kako je industrija skrenula na fabričku traku: agencije su postale mašine gde projekat prodaje harizmatični prodavac, a stvarni kod pišu preopterećeni pripravnici. Klijent plaća ogroman kancelarijski aparat i lanac menadžera, a zauzvrat dobija spor monolit pun nasumičnih dodataka»."
+                    : "«My journey in web engineering started back in 1998 — hand-coding raw HTML in Windows Notepad during the dawn of the commercial web. For years, I worked across various digital studios, treating it as both an intense hobby and a dedicated craft, learning every internal dysfunction of agency production. Over time, I watched the industry degenerate into an impersonal assembly line: digital agencies turned into factories where smooth sales reps close deals, but overworked junior contractors write the actual code. Clients pay for sprawling office overhead and five management layers, only to receive a sluggish monolith choked with third-party plugins»."}
                 </p>
 
                 <p>
                   {lang === "ru"
-                    ? "«Мы осознанно выбрали другой путь — оставаться инженерным бутиком. Название Few Hands — это наше профессиональное кредо: мало рук, но каждая рука — сеньорного уровня. Я лично отвечаю за архитектуру каждого проекта, общаюсь с клиентами напрямую без секретарей и гарантирую, что ваш веб-продукт будет открываться за доли секунды, не сломается от обновлений и останется вашим личным активом с чистой кодовой базой»."
+                    ? "«В 2008 году я принял осознанное решение основать собственную независимую студию — Few Hands — с принципиально другим подходом: оставаться инженерным бутиком. Название Few Hands — это наше профессиональное кредо: мало рук, но каждая рука — сеньорного уровня. Я лично отвечаю за архитектуру каждого проекта, общаюсь с клиентами напрямую без секретарей и посредников и гарантирую, что ваш веб-продукт будет открываться за доли секунды, не сломается от обновлений и навсегда останется вашим личным активом с безупречной кодовой базой»."
                     : lang === "sr"
-                    ? "«Svesno smo izabrali drugačiji put — da ostanemo inženjerski butik. Ime Few Hands predstavlja naš profesionalni kredo: malo ruku, ali svaka ruka je seniorskog ranga. Lično odgovaram za arhitekturu svakog projekta, komuniciram sa klijentima direktno bez sekretarica i garantujem da će se vaš sajt otvarati u deliću sekunde, bez straha od rušenja pri ažuriranjima i sa 100% čistim vlasništvom nad kodom»."
-                    : "«We made a deliberate choice to remain an engineering boutique. The name Few Hands is our operational creed: few hands, but every single hand is senior-grade. I personally architect each project, speak with clients directly without account gatekeepers, and guarantee your web platform renders in sub-second speed, resists breaking updates, and remains your unencumbered asset with a pristine codebase»."}
+                    ? "«Zato sam 2008. godine doneo svesnu odluku da osnujem sopstveni nezavisni studio — Few Hands — sa suštinski drugačijim pristupom: da ostanemo inženjerski butik. Ime Few Hands je naš kredo: malo ruku, ali svaka ruka je seniorskog ranga. Lično odgovaram za arhitekturu svakog projekta, komuniciram sa klijentima direktno bez posrednika i garantujem da će se vaš sajt otvarati u deliću sekunde, bez rušenja pri ažuriranjima i sa 100% čistim vlasništvom nad bazom koda»."
+                    : "«In 2008, I made the conscious decision to establish my own independent studio — Few Hands — built on a fundamentally different standard: an uncompromising engineering boutique. The name Few Hands is our operational creed: few hands, but every single hand is senior-grade. I personally architect every platform, collaborate with clients directly without account gatekeepers, and guarantee your web product renders in sub-second speed, withstands breaking updates, and remains your enduring unencumbered asset with a pristine codebase»."}
                 </p>
               </div>
 
@@ -524,10 +540,10 @@ export const AboutView: React.FC = () => {
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b]">
                 {lang === "ru"
-                  ? "17+ лет в веб-инженерии: от эпохи PHP до AI-аватаров"
+                  ? "В вебе с 1998 года: от HTML в блокноте до AI-аватаров"
                   : lang === "sr"
-                  ? "17+ godina u veb inženjeringu: od PHP ere do AI avatara"
-                  : "17+ Years of Web Evolution: From PHP to Generative AI"}
+                  ? "U vebu od 1998. godine: od HTML-a u Notepad-u do AI avatara"
+                  : "Web Engineering Since 1998: From Notepad HTML to Generative AI"}
               </h2>
               <p className="mt-3 text-sm sm:text-base text-[#585068]">
                 {lang === "ru"
