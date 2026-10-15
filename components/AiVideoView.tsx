@@ -151,16 +151,6 @@ export const AiVideoView: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Breadcrumb */}
-        <div className="text-xs text-[#585068] mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#2d263b] transition-colors">
-            {lang === "ru" ? "Главная" : "Home"}
-          </Link>
-          <span>/</span>
-          <span className="text-[#9c386d] font-semibold">{lang === "ru" ? "AI & Видео" : "AI & Video"}</span>
-        </div>
-
         {/* Hero Section */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7">

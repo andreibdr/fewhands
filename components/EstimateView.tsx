@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, Suspense } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/components/LanguageContext";
 import {
@@ -416,16 +415,6 @@ function EstimatorInner() {
 
       <div className="py-12 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6 flex items-center gap-2">
-            <Link href="/" className="hover:text-slate-900 transition-colors">
-              {lang === "ru" ? "Главная" : "Home"}
-            </Link>
-            <span>/</span>
-            <span className="text-[#2d263b] font-semibold">{lang === "ru" ? "Калькулятор сметы" : "Project Estimator"}</span>
-          </nav>
-
           {/* Hero Header */}
           <header className="text-center max-w-3xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-[#2d263b] text-xs font-semibold mb-4">

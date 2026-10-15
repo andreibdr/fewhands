@@ -191,16 +191,6 @@ export const MigrateHubView: React.FC = () => {
 
       <div className="py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="text-xs text-[#585068] mb-6 flex items-center gap-2">
-            <Link href="/" className="hover:text-[#2d263b] transition-colors">
-              {lang === "ru" ? "Главная" : "Home"}
-            </Link>
-            <span>/</span>
-            <span className="text-[#386161] font-semibold">{lang === "ru" ? "Миграция CMS" : "CMS Migration Hub"}</span>
-          </nav>
-
           {/* Hero Section */}
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             <header className="lg:col-span-7">

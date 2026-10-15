@@ -208,18 +208,6 @@ export const MaintenanceView: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Breadcrumb */}
-        <div className="text-xs text-[#8c829c] mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-[#2d263b] transition-colors">
-            {lang === "ru" ? "Главная" : "Home"}
-          </Link>
-          <span>/</span>
-          <span className="text-[#c6814b] font-semibold">
-            {lang === "ru" ? "Поддержка сайтов (Retainer)" : "Support & Retainer"}
-          </span>
-        </div>
-
         {/* Hero Section */}
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7">
