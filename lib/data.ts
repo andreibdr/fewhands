@@ -41,19 +41,6 @@ export const portfolioItems: PortfolioItem[] = [
     status: "live",
   },
   {
-    id: "bugera",
-    title: "Vladimir Bugera — Miami Real Estate Analytics",
-    category: "web",
-    tags: ["Data Analytics", "Real Estate", "FinTech"],
-    description: {
-      ru: "Персональная платформа финансового аналитика и исследователя рынка жилой недвижимости Южной Флориды.",
-      en: "Research and quantitative analytics platform for South Florida residential and commercial real estate.",
-    },
-    image: "/portfolio/bugera.jpg",
-    url: "http://bugera.com",
-    status: "live",
-  },
-  {
     id: "mipt-global",
     title: "MIPT Global / Физтех Inside",
     category: "web",
@@ -103,6 +90,19 @@ export const portfolioItems: PortfolioItem[] = [
     },
     image: "/portfolio/vivasan.jpg",
     url: "http://vivasan.us",
+    status: "live",
+  },
+  {
+    id: "bugera",
+    title: "Vladimir Bugera — Miami Real Estate Analytics",
+    category: "web",
+    tags: ["Data Analytics", "Real Estate", "FinTech"],
+    description: {
+      ru: "Персональная платформа финансового аналитика и исследователя рынка жилой недвижимости Южной Флориды.",
+      en: "Research and quantitative analytics platform for South Florida residential and commercial real estate.",
+    },
+    image: "/portfolio/bugera.png",
+    url: "http://bugera.com",
     status: "live",
   },
   {
