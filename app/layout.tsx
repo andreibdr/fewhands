@@ -14,7 +14,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Few Hands — Boutique Web Engineering, CMS Migration & AI Media",
+  title: "Few Hands - Boutique Web Engineering, CMS Migration & AI Media",
   description:
     "Engineering migration of websites from WordPress, Tilda, Webflow, Bitrix to Next.js in partnership with GoMVP. Ongoing website retainer support and turnkey generative AI video production.",
   keywords: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Few Hands" }],
   openGraph: {
-    title: "Few Hands — Boutique Web Engineering, CMS Migration & AI Media",
+    title: "Few Hands - Boutique Web Engineering, CMS Migration & AI Media",
     description:
       "Modernize legacy platforms to Next.js in partnership with GoMVP, monthly retainer support, and AI video production.",
     url: "https://fewhands.com",

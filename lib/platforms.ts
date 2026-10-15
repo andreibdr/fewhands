@@ -20,9 +20,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "CMS & Интернет-магазины", en: "CMS & E-Commerce", sr: "CMS & E-Trgovina" },
     badgeColor: "bg-blue-600",
     metaTitle: {
-      ru: "Миграция с WordPress на Next.js | Ускорение сайта и отказ от плагинов — Few Hands & GoMVP",
-      en: "Migrate from WordPress to Next.js | Eliminate Plugins & Bloat — Few Hands & GoMVP",
-      sr: "Migracija sa WordPress-a na Next.js | Ubrzanje i rad bez dodataka — Few Hands & GoMVP",
+      ru: "Миграция с WordPress на Next.js | Ускорение сайта и отказ от плагинов - Few Hands & GoMVP",
+      en: "Migrate from WordPress to Next.js | Eliminate Plugins & Bloat - Few Hands & GoMVP",
+      sr: "Migracija sa WordPress-a na Next.js | Ubrzanje i rad bez dodataka - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Перенос сайтов и интернет-магазинов с WordPress/WooCommerce на чистый стек Next.js. Инженерная миграция от GoMVP, обучение и абонентская техподдержка от Few Hands.",
@@ -87,9 +87,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "Конструктор сайтов", en: "Website Builders", sr: "Sajt-bilderi" },
     badgeColor: "bg-orange-600",
     metaTitle: {
-      ru: "Перенос сайта с Tilda на чистый код Next.js | Снятие лимитов — Few Hands & GoMVP",
-      en: "Migrate from Tilda to Clean Next.js Code | Remove Limits — Few Hands & GoMVP",
-      sr: "Migracija sa Tilde na Next.js | Oslobađanje od limita — Few Hands & GoMVP",
+      ru: "Перенос сайта с Tilda на чистый код Next.js | Снятие лимитов - Few Hands & GoMVP",
+      en: "Migrate from Tilda to Clean Next.js Code | Remove Limits - Few Hands & GoMVP",
+      sr: "Migracija sa Tilde na Next.js | Oslobađanje od limita - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Выросли из ограничений Tilda? Перенос лендингов и магазинов в независимый код на Next.js без абонплаты конструктору. Разработка от GoMVP, поддержка от Few Hands.",
@@ -119,7 +119,7 @@ export const platformsData: Record<string, PlatformData> = {
     solutions: {
       ru: [
         "Полная свобода дизайна и любые сложные интерактивные сценарии.",
-        "Ноль абонентской платы за платформу — сайт размещается на бесплатном глобальном CDN.",
+        "Ноль абонентской платы за платформу - сайт размещается на бесплатном глобальном CDN.",
         "Возможность интеграции с любыми CRM, базами данных и сервисами аналитики.",
         "Идеальная скорость загрузки 100/100 в мобильных устройствах.",
       ],
@@ -154,9 +154,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "No-Code платформы", en: "No-Code Builders", sr: "No-Code platforme" },
     badgeColor: "bg-blue-500",
     metaTitle: {
-      ru: "Миграция с Webflow на Next.js | Независимость от валютных подписок — Few Hands & GoMVP",
-      en: "Migrate from Webflow to Next.js | Zero Vendor Lock-in — Few Hands & GoMVP",
-      sr: "Migracija sa Webflow-a na Next.js | Bez mesečnih licenci — Few Hands & GoMVP",
+      ru: "Миграция с Webflow на Next.js | Независимость от валютных подписок - Few Hands & GoMVP",
+      en: "Migrate from Webflow to Next.js | Zero Vendor Lock-in - Few Hands & GoMVP",
+      sr: "Migracija sa Webflow-a na Next.js | Bez mesečnih licenci - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Перенос сайтов с Webflow на собственный код Next.js. Отказ от дорогих подписок Webflow, интеграция любых платежных шлюзов, поддержка и обучение от Few Hands.",
@@ -221,9 +221,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "Корпоративные CMS", en: "Enterprise CMS & Portals", sr: "Korporativni sistemi" },
     badgeColor: "bg-red-600",
     metaTitle: {
-      ru: "Миграция с 1C-Битрикс на Headless Next.js | Ускорение в 5 раз — Few Hands & GoMVP",
-      en: "Migrate from 1C-Bitrix to Headless Next.js | 5x Faster Speed — Few Hands & GoMVP",
-      sr: "Migracija sa 1C-Bitrix na Headless Next.js | 5x brži sajt — Few Hands & GoMVP",
+      ru: "Миграция с 1C-Битрикс на Headless Next.js | Ускорение в 5 раз - Few Hands & GoMVP",
+      en: "Migrate from 1C-Bitrix to Headless Next.js | 5x Faster Speed - Few Hands & GoMVP",
+      sr: "Migracija sa 1C-Bitrix na Headless Next.js | 5x brži sajt - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Устали от тормозящего Битрикса и дорогих лицензий? Переносим публичную часть на молниеносный Next.js с сохранением интеграции с 1C. Разработка GoMVP, поддержка Few Hands.",
@@ -288,9 +288,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "Интернет-магазины", en: "E-Commerce Platforms", sr: "E-Commerce platforme" },
     badgeColor: "bg-sky-600",
     metaTitle: {
-      ru: "Миграция интернет-магазина с InSales/OpenCart на Next.js — Few Hands & GoMVP",
-      en: "Migrate Store from InSales/OpenCart to Next.js E-Commerce — Few Hands & GoMVP",
-      sr: "Migracija e-prodavnice sa InSales/OpenCart na Next.js — Few Hands & GoMVP",
+      ru: "Миграция интернет-магазина с InSales/OpenCart на Next.js - Few Hands & GoMVP",
+      en: "Migrate Store from InSales/OpenCart to Next.js E-Commerce - Few Hands & GoMVP",
+      sr: "Migracija e-prodavnice sa InSales/OpenCart na Next.js - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Модернизация интернет-магазина: мгновенная фильтрация, быстрый чекаут без брошенных корзин на Next.js. Инженерия GoMVP, поддержка и обучение от Few Hands.",
@@ -301,8 +301,8 @@ export const platformsData: Record<string, PlatformData> = {
       ru: [
         "Высокий процент брошенных корзин из-за долгой перезагрузки страниц оформления заказа.",
         "Ограниченные возможности кастомизации витрины и фильтрации товаров.",
-        "Для InSales — растущая абонентская плата и комиссии с оборота.",
-        "Для OpenCart — устаревший код, постоянные сбои модулей оплаты и доставки после обновлений.",
+        "Для InSales - растущая абонентская плата и комиссии с оборота.",
+        "Для OpenCart - устаревший код, постоянные сбои модулей оплаты и доставки после обновлений.",
       ],
       en: [
         "High cart abandonment rates caused by sluggish multi-step checkout reloads.",
@@ -322,7 +322,7 @@ export const platformsData: Record<string, PlatformData> = {
         "Мгновенный переход между товарами и мгновенная фильтрация без перезагрузки страниц.",
         "Оптимизированный чекаут в 1 экран с интеграцией любых эквайрингов и СБП.",
         "Перенос всей базы товаров, клиентов, истории заказов и SEO-ссылок.",
-        "Отсутствие комиссий конструкторов — магазин принадлежит только вам.",
+        "Отсутствие комиссий конструкторов - магазин принадлежит только вам.",
       ],
       en: [
         "Instant catalog filtering and zero-delay product page loads.",
@@ -334,7 +334,7 @@ export const platformsData: Record<string, PlatformData> = {
         "Trenutno filtriranje kataloga i pregled proizvoda bez čekanja i osvežavanja stranice.",
         "Pojednostavljen proces kupovine u jednom koraku sa direktnim platnim karticama.",
         "Potpun prenos baze kupaca, kataloga proizvoda, istorije porudžbina i SEO linkova.",
-        "Potpuna sloboda bez provizija od prometa — prodavnica je 100% u vašem vlasništvu.",
+        "Potpuna sloboda bez provizija od prometa - prodavnica je 100% u vašem vlasništvu.",
       ],
     },
     whyGoMvp: {
@@ -355,9 +355,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "SaaS E-Commerce", en: "SaaS E-Commerce", sr: "SaaS E-Trgovina" },
     badgeColor: "bg-emerald-600",
     metaTitle: {
-      ru: "Миграция с Shopify на Headless Next.js | Без комиссий и ограничений — Few Hands & GoMVP",
-      en: "Migrate from Shopify to Headless Next.js | Cut App Fees — Few Hands & GoMVP",
-      sr: "Migracija sa Shopify na Headless Next.js | Bez provizija — Few Hands & GoMVP",
+      ru: "Миграция с Shopify на Headless Next.js | Без комиссий и ограничений - Few Hands & GoMVP",
+      en: "Migrate from Shopify to Headless Next.js | Cut App Fees - Few Hands & GoMVP",
+      sr: "Migracija sa Shopify na Headless Next.js | Bez provizija - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Перенос магазина с Shopify на собственный Headless стек: избавьтесь от десятков платных приложений и транзакционных комиссий. GoMVP + Few Hands.",
@@ -422,9 +422,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "Гибкие CMS", en: "Flexible CMS", sr: "Tradicionalni CMS" },
     badgeColor: "bg-slate-700",
     metaTitle: {
-      ru: "Миграция с MODX на Next.js | Избавление от легаси — Few Hands & GoMVP",
-      en: "Migrate from MODX to Next.js | Modern Architecture — Few Hands & GoMVP",
-      sr: "Migracija sa MODX na Next.js | Savremena arhitektura — Few Hands & GoMVP",
+      ru: "Миграция с MODX на Next.js | Избавление от легаси - Few Hands & GoMVP",
+      en: "Migrate from MODX to Next.js | Modern Architecture - Few Hands & GoMVP",
+      sr: "Migracija sa MODX na Next.js | Savremena arhitektura - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Перенос сайтов с MODX Revolution/Evolution на чистый Next.js. Уход от спагетти-сниппетов к современной архитектуре. Инженерия GoMVP, поддержка Few Hands.",
@@ -453,7 +453,7 @@ export const platformsData: Record<string, PlatformData> = {
     },
     solutions: {
       ru: [
-        "Современный компонентный подход React / Next.js — легко развивать и масштабировать.",
+        "Современный компонентный подход React / Next.js - легко развивать и масштабировать.",
         "Молниеносный отклик страниц и идеальный SEO-аудит.",
         "Безопасная архитектура без риска инъекций в шаблоны.",
         "Доступ к огромному сообществу современных веб-разработчиков.",
@@ -489,9 +489,9 @@ export const platformsData: Record<string, PlatformData> = {
     category: { ru: "Устаревшие монолиты", en: "Legacy Monoliths", sr: "Zastarele tehnologije" },
     badgeColor: "bg-indigo-600",
     metaTitle: {
-      ru: "Модернизация самописных сайтов на PHP | Перенос на Next.js — Few Hands & GoMVP",
-      en: "Modernize Legacy PHP Monoliths | Migration to Next.js — Few Hands & GoMVP",
-      sr: "Modernizacija nasleđenog PHP koda | Prelazak na Next.js — Few Hands & GoMVP",
+      ru: "Модернизация самописных сайтов на PHP | Перенос на Next.js - Few Hands & GoMVP",
+      en: "Modernize Legacy PHP Monoliths | Migration to Next.js - Few Hands & GoMVP",
+      sr: "Modernizacija nasleđenog PHP koda | Prelazak na Next.js - Few Hands & GoMVP",
     },
     metaDescription: {
       ru: "Ваш сайт написан 10 лет назад на чистом PHP или старом фреймворке? Аккуратно переносим в современный Next.js с сохранением данных. GoMVP + Few Hands.",
@@ -500,7 +500,7 @@ export const platformsData: Record<string, PlatformData> = {
     },
     painPoints: {
       ru: [
-        "Код без документации, написанный уволившимися программистами («работает — не трогай»).",
+        "Код без документации, написанный уволившимися программистами («работает - не трогай»).",
         "Невозможность внедрить современный мобильный интерфейс и анимации.",
         "Устаревшие версии PHP (5.6 / 7.0), которые больше не поддерживаются современными хостингами.",
         "Высокий риск падения бизнеса при попытке дописать даже простую новую функцию.",

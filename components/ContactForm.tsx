@@ -75,7 +75,7 @@ export const ContactForm: React.FC = () => {
               ? "Оставьте контакты и краткое описание задачи. Мы свяжемся с вами по электронной почте или в мессенджере с предварительным планом и сметой."
               : lang === "sr"
               ? "Ostavite kontakt i kratak opis zadatka. Javićemo vam se putem emaila sa preliminarnim planom, procenom i sledećim koracima."
-              : "Send us a brief inquiry. We'll reply within 1–2 business hours with an initial evaluation, timeline, and next steps."}
+              : "Send us a brief inquiry. We'll reply within 1-2 business hours with an initial evaluation, timeline, and next steps."}
           </p>
 
           <div className="mt-8 p-6 rounded-3xl border border-[#2d263b]/10 bg-white/90 backdrop-blur-md shadow-sm space-y-6">
@@ -122,10 +122,10 @@ export const ContactForm: React.FC = () => {
               <Clock className="w-4 h-4 text-[#386161] shrink-0" />
               <span>
                 {lang === "ru"
-                  ? "Ответ в рабочие часы (Mon–Fri, 10:00–19:00)"
+                  ? "Ответ в рабочие часы (Mon-Fri, 10:00-19:00)"
                   : lang === "sr"
-                  ? "Odgovor tokom radnog vremena (Pon–Pet, 10:00–19:00)"
-                  : "Response during business hours (Mon–Fri, 10:00–19:00 UTC)"}
+                  ? "Odgovor tokom radnog vremena (Pon-Pet, 10:00-19:00)"
+                  : "Response during business hours (Mon-Fri, 10:00-19:00 UTC)"}
               </span>
             </div>
 
@@ -222,7 +222,7 @@ export const ContactForm: React.FC = () => {
 
             <div className="pt-2 flex flex-col items-center">
               <DoodlePointer
-                text={lang === "ru" ? "ответим в течение 1–2 часов ↘" : lang === "sr" ? "odgovaramo u roku od 1–2 sata ↘" : "we reply within 1–2 hours ↘"}
+                text={lang === "ru" ? "ответим в течение 1-2 часов ↘" : lang === "sr" ? "odgovaramo u roku od 1-2 sata ↘" : "we reply within 1-2 hours ↘"}
                 direction="curved-down-right"
                 className="mb-2"
               />

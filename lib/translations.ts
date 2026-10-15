@@ -187,7 +187,7 @@ export const translations: Record<Language, TranslationContent> = {
     development: {
       badge: "Кастомная разработка",
       title: "Создание сайтов с чистого листа",
-      subtitle: "Проектируем и запускаем производительные веб-проекты под ключ — от продающих лендингов до масштабируемых каталогов.",
+      subtitle: "Проектируем и запускаем производительные веб-проекты под ключ - от продающих лендингов до масштабируемых каталогов.",
       cards: [
         {
           icon: "Layout",
@@ -215,7 +215,7 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Создаём контент, который цепляет внимание с первых секунд и работает на продажи в YouTube, Shorts и на сайте.",
       aiBadge: "Трендовая технология",
       aiTitle: "AI Видео-аватар под ключ",
-      aiDesc: "Реалистичный говорящий персонаж для приветствия на сайте, обучающих роликов или рекламы. Говорит на любом языке с идеальной артикуляцией — без затрат на съемочную группу и студию.",
+      aiDesc: "Реалистичный говорящий персонаж для приветствия на сайте, обучающих роликов или рекламы. Говорит на любом языке с идеальной артикуляцией - без затрат на съемочную группу и студию.",
       steps: [
         { num: "01", title: "Сценарий и бриф", desc: "Разрабатываем продающий текст, хуки и тайминги под вашу целевую аудиторию." },
         { num: "02", title: "Генерация и озвучка", desc: "Подбираем фотореалистичный аватар, накладываем профессиональную озвучку или ваш голос." },
@@ -247,7 +247,7 @@ export const translations: Record<Language, TranslationContent> = {
     contacts: {
       badge: "Связь",
       title: "Давайте обсудим вашу задачу",
-      subtitle: "Отправьте заявку или напишите на email — ответим в течение 1–2 часов с конкретными предложениями.",
+      subtitle: "Отправьте заявку или напишите на email - ответим в течение 1-2 часов с конкретными предложениями.",
       nameLabel: "Ваше имя",
       contactLabel: "Email или WhatsApp",
       messageLabel: "Коротко о проекте",
@@ -346,7 +346,7 @@ export const translations: Record<Language, TranslationContent> = {
     development: {
       badge: "Custom Development",
       title: "Bespoke Web Development",
-      subtitle: "Engineering fast, modern web applications from ground up — from high-converting landing pages to scalable product catalogs.",
+      subtitle: "Engineering fast, modern web applications from ground up - from high-converting landing pages to scalable product catalogs.",
       cards: [
         {
           icon: "Layout",
@@ -374,7 +374,7 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "High-impact video content that captures attention in seconds and drives commercial conversions on YouTube and web.",
       aiBadge: "Cutting-Edge AI",
       aiTitle: "Turnkey AI Video Avatars",
-      aiDesc: "Photorealistic talking presenters for website greetings, explainer clips, and marketing ads. Speaks any language with accurate lip-sync — without video crew or studio overhead.",
+      aiDesc: "Photorealistic talking presenters for website greetings, explainer clips, and marketing ads. Speaks any language with accurate lip-sync - without video crew or studio overhead.",
       steps: [
         { num: "01", title: "Script & Angle", desc: "Crafting hook-driven messaging tailored specifically to your target audience." },
         { num: "02", title: "Synthesis & Audio", desc: "Generating photorealistic visual avatars with studio-grade neural voice synthesis." },
@@ -406,7 +406,7 @@ export const translations: Record<Language, TranslationContent> = {
     contacts: {
       badge: "Get In Touch",
       title: "Let's Discuss Your Project",
-      subtitle: "Submit an inquiry or reach out directly. We respond within 1–2 business hours with concrete next steps.",
+      subtitle: "Submit an inquiry or reach out directly. We respond within 1-2 business hours with concrete next steps.",
       nameLabel: "Your Name",
       contactLabel: "Work Email or Phone",
       messageLabel: "Tell us about your project",
@@ -505,7 +505,7 @@ export const translations: Record<Language, TranslationContent> = {
     development: {
       badge: "Namenski razvoj",
       title: "Namenski veb inženjering",
-      subtitle: "Kreiramo brze, savremene veb aplikacije od nule — od visoko-konvertujućih landing stranica do skalabilnih kataloga proizvoda.",
+      subtitle: "Kreiramo brze, savremene veb aplikacije od nule - od visoko-konvertujućih landing stranica do skalabilnih kataloga proizvoda.",
       cards: [
         {
           icon: "Layout",
@@ -533,7 +533,7 @@ export const translations: Record<Language, TranslationContent> = {
       subtitle: "Upečatljiv video sadržaj koji zadržava pažnju u prvim sekundama i donosi poslovne rezultate na YouTube-u i vebu.",
       aiBadge: "Napredni AI alati",
       aiTitle: "Fotorealistični AI video avatari",
-      aiDesc: "Digitalni prezenteri koji govore za uvodne poruke na sajtu, edukativne klipove i reklame. Tečno govore bilo koji jezik sa preciznom sinhronizacijom usana — bez snimateljske ekipe i troškova studija.",
+      aiDesc: "Digitalni prezenteri koji govore za uvodne poruke na sajtu, edukativne klipove i reklame. Tečno govore bilo koji jezik sa preciznom sinhronizacijom usana - bez snimateljske ekipe i troškova studija.",
       steps: [
         { num: "01", title: "Scenario & koncept", desc: "Pisanje ubedljivih poruka kreiranih za privlačenje pažnje vaše ciljne grupe." },
         { num: "02", title: "Sinteza & glas", desc: "Kreiranje fotorealističnih vizuelnih avatara sa neuralnom sintezom glasa studijskog kvaliteta." },
@@ -565,7 +565,7 @@ export const translations: Record<Language, TranslationContent> = {
     contacts: {
       badge: "Stupite u kontakt",
       title: "Hajde da razgovaramo o vašem projektu",
-      subtitle: "Pošaljite upit ili nas kontaktirajte direktno. Odgovaramo u roku od 1–2 radna sata sa konkretnim predlozima.",
+      subtitle: "Pošaljite upit ili nas kontaktirajte direktno. Odgovaramo u roku od 1-2 radna sata sa konkretnim predlozima.",
       nameLabel: "Vaše ime",
       contactLabel: "Email ili telefon",
       messageLabel: "Ukratko o projektu",

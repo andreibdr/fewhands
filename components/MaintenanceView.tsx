@@ -98,7 +98,7 @@ export const MaintenanceView: React.FC = () => {
               "Обучение и онбординг сотрудников (видео-инструкции)",
               "До 10 часов верстки, доработок и новых блоков",
               "Публикация контента, акций, товаров и баннеров",
-              "Приоритетный ответ в рабочие часы (Mon–Fri)",
+              "Приоритетный ответ в рабочие часы (Mon-Fri)",
               "Контроль скорости Google PageSpeed (держим 95-100)",
             ]
           : lang === "sr"
@@ -107,16 +107,16 @@ export const MaintenanceView: React.FC = () => {
               "Obuka i onbording zaposlenih (video uputstva)",
               "Do 10 sati inženjeringa, novih sekcija i dorada",
               "Redovno objavljivanje članaka, banera i proizvoda",
-              "Prioritetni odgovor tokom radnog vremena (pon–pet)",
-              "Kontrola brzine Google PageSpeed (ciljamo 95–100)",
+              "Prioritetni odgovor tokom radnog vremena (pon-pet)",
+              "Kontrola brzine Google PageSpeed (ciljamo 95-100)",
             ]
           : [
               "All features included in Essentials",
               "Team onboarding & step-by-step video tutorials",
               "Up to 10 engineering hours for new sections and UI tweaks",
               "Continuous publication of articles, banners, and products",
-              "Priority response during business hours (Mon–Fri)",
-              "Continuous Core Web Vitals audits (target 95–100)",
+              "Priority response during business hours (Mon-Fri)",
+              "Continuous Core Web Vitals audits (target 95-100)",
             ],
       popular: true,
     },
@@ -172,16 +172,16 @@ export const MaintenanceView: React.FC = () => {
           : "Monthly Financial Cost",
       inhouse:
         lang === "ru"
-          ? "$2,500 – $4,500/мес (оклад, налоги, рабочее место)"
+          ? "$2,500 - $4,500/мес (оклад, налоги, рабочее место)"
           : lang === "sr"
-          ? "$2.500 – $4.500/mesečno (plata, porezi, oprema)"
-          : "$2,500 – $4,500/mo (Salary, taxes, benefits)",
+          ? "$2.500 - $4.500/mesečno (plata, porezi, oprema)"
+          : "$2,500 - $4,500/mo (Salary, taxes, benefits)",
       fewhands:
         lang === "ru"
-          ? "От $190/мес — фиксированный Retainer без налогов и найма"
+          ? "От $190/мес - фиксированный Retainer без налогов и найма"
           : lang === "sr"
-          ? "Od $190/mesečno — fiksni Retainer bez troškova zapošljavanja"
-          : "From $190/mo — flat predictable retainer, zero overhead",
+          ? "Od $190/mesečno - fiksni Retainer bez troškova zapošljavanja"
+          : "From $190/mo - flat predictable retainer, zero overhead",
     },
     {
       metric:
@@ -350,7 +350,7 @@ export const MaintenanceView: React.FC = () => {
 
             <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
               {lang === "ru"
-                ? "После релиза или миграции сайта самое главное — надежное техническое плечо. Команда инженеров Few Hands берет на себя регулярное обновление контента, защиту от сбоев, круглосуточный мониторинг, онбординг персонала и доработку новых фич по фиксированному тарифу без затрат на штатного разработчика."
+                ? "После релиза или миграции сайта самое главное - надежное техническое плечо. Команда инженеров Few Hands берет на себя регулярное обновление контента, защиту от сбоев, круглосуточный мониторинг, онбординг персонала и доработку новых фич по фиксированному тарифу без затрат на штатного разработчика."
                 : lang === "sr"
                 ? "Nakon objave ili migracije sajta najvažnija je sigurna tehnička podrška. Inženjerski tim Few Hands preuzima redovno ažuriranje sadržaja, zaštitu od prekida, 24/7 nadzor, obuku zaposlenih i doradu novih funkcionalnosti po fiksnom mesečnom paketu, bez troškova zapošljavanja in-house programera."
                 : "We ensure your digital platform stays fast, secure, and always operational. Few Hands delivers proactive maintenance, scheduled content rollouts, 24/7 uptime monitoring, and engineering iterations under a predictable monthly retainer."}
@@ -706,7 +706,7 @@ export const MaintenanceView: React.FC = () => {
                 {lang === "ru"
                   ? "Короткие наглядные ролики (3-5 мин) под каждую операцию: добавление товара, редактирование баннера, публикация статьи."
                   : lang === "sr"
-                  ? "Kratka video uputstva (3–5 min) za svaku funkciju: unos novog proizvoda, izmena banera, objava blog članka."
+                  ? "Kratka video uputstva (3-5 min) za svaku funkciju: unos novog proizvoda, izmena banera, objava blog članka."
                   : "Concise 3-minute screen recordings tailored to your specific UI for catalog, banner, and text management."}
               </p>
             </div>
@@ -744,9 +744,9 @@ export const MaintenanceView: React.FC = () => {
               </h3>
               <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
                 {lang === "ru"
-                  ? "Если новый сотрудник забыл инструкцию или запутался — оперативно подскажем и поможем решить вопрос в рабочем чате."
+                  ? "Если новый сотрудник забыл инструкцию или запутался - оперативно подскажем и поможем решить вопрос в рабочем чате."
                   : lang === "sr"
-                  ? "Kada se pojave novi članovi tima ili nedoumice oko rada — uvek smo tu da brzo pomognemo i odgovorimo u radnom četu."
+                  ? "Kada se pojave novi članovi tima ili nedoumice oko rada - uvek smo tu da brzo pomognemo i odgovorimo u radnom četu."
                   : "Whenever new staff joins or edge cases arise, our engineers provide fast, friendly guidance in your dedicated chat."}
               </p>
             </div>

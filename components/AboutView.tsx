@@ -40,10 +40,10 @@ export const AboutView: React.FC = () => {
     "@type": "AboutPage",
     name:
       lang === "ru"
-        ? "О студии Few Hands — Манифест бутиковой веб-инженерии"
+        ? "О студии Few Hands - Манифест бутиковой веб-инженерии"
         : lang === "sr"
-        ? "O studiju Few Hands — Manifest butičkog veb inženjeringa"
-        : "About Few Hands — Boutique Web Engineering Manifesto",
+        ? "O studiju Few Hands - Manifest butičkog veb inženjeringa"
+        : "About Few Hands - Boutique Web Engineering Manifesto",
     description:
       lang === "ru"
         ? "История, философия и инженерный манифест студии Few Hands (Est. 2008). Почему компактная senior-команда побеждает агентский конвейер."
@@ -67,7 +67,7 @@ export const AboutView: React.FC = () => {
   // Evolution eras from 1998 to present
   const eras = [
     {
-      year: "1998–2007",
+      year: "1998-2007",
       badge: lang === "ru" ? "Истоки & Блокнот" : lang === "sr" ? "Koreni & Notepad" : "Notepad Era & Passion",
       title: lang === "ru" ? "HTML в блокноте, работа в студиях и ремесло" : lang === "sr" ? "HTML u Notepad-u, rad u studijima i zanat" : "Raw HTML in Notepad & The Studio Years",
       summary:
@@ -83,7 +83,7 @@ export const AboutView: React.FC = () => {
       ],
     },
     {
-      year: "2008–2012",
+      year: "2008-2012",
       badge: lang === "ru" ? "Основание студии" : lang === "sr" ? "Osnivanje studija" : "Studio Founded",
       title: lang === "ru" ? "Рождение Few Hands & Эпоха нативного веба" : lang === "sr" ? "Osnivanje Few Hands i era izvornog veba" : "Birth of Few Hands & The Native Web Era",
       summary:
@@ -99,7 +99,7 @@ export const AboutView: React.FC = () => {
       ],
     },
     {
-      year: "2013–2018",
+      year: "2013-2018",
       badge: lang === "ru" ? "Кризис монолитов" : lang === "sr" ? "Kriza monolita" : "Monolith CMS Era",
       title: lang === "ru" ? "Бум CMS и наблюдение за деградацией платформ" : lang === "sr" ? "Ekspanzija CMS-a i posmatranje njihove degradacije" : "The CMS Boom & Observing Platform Rot",
       summary:
@@ -115,7 +115,7 @@ export const AboutView: React.FC = () => {
       ],
     },
     {
-      year: "2019–2022",
+      year: "2019-2022",
       badge: lang === "ru" ? "Поворот к Jamstack" : lang === "sr" ? "Preokret ka Jamstack-u" : "The Jamstack Pivot",
       title: lang === "ru" ? "Отказ от тяжелых CMS и переход на Next.js" : lang === "sr" ? "Napuštanje teških CMS-ova i prelazak na Next.js" : "Retiring Heavy CMSs & Committing to Next.js",
       summary:
@@ -125,13 +125,13 @@ export const AboutView: React.FC = () => {
           ? "Doneli smo stratešku odluku: trajno obustaviti izradu novih sajtova na monolitnim sistemima. Sav fokus usmerili smo na React, Next.js, striktni TypeScript i distribuirani statički rendering na Edge CDN-u."
           : "We made a permanent strategic pivot: stop creating sites on monolithic engines. Our studio dedicated 100% of engineering bandwidth to React, Next.js, strict TypeScript, and edge-rendered architectures.",
       highlights: [
-        lang === "ru" ? "Показатели Google PageSpeed 98–100/100 стали стандартом" : lang === "sr" ? "Standardizacija Google PageSpeed rezultata na 98–100/100" : "Standardized 98–100/100 Google PageSpeed benchmarks",
+        lang === "ru" ? "Показатели Google PageSpeed 98-100/100 стали стандартом" : lang === "sr" ? "Standardizacija Google PageSpeed rezultata na 98-100/100" : "Standardized 98-100/100 Google PageSpeed benchmarks",
         lang === "ru" ? "Нулевая уязвимость для SQL-инъекций и взлома БД" : lang === "sr" ? "Nulta izloženost SQL napadima i hakovanju baza" : "Zero attack surfaces against SQL injections and database attacks",
         lang === "ru" ? "Автономные клиенты: код хранится в личном GitHub заказчика" : lang === "sr" ? "Potpuna autonomija: kod pripada ličnom GitHub nalogu klijenta" : "Total client autonomy: code hosted in client-owned private repositories",
       ],
     },
     {
-      year: "2023–2024",
+      year: "2023-2024",
       badge: lang === "ru" ? "Альянс с GoMVP" : lang === "sr" ? "Alijansa sa GoMVP" : "Alliance with GoMVP",
       title: lang === "ru" ? "Инженерный альянс & Безупречные миграции" : lang === "sr" ? "Inženjerski savez i besprekorne migracije" : "Engineering Alliance & Zero-Downtime Migrations",
       summary:
@@ -147,7 +147,7 @@ export const AboutView: React.FC = () => {
       ],
     },
     {
-      year: "2025–2026",
+      year: "2025-2026",
       badge: lang === "ru" ? "AI & Скорость" : lang === "sr" ? "AI & Brzina" : "AI & Next-Gen Edge",
       title: lang === "ru" ? "AI-аватары, Next.js 15/16 & Бутиковое будущее" : lang === "sr" ? "AI avatari, Next.js 15/16 i butička budućnost" : "AI Video Avatars, Next.js 15/16 & The Boutique Edge",
       summary:
@@ -194,10 +194,10 @@ export const AboutView: React.FC = () => {
       title: lang === "ru" ? "Скорость загрузки как бизнес-фактор" : lang === "sr" ? "Brzina učitavanja kao poslovni faktor" : "Sub-Second Performance as a KPI",
       desc:
         lang === "ru"
-          ? "Если страница открывается дольше 1 секунды, бизнес теряет до 40% конверсии в рекламе. Мы гарантируем показатели PageSpeed 98–100/100 и мгновенный LCP до 0.8s."
+          ? "Если страница открывается дольше 1 секунды, бизнес теряет до 40% конверсии в рекламе. Мы гарантируем показатели PageSpeed 98-100/100 и мгновенный LCP до 0.8s."
           : lang === "sr"
-          ? "Ako se stranica otvara duže od 1 sekunde, gubi se do 40% konverzije u plaćenom oglašavanju. Mi garantujemo Core Web Vitals 98–100/100 i trenutni LCP ispod 0.8s."
-          : "If a webpage takes longer than 1 second to render, up to 40% of advertising clicks bounce. We architect for guaranteed 98–100 PageSpeed scores and sub-0.8s LCP.",
+          ? "Ako se stranica otvara duže od 1 sekunde, gubi se do 40% konverzije u plaćenom oglašavanju. Mi garantujemo Core Web Vitals 98-100/100 i trenutni LCP ispod 0.8s."
+          : "If a webpage takes longer than 1 second to render, up to 40% of advertising clicks bounce. We architect for guaranteed 98-100 PageSpeed scores and sub-0.8s LCP.",
     },
     {
       icon: ShieldCheck,
@@ -345,18 +345,18 @@ export const AboutView: React.FC = () => {
               <div className="space-y-4 text-sm sm:text-base text-[#2d263b] leading-relaxed">
                 <p>
                   {lang === "ru"
-                    ? "«Мой путь в веб-инженерии начался ещё в 1998 году — с вёрстки на чистом HTML в обычном блокноте Windows, когда интернет только зарождался. Долгие годы я работал в различных веб-студиях, совмещая это как увлечённое хобби и инженерную практику, изучая изнутри все скрытые болезни заказной разработки. Со временем я увидел, как индустрия свернула на опасный путь конвейера: агентства превратились в фабрики, где проект вам продаёт харизматичный сейлз, а пилят уставшие стажёры на субподряде. Клиент платит за раздутый офис и цепочку из пяти менеджеров, получая на выходе медленный монолит, набитый чужими плагинами»."
+                    ? "«Мой путь в веб-инженерии начался ещё в 1998 году - с вёрстки на чистом HTML в обычном блокноте Windows, когда интернет только зарождался. Долгие годы я работал в различных веб-студиях, совмещая это как увлечённое хобби и инженерную практику, изучая изнутри все скрытые болезни заказной разработки. Со временем я увидел, как индустрия свернула на опасный путь конвейера: агентства превратились в фабрики, где проект вам продаёт харизматичный сейлз, а пилят уставшие стажёры на субподряде. Клиент платит за раздутый офис и цепочку из пяти менеджеров, получая на выходе медленный монолит, набитый чужими плагинами»."
                     : lang === "sr"
-                    ? "«Moj put u veb inženjeringu počeo je još 1998. godine — pisanjem čistog HTML-a u običnom Notepad-u, u vreme kada je moderni internet tek nastajao. Godinama sam radio u različitim veb studijima, spajajući strastveni hobi i inženjersku praksu, i iznutra upoznao sve slabosti agencijskog razvoja. Vremenom sam video kako je industrija skrenula na fabričku traku: agencije su postale mašine gde projekat prodaje harizmatični prodavac, a stvarni kod pišu preopterećeni pripravnici. Klijent plaća ogroman kancelarijski aparat i lanac menadžera, a zauzvrat dobija spor monolit pun nasumičnih dodataka»."
-                    : "«My journey in web engineering started back in 1998 — hand-coding raw HTML in Windows Notepad during the dawn of the commercial web. For years, I worked across various digital studios, treating it as both an intense hobby and a dedicated craft, learning every internal dysfunction of agency production. Over time, I watched the industry degenerate into an impersonal assembly line: digital agencies turned into factories where smooth sales reps close deals, but overworked junior contractors write the actual code. Clients pay for sprawling office overhead and five management layers, only to receive a sluggish monolith choked with third-party plugins»."}
+                    ? "«Moj put u veb inženjeringu počeo je još 1998. godine - pisanjem čistog HTML-a u običnom Notepad-u, u vreme kada je moderni internet tek nastajao. Godinama sam radio u različitim veb studijima, spajajući strastveni hobi i inženjersku praksu, i iznutra upoznao sve slabosti agencijskog razvoja. Vremenom sam video kako je industrija skrenula na fabričku traku: agencije su postale mašine gde projekat prodaje harizmatični prodavac, a stvarni kod pišu preopterećeni pripravnici. Klijent plaća ogroman kancelarijski aparat i lanac menadžera, a zauzvrat dobija spor monolit pun nasumičnih dodataka»."
+                    : "«My journey in web engineering started back in 1998 - hand-coding raw HTML in Windows Notepad during the dawn of the commercial web. For years, I worked across various digital studios, treating it as both an intense hobby and a dedicated craft, learning every internal dysfunction of agency production. Over time, I watched the industry degenerate into an impersonal assembly line: digital agencies turned into factories where smooth sales reps close deals, but overworked junior contractors write the actual code. Clients pay for sprawling office overhead and five management layers, only to receive a sluggish monolith choked with third-party plugins»."}
                 </p>
 
                 <p>
                   {lang === "ru"
-                    ? "«В 2008 году я принял осознанное решение основать собственную независимую студию — Few Hands — с принципиально другим подходом: оставаться инженерным бутиком. Название Few Hands — это наше профессиональное кредо: мало рук, но каждая рука — сеньорного уровня. Я лично отвечаю за архитектуру каждого проекта, общаюсь с клиентами напрямую без секретарей и посредников и гарантирую, что ваш веб-продукт будет открываться за доли секунды, не сломается от обновлений и навсегда останется вашим личным активом с безупречной кодовой базой»."
+                    ? "«В 2008 году я принял осознанное решение основать собственную независимую студию - Few Hands - с принципиально другим подходом: оставаться инженерным бутиком. Название Few Hands - это наше профессиональное кредо: мало рук, но каждая рука - сеньорного уровня. Я лично отвечаю за архитектуру каждого проекта, общаюсь с клиентами напрямую без секретарей и посредников и гарантирую, что ваш веб-продукт будет открываться за доли секунды, не сломается от обновлений и навсегда останется вашим личным активом с безупречной кодовой базой»."
                     : lang === "sr"
-                    ? "«Zato sam 2008. godine doneo svesnu odluku da osnujem sopstveni nezavisni studio — Few Hands — sa suštinski drugačijim pristupom: da ostanemo inženjerski butik. Ime Few Hands je naš kredo: malo ruku, ali svaka ruka je seniorskog ranga. Lično odgovaram za arhitekturu svakog projekta, komuniciram sa klijentima direktno bez posrednika i garantujem da će se vaš sajt otvarati u deliću sekunde, bez rušenja pri ažuriranjima i sa 100% čistim vlasništvom nad bazom koda»."
-                    : "«In 2008, I made the conscious decision to establish my own independent studio — Few Hands — built on a fundamentally different standard: an uncompromising engineering boutique. The name Few Hands is our operational creed: few hands, but every single hand is senior-grade. I personally architect every platform, collaborate with clients directly without account gatekeepers, and guarantee your web product renders in sub-second speed, withstands breaking updates, and remains your enduring unencumbered asset with a pristine codebase»."}
+                    ? "«Zato sam 2008. godine doneo svesnu odluku da osnujem sopstveni nezavisni studio - Few Hands - sa suštinski drugačijim pristupom: da ostanemo inženjerski butik. Ime Few Hands je naš kredo: malo ruku, ali svaka ruka je seniorskog ranga. Lično odgovaram za arhitekturu svakog projekta, komuniciram sa klijentima direktno bez posrednika i garantujem da će se vaš sajt otvarati u deliću sekunde, bez rušenja pri ažuriranjima i sa 100% čistim vlasništvom nad bazom koda»."
+                    : "«In 2008, I made the conscious decision to establish my own independent studio - Few Hands - built on a fundamentally different standard: an uncompromising engineering boutique. The name Few Hands is our operational creed: few hands, but every single hand is senior-grade. I personally architect every platform, collaborate with clients directly without account gatekeepers, and guarantee your web product renders in sub-second speed, withstands breaking updates, and remains your enduring unencumbered asset with a pristine codebase»."}
                 </p>
               </div>
 
@@ -432,10 +432,10 @@ export const AboutView: React.FC = () => {
                     <XCircle className="w-5 h-5 text-[#ba5d60] shrink-0 mt-0.5" />
                     <span>
                       {lang === "ru"
-                        ? "5–7 промежуточных звеньев: сейлз-менеджер, аккаунт, проджект, тимлид. Ваши мысли теряются при передаче."
+                        ? "5-7 промежуточных звеньев: сейлз-менеджер, аккаунт, проджект, тимлид. Ваши мысли теряются при передаче."
                         : lang === "sr"
-                        ? "5–7 posrednika: prodavac, akaund menadžer, vođa projekta. Vaši zahtevi se gube u prenosu informacija."
-                        : "5–7 bureaucratic layers between you and the codebase. Context is lost at every handoff."}
+                        ? "5-7 posrednika: prodavac, akaund menadžer, vođa projekta. Vaši zahtevi se gube u prenosu informacija."
+                        : "5-7 bureaucratic layers between you and the codebase. Context is lost at every handoff."}
                     </span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -500,7 +500,7 @@ export const AboutView: React.FC = () => {
                     <CheckCircle2 className="w-5 h-5 text-[#7ea368] shrink-0 mt-0.5" />
                     <span>
                       {lang === "ru"
-                        ? "100% инвестиций — в ваш продукт: никаких лишних надстроек, только чистый код, идеальная верстка и реальные метрики."
+                        ? "100% инвестиций - в ваш продукт: никаких лишних надстроек, только чистый код, идеальная верстка и реальные метрики."
                         : lang === "sr"
                         ? "100% budžeta ulaže se u vaš proizvod: bez nepotrebnih posrednika, samo čist kod, savršen prikaz i merljivi rezultati."
                         : "100% of your investment funds raw engineering, hardened architecture, and measurable commercial speed."}
@@ -520,7 +520,7 @@ export const AboutView: React.FC = () => {
                     <CheckCircle2 className="w-5 h-5 text-[#7ea368] shrink-0 mt-0.5" />
                     <span>
                       {lang === "ru"
-                        ? "Персональная репутация: каждый релиз — наша визитная карточка, поэтому мы не выпускаем сырые компромиссы."
+                        ? "Персональная репутация: каждый релиз - наша визитная карточка, поэтому мы не выпускаем сырые компромиссы."
                         : lang === "sr"
                         ? "Lična reputacija: svako lansiranje je naša preporuka, zato nikada ne isporučujemo polovična rešenja."
                         : "Boutique accountability: our reputation is staked on every launch, ensuring uncompromising quality."}

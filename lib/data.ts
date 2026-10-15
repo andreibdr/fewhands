@@ -86,7 +86,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "vivasan",
-    title: "Vivasan — Swiss Natural Health Products",
+    title: "Vivasan - Swiss Natural Health Products",
     category: "web",
     tags: ["Health & Beauty", "Catalog", "Phyto"],
     description: {
@@ -100,7 +100,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "bugera",
-    title: "Vladimir Bugera — Miami Real Estate Analytics",
+    title: "Vladimir Bugera - Miami Real Estate Analytics",
     category: "web",
     tags: ["Data Analytics", "Real Estate", "FinTech"],
     description: {
@@ -114,7 +114,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "miamireach",
-    title: "Miami Reach — South Florida City Guide",
+    title: "Miami Reach - South Florida City Guide",
     category: "web",
     tags: ["Travel & Leisure", "Concierge", "Miami"],
     description: {
@@ -158,7 +158,7 @@ export const portfolioItems: PortfolioItem[] = [
   // --- Design Archive Projects (Authentic Client Showcase) ---
   {
     id: "amt-global",
-    title: "AMT Global — Construction 3D Printers",
+    title: "AMT Global - Construction 3D Printers",
     category: "web",
     tags: ["High-Tech", "Industrial", "3D Printing"],
     description: {
@@ -172,7 +172,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "cabaes-group",
-    title: "Cabaes Group — Neighborhood Broker",
+    title: "Cabaes Group - Neighborhood Broker",
     category: "web",
     tags: ["Real Estate", "Branding", "UI/UX"],
     description: {
@@ -200,7 +200,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "parf-de-maniac",
-    title: "Parf de Maniac — Niche Boutique",
+    title: "Parf de Maniac - Niche Boutique",
     category: "web",
     tags: ["E-Commerce", "Luxury", "Perfumery"],
     description: {
@@ -228,7 +228,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "coralman-aquariums",
-    title: "Coralman Aquariums — Bespoke Marine Systems",
+    title: "Coralman Aquariums - Bespoke Marine Systems",
     category: "web",
     tags: ["Design Studio", "Aqua Design", "Portfolio"],
     description: {
@@ -256,7 +256,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "expert-center",
-    title: "Expert Center — Government Contracts Advisory",
+    title: "Expert Center - Government Contracts Advisory",
     category: "web",
     tags: ["Corporate", "Consulting", "B2B"],
     description: {
@@ -270,7 +270,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "expert-center-llc",
-    title: "Expert Center LLC — USA Business Advisory",
+    title: "Expert Center LLC - USA Business Advisory",
     category: "web",
     tags: ["Legal", "USA Business", "Consulting"],
     description: {
@@ -284,7 +284,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "bart",
-    title: "BART Investment Group — EB-5 Regional Center",
+    title: "BART Investment Group - EB-5 Regional Center",
     category: "web",
     tags: ["Investments", "EB-5", "Finance"],
     description: {
@@ -298,7 +298,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "kangaroo-kids",
-    title: "Kangaroo Kids Club — Children Academy",
+    title: "Kangaroo Kids Club - Children Academy",
     category: "web",
     tags: ["Education", "Kids & Family", "Services"],
     description: {

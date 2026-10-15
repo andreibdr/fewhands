@@ -82,7 +82,7 @@ export const EditorialStyleCard: React.FC<{ className?: string }> = ({ className
           </div>
           <div className="font-handwriting text-base sm:text-lg text-[#2d263b] leading-tight mt-0.5">
             {lang === "ru"
-              ? "Потому что Next.js 16 — это скорость, остальное — костыли."
+              ? "Потому что Next.js 16 - это скорость, остальное - костыли."
               : lang === "sr"
               ? "Zato što je Next.js 16 stvarna brzina, ostalo su kompromisi."
               : "Next.js 16 is engineered speed. The rest is just fragile tape."}
@@ -124,7 +124,7 @@ export const ScientificAuditCard: React.FC<{ className?: string }> = ({ classNam
       <ul className="text-left space-y-1 text-xs text-[#2d263b] font-mono leading-tight">
         <li className="flex items-center justify-between gap-3">
           <span>• {lang === "ru" ? "Скорость PageSpeed" : lang === "sr" ? "PageSpeed brzina" : "PageSpeed Score"}</span>
-          <span className="font-bold text-[#7ea368]">98–100</span>
+          <span className="font-bold text-[#7ea368]">98-100</span>
         </li>
         <li className="flex items-center justify-between gap-3">
           <span>• {lang === "ru" ? "Потеря SEO-позиций" : lang === "sr" ? "Gubitak SEO pozicija" : "SEO Ranking Loss"}</span>
@@ -172,10 +172,10 @@ export const SpeedRatingStamp: React.FC<{ className?: string }> = ({ className =
       </div>
       <div className="font-handwriting text-sm sm:text-base text-[#2d263b] leading-tight">
         {lang === "ru"
-          ? "Google PageSpeed 98–100. Легенда. Без тормозов."
+          ? "Google PageSpeed 98-100. Легенда. Без тормозов."
           : lang === "sr"
-          ? "Core Web Vitals 98–100. Brzo. Bez usporavanja."
-          : "Core Web Vitals 98–100. Fast. No bloat."}
+          ? "Core Web Vitals 98-100. Brzo. Bez usporavanja."
+          : "Core Web Vitals 98-100. Fast. No bloat."}
       </div>
     </div>
   );

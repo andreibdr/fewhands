@@ -37,14 +37,14 @@ export const MigrateHubView: React.FC = () => {
   const comparisonRows = [
     {
       metric: lang === "ru" ? "Время отклика (TTFB)" : lang === "sr" ? "Vreme odziva servera (TTFB)" : "Time to First Byte (TTFB)",
-      legacy: lang === "ru" ? "600–2500 мс (задержка MySQL / PHP)" : lang === "sr" ? "600–2500 ms (PHP/MySQL kašnjenje upita)" : "600–2,500ms (PHP/MySQL query latency)",
-      nextjs: lang === "ru" ? "20–50 мс (глобальный Edge CDN)" : lang === "sr" ? "20–50 ms (globalni Edge CDN keš)" : "20–50ms (Global Edge CDN caching)",
+      legacy: lang === "ru" ? "600-2500 мс (задержка MySQL / PHP)" : lang === "sr" ? "600-2500 ms (PHP/MySQL kašnjenje upita)" : "600-2,500ms (PHP/MySQL query latency)",
+      nextjs: lang === "ru" ? "20-50 мс (глобальный Edge CDN)" : lang === "sr" ? "20-50 ms (globalni Edge CDN keš)" : "20-50ms (Global Edge CDN caching)",
       status: "win",
     },
     {
       metric: lang === "ru" ? "Google Core Web Vitals (LCP)" : lang === "sr" ? "Google Core Web Vitals (LCP)" : "Google Core Web Vitals (LCP)",
-      legacy: lang === "ru" ? "Часто в красной / жёлтой зоне (3–6 сек)" : lang === "sr" ? "Često u žutoj/crvenoj zoni (3.5–6.0s)" : "Often red/yellow range (3.5–6.0s)",
-      nextjs: lang === "ru" ? "95–100 / 100 зелёная зона (< 0.8 сек)" : lang === "sr" ? "95–100 / 100 zelena zona (< 0.8s)" : "95–100 / 100 green range (< 0.8s)",
+      legacy: lang === "ru" ? "Часто в красной / жёлтой зоне (3-6 сек)" : lang === "sr" ? "Često u žutoj/crvenoj zoni (3.5-6.0s)" : "Often red/yellow range (3.5-6.0s)",
+      nextjs: lang === "ru" ? "95-100 / 100 зелёная зона (< 0.8 сек)" : lang === "sr" ? "95-100 / 100 zelena zona (< 0.8s)" : "95-100 / 100 green range (< 0.8s)",
       status: "win",
     },
     {
@@ -56,7 +56,7 @@ export const MigrateHubView: React.FC = () => {
     {
       metric: lang === "ru" ? "Плата за лицензии и модули" : lang === "sr" ? "Naknade za platforme i dodatke" : "License & Builder Fees",
       legacy: lang === "ru" ? "Ежемесячные платежи за конструктор / модули" : lang === "sr" ? "Mesečne pretplate na platforme i aplikacije" : "Recurring platform tax & app subscriptions",
-      nextjs: lang === "ru" ? "$0 — код и инфраструктура принадлежат вам" : lang === "sr" ? "$0 — 100% vlasništvo nad kodom" : "$0 — 100% proprietary code ownership",
+      nextjs: lang === "ru" ? "$0 - код и инфраструктура принадлежат вам" : lang === "sr" ? "$0 - 100% vlasništvo nad kodom" : "$0 - 100% proprietary code ownership",
       status: "win",
     },
     {
@@ -99,9 +99,9 @@ export const MigrateHubView: React.FC = () => {
       title: lang === "ru" ? "Перенос метаданных и Schema.org" : lang === "sr" ? "Sinhronizacija metapodataka i Schema.org" : "Metadata & Schema.org Sync",
       desc:
         lang === "ru"
-          ? "Title, Description, заголовки H1–H3, OpenGraph-разметка и JSON-LD микроразметка переносятся байт-в-байт без искажений."
+          ? "Title, Description, заголовки H1-H3, OpenGraph-разметка и JSON-LD микроразметка переносятся байт-в-байт без искажений."
           : lang === "sr"
-          ? "Title, Description, H1–H3 struktura, OpenGraph oznake i JSON-LD mikrooznačavanje prenose se bez ikakvih gubitaka."
+          ? "Title, Description, H1-H3 struktura, OpenGraph oznake i JSON-LD mikrooznačavanje prenose se bez ikakvih gubitaka."
           : "Title tags, meta descriptions, H1-H3 semantics, OpenGraph, and JSON-LD structured schemas preserved with 100% fidelity.",
     },
     {
@@ -109,9 +109,9 @@ export const MigrateHubView: React.FC = () => {
       title: lang === "ru" ? "Ускорение Core Web Vitals" : lang === "sr" ? "Maksimalno ubrzanje Core Web Vitals" : "Core Web Vitals Maximize",
       desc:
         lang === "ru"
-          ? "Google официально ранжирует быстрые сайты выше. Достижение 95–100 по PageSpeed даёт естественный буст позиций в поисковой выдаче."
+          ? "Google официально ранжирует быстрые сайты выше. Достижение 95-100 по PageSpeed даёт естественный буст позиций в поисковой выдаче."
           : lang === "sr"
-          ? "Google zvanično bolje pozicionira brze sajtove. Rezultat od 95–100 na PageSpeed-u donosi prirodan skok u pretrazi."
+          ? "Google zvanično bolje pozicionira brze sajtove. Rezultat od 95-100 na PageSpeed-u donosi prirodan skok u pretrazi."
           : "Google search algorithm directly rewards sub-second mobile page loads, boosting organic ranking signals post-migration.",
     },
     {
@@ -138,8 +138,8 @@ export const MigrateHubView: React.FC = () => {
         lang === "ru"
           ? "При профессиональной миграции позиции не только сохраняются, но и вырастают. Мы проводим предварительный аудит, переносим всю структуру URL один к одному, настраиваем серверные 301-редиректы и выводим мобильную скорость в зеленую зону (LCP < 0.8с). Поисковые системы поощряют быстрый и доступный Next.js сайт более высокими позициями."
           : lang === "sr"
-          ? "Uz profesionalnu migraciju pozicije ne opadaju — naprotiv, često rastu. Radimo kompletnu pripremnu reviziju, prenosimo sve URL adrese jedan prema jedan, konfigurišemo 301 preusmeravanja i dovodimo brzinu na mobilnim uređajima u zelenu zonu (LCP < 0.8s). Google pretraživač nagrađuje brze i pristupačne Next.js sajtove višim rangiranjem."
-          : "With professional migration engineering, positions do not drop — they typically improve. We preserve identical URL slugs, deploy edge 301 redirect mappings, and elevate Core Web Vitals into the green zone (LCP < 0.8s). Search algorithms favor lightning-fast serverless architectures.",
+          ? "Uz profesionalnu migraciju pozicije ne opadaju - naprotiv, često rastu. Radimo kompletnu pripremnu reviziju, prenosimo sve URL adrese jedan prema jedan, konfigurišemo 301 preusmeravanja i dovodimo brzinu na mobilnim uređajima u zelenu zonu (LCP < 0.8s). Google pretraživač nagrađuje brze i pristupačne Next.js sajtove višim rangiranjem."
+          : "With professional migration engineering, positions do not drop - they typically improve. We preserve identical URL slugs, deploy edge 301 redirect mappings, and elevate Core Web Vitals into the green zone (LCP < 0.8s). Search algorithms favor lightning-fast serverless architectures.",
     },
     {
       q:
@@ -150,7 +150,7 @@ export const MigrateHubView: React.FC = () => {
           : "What is the advantage of the GoMVP + Few Hands tandem over a traditional agency?",
       a:
         lang === "ru"
-          ? "Большинство веб-студий пытаются делать всё сразу средними силами. В нашем тандеме действует строгое разделение специализаций: партнёр GoMVP — это высококлассная техническая инженерия (бэкенд на Go, масштабируемые API, чистый React/Next.js без мусора). Студия Few Hands — это забота о клиенте: аудит проекта, онбординг и обучение ваших менеджеров, а также ежемесячная поддержка сайта на тарифе Retainer."
+          ? "Большинство веб-студий пытаются делать всё сразу средними силами. В нашем тандеме действует строгое разделение специализаций: партнёр GoMVP - это высококлассная техническая инженерия (бэкенд на Go, масштабируемые API, чистый React/Next.js без мусора). Студия Few Hands - это забота о клиенте: аудит проекта, онбординг и обучение ваших менеджеров, а также ежемесячная поддержка сайта на тарифе Retainer."
           : lang === "sr"
           ? "Većina agencija pokušava da radi sve sa opštim kadrom. U našem modelu postoji jasna podela: GoMVP obezbeđuje vrhunski tehnički inženjering (Go mikroservisi, čist React/Next.js bez balasta), dok Few Hands pruža posvećenu podršku: uvodni audit, obuku vašeg tima i pouzdano mesečno održavanje u okviru Retainer modela."
           : "Traditional agencies often rely on overloaded generalists. Our model decouples deep technical execution from client operations: GoMVP delivers high-performance engineering (Go microservices, clean React/Next.js), while Few Hands provides discovery consulting, hands-on staff training, and reliable monthly retainer maintenance.",
@@ -285,7 +285,7 @@ export const MigrateHubView: React.FC = () => {
                 </div>
                 <h2 className="text-base sm:text-lg font-bold text-[#2d263b] mt-1">
                   {lang === "ru"
-                    ? "GoMVP отвечает за технический инжиниринг, Few Hands — за аудит, обучение и сопровождение (Retainer)"
+                    ? "GoMVP отвечает за технический инжиниринг, Few Hands - за аудит, обучение и сопровождение (Retainer)"
                     : lang === "sr"
                     ? "GoMVP je zadužen za tehnički inženjering, Few Hands za analizu, obuku i podršku (Retainer)"
                     : "GoMVP powers core engineering; Few Hands handles audits, staff onboarding, and ongoing retainer support"}

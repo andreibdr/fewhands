@@ -118,7 +118,7 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
                   },
                   {
                     label: lang === "ru" ? "Google Core Web Vitals" : "Core Web Vitals",
-                    value: "98–100",
+                    value: "98-100",
                     color: "text-[#7ea368]",
                   },
                   {

@@ -12,21 +12,21 @@ export const CostCalculator: React.FC = () => {
   const [urgency, setUrgency] = useState<string>("standard");
 
   const estimates: Record<string, { priceRu: string; priceEn: string; timeRu: string; timeEn: string }> = {
-    "migration-small": { priceRu: "от $400", priceEn: "from $400", timeRu: "3–6 дней", timeEn: "3–6 days" },
-    "migration-medium": { priceRu: "от $750", priceEn: "from $750", timeRu: "7–12 дней", timeEn: "7–12 days" },
-    "migration-large": { priceRu: "от $1,400", priceEn: "from $1,400", timeRu: "2–3 недели", timeEn: "2–3 weeks" },
+    "migration-small": { priceRu: "от $400", priceEn: "from $400", timeRu: "3-6 дней", timeEn: "3-6 days" },
+    "migration-medium": { priceRu: "от $750", priceEn: "from $750", timeRu: "7-12 дней", timeEn: "7-12 days" },
+    "migration-large": { priceRu: "от $1,400", priceEn: "from $1,400", timeRu: "2-3 недели", timeEn: "2-3 weeks" },
 
-    "dev-small": { priceRu: "от $500", priceEn: "from $500", timeRu: "4–7 дней", timeEn: "4–7 days" },
-    "dev-medium": { priceRu: "от $950", priceEn: "from $950", timeRu: "1–2 недели", timeEn: "1–2 weeks" },
-    "dev-large": { priceRu: "от $1,800", priceEn: "from $1,800", timeRu: "3–4 недели", timeEn: "3–4 weeks" },
+    "dev-small": { priceRu: "от $500", priceEn: "from $500", timeRu: "4-7 дней", timeEn: "4-7 days" },
+    "dev-medium": { priceRu: "от $950", priceEn: "from $950", timeRu: "1-2 недели", timeEn: "1-2 weeks" },
+    "dev-large": { priceRu: "от $1,800", priceEn: "from $1,800", timeRu: "3-4 недели", timeEn: "3-4 weeks" },
 
-    "avatar-small": { priceRu: "от $250", priceEn: "from $250", timeRu: "2–3 дня", timeEn: "2–3 days" },
-    "avatar-medium": { priceRu: "от $550", priceEn: "from $550", timeRu: "4–6 дней", timeEn: "4–6 days" },
-    "avatar-large": { priceRu: "от $900", priceEn: "from $900", timeRu: "1–2 недели", timeEn: "1–2 weeks" },
+    "avatar-small": { priceRu: "от $250", priceEn: "from $250", timeRu: "2-3 дня", timeEn: "2-3 days" },
+    "avatar-medium": { priceRu: "от $550", priceEn: "from $550", timeRu: "4-6 дней", timeEn: "4-6 days" },
+    "avatar-large": { priceRu: "от $900", priceEn: "from $900", timeRu: "1-2 недели", timeEn: "1-2 weeks" },
 
-    "video-small": { priceRu: "от $200", priceEn: "from $200", timeRu: "2–4 дня", timeEn: "2–4 days" },
-    "video-medium": { priceRu: "от $450", priceEn: "from $450", timeRu: "5–8 дней", timeEn: "5–8 days" },
-    "video-large": { priceRu: "от $850", priceEn: "from $850", timeRu: "1–2 недели", timeEn: "1–2 weeks" },
+    "video-small": { priceRu: "от $200", priceEn: "from $200", timeRu: "2-4 дня", timeEn: "2-4 days" },
+    "video-medium": { priceRu: "от $450", priceEn: "from $450", timeRu: "5-8 дней", timeEn: "5-8 days" },
+    "video-large": { priceRu: "от $850", priceEn: "from $850", timeRu: "1-2 недели", timeEn: "1-2 weeks" },
   };
 
   const key = `${projectType}-${scope}`;

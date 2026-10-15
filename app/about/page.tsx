@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { AboutView } from "@/components/AboutView";
 
 export const metadata: Metadata = {
-  title: "About Few Hands — Boutique Web Engineering Studio & Manifesto",
+  title: "About Few Hands - Boutique Web Engineering Studio & Manifesto",
   description:
     "Engineering history, core philosophy, and boutique manifesto of Few Hands (Est. 2008). Senior-only web engineering, zero CMS bloat, uncompromised performance, and strategic alliance with GoMVP.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     canonical: "https://fewhands.com/about",
   },
   openGraph: {
-    title: "About Few Hands — Boutique Web Engineering Studio & Manifesto",
+    title: "About Few Hands - Boutique Web Engineering Studio & Manifesto",
     description:
       "Boutique web engineering since 2008. Why a compact senior-only studio delivers superior speed, clean architecture, and total code ownership over the agency assembly line.",
     url: "https://fewhands.com/about",

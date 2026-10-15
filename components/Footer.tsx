@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
                 : "Boutique web engineering studio: legacy CMS migrations, retainer support, and generative AI video."}
             </p>
             <div className="text-xs text-[#8c829c]">
-              © 2008–{new Date().getFullYear()} Few Hands Studio.
+              © 2008-{new Date().getFullYear()} Few Hands Studio.
             </div>
             <div className="flex items-center gap-2 mt-3 text-[11px] text-[#8c829c]">
               <span>👌 Clean Next.js Code</span>

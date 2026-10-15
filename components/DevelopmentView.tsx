@@ -140,13 +140,13 @@ export const DevelopmentView: React.FC = () => {
   const comparisonPoints = [
     {
       feature: lang === "ru" ? "Время отклика первого байта (TTFB)" : lang === "sr" ? "Vreme odziva servera (TTFB)" : "Time to First Byte (TTFB)",
-      nextjs: lang === "ru" ? "20–50 мс (глобальный Edge CDN)" : lang === "sr" ? "20–50 ms (globalni Edge CDN)" : "20–50ms (Global Edge CDN)",
-      builders: lang === "ru" ? "400–1800 мс (ожидание сервера)" : lang === "sr" ? "400–1800 ms (čekanje servera)" : "400–1,800ms (Heavy server lag)",
+      nextjs: lang === "ru" ? "20-50 мс (глобальный Edge CDN)" : lang === "sr" ? "20-50 ms (globalni Edge CDN)" : "20-50ms (Global Edge CDN)",
+      builders: lang === "ru" ? "400-1800 мс (ожидание сервера)" : lang === "sr" ? "400-1800 ms (čekanje servera)" : "400-1,800ms (Heavy server lag)",
     },
     {
       feature: lang === "ru" ? "Оценка Google Core Web Vitals" : lang === "sr" ? "Google Core Web Vitals ocena" : "Google Core Web Vitals",
-      nextjs: lang === "ru" ? "95–100 / 100 (зелёная зона)" : lang === "sr" ? "95–100 / 100 (zelena zona)" : "95–100 / 100 (Green benchmark)",
-      builders: lang === "ru" ? "Часто 35–65 / 100 (красная зона)" : lang === "sr" ? "Često 35–65 / 100 (crvena zona)" : "Often 35–65 / 100 (Red/Yellow)",
+      nextjs: lang === "ru" ? "95-100 / 100 (зелёная зона)" : lang === "sr" ? "95-100 / 100 (zelena zona)" : "95-100 / 100 (Green benchmark)",
+      builders: lang === "ru" ? "Часто 35-65 / 100 (красная зона)" : lang === "sr" ? "Često 35-65 / 100 (crvena zona)" : "Often 35-65 / 100 (Red/Yellow)",
     },
     {
       feature: lang === "ru" ? "Уязвимость к атакам и взломам" : lang === "sr" ? "Ranjivost na napade i hakovanje" : "Vulnerability Surface",
@@ -203,10 +203,10 @@ export const DevelopmentView: React.FC = () => {
           : "What is the typical delivery timeline for custom web development?",
       a:
         lang === "ru"
-          ? "Сроки зависят от масштаба: продающий лендинг разрабатывается за 5–9 рабочих дней; корпоративный сайт на 15–25 разделов — за 10–18 рабочих дней; интернет-магазин с каталогом и интеграцией платежей — за 14–24 рабочих дня. Все этапы строго фиксируются в календарном плане."
+          ? "Сроки зависят от масштаба: продающий лендинг разрабатывается за 5-9 рабочих дней; корпоративный сайт на 15-25 разделов - за 10-18 рабочих дней; интернет-магазин с каталогом и интеграцией платежей - за 14-24 рабочих дня. Все этапы строго фиксируются в календарном плане."
           : lang === "sr"
-          ? "Rokovi zavise od obima: konverziona landing stranica se izrađuje za 5–9 radnih dana; korporativni sajt sa 15–25 sekcija za 10–18 radnih dana; internet prodavnica sa katalogom i naplatom za 14–24 radna dana. Svi rokovi se precizno ugovaraju pre početka rada."
-          : "Turnaround depends on project scope: high-converting landing pages take 5–9 business days; corporate hubs take 10–18 business days; e-commerce catalogs with checkouts take 14–24 business days. Milestone dates are contractually fixed prior to kickoff.",
+          ? "Rokovi zavise od obima: konverziona landing stranica se izrađuje za 5-9 radnih dana; korporativni sajt sa 15-25 sekcija za 10-18 radnih dana; internet prodavnica sa katalogom i naplatom za 14-24 radna dana. Svi rokovi se precizno ugovaraju pre početka rada."
+          : "Turnaround depends on project scope: high-converting landing pages take 5-9 business days; corporate hubs take 10-18 business days; e-commerce catalogs with checkouts take 14-24 business days. Milestone dates are contractually fixed prior to kickoff.",
     },
     {
       q:
@@ -264,9 +264,9 @@ export const DevelopmentView: React.FC = () => {
 
             <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
               {lang === "ru"
-                ? "Разрабатываем высоконагруженные сайты с чистого листа: от концепции, UX-прототипирования и продающего текста до интеграции API, CRM и глобального деплоя на Edge CDN. Никаких шаблонных компромиссов — только чистый TypeScript, непревзойдённая скорость загрузки и максимальная конверсия посетителей в клиентов."
+                ? "Разрабатываем высоконагруженные сайты с чистого листа: от концепции, UX-прототипирования и продающего текста до интеграции API, CRM и глобального деплоя на Edge CDN. Никаких шаблонных компромиссов - только чистый TypeScript, непревзойдённая скорость загрузки и максимальная конверсия посетителей в клиентов."
                 : lang === "sr"
-                ? "Razvijamo sajtove visokih performansi od nule: od koncepta, UX prototipa i prodajnih tekstova do API integracija, CRM-a i globalne distribucije na Edge CDN-u. Bez šablonskih kompromisa — samo čist TypeScript, munjevita brzina i maksimalna konverzija posetilaca u klijente."
+                ? "Razvijamo sajtove visokih performansi od nule: od koncepta, UX prototipa i prodajnih tekstova do API integracija, CRM-a i globalne distribucije na Edge CDN-u. Bez šablonskih kompromisa - samo čist TypeScript, munjevita brzina i maksimalna konverzija posetilaca u klijente."
                 : "Engineering bespoke web applications from first principles: design systems, modular React architecture, payment pipelines, and global Edge CDN deployment. Clean code, hardened security, and commercial focus."}
             </p>
 

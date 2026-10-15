@@ -180,9 +180,9 @@ function EstimatorInner() {
       priceRu: `от $${basePrice}${supportPrice}`,
       priceEn: `from $${basePrice}${supportPrice}`,
       priceSr: `od $${basePrice}${supportPrice}`,
-      timeRu: `${daysMin}–${daysMax} раб. дней`,
-      timeEn: `${daysMin}–${daysMax} business days`,
-      timeSr: `${daysMin}–${daysMax} radnih dana`,
+      timeRu: `${daysMin}-${daysMax} раб. дней`,
+      timeEn: `${daysMin}-${daysMax} business days`,
+      timeSr: `${daysMin}-${daysMax} radnih dana`,
       detailsRu: `Миграция с ${platformNamesRu[migPlatform] || migPlatform} (${scaleNamesRu[migScale] || migScale}) ${supportLabelRu}`,
       detailsEn: `Migration from ${platformNamesEn[migPlatform] || migPlatform} (${scaleNamesEn[migScale] || migScale}) with ${supportLabelEn}`,
       detailsSr: `Migracija sa ${platformNamesSr[migPlatform] || migPlatform} (${scaleNamesSr[migScale] || migScale}) uz ${supportLabelSr}`,
@@ -269,9 +269,9 @@ function EstimatorInner() {
       priceRu: `от $${basePrice}`,
       priceEn: `from $${basePrice}`,
       priceSr: `od $${basePrice}`,
-      timeRu: `${daysMin}–${daysMax} раб. дней`,
-      timeEn: `${daysMin}–${daysMax} business days`,
-      timeSr: `${daysMin}–${daysMax} radnih dana`,
+      timeRu: `${daysMin}-${daysMax} раб. дней`,
+      timeEn: `${daysMin}-${daysMax} business days`,
+      timeSr: `${daysMin}-${daysMax} radnih dana`,
       detailsRu: `Разработка: ${devTypeNamesRu[devType] || devType} (${devDesignNamesRu[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Оплата" : ""})`,
       detailsEn: `Development: ${devTypeNamesEn[devType] || devType} (${devDesignNamesEn[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Payments" : ""})`,
       detailsSr: `Razvoj: ${devTypeNamesSr[devType] || devType} (${devDesignNamesSr[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Plaćanja" : ""})`,
@@ -373,9 +373,9 @@ function EstimatorInner() {
       priceRu: `от $${basePrice}`,
       priceEn: `from $${basePrice}`,
       priceSr: `od $${basePrice}`,
-      timeRu: `${daysMin}–${daysMax} раб. дней`,
-      timeEn: `${daysMin}–${daysMax} business days`,
-      timeSr: `${daysMin}–${daysMax} radnih dana`,
+      timeRu: `${daysMin}-${daysMax} раб. дней`,
+      timeEn: `${daysMin}-${daysMax} business days`,
+      timeSr: `${daysMin}-${daysMax} radnih dana`,
       detailsRu: `Видео: ${vidFormatNamesRu[vidFormat] || vidFormat} (${vidCountNamesRu[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "мультиязычный" : "1 язык"}, ${vidScript === "turnkey" ? "сценарий под ключ" : "готовый сценарий"})`,
       detailsEn: `Video: ${vidFormatNamesEn[vidFormat] || vidFormat} (${vidCountNamesEn[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "multilingual" : "single language"}, ${vidScript === "turnkey" ? "turnkey script" : "client script"})`,
       detailsSr: `Video: ${vidFormatNamesSr[vidFormat] || vidFormat} (${vidCountNamesSr[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "višejezični" : "1 jezik"}, ${vidScript === "turnkey" ? "scenario ključ u ruke" : "scenario klijenta"})`,
@@ -437,9 +437,9 @@ function EstimatorInner() {
       qRu: "Каков порядок оплаты проекта?",
       qEn: "What is the payment schedule and accepted payment methods?",
       qSr: "Koji je model plaćanja projekta?",
-      aRu: "Стандартная схема оплаты разбивается на этапы: 50% предоплата при запуске проекта, 50% после успешного тестирования на стейджинге и сдачи проекта перед переносом на ваш продакшн-домен. Для крупных проектов возможна разбивка на 3–4 этапа (по спринтам).",
+      aRu: "Стандартная схема оплаты разбивается на этапы: 50% предоплата при запуске проекта, 50% после успешного тестирования на стейджинге и сдачи проекта перед переносом на ваш продакшн-домен. Для крупных проектов возможна разбивка на 3-4 этапа (по спринтам).",
       aEn: "Standard billing follows a milestone model: 50% upfront deposit upon contract signing, and 50% upon final acceptance on staging before production DNS switchover. For enterprise-scale applications, milestones can be divided into 3-4 iterative sprint installments.",
-      aSr: "Standardni model plaćanja podeljen je po fazama: 50% avansno plaćanje pri pokretanju projekta, i 50% nakon uspešnog testiranja na testnom (staging) serveru pre preusmeravanja domena na produkciju. Za veće projekte moguće je ugovoriti plaćanje u 3–4 faze po sprintevima.",
+      aSr: "Standardni model plaćanja podeljen je po fazama: 50% avansno plaćanje pri pokretanju projekta, i 50% nakon uspešnog testiranja na testnom (staging) serveru pre preusmeravanja domena na produkciju. Za veće projekte moguće je ugovoriti plaćanje u 3-4 faze po sprintevima.",
     },
     {
       qRu: "Передаются ли заказчику права на исходный код и доступы?",
@@ -670,10 +670,10 @@ function EstimatorInner() {
                         id: "landing",
                         label:
                           lang === "ru"
-                            ? "Лендинг (1–3 стр)"
+                            ? "Лендинг (1-3 стр)"
                             : lang === "sr"
-                            ? "Landing (1–3 str)"
-                            : "Landing (1–3 pages)",
+                            ? "Landing (1-3 str)"
+                            : "Landing (1-3 pages)",
                         desc:
                           lang === "ru"
                             ? "до 5 блоков"

@@ -38,28 +38,28 @@ export const AiVideoView: React.FC = () => {
       id: "M8g2gJlwH7M",
       title:
         lang === "ru"
-          ? "AI Avatar Presenter — Презентация продукта"
+          ? "AI Avatar Presenter - Презентация продукта"
           : lang === "sr"
-          ? "AI Avatar prezenter — Prezentacija proizvoda"
-          : "AI Avatar Presenter — Product Explainer",
+          ? "AI Avatar prezenter - Prezentacija proizvoda"
+          : "AI Avatar Presenter - Product Explainer",
     },
     {
       id: "9_jdjXBknOw",
       title:
         lang === "ru"
-          ? "AI Avatar Presenter — Рекламный ролик"
+          ? "AI Avatar Presenter - Рекламный ролик"
           : lang === "sr"
-          ? "AI Avatar prezenter — Reklamni video"
-          : "AI Avatar Presenter — Commercial Ad",
+          ? "AI Avatar prezenter - Reklamni video"
+          : "AI Avatar Presenter - Commercial Ad",
     },
     {
       id: "-UE0CTWQwD4",
       title:
         lang === "ru"
-          ? "AI Avatar Presenter — Лид-магнит"
+          ? "AI Avatar Presenter - Лид-магнит"
           : lang === "sr"
-          ? "AI Avatar prezenter — Video za generisanje lidova"
-          : "AI Avatar Presenter — Social Lead Hook",
+          ? "AI Avatar prezenter - Video za generisanje lidova"
+          : "AI Avatar Presenter - Social Lead Hook",
     },
   ];
 
@@ -68,28 +68,28 @@ export const AiVideoView: React.FC = () => {
       id: "KjhW0NmL2v0",
       title:
         lang === "ru"
-          ? "YouTube Production — Полный монтаж выпуска"
+          ? "YouTube Production - Полный монтаж выпуска"
           : lang === "sr"
-          ? "YouTube produkcija — Kompletna montaža epizode"
-          : "YouTube Production — Full Episode Edit",
+          ? "YouTube produkcija - Kompletna montaža epizode"
+          : "YouTube Production - Full Episode Edit",
     },
     {
       id: "wm9bt16QY_Q",
       title:
         lang === "ru"
-          ? "YouTube Production — Экспертное интервью"
+          ? "YouTube Production - Экспертное интервью"
           : lang === "sr"
-          ? "YouTube produkcija — Stručni intervju"
-          : "YouTube Production — In-Depth Interview",
+          ? "YouTube produkcija - Stručni intervju"
+          : "YouTube Production - In-Depth Interview",
     },
     {
       id: "_9Z-gfKJRBU",
       title:
         lang === "ru"
-          ? "YouTube Production — Коммерческий шоукейс"
+          ? "YouTube Production - Коммерческий шоукейс"
           : lang === "sr"
-          ? "YouTube produkcija — Komercijalni video"
-          : "YouTube Production — Commercial Showcase",
+          ? "YouTube produkcija - Komercijalni video"
+          : "YouTube Production - Commercial Showcase",
     },
   ];
 
@@ -103,16 +103,16 @@ export const AiVideoView: React.FC = () => {
           : "Studio & Equipment Rental",
       traditional:
         lang === "ru"
-          ? "$500 – $1,200 за смену"
+          ? "$500 - $1,200 за смену"
           : lang === "sr"
-          ? "$500 – $1.200 po snimanju"
-          : "$500 – $1,200 per shoot",
+          ? "$500 - $1.200 po snimanju"
+          : "$500 - $1,200 per shoot",
       ai:
         lang === "ru"
-          ? "$0 — виртуальное нейропространство"
+          ? "$0 - виртуальное нейропространство"
           : lang === "sr"
-          ? "$0 — potpuno digitalni AI proces"
-          : "$0 — purely digital neural pipeline",
+          ? "$0 - potpuno digitalni AI proces"
+          : "$0 - purely digital neural pipeline",
     },
     {
       item:
@@ -123,16 +123,16 @@ export const AiVideoView: React.FC = () => {
           : "Professional Actor / Voiceover Talent",
       traditional:
         lang === "ru"
-          ? "$300 – $800 за ролик (доплаты за дубли)"
+          ? "$300 - $800 за ролик (доплаты за дубли)"
           : lang === "sr"
-          ? "$300 – $800 po sesiji + doplate za ponavljanja"
-          : "$300 – $800 per session + retake fees",
+          ? "$300 - $800 po sesiji + doplate za ponavljanja"
+          : "$300 - $800 per session + retake fees",
       ai:
         lang === "ru"
-          ? "Включено в стоимость — неограниченное число дублей"
+          ? "Включено в стоимость - неограниченное число дублей"
           : lang === "sr"
-          ? "Uključeno u cenu — neograničen broj ponavljanja"
-          : "Included — unlimited synthetic regeneration",
+          ? "Uključeno u cenu - neograničen broj ponavljanja"
+          : "Included - unlimited synthetic regeneration",
     },
     {
       item:
@@ -163,16 +163,16 @@ export const AiVideoView: React.FC = () => {
           : "Turnaround Time (Script to Master)",
       traditional:
         lang === "ru"
-          ? "10–20 рабочих дней (согласование графика съемок)"
+          ? "10-20 рабочих дней (согласование графика съемок)"
           : lang === "sr"
-          ? "10–20 radnih dana uz usklađivanje termina"
-          : "10–20 business days across booking schedules",
+          ? "10-20 radnih dana uz usklađivanje termina"
+          : "10-20 business days across booking schedules",
       ai:
         lang === "ru"
-          ? "24–48 часов до готового ролика с графикой"
+          ? "24-48 часов до готового ролика с графикой"
           : lang === "sr"
-          ? "24–48 sati do finalnog videa sa grafikom"
-          : "24–48 hours for complete polished video",
+          ? "24-48 sati do finalnog videa sa grafikom"
+          : "24-48 hours for complete polished video",
     },
   ];
 
@@ -202,7 +202,7 @@ export const AiVideoView: React.FC = () => {
         lang === "ru"
           ? "Да! Мы можем клонировать внешность и тембр голоса руководителя или амбассадора бренда по короткому исходному видео (2-3 минуты). После этого ваш персонаж сможет озвучивать любые сценарии на 30+ языках без вашего личного присутствия на съёмках."
           : lang === "sr"
-          ? "Da! Možemo klonirati izgled i boju glasa direktora ili ambasadora brenda na osnovu kratkog snimka (2–3 minuta). Nakon toga vaš digitalni lik može izgovarati bilo koji scenario na 30+ jezika, bez vašeg ličnog prisustva na snimanjima."
+          ? "Da! Možemo klonirati izgled i boju glasa direktora ili ambasadora brenda na osnovu kratkog snimka (2-3 minuta). Nakon toga vaš digitalni lik može izgovarati bilo koji scenario na 30+ jezika, bez vašeg ličnog prisustva na snimanjima."
           : "Yes. By submitting a brief 2-3 minute training video, we can clone the exact visual likeness and vocal cadence of your CEO or brand ambassador, empowering them to deliver scripts in 30+ languages without ongoing studio appearances.",
     },
     {
@@ -281,20 +281,20 @@ export const AiVideoView: React.FC = () => {
 
             <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
               {lang === "ru"
-                ? "Создаём говорящих фотореалистичных аватаров для сайтов, таргетированной рекламы и социальных сетей. Свободное владение 30+ языками мира, безупречная дикция и синхронная артикуляция — без расходов на студию, свет и актеров. А также комплексный монтаж экспертных YouTube-выпусков с высоким удержанием внимания."
+                ? "Создаём говорящих фотореалистичных аватаров для сайтов, таргетированной рекламы и социальных сетей. Свободное владение 30+ языками мира, безупречная дикция и синхронная артикуляция - без расходов на студию, свет и актеров. А также комплексный монтаж экспертных YouTube-выпусков с высоким удержанием внимания."
                 : lang === "sr"
-                ? "Kreiramo fotorealistične digitalne avatare za sajtove, ciljano oglašavanje i društvene mreže. Tečno govore 30+ jezika, imaju besprekornu dikciju i sinhronizovanu artikulaciju — bez troškova studija, rasvete i glumaca. Pružamo i kompletnu montažu stručnih YouTube emisija sa visokim zadržavanjem pažnje."
-                : "We engineer photorealistic digital presenters for landing pages, commercials, and social funnels. Fluent in 30+ languages with synchronized neural articulation — eliminating studio rental and actor costs. Plus complete full-length YouTube video editing."}
+                ? "Kreiramo fotorealistične digitalne avatare za sajtove, ciljano oglašavanje i društvene mreže. Tečno govore 30+ jezika, imaju besprekornu dikciju i sinhronizovanu artikulaciju - bez troškova studija, rasvete i glumaca. Pružamo i kompletnu montažu stručnih YouTube emisija sa visokim zadržavanjem pažnje."
+                : "We engineer photorealistic digital presenters for landing pages, commercials, and social funnels. Fluent in 30+ languages with synchronized neural articulation - eliminating studio rental and actor costs. Plus complete full-length YouTube video editing."}
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-2">
               <DoodlePointer
                 text={
                   lang === "ru"
-                    ? "готовность ролика за 24–48 часов ↘"
+                    ? "готовность ролика за 24-48 часов ↘"
                     : lang === "sr"
-                    ? "video spreman za 24–48 sati ↘"
-                    : "turnkey video in 24–48 hours ↘"
+                    ? "video spreman za 24-48 sati ↘"
+                    : "turnkey video in 24-48 hours ↘"
                 }
                 direction="curved-down-right"
                 className="mb-1"
@@ -347,10 +347,10 @@ export const AiVideoView: React.FC = () => {
               }
               reason={
                 lang === "ru"
-                  ? "Цифровые аватары говорят на 30+ языках без усталости, дублей и переплат за студийный свет. Готовые ролики за 24–48 часов."
+                  ? "Цифровые аватары говорят на 30+ языках без усталости, дублей и переплат за студийный свет. Готовые ролики за 24-48 часов."
                   : lang === "sr"
-                  ? "Digitalni avatari govore 30+ jezika bez umora, ponavljanja i plaćanja studijske rasvete. Gotov video za 24–48 sati."
-                  : "AI presenters speak 30+ languages without fatigue, retakes, or booking fees. Master files delivered in 24–48 hours."
+                  ? "Digitalni avatari govore 30+ jezika bez umora, ponavljanja i plaćanja studijske rasvete. Gotov video za 24-48 sati."
+                  : "AI presenters speak 30+ languages without fatigue, retakes, or booking fees. Master files delivered in 24-48 hours."
               }
               checked={false}
               rotate="rotate-1"
@@ -560,7 +560,7 @@ export const AiVideoView: React.FC = () => {
               {lang === "ru"
                 ? "Как бизнес экономит до 90% бюджета и сокращает время запуска рекламы с недель до 24 часов."
                 : lang === "sr"
-                ? "Kako kompanije štede do 90% budžeta i skraćuju lansiranje video kampanja sa nekoliko nedelja na svega 24–48 sati."
+                ? "Kako kompanije štede do 90% budžeta i skraćuju lansiranje video kampanja sa nekoliko nedelja na svega 24-48 sati."
                 : "How modern commercial brands cut video turnaround by 80% while scaling ad variations exponentially."}
             </p>
           </div>
@@ -606,10 +606,10 @@ export const AiVideoView: React.FC = () => {
               }
               caption={
                 lang === "ru"
-                  ? "Без актеров • 30+ языков • 24–48ч"
+                  ? "Без актеров • 30+ языков • 24-48ч"
                   : lang === "sr"
-                  ? "Bez glumaca • 30+ jezika • 24–48h"
-                  : "Zero actors • 30+ languages • 24–48h"
+                  ? "Bez glumaca • 30+ jezika • 24-48h"
+                  : "Zero actors • 30+ languages • 24-48h"
               }
               starsCount={5}
               className="-rotate-1 max-w-xs shrink-0"
