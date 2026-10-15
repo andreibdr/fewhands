@@ -47,35 +47,23 @@ export const Header: React.FC = () => {
           {/* Logo Comparison Switcher */}
           <div
             className="hidden sm:flex items-center bg-slate-100/90 border border-slate-200/90 rounded-xl p-0.5 text-[11px] font-semibold text-slate-600"
-            title={lang === "ru" ? "Сравнение вариантов логотипа" : "Compare logo variants"}
+            title={lang === "ru" ? "Сравнение: Оригинал из папки vs Куб" : "Compare: Original vs Cube"}
           >
             <button
               onClick={() => setLogoVariant("heritage")}
-              className={`px-2 py-1 rounded-lg transition-all flex items-center gap-1 ${
-                logoVariant === "heritage"
+              className={`px-2.5 py-1 rounded-lg transition-all flex items-center gap-1.5 ${
+                logoVariant === "heritage" || logoVariant === "modern"
                   ? "bg-white text-indigo-700 shadow-sm font-bold"
                   : "text-slate-500 hover:text-slate-900"
               }`}
-              title="Оригинальный воссозданный логотип (Цветные руки)"
+              title="Оригинальный логотип Few Hands"
             >
               <span>👌</span>
-              <span className="hidden xl:inline">Оригинал</span>
-            </button>
-            <button
-              onClick={() => setLogoVariant("modern")}
-              className={`px-2 py-1 rounded-lg transition-all flex items-center gap-1 ${
-                logoVariant === "modern"
-                  ? "bg-white text-indigo-700 shadow-sm font-bold"
-                  : "text-slate-500 hover:text-slate-900"
-              }`}
-              title="Современная интерпретация"
-            >
-              <span>⚡</span>
-              <span className="hidden xl:inline">Modern</span>
+              <span>{lang === "ru" ? "Оригинал" : "Original"}</span>
             </button>
             <button
               onClick={() => setLogoVariant("cube")}
-              className={`px-2 py-1 rounded-lg transition-all flex items-center gap-1 ${
+              className={`px-2.5 py-1 rounded-lg transition-all flex items-center gap-1.5 ${
                 logoVariant === "cube"
                   ? "bg-white text-indigo-700 shadow-sm font-bold"
                   : "text-slate-500 hover:text-slate-900"
@@ -83,7 +71,7 @@ export const Header: React.FC = () => {
               title="Куб"
             >
               <span>🧊</span>
-              <span className="hidden xl:inline">Куб</span>
+              <span>{lang === "ru" ? "Куб" : "Cube"}</span>
             </button>
           </div>
 
@@ -189,26 +177,16 @@ export const Header: React.FC = () => {
             <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 px-1">
               {lang === "ru" ? "Вариант логотипа:" : "Logo Style:"}
             </div>
-            <div className="grid grid-cols-3 gap-1 bg-slate-100 p-1 rounded-xl text-xs font-medium">
+            <div className="grid grid-cols-2 gap-2 bg-slate-100 p-1 rounded-xl text-xs font-medium">
               <button
                 onClick={() => setLogoVariant("heritage")}
                 className={`py-2 px-2 rounded-lg text-center ${
-                  logoVariant === "heritage"
+                  logoVariant === "heritage" || logoVariant === "modern"
                     ? "bg-white text-indigo-700 shadow-sm font-bold"
                     : "text-slate-600"
                 }`}
               >
-                👌 Оригинал
-              </button>
-              <button
-                onClick={() => setLogoVariant("modern")}
-                className={`py-2 px-2 rounded-lg text-center ${
-                  logoVariant === "modern"
-                    ? "bg-white text-indigo-700 shadow-sm font-bold"
-                    : "text-slate-600"
-                }`}
-              >
-                ⚡ Modern
+                👌 {lang === "ru" ? "Оригинал" : "Original"}
               </button>
               <button
                 onClick={() => setLogoVariant("cube")}
@@ -218,7 +196,7 @@ export const Header: React.FC = () => {
                     : "text-slate-600"
                 }`}
               >
-                🧊 Куб
+                🧊 {lang === "ru" ? "Куб" : "Cube"}
               </button>
             </div>
           </div>
