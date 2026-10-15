@@ -13,6 +13,34 @@ body {
   background-color: #faf9fb;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
+  cursor: default;
+}
+
+/* Studio UX: Keep clean arrow cursor across text and sections, avoiding I-beam flicker */
+h1, h2, h3, h4, h5, h6, p, span, li, dt, dd, blockquote, label, div, section, article, header, footer, main {
+  cursor: default;
+}
+
+/* Clickable elements get proper pointer cursor */
+a, button, [role="button"], select, summary, input[type="submit"], input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+/* Form inputs retain text input cursor */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+button[disabled], input[disabled] {
+  cursor: not-allowed;
 }
 
 /* Warm Artisan Dot grid background texture inspired by Few Hands studio identity */
