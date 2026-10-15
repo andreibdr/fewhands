@@ -701,12 +701,23 @@ export const AboutView: React.FC = () => {
                 <Briefcase className="w-4 h-4" />
                 <span>{lang === "ru" ? "СОВМЕСТИМОСТЬ" : lang === "sr" ? "KOMPATIBILNOST" : "CLIENT ALIGNMENT"}</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b]">
-                {lang === "ru"
-                  ? "С кем мы сработаемся идеально (и кому мы откажем)"
-                  : lang === "sr"
-                  ? "Sa kim sarađujemo idealno (i koga ćemo odbiti)"
-                  : "Who We Are Built For (and Who We Turn Down)"}
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] leading-tight">
+                {lang === "ru" ? (
+                  <>
+                    <span className="block">С кем мы сработаемся идеально</span>
+                    <span className="block mt-1 sm:mt-1.5">(и кому мы откажем)</span>
+                  </>
+                ) : lang === "sr" ? (
+                  <>
+                    <span className="block">Sa kim sarađujemo idealno</span>
+                    <span className="block mt-1 sm:mt-1.5">(i koga ćemo odbiti)</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="block">Who We Are Built For</span>
+                    <span className="block mt-1 sm:mt-1.5">(and Who We Turn Down)</span>
+                  </>
+                )}
               </h2>
               <p className="mt-3 text-sm sm:text-base text-[#585068]">
                 {lang === "ru"
