@@ -11,7 +11,6 @@ import {
   Layers,
   Zap,
   TrendingUp,
-  ShieldCheck,
   CheckCircle2,
   Award,
   BarChart3,
@@ -27,6 +26,7 @@ import {
   AuditMetricsCard,
   CustomStampBadge,
   CustomPSCard,
+  CraftCard,
   DoodlePointer,
 } from "./HandDrawnDecorations";
 
@@ -405,9 +405,20 @@ export const PortfolioView: React.FC = () => {
               </div>
 
               <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-sm relative overflow-hidden">
-                <div className="w-12 h-12 rounded-2xl bg-[#eff5f5] text-[#386161] flex items-center justify-center mb-6">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
+                <CraftCard
+                  tag={lang === "ru" ? "БЕЗОПАСНОСТЬ ДАННЫХ" : "DATA SECURITY"}
+                  issueNo="GRADE A+"
+                  question={lang === "ru" ? "Уязвимости CMS и баз данных?" : "Vulnerable to SQL/CMS exploits?"}
+                  yesLabel={lang === "ru" ? "ДА" : "YES"}
+                  noLabel={lang === "ru" ? "НЕТ" : "NO"}
+                  isYesChecked={false}
+                  whyText={
+                    lang === "ru"
+                      ? "Статический код: баз данных нет на сервере, нечего взламывать."
+                      : "Static architecture: zero exposed databases, immune to CMS exploits."
+                  }
+                  className="mb-4"
+                />
                 <h3 className="text-lg font-bold text-[#2d263b] mb-2">
                   {lang === "ru" ? "Безопасность и автономность" : "Enterprise Grade Security"}
                 </h3>
