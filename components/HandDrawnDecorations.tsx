@@ -9,13 +9,13 @@ import { useLanguage } from "./LanguageContext";
 export const DoodleArrowCTA: React.FC<{ className?: string }> = ({ className = "" }) => {
   const { lang } = useLanguage();
   return (
-    <div className={`flex items-center gap-2 select-none pointer-events-none ${className}`}>
+    <div className={`flex items-center gap-2 select-none pointer-events-none whitespace-nowrap ${className}`}>
       <span className="font-handwriting text-lg sm:text-xl text-[#386161] font-bold tracking-wide -rotate-3 leading-tight">
         {lang === "ru" ? "точный расчет за 60 сек" : lang === "sr" ? "tačna procena za 60 sek" : "instant estimate in 60s"}
       </span>
       {/* Hand-sketched arrow curving towards CTA */}
       <svg
-        className="w-10 h-7 text-[#386161] -rotate-6"
+        className="w-10 h-7 text-[#386161] -rotate-6 shrink-0"
         viewBox="0 0 60 40"
         fill="none"
         stroke="currentColor"

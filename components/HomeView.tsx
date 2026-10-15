@@ -239,7 +239,7 @@ export const HomeView: React.FC = () => {
               <div className="mt-7 flex flex-col items-center">
                 <div className="relative inline-flex flex-wrap justify-center items-center gap-4">
                   {/* Hand-drawn arrow pointing to button (Desktop/Tablet) */}
-                  <div className="hidden md:block absolute -left-56 top-2">
+                  <div className="hidden md:block absolute right-full mr-4 top-2 pointer-events-none">
                     <DoodleArrowCTA />
                   </div>
 
