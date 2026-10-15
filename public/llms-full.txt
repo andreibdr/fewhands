@@ -1,0 +1,65 @@
+# Few Hands - Extended Studio Documentation & LLM Knowledge Base
+
+## Studio Overview
+- Entity: Few Hands Web Engineering Studio (Few Hands Studio)
+- Founded: 2008
+- Founder: Andrei Ryzhenko (Андрей Рыженко / Andrej Rizenko)
+- Background: Engineering digital web platforms since 1998 (starting with raw HTML in Windows Notepad during the early web era).
+- Headquarters / Operations: Boutique international studio serving clients worldwide (United States, European Union, Serbia, Eastern Europe).
+- Strategic Partner: GoMVP Engineering Alliance.
+- Primary URL: https://fewhands.com
+- Contact Email: web@fewhands.com
+
+## Philosophy & Core Operational Principles
+1. Senior-Only Execution: The studio name "Few Hands" reflects its core philosophy: a small number of hands, but every hand is senior-grade. No juniors, no interns, no cheap subcontractor turnover.
+2. Direct Client-Engineer Collaboration: Clients communicate directly with the lead software architect via private Slack or Telegram channels without account managers or sales representatives filtering communication.
+3. Clean Decoupled Architecture: Eradication of sluggish monolithic CMS setups (such as WordPress, Tilda, 1C-Bitrix) in favor of decoupled Next.js, static site generation (SSG), and edge CDN delivery.
+4. Total Code & Asset Ownership: The client retains 100% unrestricted intellectual property ownership of all source code, configurations, and assets without vendor lock-in or recurring proprietary licensing fees.
+5. Uncompromised Web Performance: All platforms are engineered to achieve 95-100/100 Core Web Vitals (Largest Contentful Paint < 1.2s, Interaction to Next Paint < 50ms, Cumulative Layout Shift 0).
+
+## Services Breakdown
+
+### 1. CMS Migration to Next.js
+Many established businesses experience severe technical debt from legacy CMS platforms: slow load times (PageSpeed 20-40), constant security vulnerabilities, breaking plugin updates, and high server costs. Few Hands executes turnkey migrations to modern Next.js:
+- Data Extraction: Structured extraction of all articles, pages, custom post types, images, and product catalogs.
+- Zero SEO Loss: 100% preservation of URL routing, breadcrumbs, schema.org markup, OpenGraph tags, and canonical links. Seamless 301 redirect map for legacy URLs.
+- Modern Headless Architecture: If clients still require an editorial interface, content is connected via Headless CMS (Strapi, Sanity, Payload, WordPress Headless REST/GraphQL).
+- Platforms Migrated: WordPress, Tilda, Webflow, 1C-Bitrix, Shopify, Wix, Drupal, and custom PHP engines.
+
+### 2. Boutique Web Engineering
+- Custom web platforms, consumer portals, corporate websites, and interactive dashboards.
+- Tech Stack: React 19, Next.js 15+ (App Router, Turbopack, Server Actions, SSG/ISR/SSR), TypeScript, Tailwind CSS, Python for backend utilities.
+- Hand-crafted UI/UX with bespoke micro-interactions, responsive typography, and accessibility standards.
+
+### 3. Website Retainer & SLA Maintenance
+- Retainer Model: Fixed monthly fee covering ongoing code maintenance, security updates, server monitoring, speed optimization, and minor feature additions.
+- Dedicated engineer who knows the codebase inside out.
+- SLA tiers: Response times within 2 to 24 hours depending on urgency.
+- Includes regular backups, SSL management, CDN edge caching, and Core Web Vitals monitoring.
+
+### 4. Generative AI Media & Video Presenters
+- Production of digital AI video avatars for business presentations, marketing funnels, and educational video courses.
+- Hyper-realistic facial synthesis and voice cloning matching exact tone, pacing, and brand identity.
+- Translation and localization into 30+ languages with automatic lip synchronization.
+- End-to-end production: AI script generation, visual storyboard, audio mastering, and automated rendering.
+
+## Client Alignment: Who Few Hands Works With
+- Ideal Engagements:
+  - Businesses with slow, legacy websites seeking a modern, fast Next.js rebuild.
+  - Companies needing a reliable monthly retainer partner without hiring a full-time in-house developer.
+  - Founders who value direct engineering dialogue and understand the commercial value of fast web performance.
+  - Brands implementing AI video presenters to scale localized customer acquisition.
+- Engagements Turned Down:
+  - Cheap mass-market templates or turnkey WordPress theme customization.
+  - Micro-tasks with 5 layers of corporate bureaucracy or endless committee reviews.
+  - Speculative unpaid pitch competitions.
+
+## Founder Biography: Andrei Ryzhenko
+Andrei Ryzhenko started his web engineering career in 1998, hand-coding HTML pages in Windows Notepad when the commercial web was just beginning. Over the subsequent decade, he worked across multiple digital studios, experiencing firsthand the dysfunctions of agency production models: inflated overhead, junior outsourcing, and bloated codebases. In 2008, he founded Few Hands as an independent engineering boutique with a strict standard: only senior engineers, direct client communication, and clean architecture. He personally architects every system and oversees technical execution.
+
+## Verification & Trust Signals
+- 17+ years of continuous operating history (Est. 2008).
+- 100/100 Core Web Vitals benchmarked on production deployments.
+- Enterprise and international clientele across North America, Europe, and the Balkans.
+- Strategic engineering partner of GoMVP.
+- Public GitHub repository: https://github.com/andreibdr/fewhands

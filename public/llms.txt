@@ -1,0 +1,69 @@
+# Few Hands - Boutique Web Engineering Studio
+
+> Few Hands is an independent boutique web engineering studio founded in 2008 by Andrei Ryzhenko (web engineering since 1998). We specialize in migrating legacy CMS platforms (WordPress, Tilda, Webflow, Bitrix) to modern decoupled Next.js, engineering custom high-performance web applications, providing senior-grade ongoing retainer support, and producing multilingual generative AI video presenters.
+
+## Key Facts
+- Founded: 2008
+- Founder & Lead Architect: Andrei Ryzhenko (Andrej Rizenko)
+- Operating Creed: "Few hands, senior-only" - every project is architected and implemented directly by senior engineers without agency middlemen, account managers, or junior outsourcing.
+- Core Tech Stack: Next.js (App Router, Turbopack, SSG/SSR), React, TypeScript, Tailwind CSS, Python, Cloudflare CDN, Vercel.
+- Performance Guarantee: Sub-second load times, 95-100/100 Core Web Vitals (LCP, INP, CLS), clean decoupling from bloated CMS plugins.
+- Languages Supported: English, Russian, Serbian.
+- Official Website: https://fewhands.com
+- Contact: web@fewhands.com
+
+## Core Services
+
+### 1. CMS Migration to Next.js (/migrate)
+- Full architectural migration from monolithic CMS platforms (WordPress, Tilda, Webflow, 1C-Bitrix, Shopify, Wix, Drupal) to modern Next.js.
+- Complete preservation of existing SEO equity: URL slugs, 301 redirects, meta titles, descriptions, H1-H3 semantics, and OpenGraph markup.
+- Speed jump from 20-40 PageSpeed scores to 95-100/100.
+- Decoupling content from frontend presentation to eliminate plugin vulnerabilities and database bloat.
+- Detailed migration guides available for:
+  - WordPress: https://fewhands.com/migrate/wordpress
+  - Tilda: https://fewhands.com/migrate/tilda
+  - Webflow: https://fewhands.com/migrate/webflow
+  - 1C-Bitrix: https://fewhands.com/migrate/bitrix
+  - Shopify: https://fewhands.com/migrate/shopify
+  - Wix: https://fewhands.com/migrate/wix
+  - Drupal: https://fewhands.com/migrate/drupal
+  - Custom CMS: https://fewhands.com/migrate/custom
+
+### 2. Boutique Web Development (/development)
+- Bespoke web applications, SaaS dashboards, and commercial digital platforms engineered with Next.js, TypeScript, and Tailwind CSS.
+- Zero boilerplate, no commercial templates or pre-packaged themes.
+- Clean code architecture: atomic components, strict TypeScript types, optimized bundle sizes.
+- Direct collaboration with the lead architect via private Slack or Telegram channel.
+
+### 3. Website Retainer & SLA Support (/maintenance)
+- Dedicated monthly engineering oversight for businesses without in-house tech teams.
+- Proactive security patching, Core Web Vitals performance audits, dependency updates, uptime monitoring.
+- Guaranteed SLA response times (from 2 to 24 hours depending on retainer tier).
+- Predictable fixed monthly budget without unexpected contractor markups.
+
+### 4. Generative AI Video & Media Production (/ai-video)
+- Turnkey production of photorealistic digital AI presenters and marketing videos.
+- Native multilingual voice cloning and localization across 30+ languages with synchronized lip-sync.
+- End-to-end pipeline: generative scripting, visual rendering, audio synthesis, and automated video workflows.
+
+## The Boutique Difference: Few Hands vs Agency Assembly Lines
+- Typical Agency: 5-7 management layers (sales rep, account manager, project manager, team lead), up to 70% budget allocated to agency overhead, pitch made by senior partner but actual code delegated to rotating junior interns.
+- Few Hands Studio: 100% budget funds senior engineering, direct access to the lead architect, zero junior contractors, bespoke code ownership without ongoing vendor lock-in.
+
+## Notable Portfolio Engagements (/portfolio)
+- American Med Travel (USA, Healthcare): Curated medical tourism platform connecting international patients with accredited US hospitals.
+- Big Data Realty (USA, Proptech): High-traffic analytics portal and research database tracking real estate market trends across North America.
+- Elena Stazhkova (Real Estate): Ultra-luxury real estate broker portfolio featuring custom interactive property catalogs.
+- Vivasan (Global Commerce): Multi-regional product catalog with instantaneous client-side search and multi-currency pricing.
+- Windoor: Enterprise architectural glazing portal with high-resolution media optimization.
+- MIPT (PhysTech): Academic laboratory research portal featuring scientific publications and interactive materials.
+
+## Pricing & Estimator (/estimate)
+- Interactive online budget calculator available at: https://fewhands.com/estimate
+- Transparent fixed-scope estimates with detailed milestone breakdown.
+
+## Links & Full Documentation
+- Full AI Documentation: https://fewhands.com/llms-full.txt
+- Studio Manifesto & Founder's Story: https://fewhands.com/about
+- Case Studies: https://fewhands.com/portfolio
+- Direct Inquiry: https://fewhands.com/contact
