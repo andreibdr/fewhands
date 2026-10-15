@@ -1153,16 +1153,16 @@ function EstimatorInner() {
                         id: "avatar",
                         label:
                           lang === "ru"
-                            ? "AI Аватар Спикер для Сайта"
+                            ? "Цифровой двойник эксперта (HeyGen)"
                             : lang === "sr"
-                            ? "AI Avatar prezenter za sajt"
-                            : "Website AI Avatar Presenter",
+                            ? "Digitalni dvojnik stručnjaka (HeyGen)"
+                            : "Custom Digital Twin (HeyGen)",
                         desc:
                           lang === "ru"
-                            ? "Виртуальный ведущий в плеере"
+                            ? "Ваше лицо, клон голоса и видео-согласие"
                             : lang === "sr"
-                            ? "Virtualni voditelj na stranici"
-                            : "Virtual on-site video presenter",
+                            ? "Vaše lice, klon glasa i video saglasnost"
+                            : "Your face, vocal clone & verified consent",
                       },
                     ].map((item) => (
                       <button
