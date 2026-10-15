@@ -131,6 +131,19 @@ export const portfolioItems: PortfolioItem[] = [
     url: "http://moemiami.com",
     status: "live",
   },
+  {
+    id: "maysa",
+    title: "Компания «Майса Гида» / Maysa Gida",
+    category: "web",
+    tags: ["B2B", "Food Tech", "Corporate"],
+    description: {
+      ru: "Официальный сайт поставщика пищевых ингредиентов, заквасок и технологических решений для молочной промышленности.",
+      en: "Corporate portal for dairy industry enzyme cultures, ingredients supply, and bio-technological production solutions.",
+    },
+    image: "/portfolio/maysa.jpg",
+    url: "https://maysa.ru/",
+    status: "live",
+  },
 
   // --- Design Archive Projects (Authentic Client Showcase) ---
   {
@@ -260,19 +273,6 @@ export const portfolioItems: PortfolioItem[] = [
       en: "Investment group presentation portal for the EB-5 immigrant investor program: commercial development and EB-5 fund structuring.",
     },
     image: "/portfolio/bart.jpg",
-    status: "archived",
-    archivedYear: "2019",
-  },
-  {
-    id: "maysa",
-    title: "Майса Гида / Maysa Gida — Food Tech",
-    category: "web",
-    tags: ["B2B", "Food Tech", "Corporate"],
-    description: {
-      ru: "Корпоративный сайт поставщика пищевых ингредиентов, заквасок и технологических решений для молочной промышленности.",
-      en: "Corporate portal for dairy industry enzyme cultures, ingredients supply, and bio-technological production solutions.",
-    },
-    image: "/portfolio/maysa.jpg",
     status: "archived",
     archivedYear: "2019",
   },
