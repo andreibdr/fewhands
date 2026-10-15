@@ -2,24 +2,24 @@ import { Metadata } from "next";
 import { ContactPageContent } from "@/components/ContactPageContent";
 
 export const metadata: Metadata = {
-  title: "Контакты Студии Few Hands | Обсудить Проект Миграции или Разработки",
+  title: "Contact Few Hands Studio | Discuss Your Web Project",
   description:
-    "Свяжитесь со студией Few Hands для аудита сайта, расчета сметы на перенос с CMS на Next.js или заказа AI-видеопродакшна. Прямая почта web@fewhands.com, ответ в течение 1 рабочего дня.",
+    "Get in touch with Few Hands Studio for site audits, CMS migration estimates to Next.js, and generative AI video inquiries. Direct email: web@fewhands.com.",
   keywords: [
-    "контакты few hands",
-    "заказать миграцию сайта",
-    "аудит кода сайта",
-    "few hands контакты",
+    "contact Few Hands",
+    "request website migration",
+    "web performance audit",
+    "web engineering consultation",
     "web@fewhands.com",
-    "разработка сайтов контакты",
+    "hire Next.js developers",
   ],
   alternates: {
     canonical: "https://fewhands.com/contact",
   },
   openGraph: {
-    title: "Контакты Студии Few Hands | Обсудить Проект",
+    title: "Contact Few Hands Studio | Discuss Your Project",
     description:
-      "Прямая связь с ведущими разработчиками Few Hands. Экспресс-аудит сайта, расчет сметы и консультации.",
+      "Direct communication with senior engineering leads at Few Hands. Complimentary technical audit and project estimates.",
     url: "https://fewhands.com/contact",
     type: "website",
   },

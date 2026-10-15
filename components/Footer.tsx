@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/migrate/bitrix" className="hover:text-[#386161] transition">
-                  1C-Битрикс
+                  {lang === "ru" ? "1C-Битрикс" : "1C-Bitrix"}
                 </Link>
               </li>
               <li>

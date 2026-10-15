@@ -2,24 +2,24 @@ import { Metadata } from "next";
 import { PortfolioView } from "@/components/PortfolioView";
 
 export const metadata: Metadata = {
-  title: "Портфолио Реализованных Сайтов и AI-Видео | Кейсы Few Hands",
+  title: "Case Studies & Engineering Portfolio | Few Hands",
   description:
-    "Примеры разработанных сайтов на Next.js, миграций с WordPress/Tilda/Bitrix, интернет-магазинов и AI-видеороликов агентства Few Hands. PageSpeed 95-100, живые ссылки и метрики.",
+    "Showcase of production web platforms engineered on Next.js, legacy CMS migrations (WordPress, Tilda, Bitrix), highload e-commerce catalogs, and generative AI video production. PageSpeed 95-100 benchmarks.",
   keywords: [
-    "портфолио веб разработчиков",
-    "кейсы создания сайтов next.js",
-    "примеры миграции сайтов",
-    "few hands portfolio",
-    "кейсы разработка интернет-магазинов",
-    "примеры ai видеороликов",
+    "web engineering portfolio",
+    "Next.js case studies",
+    "CMS migration benchmarks",
+    "Few Hands portfolio",
+    "ecommerce engineering cases",
+    "AI video production examples",
   ],
   alternates: {
     canonical: "https://fewhands.com/portfolio",
   },
   openGraph: {
-    title: "Портфолио Реализованных Проектов | Few Hands",
+    title: "Case Studies & Engineering Portfolio | Few Hands",
     description:
-      "Реальные кейсы разработки сайтов на Next.js и AI-видеопродакшна. Скорость 95-100 Google PageSpeed, чистый стек, коммерческие результаты.",
+      "Production case studies of Next.js web applications, high-performance migrations, and AI media production with 95-100 Core Web Vitals.",
     url: "https://fewhands.com/portfolio",
     type: "website",
   },

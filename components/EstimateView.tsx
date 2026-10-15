@@ -118,13 +118,46 @@ function EstimatorInner() {
       supportPrice = " + $950 / mo";
     }
 
+    const platformNamesRu: Record<string, string> = {
+      wordpress: "WordPress",
+      tilda: "Tilda",
+      bitrix: "1C-Битрикс",
+      webflow: "Webflow",
+      shopify: "Shopify",
+      insales: "InSales",
+      opencart: "OpenCart",
+      "legacy-php": "Самопис / PHP",
+    };
+    const platformNamesEn: Record<string, string> = {
+      wordpress: "WordPress",
+      tilda: "Tilda",
+      bitrix: "1C-Bitrix",
+      webflow: "Webflow",
+      shopify: "Shopify",
+      insales: "InSales",
+      opencart: "OpenCart",
+      "legacy-php": "Custom PHP / Monolith",
+    };
+    const scaleNamesRu: Record<string, string> = {
+      landing: "Лендинг",
+      corporate: "Корпоративный",
+      catalog: "Каталог/Магазин",
+      portal: "Highload-портал",
+    };
+    const scaleNamesEn: Record<string, string> = {
+      landing: "Landing Page",
+      corporate: "Corporate Website",
+      catalog: "E-Commerce Catalog",
+      portal: "Enterprise Highload",
+    };
+
     return {
       priceRu: `от $${basePrice}${supportPrice}`,
       priceEn: `from $${basePrice}${supportPrice}`,
       timeRu: `${daysMin}–${daysMax} раб. дней`,
       timeEn: `${daysMin}–${daysMax} business days`,
-      detailsRu: `Миграция с ${migPlatform.toUpperCase()} (${migScale}) ${supportLabelRu}`,
-      detailsEn: `Migration from ${migPlatform.toUpperCase()} (${migScale}) with ${supportLabelEn}`,
+      detailsRu: `Миграция с ${platformNamesRu[migPlatform] || migPlatform} (${scaleNamesRu[migScale] || migScale}) ${supportLabelRu}`,
+      detailsEn: `Migration from ${platformNamesEn[migPlatform] || migPlatform} (${scaleNamesEn[migScale] || migScale}) with ${supportLabelEn}`,
     };
   };
 
@@ -170,13 +203,36 @@ function EstimatorInner() {
       daysMax += 3;
     }
 
+    const devTypeNamesRu: Record<string, string> = {
+      landing: "Лендинг / Промо",
+      corporate: "Корпоративный сайт",
+      catalog: "Интернет-магазин",
+      webapp: "Веб-сервис / SaaS",
+    };
+    const devTypeNamesEn: Record<string, string> = {
+      landing: "Landing Page",
+      corporate: "Corporate Website",
+      catalog: "E-Commerce Store",
+      webapp: "Web App / SaaS",
+    };
+    const devDesignNamesRu: Record<string, string> = {
+      turnkey: "Дизайн под ключ",
+      ready: "Готовый макет",
+      scratch: "Редизайн",
+    };
+    const devDesignNamesEn: Record<string, string> = {
+      turnkey: "Turnkey Design",
+      ready: "Ready Figma Assets",
+      scratch: "Redesign & Modernize",
+    };
+
     return {
       priceRu: `от $${basePrice}`,
       priceEn: `from $${basePrice}`,
       timeRu: `${daysMin}–${daysMax} раб. дней`,
       timeEn: `${daysMin}–${daysMax} business days`,
-      detailsRu: `Разработка ${devType.toUpperCase()} (${devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Checkout" : ""})`,
-      detailsEn: `Custom ${devType.toUpperCase()} (${devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Checkout" : ""})`,
+      detailsRu: `Разработка: ${devTypeNamesRu[devType] || devType} (${devDesignNamesRu[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Оплата" : ""})`,
+      detailsEn: `Development: ${devTypeNamesEn[devType] || devType} (${devDesignNamesEn[devDesign] || devDesign}${devMultiLang ? " + i18n" : ""}${devPayment ? " + Payments" : ""})`,
     };
   };
 
@@ -240,13 +296,34 @@ function EstimatorInner() {
       daysMax += 1;
     }
 
+    const vidFormatNamesRu: Record<string, string> = {
+      shorts: "Shorts / Reels (9:16)",
+      youtube: "YouTube (16:9)",
+      avatar: "AI Спикер для Сайта",
+    };
+    const vidFormatNamesEn: Record<string, string> = {
+      shorts: "Shorts / Reels (9:16)",
+      youtube: "YouTube (16:9)",
+      avatar: "Website AI Avatar Presenter",
+    };
+    const vidCountNamesRu: Record<string, string> = {
+      single: "1 видео",
+      pack3: "Пакет 3 видео",
+      pack10: "Серия 10 видео",
+    };
+    const vidCountNamesEn: Record<string, string> = {
+      single: "1 video",
+      pack3: "Batch of 3",
+      pack10: "Series of 10",
+    };
+
     return {
       priceRu: `от $${basePrice}`,
       priceEn: `from $${basePrice}`,
       timeRu: `${daysMin}–${daysMax} раб. дней`,
       timeEn: `${daysMin}–${daysMax} business days`,
-      detailsRu: `Видео: ${vidFormat.toUpperCase()} (${vidCount}, ${vidLanguages === "multilingual" ? "мультиязычный" : "1 язык"}, ${vidScript})`,
-      detailsEn: `Video: ${vidFormat.toUpperCase()} (${vidCount}, ${vidLanguages === "multilingual" ? "multilingual" : "single lang"}, ${vidScript})`,
+      detailsRu: `Видео: ${vidFormatNamesRu[vidFormat] || vidFormat} (${vidCountNamesRu[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "мультиязычный" : "1 язык"}, ${vidScript === "turnkey" ? "сценарий под ключ" : "готовый сценарий"})`,
+      detailsEn: `Video: ${vidFormatNamesEn[vidFormat] || vidFormat} (${vidCountNamesEn[vidCount] || vidCount}, ${vidLanguages === "multilingual" ? "multilingual" : "single language"}, ${vidScript === "turnkey" ? "turnkey script" : "client script"})`,
     };
   };
 
@@ -316,10 +393,10 @@ function EstimatorInner() {
     "@type": "FAQPage",
     mainEntity: faqItems.map((item) => ({
       "@type": "Question",
-      name: item.qRu,
+      name: lang === "ru" ? item.qRu : item.qEn,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.aRu,
+        text: lang === "ru" ? item.aRu : item.aEn,
       },
     })),
   };
@@ -425,12 +502,12 @@ function EstimatorInner() {
                     {[
                       { id: "wordpress", label: "WordPress" },
                       { id: "tilda", label: "Tilda" },
-                      { id: "bitrix", label: "1C-Битрикс" },
+                      { id: "bitrix", label: lang === "ru" ? "1C-Битрикс" : "1C-Bitrix" },
                       { id: "webflow", label: "Webflow" },
                       { id: "shopify", label: "Shopify" },
                       { id: "insales", label: "InSales" },
                       { id: "opencart", label: "OpenCart" },
-                      { id: "legacy-php", label: "Самопис / PHP" },
+                      { id: "legacy-php", label: lang === "ru" ? "Самопис / PHP" : "Custom PHP / Monolith" },
                     ].map((item) => (
                       <button
                         key={item.id}
@@ -454,10 +531,10 @@ function EstimatorInner() {
                   </label>
                   <div className="grid sm:grid-cols-4 gap-2.5">
                     {[
-                      { id: "landing", label: lang === "ru" ? "Лендинг (1–3 стр)" : "Landing (1–3 pages)", desc: "до 5 блоков" },
-                      { id: "corporate", label: lang === "ru" ? "Корпоративный" : "Corporate Website", desc: "до 15 страниц" },
-                      { id: "catalog", label: lang === "ru" ? "Каталог / Магазин" : "E-Commerce Catalog", desc: "до 500 товаров" },
-                      { id: "portal", label: lang === "ru" ? "Портал / Highload" : "Enterprise Portal", desc: "1000+ страниц" },
+                      { id: "landing", label: lang === "ru" ? "Лендинг (1–3 стр)" : "Landing (1–3 pages)", desc: lang === "ru" ? "до 5 блоков" : "up to 5 sections" },
+                      { id: "corporate", label: lang === "ru" ? "Корпоративный" : "Corporate Website", desc: lang === "ru" ? "до 15 страниц" : "up to 15 pages" },
+                      { id: "catalog", label: lang === "ru" ? "Каталог / Магазин" : "E-Commerce Catalog", desc: lang === "ru" ? "до 500 товаров" : "up to 500 products" },
+                      { id: "portal", label: lang === "ru" ? "Портал / Highload" : "Enterprise Portal", desc: lang === "ru" ? "1000+ страниц" : "1,000+ pages" },
                     ].map((item) => (
                       <button
                         key={item.id}
@@ -527,10 +604,10 @@ function EstimatorInner() {
                   </label>
                   <div className="grid sm:grid-cols-4 gap-2.5">
                     {[
-                      { id: "landing", label: lang === "ru" ? "Промо / Landing" : "High-Convert Landing", desc: "Конверсионная посадочная" },
-                      { id: "corporate", label: lang === "ru" ? "Корпоративный сайт" : "Corporate Portal", desc: "Услуги, кейсы, блог" },
-                      { id: "catalog", label: lang === "ru" ? "Интернет-магазин" : "E-Commerce App", desc: "Каталог, корзина, фильтры" },
-                      { id: "webapp", label: lang === "ru" ? "Веб-сервис / SaaS" : "Web Application", desc: "Личные кабинеты, логика" },
+                      { id: "landing", label: lang === "ru" ? "Промо / Landing" : "High-Convert Landing", desc: lang === "ru" ? "Конверсионная посадочная" : "High-conversion promo page" },
+                      { id: "corporate", label: lang === "ru" ? "Корпоративный сайт" : "Corporate Portal", desc: lang === "ru" ? "Услуги, кейсы, блог" : "Services, portfolio, blog" },
+                      { id: "catalog", label: lang === "ru" ? "Интернет-магазин" : "E-Commerce App", desc: lang === "ru" ? "Каталог, корзина, фильтры" : "Catalog, cart, faceted filters" },
+                      { id: "webapp", label: lang === "ru" ? "Веб-сервис / SaaS" : "Web Application", desc: lang === "ru" ? "Личные кабинеты, логика" : "Client portals, custom logic" },
                     ].map((item) => (
                       <button
                         key={item.id}
@@ -555,9 +632,9 @@ function EstimatorInner() {
                   </label>
                   <div className="grid sm:grid-cols-3 gap-2.5">
                     {[
-                      { id: "turnkey", label: lang === "ru" ? "Дизайн под ключ (Figma)" : "Turnkey Custom Design", desc: "Уникальный стиль" },
-                      { id: "ready", label: lang === "ru" ? "Есть готовый макет" : "Ready Figma Assets", desc: "Точная верстка пиксель-в-пиксель" },
-                      { id: "scratch", label: lang === "ru" ? "Редизайн текущего сайта" : "Modern Redesign", desc: "Обновление эстетики" },
+                      { id: "turnkey", label: lang === "ru" ? "Дизайн под ключ (Figma)" : "Turnkey Custom Design", desc: lang === "ru" ? "Уникальный стиль" : "Bespoke design system" },
+                      { id: "ready", label: lang === "ru" ? "Есть готовый макет" : "Ready Figma Assets", desc: lang === "ru" ? "Точная верстка пиксель-в-пиксель" : "Pixel-perfect implementation" },
+                      { id: "scratch", label: lang === "ru" ? "Редизайн текущего сайта" : "Modern Redesign", desc: lang === "ru" ? "Обновление эстетики" : "Aesthetic & UX modernization" },
                     ].map((item) => (
                       <button
                         key={item.id}
@@ -649,9 +726,9 @@ function EstimatorInner() {
                   </label>
                   <div className="grid sm:grid-cols-3 gap-2.5">
                     {[
-                      { id: "shorts", label: "Shorts / Reels (9:16)", desc: "Вертикальные ролики до 60 сек" },
-                      { id: "youtube", label: "YouTube Production (16:9)", desc: "Горизонтальный видеомонтаж" },
-                      { id: "avatar", label: "AI Аватар Спикер для Сайта", desc: "Виртуальный ведущий в плеере" },
+                      { id: "shorts", label: "Shorts / Reels (9:16)", desc: lang === "ru" ? "Вертикальные ролики до 60 сек" : "Vertical reels up to 60 sec" },
+                      { id: "youtube", label: "YouTube Production (16:9)", desc: lang === "ru" ? "Горизонтальный видеомонтаж" : "Horizontal widescreen video" },
+                      { id: "avatar", label: lang === "ru" ? "AI Аватар Спикер для Сайта" : "Website AI Avatar Presenter", desc: lang === "ru" ? "Виртуальный ведущий в плеере" : "Virtual on-site video presenter" },
                     ].map((item) => (
                       <button
                         key={item.id}

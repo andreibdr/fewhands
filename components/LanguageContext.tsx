@@ -10,13 +10,13 @@ interface LanguageContextProps {
 }
 
 const LanguageContext = createContext<LanguageContextProps>({
-  lang: "ru",
+  lang: "en",
   setLang: () => {},
-  t: translations.ru,
+  t: translations.en,
 });
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<Language>("ru");
+  const [lang, setLangState] = useState<Language>("en");
 
   useEffect(() => {
     try {
@@ -24,12 +24,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       if (saved === "ru" || saved === "en") {
         setLangState(saved);
       } else {
-        const userLang = (navigator.language || "").toLowerCase();
-        if (userLang.startsWith("ru") || userLang.startsWith("uk") || userLang.startsWith("be") || userLang.startsWith("kk")) {
-          setLangState("ru");
-        } else {
-          setLangState("en");
-        }
+        setLangState("en");
       }
     } catch {}
   }, []);

@@ -58,16 +58,6 @@ export const Header: React.FC = () => {
           {/* Language Switcher */}
           <div className="flex items-center bg-[#f1f0f5] border border-[#e5e1eb] rounded-xl p-1 text-xs font-semibold">
             <button
-              onClick={() => setLang("ru")}
-              className={`px-2.5 py-1 rounded-lg transition-all ${
-                lang === "ru"
-                  ? "bg-white text-[#2d263b] shadow-sm font-bold"
-                  : "text-[#585068] hover:text-[#2d263b]"
-              }`}
-            >
-              RU
-            </button>
-            <button
               onClick={() => setLang("en")}
               className={`px-2.5 py-1 rounded-lg transition-all ${
                 lang === "en"
@@ -76,6 +66,16 @@ export const Header: React.FC = () => {
               }`}
             >
               EN
+            </button>
+            <button
+              onClick={() => setLang("ru")}
+              className={`px-2.5 py-1 rounded-lg transition-all ${
+                lang === "ru"
+                  ? "bg-white text-[#2d263b] shadow-sm font-bold"
+                  : "text-[#585068] hover:text-[#2d263b]"
+              }`}
+            >
+              RU
             </button>
           </div>
 
@@ -102,6 +102,35 @@ export const Header: React.FC = () => {
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-[#e5e1eb] bg-[#faf9fb]/95 backdrop-blur-xl px-4 py-6 space-y-2 shadow-xl">
+          {/* Mobile Language Switcher */}
+          <div className="flex items-center justify-between pb-3 mb-2 border-b border-[#e5e1eb]">
+            <span className="text-xs font-medium text-[#585068]">
+              {lang === "ru" ? "Язык сайта:" : "Language:"}
+            </span>
+            <div className="flex items-center bg-[#f1f0f5] border border-[#e5e1eb] rounded-xl p-1 text-xs font-semibold">
+              <button
+                onClick={() => setLang("en")}
+                className={`px-3 py-1 rounded-lg transition-all ${
+                  lang === "en"
+                    ? "bg-white text-[#2d263b] shadow-sm font-bold"
+                    : "text-[#585068]"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang("ru")}
+                className={`px-3 py-1 rounded-lg transition-all ${
+                  lang === "ru"
+                    ? "bg-white text-[#2d263b] shadow-sm font-bold"
+                    : "text-[#585068]"
+                }`}
+              >
+                RU
+              </button>
+            </div>
+          </div>
+
           <Link
             href="/migrate"
             onClick={() => setMobileMenuOpen(false)}

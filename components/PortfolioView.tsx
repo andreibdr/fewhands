@@ -136,7 +136,7 @@ export const PortfolioView: React.FC = () => {
                       <div className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden">
                         <Image
                           src={item.image}
-                          alt={`${item.title} — кейс агентства Few Hands`}
+                          alt={lang === "ru" ? `${item.title} — кейс студии Few Hands` : `${item.title} — Few Hands Case Study`}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
@@ -152,7 +152,7 @@ export const PortfolioView: React.FC = () => {
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
-                          alt={`${item.title} — видео продакшн Few Hands`}
+                          alt={lang === "ru" ? `${item.title} — видео продакшн Few Hands` : `${item.title} — Few Hands Video Production`}
                           className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/media:bg-black/10 transition-colors">

@@ -2,24 +2,24 @@ import { Metadata } from "next";
 import { EstimateView } from "@/components/EstimateView";
 
 export const metadata: Metadata = {
-  title: "Калькулятор Сметы Сайта и AI-Видео | Расчет Стоимости Онлайн Few Hands",
+  title: "Project Estimator & Pricing Matrix | Few Hands",
   description:
-    "Интерактивный расчет стоимости и сроков миграции CMS на Next.js, индивидуальной веб-разработки и AI-видеопродакшна. Прозрачные фиксированные сметы без скрытых переплат.",
+    "Interactive pricing calculator for CMS migration to Next.js, bespoke web engineering, and AI video production. Fixed transparent milestones with zero hidden fees.",
   keywords: [
-    "калькулятор стоимости сайта",
-    "расчет сметы веб разработки",
-    "стоимость миграции с wordpress",
-    "цена сайта на next.js",
-    "стоимость ai видеороликов",
+    "website cost calculator",
+    "web development estimate",
+    "WordPress migration pricing",
+    "Next.js website cost",
+    "AI video production rates",
     "few hands estimate calculator",
   ],
   alternates: {
     canonical: "https://fewhands.com/estimate",
   },
   openGraph: {
-    title: "Онлайн-Калькулятор Сметы Сайта и AI-Видео | Few Hands",
+    title: "Project Estimator & Pricing Matrix | Few Hands",
     description:
-      "Рассчитайте точные сроки и стоимость создания сайта или миграции на Next.js за 1 минуту.",
+      "Calculate exact turnaround timelines and fixed engineering budget for custom web applications and Next.js migrations.",
     url: "https://fewhands.com/estimate",
     type: "website",
   },

@@ -2,25 +2,25 @@ import { Metadata } from "next";
 import { MigrateHubView } from "@/components/MigrateHubView";
 
 export const metadata: Metadata = {
-  title: "Миграция Сайтов с WordPress, Tilda, Битрикс на Next.js | Few Hands",
+  title: "CMS Migration to Next.js (WordPress, Tilda, Bitrix) | Few Hands",
   description:
-    "Профессиональный перенос сайтов и интернет-магазинов с медленных CMS (WordPress, Tilda, 1C-Битрикс, Webflow, OpenCart, InSales) на Next.js 15. Гарантия 100% сохранения SEO-позиций, ускорение загрузки до 0.8с, обучение персонала.",
+    "Engineering migration of websites and stores from legacy CMS (WordPress, Tilda, 1C-Bitrix, Webflow, OpenCart, InSales) to Next.js 15. 100% SEO ranking equity preservation, sub-second TTFB, and team training.",
   keywords: [
-    "миграция сайтов на next.js",
-    "перенос сайта с wordpress на nextjs",
-    "миграция с тильды на чистый код",
-    "перенос интернет магазина с битрикс",
-    "ускорение сайта core web vitals",
-    "сохранение seo позиций при редизайне",
-    "few hands migration hub",
+    "CMS migration to Next.js",
+    "WordPress to Next.js migration",
+    "Tilda migration to clean code",
+    "Bitrix store migration",
+    "Core Web Vitals speed optimization",
+    "SEO preservation during redesign",
+    "Few Hands migration hub",
   ],
   alternates: {
     canonical: "https://fewhands.com/migrate",
   },
   openGraph: {
-    title: "Миграция Сайтов с CMS на Next.js под Ключ | Few Hands",
+    title: "Zero-Downtime CMS Migration to Next.js | Few Hands",
     description:
-      "Безопасный перенос с WordPress, Tilda, Битрикс на Next.js. Скорость 95-100 Google PageSpeed, сохранение SEO-трафика, обучение персонала.",
+      "Safe and reliable migration from WordPress, Tilda, Bitrix to Next.js. 95-100 Google PageSpeed, full organic SEO preservation, and team training.",
     url: "https://fewhands.com/migrate",
     type: "website",
   },

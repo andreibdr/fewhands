@@ -17,26 +17,26 @@ export function generateMetadata({ params }: Props): Metadata {
   const platform = platformsData[params.platform];
   if (!platform) {
     return {
-      title: "Миграция сайтов на Next.js | Few Hands",
+      title: "CMS Migration to Next.js | Few Hands",
     };
   }
 
   return {
-    title: platform.metaTitle.ru,
-    description: platform.metaDescription.ru,
+    title: platform.metaTitle.en,
+    description: platform.metaDescription.en,
     keywords: [
-      `миграция с ${platform.title.ru}`,
-      `перенос сайта ${platform.title.ru} на next.js`,
-      `ускорение ${platform.title.ru}`,
-      `редизайн ${platform.title.ru}`,
+      `migration from ${platform.title.en}`,
+      `migrate ${platform.title.en} to next.js`,
+      `speed up ${platform.title.en}`,
+      `redesign ${platform.title.en}`,
       "few hands gomvp",
     ],
     alternates: {
       canonical: `https://fewhands.com/migrate/${params.platform}`,
     },
     openGraph: {
-      title: platform.metaTitle.ru,
-      description: platform.metaDescription.ru,
+      title: platform.metaTitle.en,
+      description: platform.metaDescription.en,
       url: `https://fewhands.com/migrate/${params.platform}`,
       type: "article",
     },

@@ -7,29 +7,30 @@ import { Footer } from "@/components/Footer";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 export const metadata: Metadata = {
-  title: "Few Hands — Веб-инженерия, миграция CMS и AI-медиа",
+  title: "Few Hands — Boutique Web Engineering, CMS Migration & AI Media",
   description:
-    "Профессиональная миграция сайтов с WordPress, Tilda, Webflow, Bitrix на Next.js в партнёрстве с GoMVP. Техническая поддержка сайтов (Retainer) и AI-видеопродакшн под ключ.",
+    "Engineering migration of websites from WordPress, Tilda, Webflow, Bitrix to Next.js in partnership with GoMVP. Ongoing website retainer support and turnkey generative AI video production.",
   keywords: [
     "Next.js",
-    "миграция с wordpress",
-    "миграция с тильды",
-    "перенос с битрикс",
-    "поддержка сайтов retainer",
-    "сопровождение сайтов",
-    "ai видео аватары",
-    "видеомонтаж youtube",
-    "gomvp партнёр",
+    "CMS migration",
+    "WordPress to Next.js",
+    "Tilda migration",
+    "Bitrix migration",
+    "website retainer support",
+    "monthly maintenance",
+    "AI video avatars",
+    "YouTube production",
+    "GoMVP partner",
     "few hands",
   ],
   authors: [{ name: "Few Hands" }],
   openGraph: {
-    title: "Few Hands — Веб-инженерия, миграция CMS и AI-медиа",
+    title: "Few Hands — Boutique Web Engineering, CMS Migration & AI Media",
     description:
-      "Модернизация сайтов, перенос на Next.js в партнёрстве с GoMVP, комплексная поддержка сайтов (Retainer) и AI-видеопродакшн.",
+      "Modernize legacy platforms to Next.js in partnership with GoMVP, monthly retainer support, and AI video production.",
     url: "https://fewhands.com",
     siteName: "Few Hands",
-    locale: "ru_RU",
+    locale: "en_US",
     type: "website",
   },
   icons: {
@@ -48,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
       <body className="min-h-screen flex flex-col antialiased text-[#2d263b] bg-[#faf9fb] selection:bg-[#352f44] selection:text-[#faf9fb]">
         <AnimatedBackground />
         <LanguageProvider>

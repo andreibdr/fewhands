@@ -2,26 +2,26 @@ import { Metadata } from "next";
 import { HomeView } from "@/components/HomeView";
 
 export const metadata: Metadata = {
-  title: "Few Hands — Студия Веб-Инженерии, Миграции CMS на Next.js и AI-Видео",
+  title: "Few Hands — Web Engineering, CMS Migration & Generative AI Media",
   description:
-    "Инженерная миграция сайтов с WordPress, Tilda, 1C-Битрикс на ультрабыстрый Next.js с сохранением 100% SEO-позиций. Веб-разработка с нуля, абонентское обслуживание сайтов и AI-видеопродакшн.",
+    "Engineering migration of websites from WordPress, Tilda, 1C-Bitrix to ultra-fast Next.js with 100% SEO ranking equity preservation. Custom web development, monthly retainer support, and AI video production.",
   keywords: [
-    "разработка сайтов next.js",
-    "миграция с wordpress на next.js",
-    "миграция с тильды",
-    "перенос сайтов с битрикс",
-    "абонентская поддержка сайтов",
-    "создание ai видео аватаров",
-    "веб студия few hands",
-    "быстрые сайты react typescript",
+    "Next.js web development",
+    "WordPress to Next.js migration",
+    "Tilda migration",
+    "Bitrix migration",
+    "monthly web retainer support",
+    "AI video avatar production",
+    "Few Hands web studio",
+    "fast React TypeScript websites",
   ],
   alternates: {
     canonical: "https://fewhands.com",
   },
   openGraph: {
-    title: "Few Hands — Веб-Инженерия, Миграция CMS и AI-Видео",
+    title: "Few Hands — Web Engineering, CMS Migration & AI Video",
     description:
-      "Освобождаем сайты от устаревших CMS. Перенос на Next.js 15, скорость 100/100, абонентская поддержка и AI-видеопродакшн.",
+      "Freeing web platforms from legacy CMS bloat. Migration to Next.js 15, 100/100 speed, retainer support, and AI video production.",
     url: "https://fewhands.com",
     siteName: "Few Hands",
     type: "website",
