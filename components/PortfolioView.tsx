@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
-import { portfolioItems } from "@/lib/data";
+import { portfolioItems, PortfolioItem } from "@/lib/data";
 import {
   ExternalLink,
   Play,
@@ -17,6 +17,11 @@ import {
   BarChart3,
   Cpu,
   ArrowRight,
+  Eye,
+  X,
+  Archive,
+  Globe,
+  Sparkles,
 } from "lucide-react";
 import {
   AuditMetricsCard,
@@ -28,11 +33,33 @@ import {
 export const PortfolioView: React.FC = () => {
   const { lang } = useLanguage();
   const [activeTab, setActiveTab] = useState<string>("all");
+  const [statusFilter, setStatusFilter] = useState<"all" | "live" | "archived">("all");
   const [modalVideo, setModalVideo] = useState<string | null>(null);
+  const [modalItem, setModalItem] = useState<PortfolioItem | null>(null);
+
+  // Close modals on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setModalVideo(null);
+        setModalItem(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const filteredItems = portfolioItems.filter((item) => {
-    if (activeTab === "all") return true;
-    return item.category === activeTab;
+    // Category filter
+    if (activeTab !== "all" && item.category !== activeTab) {
+      return false;
+    }
+    // Status filter (only applies to web projects)
+    if (statusFilter !== "all" && item.category === "web") {
+      if (statusFilter === "live" && item.status !== "live") return false;
+      if (statusFilter === "archived" && item.status !== "archived") return false;
+    }
+    return true;
   });
 
   const structuredData = {
@@ -44,7 +71,7 @@ export const PortfolioView: React.FC = () => {
       item: {
         "@type": "CreativeWork",
         name: item.title,
-        description: item.description.ru,
+        description: item.description[lang],
         url: item.url || `https://fewhands.com/portfolio#${item.id}`,
         creator: {
           "@type": "Organization",
@@ -87,12 +114,12 @@ export const PortfolioView: React.FC = () => {
               </h1>
               <p className="mt-4 text-base sm:text-lg text-[#585068] leading-relaxed">
                 {lang === "ru"
-                  ? "Реальные действующие цифровые продукты, скоростные интернет-магазины, корпоративные порталы и видеоматериалы для бизнеса в США, Европе и СНГ. Скорость Core Web Vitals 95–100, чистая архитектура и прозрачный код."
-                  : "Live production websites, e-commerce storefronts, high-traffic portals, and AI video productions engineered for international brands. PageSpeed 95-100, zero legacy debt, and verifiable ROI."}
+                  ? "Реальные действующие цифровые продукты, скоростные интернет-магазины, корпоративные порталы и видеоматериалы для бизнеса в США, Европе и СНГ. Действующие сайты в эфире и архивные авторские концепции."
+                  : "Live production websites, e-commerce storefronts, high-traffic portals, and AI video productions engineered for international brands. Live active domains and authentic design archive cases."}
               </p>
             </div>
 
-            {/* Filters */}
+            {/* Main Category Filters */}
             <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <DoodlePointer
                 text={lang === "ru" ? "выберите категорию кейсов ↘" : "filter projects by type ↘"}
@@ -107,7 +134,10 @@ export const PortfolioView: React.FC = () => {
                 ].map((tab) => (
                   <button
                     key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
+                    onClick={() => {
+                      setActiveTab(tab.id);
+                      if (tab.id === "video") setStatusFilter("all");
+                    }}
                     className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                       activeTab === tab.id
                         ? "bg-white text-[#2d263b] shadow-sm font-bold"
@@ -121,8 +151,51 @@ export const PortfolioView: React.FC = () => {
             </div>
           </header>
 
+          {/* Sub-filter for Web Projects: Live vs Archived */}
+          {activeTab !== "video" && (
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-4 py-3 px-4 rounded-2xl bg-[#faf9fb] border border-[#e5e1eb]">
+              <div className="flex items-center gap-2 text-xs font-semibold text-[#585068]">
+                <span>{lang === "ru" ? "Статус проекта:" : "Project status:"}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setStatusFilter("all")}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                    statusFilter === "all"
+                      ? "bg-[#2d263b] text-white shadow-sm"
+                      : "bg-white text-[#585068] hover:text-[#2d263b] border border-[#e5e1eb]"
+                  }`}
+                >
+                  {lang === "ru" ? "Все веб-кейсы" : "All Web Projects"}
+                </button>
+                <button
+                  onClick={() => setStatusFilter("live")}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                    statusFilter === "live"
+                      ? "bg-[#7ea368] text-white shadow-sm"
+                      : "bg-white text-[#585068] hover:text-[#7ea368] border border-[#e5e1eb]"
+                  }`}
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>{lang === "ru" ? "В эфире (Live)" : "Live Sites"}</span>
+                </button>
+                <button
+                  onClick={() => setStatusFilter("archived")}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                    statusFilter === "archived"
+                      ? "bg-[#9c386d] text-white shadow-sm"
+                      : "bg-white text-[#585068] hover:text-[#9c386d] border border-[#e5e1eb]"
+                  }`}
+                >
+                  <Archive className="w-3.5 h-3.5" />
+                  <span>{lang === "ru" ? "Архив макетов" : "Design Archive"}</span>
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Portfolio Grid */}
-          <main className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <main className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => (
               <article
                 key={item.id}
@@ -132,28 +205,50 @@ export const PortfolioView: React.FC = () => {
                   {/* Media Preview */}
                   {item.image ? (
                     <div className="w-full bg-[#f1f0f5] border-b border-[#e5e1eb] overflow-hidden">
-                      {/* Browser Bar with Hand Colors */}
+                      {/* Browser Bar with Status Badge */}
                       <div className="px-3.5 py-2 bg-[#f1f0f5] border-b border-[#e5e1eb] flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-[#ba5d60]/80" />
                           <span className="w-2 h-2 rounded-full bg-[#c6814b]/80" />
                           <span className="w-2 h-2 rounded-full bg-[#7ea368]/80" />
                         </div>
-                        <div className="text-[10px] font-mono text-[#585068] truncate max-w-[200px] bg-white px-2 py-0.5 rounded border border-[#e5e1eb]">
+                        
+                        <div className="text-[10px] font-mono text-[#585068] truncate max-w-[180px] bg-white px-2 py-0.5 rounded border border-[#e5e1eb]">
                           {item.url ? item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : item.title}
                         </div>
-                        <div className="w-6" />
+
+                        {/* Status pill */}
+                        {item.status === "live" ? (
+                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Live
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
+                            <Archive className="w-2.5 h-2.5" />
+                            {lang === "ru" ? "Архив" : "Archive"}
+                          </span>
+                        )}
                       </div>
 
-                      {/* Screenshot Container */}
-                      <div className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden">
+                      {/* Screenshot Container - Clickable to open Lightbox */}
+                      <div
+                        onClick={() => setModalItem(item)}
+                        className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden cursor-pointer group/screen"
+                      >
                         <Image
                           src={item.image}
                           alt={lang === "ru" ? `${item.title} — кейс студии Few Hands` : `${item.title} — Few Hands Case Study`}
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          className="object-cover object-top group-hover/screen:scale-105 transition-transform duration-500"
                         />
+                        <div className="absolute inset-0 bg-black/0 group-hover/screen:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/screen:opacity-100">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#2d263b] text-xs font-bold shadow-lg backdrop-blur-sm">
+                            <Eye className="w-3.5 h-3.5 text-[#386161]" />
+                            <span>{lang === "ru" ? "Открыть макет" : "View Screenshot"}</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ) : item.youtubeId ? (
@@ -191,7 +286,12 @@ export const PortfolioView: React.FC = () => {
                       ))}
                     </div>
 
-                    <h2 className="text-lg font-bold text-[#2d263b] group-hover:text-[#386161] transition-colors flex items-center justify-between">
+                    <h2
+                      onClick={() => item.image && setModalItem(item)}
+                      className={`text-lg font-bold text-[#2d263b] group-hover:text-[#386161] transition-colors flex items-center justify-between ${
+                        item.image ? "cursor-pointer" : ""
+                      }`}
+                    >
                       <span>{item.title}</span>
                       {item.url && <ExternalLink className="w-4 h-4 text-[#8c829c] group-hover:text-[#386161]" />}
                     </h2>
@@ -202,27 +302,46 @@ export const PortfolioView: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Action Link */}
-                <div className="p-6 pt-0">
-                  {item.url ? (
+                {/* Action Links */}
+                <div className="p-6 pt-0 flex items-center justify-between gap-3">
+                  {item.status === "live" && item.url ? (
                     <a
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#386161] hover:text-[#2a4949]"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#386161] hover:text-[#2a4949] transition-colors"
                     >
-                      <span>{lang === "ru" ? "Перейти на сайт проекта" : "Visit Live Website"}</span>
+                      <Globe className="w-3.5 h-3.5" />
+                      <span>{lang === "ru" ? "Перейти на сайт" : "Visit Live Website"}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
+                  ) : item.status === "archived" ? (
+                    <button
+                      onClick={() => setModalItem(item)}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7a2552] transition-colors"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>{lang === "ru" ? "Посмотреть макет в архиве" : "View Archived Design"}</span>
+                    </button>
                   ) : item.youtubeId ? (
                     <button
                       onClick={() => setModalVideo(item.youtubeId || null)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856]"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
                     >
-                      <span>{lang === "ru" ? "Смотреть ролик" : "Watch Full Video"}</span>
                       <Play className="w-3.5 h-3.5 fill-current" />
+                      <span>{lang === "ru" ? "Смотреть ролик" : "Watch Full Video"}</span>
                     </button>
                   ) : null}
+
+                  {item.image && (
+                    <button
+                      onClick={() => setModalItem(item)}
+                      title={lang === "ru" ? "Увеличить скриншот" : "Zoom Screenshot"}
+                      className="p-1.5 rounded-lg text-[#8c829c] hover:text-[#2d263b] hover:bg-[#f1f0f5] transition-all"
+                    >
+                      <Eye className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </article>
             ))}
@@ -238,143 +357,107 @@ export const PortfolioView: React.FC = () => {
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] tracking-tight">
                 {lang === "ru"
                   ? "Стандарты производительности и бизнес-метрики проектов"
-                  : "Performance Benchmarks & Client Conversion Metrics"}
+                  : "Performance Benchmarks & Architecture Standards"}
               </h2>
-              <p className="mt-4 text-sm sm:text-base text-[#585068]">
+              <p className="mt-4 text-sm sm:text-base text-[#585068] leading-relaxed">
                 {lang === "ru"
-                  ? "Каждый сайт и сервис, созданный Few Hands, проходит многоэтапное стресс-тестирование Google Lighthouse, валидацию W3C и оптимизацию Core Web Vitals перед релизом."
-                  : "Every web application engineered by Few Hands passes stringent Google Lighthouse audits, W3C standards compliance, and real-user Core Web Vitals tuning before production rollout."}
+                  ? "Мы не создаем шаблонные страницы. Каждый проект проходит строгий аудит производительности Google Lighthouse, оптимизацию мобильного First Input Delay и тонкую настройку конверсионных путей."
+                  : "Every deployment undergoes strict Google Lighthouse auditing, sub-second Core Web Vitals optimization, and robust multi-region caching."}
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  metric: "95–100",
-                  label: lang === "ru" ? "Google PageSpeed Score" : "Google PageSpeed Score",
-                  sub: lang === "ru" ? "Зеленая зона для мобильных и десктопных устройств" : "Green zone across both mobile and desktop viewports",
-                  icon: Zap,
-                  accent: "text-[#7ea368] bg-[#f0f5ec] border-[#7ea368]/30",
-                },
-                {
-                  metric: "< 0.8s",
-                  label: lang === "ru" ? "LCP (Скорость отрисовки)" : "LCP (Render Speed)",
-                  sub: lang === "ru" ? "Мгновенное отображение первого экрана контента" : "Instant above-the-fold content rendering globally via Edge CDN",
-                  icon: TrendingUp,
-                  accent: "text-[#386161] bg-[#edf5f5] border-[#386161]/30",
-                },
-                {
-                  metric: "0.00",
-                  label: lang === "ru" ? "CLS (Сдвиг макета)" : "CLS (Cumulative Layout Shift)",
-                  sub: lang === "ru" ? "Абсолютная стабильность элементов при подгрузке медиа" : "Zero layout shifting during asynchronous media hydration",
-                  icon: ShieldCheck,
-                  accent: "text-[#4b6c8c] bg-[#edf3f8] border-[#4b6c8c]/30",
-                },
-                {
-                  metric: "+35%",
-                  label: lang === "ru" ? "Средний рост конверсии" : "Average Conversion Lift",
-                  sub: lang === "ru" ? "Благодаря отсутствию задержек и быстрой навигации" : "Achieved via zero latency and instant client-side routing",
-                  icon: Award,
-                  accent: "text-[#9c386d] bg-[#fcf0f6] border-[#9c386d]/30",
-                },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="p-6 rounded-3xl bg-white border border-[#e5e1eb] shadow-sm flex flex-col justify-between"
-                >
-                  <div>
-                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center border ${item.accent} mb-4`}>
-                      <item.icon className="w-5 h-5" />
-                    </div>
-                    <div className="text-3xl font-extrabold text-[#2d263b] tracking-tight">{item.metric}</div>
-                    <div className="mt-1 font-semibold text-sm text-[#2d263b]">{item.label}</div>
-                  </div>
-                  <p className="mt-3 text-xs text-[#585068] leading-relaxed">{item.sub}</p>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-sm relative overflow-hidden">
+                <AuditMetricsCard
+                  title={lang === "ru" ? "Аудит Core Web Vitals" : "Core Web Vitals Audit"}
+                  metrics={[
+                    { label: "Performance", value: "99/100", color: "text-[#7ea368]" },
+                    { label: "Accessibility", value: "100/100", color: "text-[#7ea368]" },
+                    { label: "Best Practices", value: "100/100", color: "text-[#7ea368]" },
+                    { label: "SEO Rating", value: "100/100", color: "text-[#7ea368]" },
+                  ]}
+                  className="mb-4"
+                />
+                <h3 className="text-lg font-bold text-[#2d263b] mb-2">
+                  {lang === "ru" ? "Core Web Vitals в зеленой зоне" : "Green-Zone Core Web Vitals"}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
+                  {lang === "ru"
+                    ? "Мгновенный LCP до 0.8s, нулевой сдвиг макета (CLS 0.00) и отзывчивый INP. Повышает поисковое ранжирование и снижает стоимость клика в контекстной рекламе."
+                    : "Instant LCP under 0.8s, zero Cumulative Layout Shift, and rapid INP for superior search rankings and lower advertising CPC."}
+                </p>
+              </div>
+
+              <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-sm relative overflow-hidden">
+                <CustomStampBadge
+                  label={lang === "ru" ? "100% ВАЛИДАЦИЯ" : "100% VALIDATED"}
+                  caption={lang === "ru" ? "Чистая верстка без мусора" : "Zero bloat clean markup"}
+                  className="mb-4"
+                />
+                <h3 className="text-lg font-bold text-[#2d263b] mb-2">
+                  {lang === "ru" ? "Адаптивность и чистый код" : "Clean Component Architecture"}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
+                  {lang === "ru"
+                    ? "Разработка по принципу Mobile-First. Полная доступность WCAG 2.1 AA, семантическая разметка Schema.org и поддержка темного/светлого режима."
+                    : "Mobile-first responsive layouts, strict WCAG 2.1 AA accessibility compliance, rich Schema.org JSON-LD microdata, and edge optimization."}
+                </p>
+              </div>
+
+              <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-sm relative overflow-hidden">
+                <div className="w-12 h-12 rounded-2xl bg-[#eff5f5] text-[#386161] flex items-center justify-center mb-6">
+                  <ShieldCheck className="w-6 h-6" />
                 </div>
-              ))}
-            </div>
-
-            {/* Hand-drawn craft annotations */}
-            <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-              <AuditMetricsCard
-                title={lang === "ru" ? "АУДИТ ПОРТФОЛИО FEW HANDS" : "PORTFOLIO PRODUCTION AUDIT"}
-                subtitle={lang === "ru" ? "16+ лет продакшна • 100% живой стек" : "16+ years craft • 100% live stack"}
-                metrics={[
-                  {
-                    label: lang === "ru" ? "Оценка Google PageSpeed" : "Google PageSpeed",
-                    value: "98–100",
-                    color: "text-[#7ea368]",
-                  },
-                  {
-                    label: lang === "ru" ? "Шаблонов из Envato" : "ThemeForest Templates",
-                    value: "0",
-                    color: "text-[#ba5d60]",
-                  },
-                  {
-                    label: lang === "ru" ? "Собственный Git репозиторий" : "Proprietary Git Repos",
-                    value: "100%",
-                    color: "text-[#386161]",
-                  },
-                  {
-                    label: lang === "ru" ? "Edge CDN архитектура" : "Edge CDN Architecture",
-                    value: "100%",
-                    color: "text-[#2d263b]",
-                  },
-                ]}
-                marginError={lang === "ru" ? "0% компромиссов" : "0% compromise"}
-                rotate="rotate-1"
-                className="w-full max-w-sm shrink-0"
-              />
-
-              <CustomPSCard
-                noteTitle={lang === "ru" ? "P.S. Реальные действующие проекты:" : "P.S. Live Production Note:"}
-                text={
-                  lang === "ru"
-                    ? "Каждый кейс в нашем портфолио — это действующий бизнес с реальными продажами, безупречной скоростью и конверсией."
-                    : "Every showcase entry is an active business generating measurable revenue with sub-second speeds and zero legacy debt."
-                }
-                className="-rotate-1 flex-1 w-full"
-              />
+                <h3 className="text-lg font-bold text-[#2d263b] mb-2">
+                  {lang === "ru" ? "Безопасность и автономность" : "Enterprise Grade Security"}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
+                  {lang === "ru"
+                    ? "Статический рендеринг Next.js исключает уязвимости баз данных и спам-ботов через формы. Надежная изоляция API-ключей и SSL/TLS высшего класса A+."
+                    : "Static export architecture eradicates SQL injection attack surfaces, secures confidential client data, and achieves A+ TLS encryption rating."}
+                </p>
+              </div>
             </div>
           </section>
 
-          {/* Deep SEO Section 2: Industry Expertise & Architecture */}
-          <section className="mt-20 p-8 sm:p-12 rounded-3xl bg-[#faf9fb] border border-[#e5e1eb]">
+          {/* Deep SEO Section 2: Transparent Deliverables & FAQ */}
+          <section className="mt-20 pt-16 border-t border-[#e5e1eb]">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#e5e1eb] text-[#386161] text-xs font-semibold mb-4">
-                  <Cpu className="w-3.5 h-3.5" />
-                  <span>{lang === "ru" ? "Отраслевая экспертиза" : "Sector Expertise"}</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] tracking-tight">
+                <CustomStampBadge
+                  label={lang === "ru" ? "НАШ СТАНДАРТ" : "OUR BENCHMARK"}
+                  caption={lang === "ru" ? "100% ручная калибровка" : "100% handcrafted quality"}
+                  className="mb-4"
+                />
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b]">
                   {lang === "ru"
-                    ? "16+ лет инженерного опыта в разработке и масштабировании"
-                    : "16+ Years of Battle-Tested Engineering Across Verticals"}
+                    ? "Что входит в каждый сданный кейс студии"
+                    : "Standard Deliverables in Every Completed Case"}
                 </h2>
-                <p className="mt-4 text-sm sm:text-base text-[#585068] leading-relaxed">
-                  {lang === "ru"
-                    ? "Мы не используем шаблонные конструкторы или перегруженные чужие темы. Каждый проект в нашем портфолио построен на строгом модульном коде с использованием Next.js, React, TypeScript и Tailwind CSS. Это исключает зависимость от закрытых проприетарных систем и дает заказчику 100% владение исходным кодом."
-                    : "We deliberately avoid bloated theme ecosystems and rigid closed-source builders. Every project in our showcase is crafted with clean modular TypeScript, Next.js, and headless backends. This delivers zero vendor lock-in, effortless enterprise scalability, and full intellectual property ownership."}
-                </p>
-
-                <div className="mt-6 space-y-3">
+                <div className="mt-6 space-y-4">
                   {[
-                    lang === "ru"
-                      ? "B2B и Производство: каталоги с тысячами SKU, фильтры без перезагрузки, закрытые клиентские порталы"
-                      : "B2B & Industrial: high-SKU catalogs, instant parametric filters, secure wholesale partner portals",
-                    lang === "ru"
-                      ? "E-Commerce и Ритейл: сверхбыстрый чекаут, синхронизация с ERP/CRM и платежными шлюзами"
-                      : "E-Commerce & Retail: lightning-fast checkout flows, bi-directional ERP/CRM & multi-currency payment sync",
-                    lang === "ru"
-                      ? "SaaS и Стартапы: современные интерфейсы, интеграция AI-моделей, мультиязычность и адаптивность"
-                      : "SaaS & High-Growth Tech: modern reactive UIs, generative AI integration, global i18n localization",
-                    lang === "ru"
-                      ? "Медиа и Видеопродакшн: AI-аватары, автогенерация контента для YouTube и социальных сетей"
-                      : "Digital Media & Video: AI-driven presenter videos, YouTube production pipelines, dynamic social hooks",
-                  ].map((bullet, bi) => (
-                    <div key={bi} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#386161] shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm text-[#2d263b] leading-relaxed">{bullet}</span>
+                    {
+                      ru: "Исходный код передается заказчику в приватный репозиторий GitHub/GitLab с подробной документацией по развертыванию.",
+                      en: "Complete source code handed over to client's private GitHub/GitLab with automated CI/CD and deployment documentation.",
+                    },
+                    {
+                      ru: "Настройка аналитики (GA4, Google Tag Manager, Яндекс.Метрика, цели конверсий и пиксели рекламы).",
+                      en: "Production analytics integration (Google Analytics 4, Tag Manager, custom conversion events, and ad pixels).",
+                    },
+                    {
+                      ru: "Интерактивные микроанимации интерфейса, адаптивные векторные SVG-иконки и сжатие графики в WebP/AVIF нового поколения.",
+                      en: "Polished micro-interactions, responsive SVG graphics, and next-gen WebP/AVIF asset optimization.",
+                    },
+                    {
+                      ru: "30 дней гарантийной технической поддержки и оперативных правок после релиза в эфир.",
+                      en: "30 days of complimentary post-launch warranty, monitoring, and priority technical assistance.",
+                    },
+                  ].map((feat, fi) => (
+                    <div key={fi} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#7ea368] shrink-0 mt-0.5" />
+                      <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
+                        {feat[lang]}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -419,11 +502,116 @@ export const PortfolioView: React.FC = () => {
             </div>
           </section>
 
+          {/* Screenshot Lightbox Modal */}
+          {modalItem && (
+            <div
+              onClick={() => setModalItem(null)}
+              className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-in fade-in duration-200"
+            >
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-[#e5e1eb] my-auto"
+              >
+                {/* Header */}
+                <div className="px-6 py-4 bg-[#fbfafc] border-b border-[#e5e1eb] flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <h3 className="text-base sm:text-lg font-bold text-[#2d263b]">
+                      {modalItem.title}
+                    </h3>
+                    {modalItem.status === "live" ? (
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                        Live
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">
+                        <Archive className="w-3 h-3" />
+                        {lang === "ru" ? "Архивный макет" : "Design Archive"}
+                      </span>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => setModalItem(null)}
+                    className="w-9 h-9 rounded-full bg-[#f1f0f5] hover:bg-[#e5e1eb] text-[#2d263b] flex items-center justify-center transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Image Screenshot Preview */}
+                <div className="max-h-[65vh] overflow-y-auto bg-slate-100 p-2 sm:p-4 flex items-center justify-center">
+                  {modalItem.image && (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={modalItem.image}
+                      alt={modalItem.title}
+                      className="max-w-full h-auto max-h-[60vh] object-contain rounded-xl shadow-md border border-[#e5e1eb]"
+                    />
+                  )}
+                </div>
+
+                {/* Footer Info & Actions */}
+                <div className="p-6 bg-white border-t border-[#e5e1eb]">
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {modalItem.tags.map((tag, ti) => (
+                      <span
+                        key={ti}
+                        className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f1f0f5] text-[#585068]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-sm text-[#585068] leading-relaxed mb-4">
+                    {modalItem.description[lang]}
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-[#e5e1eb]">
+                    {modalItem.status === "live" && modalItem.url ? (
+                      <div className="flex items-center gap-3">
+                        <a
+                          href={modalItem.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2d263b] text-white hover:bg-[#1a1622] text-xs font-bold transition-all shadow-md"
+                        >
+                          <Globe className="w-3.5 h-3.5" />
+                          <span>{lang === "ru" ? "Перейти на живой сайт" : "Open Live Website"}</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                        <span className="text-xs font-mono text-[#8c829c]">
+                          {modalItem.url.replace(/^https?:\/\//, "")}
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-2 text-xs text-[#8c829c]">
+                        <Archive className="w-4 h-4 text-[#9c386d]" />
+                        <span>
+                          {lang === "ru"
+                            ? "Аутентичный макет из портфолио Few Hands. Внешняя ссылка отключена (сайт был обновлен заказчиком или выведен из эксплуатации)."
+                            : "Authentic showcase from Few Hands portfolio. External link is disabled (site was updated by client or retired)."}
+                        </span>
+                      </div>
+                    )}
+
+                    <button
+                      onClick={() => setModalItem(null)}
+                      className="px-4 py-2 rounded-xl bg-[#f1f0f5] hover:bg-[#e5e1eb] text-[#2d263b] text-xs font-semibold transition-colors self-end"
+                    >
+                      {lang === "ru" ? "Закрыть окно" : "Close"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Video Lightbox Modal */}
           {modalVideo && (
             <div
               onClick={() => setModalVideo(null)}
-              className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+              className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
             >
               <div
                 onClick={(e) => e.stopPropagation()}
@@ -440,7 +628,7 @@ export const PortfolioView: React.FC = () => {
                   onClick={() => setModalVideo(null)}
                   className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-slate-800"
                 >
-                  ✕
+                  <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
