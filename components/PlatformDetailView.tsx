@@ -18,6 +18,12 @@ import {
   GraduationCap,
   Headphones,
 } from "lucide-react";
+import {
+  AuditMetricsCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 interface PlatformDetailViewProps {
   platformSlug: string;
@@ -71,38 +77,79 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
           </nav>
 
           {/* Hero Section */}
-          <header className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-xs font-semibold mb-4">
-              <span className={`w-2 h-2 rounded-full ${platform.badgeColor}`} />
-              <span className="text-[#2d263b]">{platform.category[lang]}</span>
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            <header className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-xs font-semibold mb-4">
+                <span className={`w-2 h-2 rounded-full ${platform.badgeColor}`} />
+                <span className="text-[#2d263b]">{platform.category[lang]}</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
+                {lang === "ru"
+                  ? `Миграция с ${platform.title[lang]} на чистый Next.js 15`
+                  : `Migrate from ${platform.title[lang]} to Modern Next.js 15`}
+              </h1>
+
+              <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed">
+                {platform.metaDescription[lang]}
+              </p>
+
+              <div className="mt-8 flex flex-col items-start gap-2">
+                <DoodlePointer
+                  text={lang === "ru" ? "быстрый расчет проекта ↘" : "instant project estimate ↘"}
+                  direction="curved-down-right"
+                  className="mb-1"
+                />
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="/estimate?service=migration"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
+                  >
+                    <span>{lang === "ru" ? "Оценить стоимость миграции" : "Estimate Migration Cost"}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
+                  >
+                    <span>{lang === "ru" ? "Запросить аудит проекта" : "Request Code Audit"}</span>
+                  </Link>
+                </div>
+              </div>
+            </header>
+
+            <div className="lg:col-span-5 flex justify-center lg:justify-end pt-2">
+              <AuditMetricsCard
+                title={lang === "ru" ? "ИНЖЕНЕРНЫЙ АУДИТ СТЕКА" : "ENGINEERING BENCHMARK"}
+                subtitle={`${platform.title[lang]} → Next.js 15`}
+                metrics={[
+                  {
+                    label: lang === "ru" ? "Время отклика TTFB" : "Edge TTFB",
+                    value: "< 45ms",
+                    color: "text-[#386161]",
+                  },
+                  {
+                    label: lang === "ru" ? "Google Core Web Vitals" : "Core Web Vitals",
+                    value: "98–100",
+                    color: "text-[#7ea368]",
+                  },
+                  {
+                    label: lang === "ru" ? "Уязвимости плагинов" : "Plugin Vulnerabilities",
+                    value: "0%",
+                    color: "text-[#386161]",
+                  },
+                  {
+                    label: lang === "ru" ? "Абонентская плата CMS" : "Platform Rent Fee",
+                    value: "$0/mo",
+                    color: "text-[#2d263b]",
+                  },
+                ]}
+                marginError={lang === "ru" ? "±0.00% (чистый код)" : "±0.00% (clean code)"}
+                rotate="rotate-1"
+                className="w-full max-w-sm"
+              />
             </div>
-
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
-              {lang === "ru"
-                ? `Миграция с ${platform.title[lang]} на чистый Next.js 15`
-                : `Migrate from ${platform.title[lang]} to Modern Next.js 15`}
-            </h1>
-
-            <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed">
-              {platform.metaDescription[lang]}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/estimate?service=migration"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
-              >
-                <span>{lang === "ru" ? "Оценить стоимость миграции" : "Estimate Migration Cost"}</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
-              >
-                <span>{lang === "ru" ? "Запросить аудит проекта" : "Request Code Audit"}</span>
-              </Link>
-            </div>
-          </header>
+          </div>
 
           {/* Platform Pain Points & Solutions */}
           <section className="mt-16 grid lg:grid-cols-2 gap-8">
@@ -152,6 +199,30 @@ export const PlatformDetailView: React.FC<PlatformDetailViewProps> = ({ platform
             </div>
 
           </section>
+
+          {/* Hand-drawn editorial annotations */}
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <CustomStampBadge
+              label={lang === "ru" ? "ЭТАЛОН СКОРОСТИ" : "PERFORMANCE INDEX"}
+              caption={
+                lang === "ru"
+                  ? "Статический пререндеринг и Edge CDN"
+                  : "Static pre-rendering & Edge CDN"
+              }
+              starsCount={5}
+              className="-rotate-1 max-w-xs shrink-0"
+            />
+
+            <CustomPSCard
+              noteTitle={lang === "ru" ? "P.S. Архитектурная гарантия:" : "P.S. Migration Guarantee:"}
+              text={
+                lang === "ru"
+                  ? "Ни одна ссылка и ни один байт контента не теряется. 301-редиректы прописываются на уровне Edge-маршрутизации без падения позиций."
+                  : "Every inbound backlink and asset is preserved byte-for-byte. Edge 301 redirect maps ensure zero organic rank loss."
+              }
+              className="rotate-1 flex-1 w-full"
+            />
+          </div>
 
           {/* GoMVP & Few Hands Delivery Process */}
           <section className="mt-16 p-8 sm:p-10 rounded-3xl border border-[#2d263b]/10 bg-white/90 backdrop-blur-md shadow-sm">

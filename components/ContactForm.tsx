@@ -3,6 +3,12 @@
 import React, { useState } from "react";
 import { useLanguage } from "./LanguageContext";
 import { Send, Check, Copy, MessageSquare, Mail, Globe, Clock } from "lucide-react";
+import {
+  CraftCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 export const ContactForm: React.FC = () => {
   const { lang } = useLanguage();
@@ -118,6 +124,26 @@ export const ContactForm: React.FC = () => {
             </div>
 
           </div>
+
+          {/* Craft Editorial Card */}
+          <div className="mt-8 flex justify-center md:justify-start">
+            <CraftCard
+              tag={lang === "ru" ? "ПРЯМОЙ ДОСТУП К ИНЖЕНЕРАМ" : "DIRECT LEAD ACCESS"}
+              question={
+                lang === "ru"
+                  ? "Отделы продаж и менеджеры? НЕТ [X]"
+                  : "Sales managers & bureaucracy? NO [X]"
+              }
+              reason={
+                lang === "ru"
+                  ? "Вы консультируетесь напрямую с ведущими техническими архитекторами Few Hands без навязчивого спама."
+                  : "You consult directly with senior technical leads and architects with zero aggressive sales fluff."
+              }
+              checked={false}
+              rotate="-rotate-1"
+              className="w-full"
+            />
+          </div>
         </div>
 
         {/* Right Form Column */}
@@ -182,28 +208,59 @@ export const ContactForm: React.FC = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="w-full px-6 py-4 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-bold text-sm sm:text-base transition shadow-md shadow-[#2d263b]/20 flex items-center justify-center gap-2"
-            >
-              {status === "loading" ? (
-                <span>{lang === "ru" ? "Отправка..." : "Submitting..."}</span>
-              ) : status === "success" ? (
-                <span className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-[#7ea368]" />
-                  {lang === "ru" ? "Заявка успешно отправлена!" : "Inquiry Sent Successfully!"}
-                </span>
-              ) : (
-                <>
-                  <span>{lang === "ru" ? "Отправить заявку" : "Send Inquiry"}</span>
-                  <Send className="w-4 h-4" />
-                </>
-              )}
-            </button>
+            <div className="pt-2 flex flex-col items-center">
+              <DoodlePointer
+                text={lang === "ru" ? "ответим в течение 1–2 часов ↘" : "we reply within 1–2 hours ↘"}
+                direction="curved-down-right"
+                className="mb-2"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full px-6 py-4 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-bold text-sm sm:text-base transition shadow-md shadow-[#2d263b]/20 flex items-center justify-center gap-2"
+              >
+                {status === "loading" ? (
+                  <span>{lang === "ru" ? "Отправка..." : "Submitting..."}</span>
+                ) : status === "success" ? (
+                  <span className="flex items-center gap-2">
+                    <Check className="w-5 h-5 text-[#7ea368]" />
+                    {lang === "ru" ? "Заявка успешно отправлена!" : "Inquiry Sent Successfully!"}
+                  </span>
+                ) : (
+                  <>
+                    <span>{lang === "ru" ? "Отправить заявку" : "Send Inquiry"}</span>
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </div>
           </form>
         </div>
 
+      </div>
+
+      {/* Craft Annotations: Stamp & PS */}
+      <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <CustomStampBadge
+          label={lang === "ru" ? "КОНФИДЕНЦИАЛЬНОСТЬ" : "100% CONFIDENTIAL"}
+          caption={
+            lang === "ru"
+              ? "Строгий NDA • Защита коммерческих данных"
+              : "Strict NDA • Full commercial privacy"
+          }
+          starsCount={5}
+          className="-rotate-1 max-w-xs shrink-0"
+        />
+
+        <CustomPSCard
+          noteTitle={lang === "ru" ? "P.S. Прямая почта ведущих инженеров:" : "P.S. Direct Engineering Inbox:"}
+          text={
+            lang === "ru"
+              ? "Также можете сразу отправить исходное ТЗ, ссылки на GitHub или макеты Figma на web@fewhands.com."
+              : "Feel free to email your technical specification, repository links, or Figma design files directly to web@fewhands.com."
+          }
+          className="rotate-1 flex-1 w-full"
+        />
       </div>
     </div>
   );

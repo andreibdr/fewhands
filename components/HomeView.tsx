@@ -24,7 +24,6 @@ import {
   ScientificAuditCard,
   SpeedRatingStamp,
   PSFootnoteCard,
-  SketchedCallout,
 } from "./HandDrawnDecorations";
 
 export const HomeView: React.FC = () => {

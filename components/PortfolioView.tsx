@@ -18,6 +18,12 @@ import {
   Cpu,
   ArrowRight,
 } from "lucide-react";
+import {
+  AuditMetricsCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 export const PortfolioView: React.FC = () => {
   const { lang } = useLanguage();
@@ -87,24 +93,31 @@ export const PortfolioView: React.FC = () => {
             </div>
 
             {/* Filters */}
-            <div className="flex items-center bg-[#f1f0f5] border border-[#e5e1eb] p-1.5 rounded-2xl shrink-0">
-              {[
-                { id: "all", label: lang === "ru" ? "Все кейсы" : "All Projects" },
-                { id: "web", label: lang === "ru" ? "Сайты & Миграция" : "Web & Migration" },
-                { id: "video", label: lang === "ru" ? "Видео & AI" : "Video & AI" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                    activeTab === tab.id
-                      ? "bg-white text-[#2d263b] shadow-sm font-bold"
-                      : "text-[#585068] hover:text-[#2d263b]"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+              <DoodlePointer
+                text={lang === "ru" ? "выберите категорию кейсов ↘" : "filter projects by type ↘"}
+                direction="curved-right"
+                className="hidden md:inline-flex self-end mb-1"
+              />
+              <div className="flex items-center bg-[#f1f0f5] border border-[#e5e1eb] p-1.5 rounded-2xl shrink-0">
+                {[
+                  { id: "all", label: lang === "ru" ? "Все кейсы" : "All Projects" },
+                  { id: "web", label: lang === "ru" ? "Сайты & Миграция" : "Web & Migration" },
+                  { id: "video", label: lang === "ru" ? "Видео & AI" : "Video & AI" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
+                      activeTab === tab.id
+                        ? "bg-white text-[#2d263b] shadow-sm font-bold"
+                        : "text-[#585068] hover:text-[#2d263b]"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </header>
 
@@ -280,6 +293,49 @@ export const PortfolioView: React.FC = () => {
                 </div>
               ))}
             </div>
+
+            {/* Hand-drawn craft annotations */}
+            <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <AuditMetricsCard
+                title={lang === "ru" ? "АУДИТ ПОРТФОЛИО FEW HANDS" : "PORTFOLIO PRODUCTION AUDIT"}
+                subtitle={lang === "ru" ? "16+ лет продакшна • 100% живой стек" : "16+ years craft • 100% live stack"}
+                metrics={[
+                  {
+                    label: lang === "ru" ? "Оценка Google PageSpeed" : "Google PageSpeed",
+                    value: "98–100",
+                    color: "text-[#7ea368]",
+                  },
+                  {
+                    label: lang === "ru" ? "Шаблонов из Envato" : "ThemeForest Templates",
+                    value: "0",
+                    color: "text-[#ba5d60]",
+                  },
+                  {
+                    label: lang === "ru" ? "Собственный Git репозиторий" : "Proprietary Git Repos",
+                    value: "100%",
+                    color: "text-[#386161]",
+                  },
+                  {
+                    label: lang === "ru" ? "Edge CDN архитектура" : "Edge CDN Architecture",
+                    value: "100%",
+                    color: "text-[#2d263b]",
+                  },
+                ]}
+                marginError={lang === "ru" ? "0% компромиссов" : "0% compromise"}
+                rotate="rotate-1"
+                className="w-full max-w-sm shrink-0"
+              />
+
+              <CustomPSCard
+                noteTitle={lang === "ru" ? "P.S. Реальные действующие проекты:" : "P.S. Live Production Note:"}
+                text={
+                  lang === "ru"
+                    ? "Каждый кейс в нашем портфолио — это действующий бизнес с реальными продажами, безупречной скоростью и конверсией."
+                    : "Every showcase entry is an active business generating measurable revenue with sub-second speeds and zero legacy debt."
+                }
+                className="-rotate-1 flex-1 w-full"
+              />
+            </div>
           </section>
 
           {/* Deep SEO Section 2: Industry Expertise & Architecture */}
@@ -325,29 +381,39 @@ export const PortfolioView: React.FC = () => {
               </div>
 
               {/* Callout box */}
-              <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-md">
-                <h3 className="text-xl font-bold text-[#2d263b]">
-                  {lang === "ru" ? "Нужен расчет вашего проекта?" : "Need an Exact Estimate for Your Project?"}
-                </h3>
-                <p className="mt-3 text-sm text-[#585068] leading-relaxed">
-                  {lang === "ru"
-                    ? "Воспользуйтесь нашим интерактивным калькулятором с прозрачным расчетом стоимости миграции, разработки с нуля или AI-видеопродакшна."
-                    : "Use our transparent 3-in-1 interactive calculator to calculate precise timelines and budget for CMS migration, custom development, or AI video production."}
-                </p>
-                <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href="/estimate"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-semibold text-sm transition-all shadow-md shadow-[#2d263b]/15"
-                  >
-                    <span>{lang === "ru" ? "Открыть калькулятор сметы" : "Open Project Calculator"}</span>
-                    <ArrowRight className="w-4 h-4 text-[#e5e1eb]" />
-                  </Link>
-                  <Link
-                    href="/migrate"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#f1f0f5] hover:bg-[#e5e1eb] text-[#2d263b] font-semibold text-sm transition-all"
-                  >
-                    <span>{lang === "ru" ? "Узнать о миграции" : "Explore CMS Migration"}</span>
-                  </Link>
+              <div className="bg-white p-8 rounded-3xl border border-[#e5e1eb] shadow-md flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-[#2d263b]">
+                    {lang === "ru" ? "Нужен расчет вашего проекта?" : "Need an Exact Estimate for Your Project?"}
+                  </h3>
+                  <p className="mt-3 text-sm text-[#585068] leading-relaxed">
+                    {lang === "ru"
+                      ? "Воспользуйтесь нашим интерактивным калькулятором с прозрачным расчетом стоимости миграции, разработки с нуля или AI-видеопродакшна."
+                      : "Use our transparent 3-in-1 interactive calculator to calculate precise timelines and budget for CMS migration, custom development, or AI video production."}
+                  </p>
+                </div>
+                
+                <div className="mt-6 flex flex-col items-start">
+                  <DoodlePointer
+                    text={lang === "ru" ? "точный расчет сметы за 60 сек ↘" : "precise calculation in 60s ↘"}
+                    direction="curved-down-right"
+                    className="mb-2"
+                  />
+                  <div className="flex flex-col sm:flex-row gap-3 w-full">
+                    <Link
+                      href="/estimate"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-semibold text-sm transition-all shadow-md shadow-[#2d263b]/15"
+                    >
+                      <span>{lang === "ru" ? "Открыть калькулятор сметы" : "Open Project Calculator"}</span>
+                      <ArrowRight className="w-4 h-4 text-[#e5e1eb]" />
+                    </Link>
+                    <Link
+                      href="/migrate"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-[#f1f0f5] hover:bg-[#e5e1eb] text-[#2d263b] font-semibold text-sm transition-all"
+                    >
+                      <span>{lang === "ru" ? "Узнать о миграции" : "Explore CMS Migration"}</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

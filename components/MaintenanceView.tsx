@@ -17,6 +17,12 @@ import {
   Server,
   Zap,
 } from "lucide-react";
+import {
+  CraftCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 export const MaintenanceView: React.FC = () => {
   const { lang } = useLanguage();
@@ -215,23 +221,51 @@ export const MaintenanceView: React.FC = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fef7f0] border border-[#c6814b]/30 text-[#c6814b] text-xs font-semibold mb-4">
-            <Headphones className="w-3.5 h-3.5" />
-            <span>{lang === "ru" ? "Ежемесячный Retainer SLA" : "Monthly Retainer SLA"}</span>
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fef7f0] border border-[#c6814b]/30 text-[#c6814b] text-xs font-semibold mb-4">
+              <Headphones className="w-3.5 h-3.5" />
+              <span>{lang === "ru" ? "Ежемесячный Retainer SLA" : "Monthly Retainer SLA"}</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
+              {lang === "ru"
+                ? "Техническая поддержка и сопровождение сайтов (Retainer)"
+                : "Ongoing Website Maintenance, Retainer SLA & Support"}
+            </h1>
+
+            <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
+              {lang === "ru"
+                ? "После релиза или миграции сайта самое главное — надежное техническое плечо. Команда инженеров Few Hands берет на себя регулярное обновление контента, защиту от сбоев, круглосуточный мониторинг, онбординг персонала и доработку новых фич по фиксированному тарифу без затрат на штатного разработчика."
+                : "We ensure your digital platform stays fast, secure, and always operational. Few Hands delivers proactive maintenance, scheduled content rollouts, 24/7 uptime monitoring, and engineering iterations under a predictable monthly retainer."}
+            </p>
+
+            <div className="mt-6">
+              <DoodlePointer
+                text={lang === "ru" ? "прозрачные фиксированные тарифы ↘" : "predictable flat retainers ↘"}
+                direction="curved-down-right"
+              />
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
-            {lang === "ru"
-              ? "Техническая поддержка и сопровождение сайтов (Retainer)"
-              : "Ongoing Website Maintenance, Retainer SLA & Support"}
-          </h1>
-
-          <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
-            {lang === "ru"
-              ? "После релиза или миграции сайта самое главное — надежное техническое плечо. Команда инженеров Few Hands берет на себя регулярное обновление контента, защиту от сбоев, круглосуточный мониторинг, онбординг персонала и доработку новых фич по фиксированному тарифу без затрат на штатного разработчика."
-              : "We ensure your digital platform stays fast, secure, and always operational. Few Hands delivers proactive maintenance, scheduled content rollouts, 24/7 uptime monitoring, and engineering iterations under a predictable monthly retainer."}
-          </p>
+          <div className="lg:col-span-5 flex justify-center lg:justify-end pt-2">
+            <CraftCard
+              tag={lang === "ru" ? "ИНЦИДЕНТНЫЙ ИММУНИТЕТ" : "INCIDENT IMMUNITY"}
+              question={
+                lang === "ru"
+                  ? "Нужен штатный веб-мастер? НЕТ [X]"
+                  : "Hire in-house webmaster? NO [X]"
+              }
+              reason={
+                lang === "ru"
+                  ? "Штатный сотрудник стоит $3,000+ плюс налоги и отпуска. Retainer Few Hands даёт Senior-команду и гарантированный SLA от $190/мес."
+                  : "An in-house dev costs $3,000+ plus taxes and sick leaves. A Few Hands retainer delivers an entire senior team with SLA from $190/mo."
+              }
+              checked={false}
+              rotate="rotate-1"
+              className="w-full max-w-sm"
+            />
+          </div>
         </div>
 
         {/* 4 Pillars Grid */}
@@ -397,6 +431,30 @@ export const MaintenanceView: React.FC = () => {
               </tbody>
             </table>
           </div>
+
+          {/* Craft Annotations: Stamp & PS */}
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <CustomStampBadge
+              label={lang === "ru" ? "РЕАКЦИЯ ПО SLA" : "RESPONSE SLA"}
+              caption={
+                lang === "ru"
+                  ? "До 1 часа на инциденты • 24/7 Uptime"
+                  : "Under 1 hr incident SLA • 24/7 Uptime"
+              }
+              starsCount={5}
+              className="-rotate-1 max-w-xs shrink-0"
+            />
+
+            <CustomPSCard
+              noteTitle={lang === "ru" ? "P.S. Прозрачность часов:" : "P.S. Retainer Transparency:"}
+              text={
+                lang === "ru"
+                  ? "До 50% неиспользованных часов переносятся на следующий месяц или инвестируются в плановое ускорение и SEO-аудиты."
+                  : "Up to 50% of unused hours roll over or get invested into proactive performance and technical security audits."
+              }
+              className="rotate-1 flex-1 w-full"
+            />
+          </div>
         </div>
 
         {/* Staff Training Details Section (SEO Depth) */}
@@ -522,19 +580,26 @@ export const MaintenanceView: React.FC = () => {
               ? "Оставьте заявку с адресом вашего сайта. Мы проведем экспресс-аудит проекта и предложим оптимальный план сопровождения."
               : "Submit your website URL for a complimentary code audit and personalized retainer proposal."}
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/estimate?service=migration"
-              className="px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md transition"
-            >
-              {lang === "ru" ? "Рассчитать стоимость поддержки" : "Calculate Retainer Budget"}
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3.5 rounded-xl border border-[#e5e1eb] bg-white text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-semibold text-xs sm:text-sm shadow-sm transition"
-            >
-              {lang === "ru" ? "Связаться со студией" : "Direct Studio Inquiry"}
-            </Link>
+          <div className="mt-6 flex flex-col items-center">
+            <DoodlePointer
+              text={lang === "ru" ? "быстрый расчет сметы за 1 мин ↘" : "instant retainer estimate in 1 min ↘"}
+              direction="curved-down-right"
+              className="mb-2"
+            />
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/estimate?service=migration"
+                className="px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md transition"
+              >
+                {lang === "ru" ? "Рассчитать стоимость поддержки" : "Calculate Retainer Budget"}
+              </Link>
+              <Link
+                href="/contact"
+                className="px-6 py-3.5 rounded-xl border border-[#e5e1eb] bg-white text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-semibold text-xs sm:text-sm shadow-sm transition"
+              >
+                {lang === "ru" ? "Связаться со студией" : "Direct Studio Inquiry"}
+              </Link>
+            </div>
           </div>
         </div>
 

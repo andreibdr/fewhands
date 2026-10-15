@@ -18,6 +18,12 @@ import {
   HelpCircle,
   Globe2,
 } from "lucide-react";
+import {
+  CraftCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 export const DevelopmentView: React.FC = () => {
   const { lang } = useLanguage();
@@ -213,38 +219,66 @@ export const DevelopmentView: React.FC = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf2f7] border border-[#4b6c8c]/25 text-[#4b6c8c] text-xs font-semibold mb-4">
-            <Zap className="w-3.5 h-3.5 text-[#4b6c8c]" />
-            <span>{lang === "ru" ? "Кастомная веб-инженерия" : "Custom Web Engineering"}</span>
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf2f7] border border-[#4b6c8c]/25 text-[#4b6c8c] text-xs font-semibold mb-4">
+              <Zap className="w-3.5 h-3.5 text-[#4b6c8c]" />
+              <span>{lang === "ru" ? "Кастомная веб-инженерия" : "Custom Web Engineering"}</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
+              {lang === "ru"
+                ? "Создание сайтов и веб-сервисов на современном стеке Next.js"
+                : "Bespoke Web Development & High-Velocity Next.js Platforms"}
+            </h1>
+
+            <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
+              {lang === "ru"
+                ? "Разрабатываем высоконагруженные сайты с чистого листа: от концепции, UX-прототипирования и продающего текста до интеграции API, CRM и глобального деплоя на Edge CDN. Никаких шаблонных компромиссов — только чистый TypeScript, непревзойдённая скорость загрузки и максимальная конверсия посетителей в клиентов."
+                : "Engineering bespoke web applications from first principles: design systems, modular React architecture, payment pipelines, and global Edge CDN deployment. Clean code, hardened security, and commercial focus."}
+            </p>
+
+            <div className="mt-8 flex flex-col items-start gap-2">
+              <DoodlePointer
+                text={lang === "ru" ? "прозрачный расчет бюджета ↘" : "transparent budget estimate ↘"}
+                direction="curved-down-right"
+                className="mb-1"
+              />
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/estimate"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
+                >
+                  <span>{lang === "ru" ? "Рассчитать стоимость сайта" : "Estimate Website Cost"}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
+                >
+                  <span>{lang === "ru" ? "Смотреть примеры работ" : "View Selected Works"}</span>
+                </Link>
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
-            {lang === "ru"
-              ? "Создание сайтов и веб-сервисов на современном стеке Next.js"
-              : "Bespoke Web Development & High-Velocity Next.js Platforms"}
-          </h1>
-
-          <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
-            {lang === "ru"
-              ? "Разрабатываем высоконагруженные сайты с чистого листа: от концепции, UX-прототипирования и продающего текста до интеграции API, CRM и глобального деплоя на Edge CDN. Никаких шаблонных компромиссов — только чистый TypeScript, непревзойдённая скорость загрузки и максимальная конверсия посетителей в клиентов."
-              : "Engineering bespoke web applications from first principles: design systems, modular React architecture, payment pipelines, and global Edge CDN deployment. Clean code, hardened security, and commercial focus."}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/estimate"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
-            >
-              <span>{lang === "ru" ? "Рассчитать стоимость сайта" : "Estimate Website Cost"}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
-            >
-              <span>{lang === "ru" ? "Смотреть примеры работ" : "View Selected Works"}</span>
-            </Link>
+          <div className="lg:col-span-5 flex justify-center lg:justify-end pt-2">
+            <CraftCard
+              tag={lang === "ru" ? "МАНИФЕСТ РАЗРАБОТКИ" : "ARCHITECTURE MANIFESTO"}
+              question={
+                lang === "ru"
+                  ? "Готовые шаблонные темы? НЕТ [X]"
+                  : "Heavy pre-made themes? NO [X]"
+              }
+              reason={
+                lang === "ru"
+                  ? "Шаблоны тянут 4 МБ мусорного JavaScript и ломаются при пиках. Мы пишем модульный Next.js с бандлом < 90 КБ и мгновенным откликом."
+                  : "Bloated themes drag 4MB of JS and crash under peak load. Clean Next.js delivers sub-90kB bundles and sub-second edge response."
+              }
+              checked={false}
+              rotate="rotate-1"
+              className="w-full max-w-sm"
+            />
           </div>
         </div>
 
@@ -351,6 +385,30 @@ export const DevelopmentView: React.FC = () => {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Craft Annotations: Stamp & PS */}
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <CustomStampBadge
+              label={lang === "ru" ? "ЧИСТЫЙ ИСХОДНЫЙ КОД" : "100% PROPRIETARY GIT"}
+              caption={
+                lang === "ru"
+                  ? "Приватный репозиторий GitHub • 0 привязок"
+                  : "Private GitHub repo • Zero vendor lock-in"
+              }
+              starsCount={5}
+              className="-rotate-1 max-w-xs shrink-0"
+            />
+
+            <CustomPSCard
+              noteTitle={lang === "ru" ? "P.S. Архитектурный стандарт:" : "P.S. Architectural Principle:"}
+              text={
+                lang === "ru"
+                  ? "Никаких 'веб-мастеров на зарплате'. Чистый React и строгий TypeScript позволяют любому квалифицированному инженеру масштабировать проект."
+                  : "Zero developer handcuffs. Clean React & TypeScript ensure any senior engineer can maintain and scale your platform effortlessly."
+              }
+              className="rotate-1 flex-1 w-full"
+            />
           </div>
         </div>
 
@@ -516,19 +574,26 @@ export const DevelopmentView: React.FC = () => {
               ? "Оставьте заявку на бесплатную консультацию и предварительную смету или воспользуйтесь нашим калькулятором стоимости."
               : "Submit your requirements for an architectural consultation and fixed budget proposal."}
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/estimate?service=dev"
-              className="px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md transition"
-            >
-              {lang === "ru" ? "Рассчитать стоимость в калькуляторе" : "Calculate Development Cost"}
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-xs sm:text-sm shadow-sm transition"
-            >
-              {lang === "ru" ? "Связаться со студией" : "Direct Studio Inquiry"}
-            </Link>
+          <div className="mt-6 flex flex-col items-center">
+            <DoodlePointer
+              text={lang === "ru" ? "калькулятор с прозрачной сметой ↘" : "transparent itemized calculator ↘"}
+              direction="curved-down-right"
+              className="mb-2"
+            />
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/estimate?service=dev"
+                className="px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md transition"
+              >
+                {lang === "ru" ? "Рассчитать стоимость в калькуляторе" : "Calculate Development Cost"}
+              </Link>
+              <Link
+                href="/contact"
+                className="px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-xs sm:text-sm shadow-sm transition"
+              >
+                {lang === "ru" ? "Связаться со студией" : "Direct Studio Inquiry"}
+              </Link>
+            </div>
           </div>
         </div>
 

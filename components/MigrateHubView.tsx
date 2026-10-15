@@ -18,6 +18,12 @@ import {
   FileCheck2,
   Cpu,
 } from "lucide-react";
+import {
+  CraftCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 export const MigrateHubView: React.FC = () => {
   const { lang } = useLanguage();
@@ -196,22 +202,43 @@ export const MigrateHubView: React.FC = () => {
           </nav>
 
           {/* Hero Section */}
-          <header className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf5f5] border border-[#386161]/25 text-[#386161] text-xs font-semibold mb-4">
-              <Cpu className="w-3.5 h-3.5 text-[#386161]" />
-              <span>{lang === "ru" ? "Безопасный перенос сайтов на современный стек" : "Zero-Downtime Jamstack Migration"}</span>
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            <header className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf5f5] border border-[#386161]/25 text-[#386161] text-xs font-semibold mb-4">
+                <Cpu className="w-3.5 h-3.5 text-[#386161]" />
+                <span>{lang === "ru" ? "Безопасный перенос сайтов на современный стек" : "Zero-Downtime Jamstack Migration"}</span>
+              </div>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
+                {lang === "ru"
+                  ? "Миграция с медленных CMS на Next.js под ключ"
+                  : "Enterprise CMS Migration to Next.js & Serverless"}
+              </h1>
+              <p className="mt-4 text-base sm:text-lg text-[#585068] leading-relaxed">
+                {lang === "ru"
+                  ? "Переносим сайты с WordPress, Tilda, 1C-Битрикс, Webflow, InSales, Shopify и самописных систем на архитектуру Next.js 15. Гарантируем 100% сохранение SEO-позиций, ускорение загрузки до 0.8 секунд и нулевые платежи за конструкторы."
+                  : "Seamlessly migrate legacy websites from WordPress, Tilda, Bitrix, Webflow, InSales, and custom PHP monoliths to Next.js 15. Maintain 100% SEO rankings, achieve sub-second TTFB, and eliminate recurring builder fees forever."}
+              </p>
+            </header>
+
+            <div className="lg:col-span-5 flex justify-center lg:justify-end pt-2">
+              <CraftCard
+                tag={lang === "ru" ? "ПРОТОКОЛ МИГРАЦИИ" : "MIGRATION PROTOCOL"}
+                question={
+                  lang === "ru"
+                    ? "Устали от ада с 40+ плагинами и конструкторами?"
+                    : "Fatigued by CMS plugin hell & builder lock-in?"
+                }
+                reason={
+                  lang === "ru"
+                    ? "Плагины ломаются при обновлениях и тормозят сайт. Next.js 15 даёт чистый исходный код, TTFB < 50мс и нулевой риск взлома."
+                    : "Plugins break on every update and degrade TTFB. Next.js 15 delivers static edge speed, 100% git code ownership, and zero exploit surface."
+                }
+                checked={true}
+                rotate="rotate-1"
+                className="w-full max-w-sm"
+              />
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
-              {lang === "ru"
-                ? "Миграция с медленных CMS на Next.js под ключ"
-                : "Enterprise CMS Migration to Next.js & Serverless"}
-            </h1>
-            <p className="mt-4 text-base sm:text-lg text-[#585068] leading-relaxed">
-              {lang === "ru"
-                ? "Переносим сайты с WordPress, Tilda, 1C-Битрикс, Webflow, InSales, Shopify и самописных систем на архитектуру Next.js 15. Гарантируем 100% сохранение SEO-позиций, ускорение загрузки до 0.8 секунд и нулевые платежи за конструкторы."
-                : "Seamlessly migrate legacy websites from WordPress, Tilda, Bitrix, Webflow, InSales, and custom PHP monoliths to Next.js 15. Maintain 100% SEO rankings, achieve sub-second TTFB, and eliminate recurring builder fees forever."}
-            </p>
-          </header>
+          </div>
 
           {/* Strategic Alliance Banner */}
           <div className="mt-10 p-6 rounded-3xl border border-[#386161]/20 bg-gradient-to-r from-[#edf5f5] via-white to-[#f1f0f5] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
@@ -251,7 +278,7 @@ export const MigrateHubView: React.FC = () => {
 
           {/* Platforms Grid */}
           <section className="mt-16">
-            <div className="flex items-end justify-between mb-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
               <div>
                 <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
                   {lang === "ru" ? "С каких платформ мы мигрируем" : "Supported Source Platforms"}
@@ -262,6 +289,12 @@ export const MigrateHubView: React.FC = () => {
                     : "Select a platform to review the dedicated migration roadmap and benchmarks"}
                 </p>
               </div>
+
+              <DoodlePointer
+                text={lang === "ru" ? "выберите CMS для дорожной карты ↘" : "pick source CMS for roadmap ↘"}
+                direction="curved-right"
+                className="hidden md:inline-flex shrink-0 self-end mb-1"
+              />
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -359,6 +392,30 @@ export const MigrateHubView: React.FC = () => {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* Hand-drawn craft annotation stamps & PS note */}
+            <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <CustomStampBadge
+                label={lang === "ru" ? "SEO ИММУНИТЕТ" : "SEO RETENTION"}
+                caption={
+                  lang === "ru"
+                    ? "100% 301-редиректов • 0 потерянных URL"
+                    : "100% 301 redirects • Zero dropped index"
+                }
+                starsCount={5}
+                className="-rotate-1 max-w-xs shrink-0"
+              />
+
+              <CustomPSCard
+                noteTitle={lang === "ru" ? "P.S. Экономика владения:" : "P.S. TCO Note:"}
+                text={
+                  lang === "ru"
+                    ? "Конструкторы берут ежемесячную аренду годами. Собственный Next.js сайт на Edge CDN сокращает инфраструктурные расходы почти до нуля."
+                    : "Hosted platforms tax your growth month after month. A bespoke Next.js site on global Edge reduces infrastructure upkeep close to zero."
+                }
+                className="rotate-1 flex-1 w-full"
+              />
             </div>
           </section>
 
@@ -509,19 +566,26 @@ export const MigrateHubView: React.FC = () => {
                 ? "Воспользуйтесь нашим интерактивным калькулятором или свяжитесь с нами для бесплатного экспресс-аудита структуры сайта."
                 : "Submit your existing website URL for a complimentary code & architecture evaluation or calculate estimate instantly."}
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link
-                href="/estimate?service=migration"
-                className="px-6 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md shadow-[#2d263b]/20 transition"
-              >
-                {lang === "ru" ? "Рассчитать стоимость миграции" : "Calculate Migration Estimate"}
-              </Link>
-              <a
-                href="mailto:web@fewhands.com"
-                className="px-6 py-3.5 rounded-2xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-xs sm:text-sm shadow-sm transition"
-              >
-                {lang === "ru" ? "Написать на web@fewhands.com" : "Email web@fewhands.com"}
-              </a>
+            <div className="mt-6 flex flex-col items-center">
+              <DoodlePointer
+                text={lang === "ru" ? "экспресс-расчет стоимости за 1 мин ↘" : "express cost calculation in 1 min ↘"}
+                direction="curved-down-right"
+                className="mb-2"
+              />
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/estimate?service=migration"
+                  className="px-6 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md shadow-[#2d263b]/20 transition"
+                >
+                  {lang === "ru" ? "Рассчитать стоимость миграции" : "Calculate Migration Estimate"}
+                </Link>
+                <a
+                  href="mailto:web@fewhands.com"
+                  className="px-6 py-3.5 rounded-2xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-xs sm:text-sm shadow-sm transition"
+                >
+                  {lang === "ru" ? "Написать на web@fewhands.com" : "Email web@fewhands.com"}
+                </a>
+              </div>
             </div>
           </footer>
 

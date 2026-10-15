@@ -17,6 +17,12 @@ import {
   ShieldCheck,
   Check,
 } from "lucide-react";
+import {
+  CraftCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 export const AiVideoView: React.FC = () => {
   const { lang } = useLanguage();
@@ -156,38 +162,66 @@ export const AiVideoView: React.FC = () => {
         </div>
 
         {/* Hero Section */}
-        <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f8edf3] border border-[#9c386d]/25 text-[#9c386d] text-xs font-semibold mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#9c386d]" />
-            <span>{lang === "ru" ? "AI Продакшн & Видеомонтаж" : "AI Production & Video Editing"}</span>
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f8edf3] border border-[#9c386d]/25 text-[#9c386d] text-xs font-semibold mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-[#9c386d]" />
+              <span>{lang === "ru" ? "AI Продакшн & Видеомонтаж" : "AI Production & Video Editing"}</span>
+            </div>
+
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
+              {lang === "ru"
+                ? "Цифровые AI-видеоаватары и профессиональный YouTube-монтаж под ключ"
+                : "Turnkey AI Video Avatars & High-Impact YouTube Production"}
+            </h1>
+
+            <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
+              {lang === "ru"
+                ? "Создаём говорящих фотореалистичных аватаров для сайтов, таргетированной рекламы и социальных сетей. Свободное владение 30+ языками мира, безупречная дикция и синхронная артикуляция — без расходов на студию, свет и актеров. А также комплексный монтаж экспертных YouTube-выпусков с высоким удержанием внимания."
+                : "We engineer photorealistic digital presenters for landing pages, commercials, and social funnels. Fluent in 30+ languages with synchronized neural articulation — eliminating studio rental and actor costs. Plus complete full-length YouTube video editing."}
+            </p>
+
+            <div className="mt-8 flex flex-col items-start gap-2">
+              <DoodlePointer
+                text={lang === "ru" ? "готовность ролика за 24–48 часов ↘" : "turnkey video in 24–48 hours ↘"}
+                direction="curved-down-right"
+                className="mb-1"
+              />
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/estimate?service=video"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
+                >
+                  <span>{lang === "ru" ? "Заказать видео-аватар" : "Order AI Video Avatar"}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
+                >
+                  <span>{lang === "ru" ? "Связаться с нами" : "Contact Studio"}</span>
+                </Link>
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
-            {lang === "ru"
-              ? "Цифровые AI-видеоаватары и профессиональный YouTube-монтаж под ключ"
-              : "Turnkey AI Video Avatars & High-Impact YouTube Production"}
-          </h1>
-
-          <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
-            {lang === "ru"
-              ? "Создаём говорящих фотореалистичных аватаров для сайтов, таргетированной рекламы и социальных сетей. Свободное владение 30+ языками мира, безупречная дикция и синхронная артикуляция — без расходов на студию, свет и актеров. А также комплексный монтаж экспертных YouTube-выпусков с высоким удержанием внимания."
-              : "We engineer photorealistic digital presenters for landing pages, commercials, and social funnels. Fluent in 30+ languages with synchronized neural articulation — eliminating studio rental and actor costs. Plus complete full-length YouTube video editing."}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/estimate?service=video"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
-            >
-              <span>{lang === "ru" ? "Заказать видео-аватар" : "Order AI Video Avatar"}</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
-            >
-              <span>{lang === "ru" ? "Связаться с нами" : "Contact Studio"}</span>
-            </Link>
+          <div className="lg:col-span-5 flex justify-center lg:justify-end pt-2">
+            <CraftCard
+              tag={lang === "ru" ? "НЕЙРОПРОДАКШН" : "NEURAL PRODUCTION"}
+              question={
+                lang === "ru"
+                  ? "Съемочная группа и аренда студии? НЕТ [X]"
+                  : "Film crews & studio rental? NO [X]"
+              }
+              reason={
+                lang === "ru"
+                  ? "Цифровые аватары говорят на 30+ языках без усталости, дублей и переплат за студийный свет. Готовые ролики за 24–48 часов."
+                  : "AI presenters speak 30+ languages without fatigue, retakes, or booking fees. Master files delivered in 24–48 hours."
+              }
+              checked={false}
+              rotate="rotate-1"
+              className="w-full max-w-sm"
+            />
           </div>
         </div>
 
@@ -377,6 +411,30 @@ export const AiVideoView: React.FC = () => {
               </tbody>
             </table>
           </div>
+
+          {/* Craft Annotations: Stamp & PS */}
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <CustomStampBadge
+              label={lang === "ru" ? "ЭКОНОМИЯ 85%+" : "85%+ BUDGET SAVED"}
+              caption={
+                lang === "ru"
+                  ? "Без актеров • 30+ языков • 24–48ч"
+                  : "Zero actors • 30+ languages • 24–48h"
+              }
+              starsCount={5}
+              className="-rotate-1 max-w-xs shrink-0"
+            />
+
+            <CustomPSCard
+              noteTitle={lang === "ru" ? "P.S. Конверсионный факт:" : "P.S. Conversion Fact:"}
+              text={
+                lang === "ru"
+                  ? "Говорящий аватар на первом экране увеличивает время на сайте на 60% и снижает стоимость заявки (CPA) в рекламе."
+                  : "Vertical video presenters lift dwell time by 60% and significantly reduce cost-per-acquisition (CPA) across paid social ads."
+              }
+              className="rotate-1 flex-1 w-full"
+            />
+          </div>
         </div>
 
         {/* 3 Value Pillars for E-commerce & SaaS */}
@@ -483,19 +541,26 @@ export const AiVideoView: React.FC = () => {
               ? "Оставьте заявку с описанием продукта, и мы подготовим тестовый образец ролика со сценарием."
               : "Submit your product overview and our team will craft a customized pilot sample and script."}
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/estimate?service=video"
-              className="px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm shadow-md transition"
-            >
-              {lang === "ru" ? "Рассчитать стоимость ролика" : "Calculate Video Production Cost"}
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-xs sm:text-sm shadow-sm transition"
-            >
-              {lang === "ru" ? "Связаться со студией" : "Direct Studio Inquiry"}
-            </Link>
+          <div className="mt-6 flex flex-col items-center">
+            <DoodlePointer
+              text={lang === "ru" ? "смета в калькуляторе за 1 мин ↘" : "itemized quote in 1 min ↘"}
+              direction="curved-down-right"
+              className="mb-2"
+            />
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href="/estimate?service=video"
+                className="px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm shadow-md transition"
+              >
+                {lang === "ru" ? "Рассчитать стоимость ролика" : "Calculate Video Production Cost"}
+              </Link>
+              <Link
+                href="/contact"
+                className="px-6 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-xs sm:text-sm shadow-sm transition"
+              >
+                {lang === "ru" ? "Связаться со студией" : "Direct Studio Inquiry"}
+              </Link>
+            </div>
           </div>
         </div>
 

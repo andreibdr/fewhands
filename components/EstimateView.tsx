@@ -24,6 +24,12 @@ import {
   FileCheck2,
   Zap,
 } from "lucide-react";
+import {
+  CraftCard,
+  CustomStampBadge,
+  CustomPSCard,
+  DoodlePointer,
+} from "./HandDrawnDecorations";
 
 function EstimatorInner() {
   const { lang } = useLanguage();
@@ -421,7 +427,7 @@ function EstimatorInner() {
           </nav>
 
           {/* Hero Header */}
-          <header className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <header className="text-center max-w-3xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-[#2d263b] text-xs font-semibold mb-4">
               <Calculator className="w-3.5 h-3.5 text-[#386161]" />
               <span>{lang === "ru" ? "Интерактивный расчет сметы" : "Transparent Pricing Matrix"}</span>
@@ -437,6 +443,26 @@ function EstimatorInner() {
                 : "Select service domain, tech stack, and scope. Receive an immediate transparent cost and turnaround estimate before discovery kickoff."}
             </p>
           </header>
+
+          {/* Craft Guarantee Card */}
+          <div className="flex justify-center mb-10">
+            <CraftCard
+              tag={lang === "ru" ? "ПРИНЦИП ФИКСИРОВАННОЙ СМЕТЫ" : "FIXED PRICE GUARANTEE"}
+              question={
+                lang === "ru"
+                  ? "Скрытые почасовые сюрпризы? НЕТ [X]"
+                  : "Hidden hourly surprises? NO [X]"
+              }
+              reason={
+                lang === "ru"
+                  ? "Техническое задание, объем экранов и финальная смета фиксируются в договоре до старта разработки."
+                  : "Scope of work, API contracts, and milestone deliverables are locked in before project kickoff."
+              }
+              checked={false}
+              rotate="rotate-1"
+              className="w-full max-w-md"
+            />
+          </div>
 
           {/* Service Selector Tabs */}
           <div className="grid grid-cols-3 gap-2 sm:gap-3 p-1.5 bg-[#f1f0f5] rounded-2xl border border-[#2d263b]/10 mb-10 max-w-3xl mx-auto">
@@ -800,33 +826,40 @@ function EstimatorInner() {
             )}
 
             {/* ESTIMATE CALCULATION SUMMARY & LOCK-IN */}
-            <div className="mt-10 p-6 rounded-2xl bg-[#f1f0f5] border border-[#2d263b]/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-              <div>
-                <div className="text-xs uppercase font-bold tracking-wider text-[#585068]">
-                  {lang === "ru" ? "Предварительный расчет сметы:" : "Calculated Estimate:"}
-                </div>
-                <div className="flex items-baseline gap-4 mt-1">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-[#2d263b]">
-                    {lang === "ru" ? currentResult.priceRu : currentResult.priceEn}
+            <div className="mt-10">
+              <DoodlePointer
+                text={lang === "ru" ? "динамический расчет стоимости на лету ↘" : "dynamically recalculated on the fly ↘"}
+                direction="curved-down-right"
+                className="mb-2"
+              />
+              <div className="p-6 rounded-2xl bg-[#f1f0f5] border border-[#2d263b]/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div>
+                  <div className="text-xs uppercase font-bold tracking-wider text-[#585068]">
+                    {lang === "ru" ? "Предварительный расчет сметы:" : "Calculated Estimate:"}
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#386161] bg-[#edf5f5] px-2.5 py-1 rounded-lg border border-[#386161]/25">
-                    <Clock className="w-4 h-4 text-[#386161]" />
-                    <span>{lang === "ru" ? currentResult.timeRu : currentResult.timeEn}</span>
+                  <div className="flex items-baseline gap-4 mt-1">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#2d263b]">
+                      {lang === "ru" ? currentResult.priceRu : currentResult.priceEn}
+                    </div>
+                    <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#386161] bg-[#edf5f5] px-2.5 py-1 rounded-lg border border-[#386161]/25">
+                      <Clock className="w-4 h-4 text-[#386161]" />
+                      <span>{lang === "ru" ? currentResult.timeRu : currentResult.timeEn}</span>
+                    </div>
+                  </div>
+                  <div className="text-xs text-[#585068] mt-1.5 font-mono">
+                    {lang === "ru" ? currentResult.detailsRu : currentResult.detailsEn}
                   </div>
                 </div>
-                <div className="text-xs text-[#585068] mt-1.5 font-mono">
-                  {lang === "ru" ? currentResult.detailsRu : currentResult.detailsEn}
-                </div>
-              </div>
 
-              {/* Direct corporate email link */}
-              <a
-                href="mailto:web@fewhands.com"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-[#386161] hover:text-[#2d263b] transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                <span>web@fewhands.com</span>
-              </a>
+                {/* Direct corporate email link */}
+                <a
+                  href="mailto:web@fewhands.com"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-[#386161] hover:text-[#2d263b] transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>web@fewhands.com</span>
+                </a>
+              </div>
             </div>
 
             {/* Direct Form Submission */}
@@ -891,6 +924,30 @@ function EstimatorInner() {
                 ? "Техническое задание, сроки и бюджет фиксируются в договоре до старта работ."
                 : "Project scope, delivery milestones, and budget are strictly locked before kickoff."}
             </span>
+          </div>
+
+          {/* Craft Stamps below calculator */}
+          <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
+            <CustomStampBadge
+              label={lang === "ru" ? "ФИКСАЦИЯ СМЕТЫ" : "LOCKED QUOTE"}
+              caption={
+                lang === "ru"
+                  ? "Фиксированная стоимость • 0 переплат"
+                  : "Milestone pricing • Zero creep"
+              }
+              starsCount={5}
+              className="-rotate-1 max-w-xs shrink-0"
+            />
+
+            <CustomPSCard
+              noteTitle={lang === "ru" ? "P.S. Прозрачность расчетов:" : "P.S. Pricing Hygiene:"}
+              text={
+                lang === "ru"
+                  ? "Никаких 'размытых рейтов'. Вы точно знаете, за какой результат и в какой день платите."
+                  : "Zero billing surprises. Every milestone is tied directly to delivered features and verifiable benchmarks."
+              }
+              className="rotate-1 flex-1 w-full"
+            />
           </div>
 
           {/* Deep SEO Guide: How Pricing is Formed */}
