@@ -29,11 +29,11 @@ export const FewHandsLogo: React.FC<FewHandsLogoProps> = ({
           style={{ imageRendering: "auto" }}
         />
         {showText && (
-          <div className="hidden sm:block border-l border-slate-200/90 pl-3">
-            <div className="text-[10px] text-slate-600 font-mono tracking-wider uppercase font-semibold leading-none">
+          <div className="hidden sm:block border-l border-[#2d263b]/15 pl-3">
+            <div className="text-[10px] text-[#585068] font-mono tracking-wider uppercase font-semibold leading-none">
               Engineering Studio
             </div>
-            <div className="text-[9px] text-slate-400 font-sans mt-0.5 leading-none">
+            <div className="text-[9px] text-[#585068]/70 font-sans mt-0.5 leading-none">
               Est. 2008
             </div>
           </div>

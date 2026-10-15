@@ -147,28 +147,28 @@ export const AiVideoView: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb */}
-        <div className="text-xs text-slate-500 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:text-slate-900 transition-colors">
+        <div className="text-xs text-[#585068] mb-6 flex items-center gap-2">
+          <Link href="/" className="hover:text-[#2d263b] transition-colors">
             {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
-          <span className="text-indigo-600 font-semibold">{lang === "ru" ? "AI & Видео" : "AI & Video"}</span>
+          <span className="text-[#9c386d] font-semibold">{lang === "ru" ? "AI & Видео" : "AI & Video"}</span>
         </div>
 
         {/* Hero Section */}
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/60 text-purple-700 text-xs font-semibold mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f8edf3] border border-[#9c386d]/25 text-[#9c386d] text-xs font-semibold mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-[#9c386d]" />
             <span>{lang === "ru" ? "AI Продакшн & Видеомонтаж" : "AI Production & Video Editing"}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
             {lang === "ru"
               ? "Цифровые AI-видеоаватары и профессиональный YouTube-монтаж под ключ"
               : "Turnkey AI Video Avatars & High-Impact YouTube Production"}
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
+          <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
             {lang === "ru"
               ? "Создаём говорящих фотореалистичных аватаров для сайтов, таргетированной рекламы и социальных сетей. Свободное владение 30+ языками мира, безупречная дикция и синхронная артикуляция — без расходов на студию, свет и актеров. А также комплексный монтаж экспертных YouTube-выпусков с высоким удержанием внимания."
               : "We engineer photorealistic digital presenters for landing pages, commercials, and social funnels. Fluent in 30+ languages with synchronized neural articulation — eliminating studio rental and actor costs. Plus complete full-length YouTube video editing."}
@@ -177,14 +177,14 @@ export const AiVideoView: React.FC = () => {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/estimate?service=video"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
             >
               <span>{lang === "ru" ? "Заказать видео-аватар" : "Order AI Video Avatar"}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-sm shadow-sm transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
             >
               <span>{lang === "ru" ? "Связаться с нами" : "Contact Studio"}</span>
             </Link>
@@ -237,7 +237,7 @@ export const AiVideoView: React.FC = () => {
                       <span className="text-xs font-medium text-white line-clamp-2">{item.title}</span>
                     </div>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                      <div className="w-14 h-14 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <Play className="w-6 h-6 fill-white translate-x-0.5" />
                       </div>
                     </div>
@@ -250,7 +250,7 @@ export const AiVideoView: React.FC = () => {
           {/* Steps */}
           <div className="mt-12 grid sm:grid-cols-3 gap-6 border-t border-slate-100 pt-8">
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
-              <span className="text-xs font-mono font-bold text-indigo-600">
+              <span className="text-xs font-mono font-bold text-[#9c386d]">
                 {lang === "ru" ? "01. Сценарий" : "01. Script & Angle"}
               </span>
               <h4 className="font-bold text-slate-900 mt-1">
@@ -396,7 +396,7 @@ export const AiVideoView: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-white/90 border border-slate-200/80 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
+            <div className="w-10 h-10 rounded-xl bg-[#f8edf3] text-[#9c386d] flex items-center justify-center mb-4">
               <Globe2 className="w-5 h-5" />
             </div>
             <h3 className="font-bold text-slate-900 text-base mb-2">

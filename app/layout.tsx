@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className="scroll-smooth">
-      <body className="min-h-screen flex flex-col antialiased text-slate-800 selection:bg-indigo-600 selection:text-white">
+      <body className="min-h-screen flex flex-col antialiased text-[#2d263b] bg-[#faf9fb] selection:bg-[#352f44] selection:text-[#faf9fb]">
         <AnimatedBackground />
         <LanguageProvider>
           <LogoProvider>

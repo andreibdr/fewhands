@@ -209,23 +209,23 @@ export const DevelopmentView: React.FC = () => {
             {lang === "ru" ? "Главная" : "Home"}
           </Link>
           <span>/</span>
-          <span className="text-indigo-600 font-semibold">{lang === "ru" ? "Разработка" : "Development"}</span>
+          <span className="text-[#4b6c8c] font-semibold">{lang === "ru" ? "Разработка" : "Development"}</span>
         </div>
 
         {/* Hero Section */}
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-4">
-            <Zap className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf2f7] border border-[#4b6c8c]/25 text-[#4b6c8c] text-xs font-semibold mb-4">
+            <Zap className="w-3.5 h-3.5 text-[#4b6c8c]" />
             <span>{lang === "ru" ? "Кастомная веб-инженерия" : "Custom Web Engineering"}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
             {lang === "ru"
               ? "Создание сайтов и веб-сервисов на современном стеке Next.js"
               : "Bespoke Web Development & High-Velocity Next.js Platforms"}
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
+          <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-3xl">
             {lang === "ru"
               ? "Разрабатываем высоконагруженные сайты с чистого листа: от концепции, UX-прототипирования и продающего текста до интеграции API, CRM и глобального деплоя на Edge CDN. Никаких шаблонных компромиссов — только чистый TypeScript, непревзойдённая скорость загрузки и максимальная конверсия посетителей в клиентов."
               : "Engineering bespoke web applications from first principles: design systems, modular React architecture, payment pipelines, and global Edge CDN deployment. Clean code, hardened security, and commercial focus."}
@@ -234,14 +234,14 @@ export const DevelopmentView: React.FC = () => {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/estimate"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-lg shadow-indigo-500/25 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-sm shadow-lg shadow-[#2d263b]/20 transition-all"
             >
               <span>{lang === "ru" ? "Рассчитать стоимость сайта" : "Estimate Website Cost"}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-sm shadow-sm transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
             >
               <span>{lang === "ru" ? "Смотреть примеры работ" : "View Selected Works"}</span>
             </Link>
@@ -255,18 +255,18 @@ export const DevelopmentView: React.FC = () => {
             return (
               <div
                 key={i}
-                className="p-8 rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md shadow-sm hover:shadow-xl hover:border-indigo-400 transition-all flex flex-col justify-between"
+                className="p-8 rounded-3xl border border-[#2d263b]/10 bg-white/90 backdrop-blur-md shadow-sm hover:shadow-xl hover:border-[#4b6c8c]/40 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-[#edf2f7] text-[#4b6c8c] flex items-center justify-center mb-6">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed mb-6">{item.desc}</p>
-                  <ul className="space-y-2.5 border-t border-slate-100 pt-5">
+                  <h3 className="text-xl font-bold text-[#2d263b] mb-3">{item.title}</h3>
+                  <p className="text-sm text-[#585068] leading-relaxed mb-6">{item.desc}</p>
+                  <ul className="space-y-2.5 border-t border-[#f1f0f5] pt-5">
                     {item.specs.map((spec, si) => (
-                      <li key={si} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700">
-                        <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <li key={si} className="flex items-center gap-2 text-xs sm:text-sm text-[#2d263b]">
+                        <Check className="w-4 h-4 text-[#7ea368] shrink-0" />
                         <span>{spec}</span>
                       </li>
                     ))}
@@ -278,17 +278,17 @@ export const DevelopmentView: React.FC = () => {
         </div>
 
         {/* Why Next.js Over Monoliths Box */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/60 backdrop-blur-md shadow-sm">
+        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-[#2d263b]/10 bg-white/80 backdrop-blur-md shadow-sm">
           <div className="max-w-3xl mb-8">
-            <span className="text-xs font-mono font-bold text-indigo-600 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-[#4b6c8c] uppercase tracking-wider">
               {lang === "ru" ? "Технологическое превосходство" : "Engineering Advantage"}
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] mt-1">
               {lang === "ru"
                 ? "Почему современный бизнес выбирает Next.js вместо устаревших CMS"
                 : "Why Growing Businesses Choose Next.js Over Monolithic CMSs"}
             </h2>
-            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+            <p className="text-sm text-[#585068] mt-2 leading-relaxed">
               {lang === "ru"
                 ? "Монолитные системы (WordPress, Битрикс, конструкторы) страдают от перегруженного кода, тяжелых плагинов и регулярных сбоев при росте посещаемости. Стек Next.js устраняет узкие места архитектуры на фундаментальном уровне."
                 : "Monolithic CMS platforms struggle under code bloat, fragile plugin dependencies, and traffic volatility. Next.js eliminates architectural bottlenecks by decoupling presentation from state."}
@@ -296,34 +296,34 @@ export const DevelopmentView: React.FC = () => {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6 mb-10">
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
-              <div className="text-3xl font-black text-indigo-600">100/100</div>
-              <h4 className="font-bold text-slate-900 mt-2 text-base">
+            <div className="p-6 rounded-2xl bg-white border border-[#2d263b]/10 shadow-sm">
+              <div className="text-3xl font-black text-[#4b6c8c]">100/100</div>
+              <h4 className="font-bold text-[#2d263b] mt-2 text-base">
                 {lang === "ru" ? "Google PageSpeed Target" : "Google PageSpeed Target"}
               </h4>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+              <p className="text-xs text-[#585068] mt-2 leading-relaxed">
                 {lang === "ru"
                   ? "Сайт загружается мгновенно (LCP < 0.8с). Поисковые роботы вознаграждают такую скорость топовыми позициями в органической выдаче."
                   : "Instantaneous rendering (LCP < 0.8s). Search crawlers reward sub-second page loads with superior organic ranking signals."}
               </p>
             </div>
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
-              <div className="text-3xl font-black text-emerald-600">$0</div>
-              <h4 className="font-bold text-slate-900 mt-2 text-base">
+            <div className="p-6 rounded-2xl bg-white border border-[#2d263b]/10 shadow-sm">
+              <div className="text-3xl font-black text-[#7ea368]">$0</div>
+              <h4 className="font-bold text-[#2d263b] mt-2 text-base">
                 {lang === "ru" ? "Сборов за плагины и платформы" : "Zero Builder Subscriptions"}
               </h4>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+              <p className="text-xs text-[#585068] mt-2 leading-relaxed">
                 {lang === "ru"
                   ? "Бессерверное развёртывание на Vercel/Cloudflare Edge исключает ежемесячные платежи конструкторам и расходы на тяжелые серверы."
                   : "Serverless edge architecture eliminates compounding builder licensing taxes and expensive managed VPS maintenance fees."}
               </p>
             </div>
-            <div className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
-              <div className="text-3xl font-black text-purple-600">0</div>
-              <h4 className="font-bold text-slate-900 mt-2 text-base">
+            <div className="p-6 rounded-2xl bg-white border border-[#2d263b]/10 shadow-sm">
+              <div className="text-3xl font-black text-[#9c386d]">0</div>
+              <h4 className="font-bold text-[#2d263b] mt-2 text-base">
                 {lang === "ru" ? "Уязвимостей базы данных" : "Exposed Database Vectors"}
               </h4>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+              <p className="text-xs text-[#585068] mt-2 leading-relaxed">
                 {lang === "ru"
                   ? "База данных скрыта за закрытым API. У хакеров и спам-ботов нет точек входа для SQL-инъекций и взлома через плагины."
                   : "Databases are completely isolated behind private microservices, eliminating traditional SQL injection exploits."}
@@ -332,21 +332,21 @@ export const DevelopmentView: React.FC = () => {
           </div>
 
           {/* Deep Architectural Comparison Table */}
-          <div className="overflow-x-auto mt-6 pt-6 border-t border-slate-200">
+          <div className="overflow-x-auto mt-6 pt-6 border-t border-[#2d263b]/10">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="border-b border-slate-200 text-slate-500 font-mono text-xs uppercase">
+                <tr className="border-b border-[#2d263b]/10 text-[#585068] font-mono text-xs uppercase">
                   <th className="py-3 px-3 font-semibold">{lang === "ru" ? "Критерий оценки" : "Benchmark Metric"}</th>
-                  <th className="py-3 px-3 font-semibold text-indigo-600">Next.js + Edge CDN</th>
-                  <th className="py-3 px-3 font-semibold text-slate-500">WordPress / Tilda / Bitrix</th>
+                  <th className="py-3 px-3 font-semibold text-[#4b6c8c]">Next.js + Edge CDN</th>
+                  <th className="py-3 px-3 font-semibold text-[#585068]">WordPress / Tilda / Bitrix</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-[#2d263b]/5">
                 {comparisonPoints.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-slate-50/60 transition-colors">
-                    <td className="py-3.5 px-3 font-bold text-slate-900">{row.feature}</td>
-                    <td className="py-3.5 px-3 text-indigo-900 font-semibold">{row.nextjs}</td>
-                    <td className="py-3.5 px-3 text-slate-500">{row.builders}</td>
+                  <tr key={idx} className="hover:bg-[#faf9fb] transition-colors">
+                    <td className="py-3.5 px-3 font-bold text-[#2d263b]">{row.feature}</td>
+                    <td className="py-3.5 px-3 text-[#2d263b] font-semibold">{row.nextjs}</td>
+                    <td className="py-3.5 px-3 text-[#585068]">{row.builders}</td>
                   </tr>
                 ))}
               </tbody>
@@ -357,16 +357,16 @@ export const DevelopmentView: React.FC = () => {
         {/* 5-Step Engineering Workflow (SEO Depth Section) */}
         <div className="mt-20">
           <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-3">
-              <Layers className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-[#2d263b] text-xs font-semibold mb-3">
+              <Layers className="w-3.5 h-3.5 text-[#4b6c8c]" />
               <span>{lang === "ru" ? "Регламент разработки" : "Engineering Process"}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b]">
               {lang === "ru"
                 ? "Пошаговый процесс создания веб-продукта Few Hands"
                 : "Step-by-Step Web Product Delivery Pipeline"}
             </h2>
-            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+            <p className="text-sm text-[#585068] mt-2 leading-relaxed">
               {lang === "ru"
                 ? "Прозрачная пятиэтапная методология: от сбора требований и проектирования прототипа до комплексного тестирования и релиза на глобальном CDN."
                 : "Transparent 5-stage agile pipeline ensuring on-time delivery, pixel-perfect accuracy, and zero technical debt."}
@@ -377,12 +377,12 @@ export const DevelopmentView: React.FC = () => {
             {devPhases.map((phase, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-md shadow-sm flex flex-col justify-between"
+                className="p-5 rounded-2xl border border-[#2d263b]/10 bg-white/90 backdrop-blur-md shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="text-xl font-mono font-black text-indigo-600 mb-3">{phase.step}</div>
-                  <h3 className="font-bold text-sm text-slate-900 mb-2 leading-snug">{phase.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{phase.desc}</p>
+                  <div className="text-xl font-mono font-black text-[#4b6c8c] mb-3">{phase.step}</div>
+                  <h3 className="font-bold text-sm text-[#2d263b] mb-2 leading-snug">{phase.title}</h3>
+                  <p className="text-xs text-[#585068] leading-relaxed">{phase.desc}</p>
                 </div>
               </div>
             ))}
@@ -390,21 +390,21 @@ export const DevelopmentView: React.FC = () => {
         </div>
 
         {/* Technical Stack Pills */}
-        <div className="mt-16 p-8 rounded-3xl border border-slate-200/80 bg-white/80 backdrop-blur-md shadow-sm">
+        <div className="mt-16 p-8 rounded-3xl border border-[#2d263b]/10 bg-white/80 backdrop-blur-md shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">
+              <h3 className="text-lg font-bold text-[#2d263b]">
                 {lang === "ru" ? "Современный технологический стек проекта" : "Production Technology Stack"}
               </h3>
-              <p className="text-xs text-slate-500 mt-1">
+              <p className="text-xs text-[#585068] mt-1">
                 {lang === "ru"
                   ? "Только актуальные промышленные инструменты без устаревших библиотек."
                   : "Industrial-grade modern tooling with zero legacy baggage."}
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
-              {["Next.js 14", "React 18", "TypeScript", "Tailwind CSS", "Vercel Edge", "Cloudflare", "PostgreSQL", "Sanity / Strapi", "Schema.org"].map((tech) => (
-                <span key={tech} className="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 font-mono text-xs font-semibold">
+              {["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Vercel Edge", "Cloudflare", "PostgreSQL", "Sanity / Strapi", "Schema.org"].map((tech) => (
+                <span key={tech} className="px-3 py-1 rounded-lg bg-[#f1f0f5] text-[#2d263b] font-mono text-xs font-semibold">
                   {tech}
                 </span>
               ))}
@@ -413,18 +413,18 @@ export const DevelopmentView: React.FC = () => {
         </div>
 
         {/* FAQ Section (SEO Authority & Schema.org) */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/60 backdrop-blur-md shadow-sm">
+        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-[#2d263b]/10 bg-white/70 backdrop-blur-md shadow-sm">
           <div className="max-w-3xl mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-3">
-              <HelpCircle className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-[#2d263b] text-xs font-semibold mb-3">
+              <HelpCircle className="w-3.5 h-3.5 text-[#4b6c8c]" />
               <span>{lang === "ru" ? "Частые вопросы" : "FAQ"}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] mt-1">
               {lang === "ru"
                 ? "Ответы на вопросы о создании сайтов"
                 : "Frequently Asked Questions About Custom Web Development"}
             </h2>
-            <p className="text-sm text-slate-600 mt-2">
+            <p className="text-sm text-[#585068] mt-2">
               {lang === "ru"
                 ? "Всё о правах на исходный код, редактировании контента, сроках и гарантиях студии."
                 : "Clear facts on code ownership, content workflows, delivery schedules, and guarantees."}
@@ -437,21 +437,21 @@ export const DevelopmentView: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-200/80 bg-white/90 backdrop-blur-md overflow-hidden transition-all shadow-sm"
+                  className="rounded-2xl border border-[#2d263b]/10 bg-white/90 backdrop-blur-md overflow-hidden transition-all shadow-sm"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 text-slate-900 hover:text-indigo-600 transition-colors"
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 text-[#2d263b] hover:text-[#4b6c8c] transition-colors"
                   >
                     <span className="font-bold text-sm sm:text-base">{faq.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${
-                        isOpen ? "rotate-180 text-indigo-600" : ""
+                      className={`w-5 h-5 text-[#585068]/50 shrink-0 transition-transform duration-300 ${
+                        isOpen ? "rotate-180 text-[#4b6c8c]" : ""
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-[#585068] leading-relaxed border-t border-[#2d263b]/5 pt-4">
                       {faq.a}
                     </div>
                   )}
@@ -463,13 +463,13 @@ export const DevelopmentView: React.FC = () => {
 
         {/* Guarantees Box */}
         <div className="mt-16 grid sm:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-white/90 border border-slate-200/80 shadow-sm flex items-start gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+          <div className="p-6 rounded-2xl bg-white/90 border border-[#2d263b]/10 shadow-sm flex items-start gap-3">
+            <ShieldCheck className="w-5 h-5 text-[#7ea368] shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-sm text-slate-900">
+              <h4 className="font-bold text-sm text-[#2d263b]">
                 {lang === "ru" ? "100% Владение кодом" : "Full Code Ownership"}
               </h4>
-              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+              <p className="text-xs text-[#585068] mt-1 leading-relaxed">
                 {lang === "ru"
                   ? "Репозиторий передаётся заказчику, отсутствие vendor lock-in и скрытых платежей."
                   : "Private repository transfer with zero platform dependencies or lock-in."}
@@ -477,13 +477,13 @@ export const DevelopmentView: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/90 border border-slate-200/80 shadow-sm flex items-start gap-3">
-            <Globe2 className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
+          <div className="p-6 rounded-2xl bg-white/90 border border-[#2d263b]/10 shadow-sm flex items-start gap-3">
+            <Globe2 className="w-5 h-5 text-[#4b6c8c] shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-sm text-slate-900">
+              <h4 className="font-bold text-sm text-[#2d263b]">
                 {lang === "ru" ? "Глобальный Edge CDN" : "Global Edge CDN"}
               </h4>
-              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+              <p className="text-xs text-[#585068] mt-1 leading-relaxed">
                 {lang === "ru"
                   ? "Молниеносная загрузка для пользователей в США, Европе, Азии и странах СНГ."
                   : "Sub-second responsiveness across North America, Europe, Asia, and worldwide."}
@@ -491,13 +491,13 @@ export const DevelopmentView: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-white/90 border border-slate-200/80 shadow-sm flex items-start gap-3">
-            <Sparkles className="w-5 h-5 text-purple-600 shrink-0 mt-0.5" />
+          <div className="p-6 rounded-2xl bg-white/90 border border-[#2d263b]/10 shadow-sm flex items-start gap-3">
+            <Sparkles className="w-5 h-5 text-[#9c386d] shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-bold text-sm text-slate-900">
+              <h4 className="font-bold text-sm text-[#2d263b]">
                 {lang === "ru" ? "Google PageSpeed 95-100" : "Guaranteed Web Vitals"}
               </h4>
-              <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+              <p className="text-xs text-[#585068] mt-1 leading-relaxed">
                 {lang === "ru"
                   ? "Строгий контроль показателей Core Web Vitals и соответствие стандартам ранжирования."
                   : "Strict adherence to Core Web Vitals targets for maximum organic SEO advantage."}
@@ -507,11 +507,11 @@ export const DevelopmentView: React.FC = () => {
         </div>
 
         {/* Final CTA Box */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-gradient-to-b from-white/90 to-slate-100/90 text-center max-w-3xl mx-auto shadow-sm">
-          <h3 className="text-2xl font-bold text-slate-900">
+        <div className="mt-16 p-8 sm:p-10 rounded-3xl border border-[#2d263b]/10 bg-gradient-to-b from-white/90 to-[#f1f0f5]/90 text-center max-w-3xl mx-auto shadow-sm">
+          <h3 className="text-2xl font-bold text-[#2d263b]">
             {lang === "ru" ? "Готовы обсудить концепцию вашего нового сайта?" : "Ready to Engineer Your Next-Gen Platform?"}
           </h3>
-          <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-[#585068] mt-2 max-w-xl mx-auto">
             {lang === "ru"
               ? "Оставьте заявку на бесплатную консультацию и предварительную смету или воспользуйтесь нашим калькулятором стоимости."
               : "Submit your requirements for an architectural consultation and fixed budget proposal."}
@@ -519,13 +519,13 @@ export const DevelopmentView: React.FC = () => {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               href="/estimate?service=dev"
-              className="px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-md transition"
+              className="px-6 py-3.5 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md transition"
             >
               {lang === "ru" ? "Рассчитать стоимость в калькуляторе" : "Calculate Development Cost"}
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-xs sm:text-sm shadow-sm transition"
+              className="px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-xs sm:text-sm shadow-sm transition"
             >
               {lang === "ru" ? "Связаться со студией" : "Direct Studio Inquiry"}
             </Link>

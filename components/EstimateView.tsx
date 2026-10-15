@@ -100,7 +100,7 @@ function EstimatorInner() {
       daysMax += 4;
     }
 
-    let supportLabelRu = "без абонплаты";
+    let supportLabelRu = "без Retainer";
     let supportLabelEn = "no retainer";
     let supportPrice = "";
 
@@ -340,21 +340,21 @@ function EstimatorInner() {
               {lang === "ru" ? "Главная" : "Home"}
             </Link>
             <span>/</span>
-            <span className="text-indigo-600 font-semibold">{lang === "ru" ? "Калькулятор сметы" : "Project Estimator"}</span>
+            <span className="text-[#2d263b] font-semibold">{lang === "ru" ? "Калькулятор сметы" : "Project Estimator"}</span>
           </nav>
 
           {/* Hero Header */}
           <header className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-4">
-              <Calculator className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-[#2d263b] text-xs font-semibold mb-4">
+              <Calculator className="w-3.5 h-3.5 text-[#386161]" />
               <span>{lang === "ru" ? "Интерактивный расчет сметы" : "Transparent Pricing Matrix"}</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
               {lang === "ru"
                 ? "Калькулятор стоимости и сроков проекта"
                 : "Calculate Accurate Project Cost & Timelines"}
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-[#585068] leading-relaxed">
               {lang === "ru"
                 ? "Выберите услугу, стек и параметры проекта. Получите прозрачный предварительный расчет стоимости и сроков до старта переговоров."
                 : "Select service domain, tech stack, and scope. Receive an immediate transparent cost and turnaround estimate before discovery kickoff."}
@@ -362,13 +362,13 @@ function EstimatorInner() {
           </header>
 
           {/* Service Selector Tabs */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-3 p-1.5 bg-slate-100 rounded-2xl border border-slate-200 mb-10 max-w-3xl mx-auto">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 p-1.5 bg-[#f1f0f5] rounded-2xl border border-[#2d263b]/10 mb-10 max-w-3xl mx-auto">
             <button
               onClick={() => setActiveTab("migration")}
               className={`flex items-center justify-center gap-2 py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === "migration"
-                  ? "bg-white text-indigo-600 shadow-sm"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-[#2d263b] text-[#faf9fb] shadow-sm"
+                  : "text-[#585068] hover:text-[#2d263b]"
               }`}
             >
               <Repeat className="w-4 h-4 shrink-0" />
@@ -378,8 +378,8 @@ function EstimatorInner() {
               onClick={() => setActiveTab("development")}
               className={`flex items-center justify-center gap-2 py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === "development"
-                  ? "bg-white text-indigo-600 shadow-sm"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-[#2d263b] text-[#faf9fb] shadow-sm"
+                  : "text-[#585068] hover:text-[#2d263b]"
               }`}
             >
               <Code2 className="w-4 h-4 shrink-0" />
@@ -389,8 +389,8 @@ function EstimatorInner() {
               onClick={() => setActiveTab("video")}
               className={`flex items-center justify-center gap-2 py-3 px-2 sm:px-4 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 activeTab === "video"
-                  ? "bg-white text-indigo-600 shadow-sm"
-                  : "text-slate-600 hover:text-slate-900"
+                  ? "bg-[#2d263b] text-[#faf9fb] shadow-sm"
+                  : "text-[#585068] hover:text-[#2d263b]"
               }`}
             >
               <Video className="w-4 h-4 shrink-0" />
@@ -399,7 +399,7 @@ function EstimatorInner() {
           </div>
 
           {/* Main Calculator Card */}
-          <div className="rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md shadow-xl overflow-hidden p-6 sm:p-10">
+          <div className="rounded-3xl border border-[#2d263b]/10 bg-white/95 backdrop-blur-md shadow-xl overflow-hidden p-6 sm:p-10">
             
             {/* TAB 1: MIGRATION & MAINTENANCE */}
             {activeTab === "migration" && (
@@ -437,7 +437,7 @@ function EstimatorInner() {
                         onClick={() => setMigPlatform(item.id)}
                         className={`p-3 rounded-2xl text-xs sm:text-sm font-semibold border text-left transition-all ${
                           migPlatform === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
                             : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                         }`}
                       >
@@ -464,7 +464,7 @@ function EstimatorInner() {
                         onClick={() => setMigScale(item.id)}
                         className={`p-3.5 rounded-2xl text-left border transition-all ${
                           migScale === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
                             : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                         }`}
                       >
@@ -482,7 +482,7 @@ function EstimatorInner() {
                   </label>
                   <div className="grid sm:grid-cols-4 gap-2.5">
                     {[
-                      { id: "none", label: lang === "ru" ? "Без абонплаты" : "No Retainer", price: "$0" },
+                      { id: "none", label: lang === "ru" ? "Без Retainer" : "No Retainer", price: "$0" },
                       { id: "start", label: lang === "ru" ? "Старт (10 ч/мес)" : "Start (10 hrs/mo)", price: "$190/mo" },
                       { id: "business", label: lang === "ru" ? "Бизнес (25 ч/мес)" : "Business (25 hrs/mo)", price: "$450/mo" },
                       { id: "pro", label: lang === "ru" ? "Enterprise (60 ч/мес)" : "Enterprise (60 hrs/mo)", price: "$950/mo" },
@@ -492,12 +492,12 @@ function EstimatorInner() {
                         onClick={() => setMigSupport(item.id)}
                         className={`p-3.5 rounded-2xl text-left border transition-all ${
                           migSupport === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
-                            : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
+                            : "border-[#2d263b]/10 bg-white hover:bg-[#f1f0f5]/50 text-[#585068]"
                         }`}
                       >
                         <div className="font-bold text-xs sm:text-sm">{item.label}</div>
-                        <div className="text-[11px] font-mono text-indigo-600 mt-0.5">{item.price}</div>
+                        <div className="text-[11px] font-mono text-[#386161] mt-0.5">{item.price}</div>
                       </button>
                     ))}
                   </div>
@@ -537,7 +537,7 @@ function EstimatorInner() {
                         onClick={() => setDevType(item.id)}
                         className={`p-3.5 rounded-2xl text-left border transition-all ${
                           devType === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
                             : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                         }`}
                       >
@@ -564,7 +564,7 @@ function EstimatorInner() {
                         onClick={() => setDevDesign(item.id)}
                         className={`p-3.5 rounded-2xl text-left border transition-all ${
                           devDesign === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
                             : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                         }`}
                       >
@@ -585,7 +585,7 @@ function EstimatorInner() {
                       onClick={() => setDevMultiLang(!devMultiLang)}
                       className={`p-3.5 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${
                         devMultiLang
-                          ? "border-indigo-600 bg-indigo-50/70 text-indigo-900"
+                          ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b]"
                           : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                       }`}
                     >
@@ -606,7 +606,7 @@ function EstimatorInner() {
                       onClick={() => setDevPayment(!devPayment)}
                       className={`p-3.5 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${
                         devPayment
-                          ? "border-indigo-600 bg-indigo-50/70 text-indigo-900"
+                          ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b]"
                           : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                       }`}
                     >
@@ -658,7 +658,7 @@ function EstimatorInner() {
                         onClick={() => setVidFormat(item.id)}
                         className={`p-3.5 rounded-2xl text-left border transition-all ${
                           vidFormat === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
                             : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                         }`}
                       >
@@ -685,7 +685,7 @@ function EstimatorInner() {
                         onClick={() => setVidCount(item.id)}
                         className={`p-3.5 rounded-2xl text-left border transition-all ${
                           vidCount === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
                             : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                         }`}
                       >
@@ -710,7 +710,7 @@ function EstimatorInner() {
                         onClick={() => setVidLanguages(item.id)}
                         className={`p-3.5 rounded-2xl text-left border transition-all ${
                           vidLanguages === item.id
-                            ? "border-indigo-600 bg-indigo-50/70 text-indigo-900 shadow-sm"
+                            ? "border-[#2d263b] bg-[#f1f0f5] text-[#2d263b] shadow-sm"
                             : "border-slate-200 bg-slate-50/50 hover:bg-slate-100/70 text-slate-700"
                         }`}
                       >
@@ -723,21 +723,21 @@ function EstimatorInner() {
             )}
 
             {/* ESTIMATE CALCULATION SUMMARY & LOCK-IN */}
-            <div className="mt-10 p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="mt-10 p-6 rounded-2xl bg-[#f1f0f5] border border-[#2d263b]/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
-                <div className="text-xs uppercase font-bold tracking-wider text-slate-500">
+                <div className="text-xs uppercase font-bold tracking-wider text-[#585068]">
                   {lang === "ru" ? "Предварительный расчет сметы:" : "Calculated Estimate:"}
                 </div>
                 <div className="flex items-baseline gap-4 mt-1">
-                  <div className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+                  <div className="text-3xl sm:text-4xl font-extrabold text-[#2d263b]">
                     {lang === "ru" ? currentResult.priceRu : currentResult.priceEn}
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-200">
-                    <Clock className="w-4 h-4" />
+                  <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#386161] bg-[#edf5f5] px-2.5 py-1 rounded-lg border border-[#386161]/25">
+                    <Clock className="w-4 h-4 text-[#386161]" />
                     <span>{lang === "ru" ? currentResult.timeRu : currentResult.timeEn}</span>
                   </div>
                 </div>
-                <div className="text-xs text-slate-500 mt-1.5 font-mono">
+                <div className="text-xs text-[#585068] mt-1.5 font-mono">
                   {lang === "ru" ? currentResult.detailsRu : currentResult.detailsEn}
                 </div>
               </div>
@@ -745,7 +745,7 @@ function EstimatorInner() {
               {/* Direct corporate email link */}
               <a
                 href="mailto:web@fewhands.com"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#386161] hover:text-[#2d263b] transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 <span>web@fewhands.com</span>
@@ -755,8 +755,8 @@ function EstimatorInner() {
             {/* Direct Form Submission */}
             <div className="mt-6">
               {submitted ? (
-                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3">
-                  <Check className="w-5 h-5 text-emerald-600 shrink-0" />
+                <div className="p-4 rounded-2xl bg-[#eef4ea] border border-[#7ea368]/30 text-[#436430] text-sm flex items-center gap-3">
+                  <Check className="w-5 h-5 text-[#7ea368] shrink-0" />
                   <span>
                     {lang === "ru"
                       ? "Заявка на расчет успешно отправлена! Мы свяжемся с вами в течение 1 рабочего дня."
@@ -772,7 +772,7 @@ function EstimatorInner() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder={lang === "ru" ? "Ваше имя" : "Your Name"}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-[#2d263b]/20 bg-white text-[#2d263b] placeholder:text-[#585068]/50 text-sm outline-none focus:ring-2 focus:ring-[#2d263b]/20 focus:border-[#2d263b] shadow-sm"
                     />
                   </div>
                   <div className="sm:col-span-5">
@@ -782,14 +782,14 @@ function EstimatorInner() {
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                       placeholder={lang === "ru" ? "Email или телефон для связи" : "Work email or phone"}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 text-sm outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl border border-[#2d263b]/20 bg-white text-[#2d263b] placeholder:text-[#585068]/50 text-sm outline-none focus:ring-2 focus:ring-[#2d263b]/20 focus:border-[#2d263b] shadow-sm"
                     />
                   </div>
                   <div className="sm:col-span-3">
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-md shadow-indigo-500/25 transition-all flex items-center justify-center gap-2"
+                      className="w-full py-3 px-4 rounded-xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-bold text-sm shadow-md shadow-[#2d263b]/20 transition-all flex items-center justify-center gap-2"
                     >
                       {submitting ? (
                         <span>{lang === "ru" ? "Отправка..." : "Submitting..."}</span>
@@ -870,25 +870,25 @@ function EstimatorInner() {
                   icon: ShieldCheck,
                 },
               ].map((item, i) => (
-                <div key={i} className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm">
-                  <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200/60 text-indigo-600 flex items-center justify-center mb-4">
+                <div key={i} className="p-6 rounded-3xl bg-white border border-[#2d263b]/10 shadow-sm">
+                  <div className="w-10 h-10 rounded-2xl bg-[#f1f0f5] border border-[#2d263b]/10 text-[#386161] flex items-center justify-center mb-4">
                     <item.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
-                  <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+                  <h3 className="text-lg font-bold text-[#2d263b]">{item.title}</h3>
+                  <p className="mt-2 text-xs sm:text-sm text-[#585068] leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </section>
 
           {/* Deep SEO Guide: FAQ Accordion */}
-          <section className="mt-20 pt-16 border-t border-slate-200">
+          <section className="mt-20 pt-16 border-t border-[#2d263b]/10">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold mb-4">
-                <HelpCircle className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-[#2d263b] text-xs font-semibold mb-4">
+                <HelpCircle className="w-3.5 h-3.5 text-[#386161]" />
                 <span>{lang === "ru" ? "Частые вопросы о сметах" : "Estimation FAQ"}</span>
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] tracking-tight">
                 {lang === "ru" ? "Вопросы и ответы по стоимости и условиям" : "Frequently Asked Questions"}
               </h2>
             </div>
@@ -897,21 +897,21 @@ function EstimatorInner() {
               {faqItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-200/80 bg-white/90 overflow-hidden transition-all shadow-sm"
+                  className="rounded-2xl border border-[#2d263b]/10 bg-white/90 overflow-hidden transition-all shadow-sm"
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 text-sm sm:text-base hover:text-indigo-600 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-[#2d263b] text-sm sm:text-base hover:text-[#386161] transition-colors"
                   >
                     <span>{lang === "ru" ? item.qRu : item.qEn}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        openFaq === idx ? "rotate-180 text-indigo-600" : ""
+                      className={`w-5 h-5 text-[#585068]/50 shrink-0 transition-transform duration-200 ${
+                        openFaq === idx ? "rotate-180 text-[#386161]" : ""
                       }`}
                     />
                   </button>
                   {openFaq === idx && (
-                    <div className="p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                    <div className="p-5 pt-0 text-xs sm:text-sm text-[#585068] leading-relaxed border-t border-[#2d263b]/5">
                       {lang === "ru" ? item.aRu : item.aEn}
                     </div>
                   )}

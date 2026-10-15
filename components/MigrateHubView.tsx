@@ -49,7 +49,7 @@ export const MigrateHubView: React.FC = () => {
     },
     {
       metric: lang === "ru" ? "Плата за лицензии и модули" : "License & Builder Fees",
-      legacy: lang === "ru" ? "Ежемесячная абонплата за конструктор / модули" : "Recurring platform tax & app subscriptions",
+      legacy: lang === "ru" ? "Ежемесячные платежи за конструктор / модули" : "Recurring platform tax & app subscriptions",
       nextjs: lang === "ru" ? "$0 — код и инфраструктура принадлежат вам" : "$0 — 100% proprietary code ownership",
       status: "win",
     },
@@ -128,7 +128,7 @@ export const MigrateHubView: React.FC = () => {
           : "What is the advantage of the GoMVP + Few Hands tandem over a traditional agency?",
       a:
         lang === "ru"
-          ? "Большинство веб-студий пытаются делать всё сразу средними силами. В нашем тандеме действует строгое разделение специализаций: партнёр GoMVP — это высококлассная техническая инженерия (бэкенд на Go, масштабируемые API, чистый React/Next.js без мусора). Студия Few Hands — это забота о клиенте: аудит проекта, онбординг и обучение ваших менеджеров, а также ежемесячная поддержка сайта по абонплате."
+          ? "Большинство веб-студий пытаются делать всё сразу средними силами. В нашем тандеме действует строгое разделение специализаций: партнёр GoMVP — это высококлассная техническая инженерия (бэкенд на Go, масштабируемые API, чистый React/Next.js без мусора). Студия Few Hands — это забота о клиенте: аудит проекта, онбординг и обучение ваших менеджеров, а также ежемесячная поддержка сайта на тарифе Retainer."
           : "Traditional agencies often rely on overloaded generalists. Our model decouples deep technical execution from client operations: GoMVP delivers high-performance engineering (Go microservices, clean React/Next.js), while Few Hands provides discovery consulting, hands-on staff training, and reliable monthly retainer maintenance.",
     },
     {
@@ -187,53 +187,53 @@ export const MigrateHubView: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="text-xs text-slate-500 mb-6 flex items-center gap-2">
-            <Link href="/" className="hover:text-slate-900 transition-colors">
+          <nav aria-label="Breadcrumb" className="text-xs text-[#585068] mb-6 flex items-center gap-2">
+            <Link href="/" className="hover:text-[#2d263b] transition-colors">
               {lang === "ru" ? "Главная" : "Home"}
             </Link>
             <span>/</span>
-            <span className="text-indigo-600 font-semibold">{lang === "ru" ? "Миграция CMS" : "CMS Migration Hub"}</span>
+            <span className="text-[#386161] font-semibold">{lang === "ru" ? "Миграция CMS" : "CMS Migration Hub"}</span>
           </nav>
 
           {/* Hero Section */}
           <header className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs font-semibold mb-4">
-              <Cpu className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#edf5f5] border border-[#386161]/25 text-[#386161] text-xs font-semibold mb-4">
+              <Cpu className="w-3.5 h-3.5 text-[#386161]" />
               <span>{lang === "ru" ? "Безопасный перенос сайтов на современный стек" : "Zero-Downtime Jamstack Migration"}</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-tight">
               {lang === "ru"
                 ? "Миграция с медленных CMS на Next.js под ключ"
                 : "Enterprise CMS Migration to Next.js & Serverless"}
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-[#585068] leading-relaxed">
               {lang === "ru"
-                ? "Переносим сайты с WordPress, Tilda, 1C-Битрикс, Webflow, InSales, Shopify и самописных систем на архитектуру Next.js 15. Гарантируем 100% сохранение SEO-позиций, ускорение загрузки до 0.8 секунд и нулевую абонплату за конструкторы."
+                ? "Переносим сайты с WordPress, Tilda, 1C-Битрикс, Webflow, InSales, Shopify и самописных систем на архитектуру Next.js 15. Гарантируем 100% сохранение SEO-позиций, ускорение загрузки до 0.8 секунд и нулевые платежи за конструкторы."
                 : "Seamlessly migrate legacy websites from WordPress, Tilda, Bitrix, Webflow, InSales, and custom PHP monoliths to Next.js 15. Maintain 100% SEO rankings, achieve sub-second TTFB, and eliminate recurring builder fees forever."}
             </p>
           </header>
 
           {/* Strategic Alliance Banner */}
-          <div className="mt-10 p-6 rounded-3xl border border-indigo-200/80 bg-gradient-to-r from-indigo-50/70 via-white to-slate-50/70 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="mt-10 p-6 rounded-3xl border border-[#386161]/20 bg-gradient-to-r from-[#edf5f5] via-white to-[#f1f0f5] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-12 h-12 rounded-2xl bg-[#386161] text-white flex items-center justify-center shrink-0 shadow-md">
                 <Handshake className="w-6 h-6" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#386161]">
                     {lang === "ru" ? "Стратегический альянс" : "Strategic Engineering Partnership"}
                   </span>
-                  <span className="text-[10px] bg-indigo-100 text-indigo-700 font-mono px-2 py-0.5 rounded-full font-bold">
+                  <span className="text-[10px] bg-[#386161]/10 text-[#386161] font-mono px-2 py-0.5 rounded-full font-bold">
                     GoMVP × Few Hands
                   </span>
                 </div>
-                <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-1">
+                <h2 className="text-base sm:text-lg font-bold text-[#2d263b] mt-1">
                   {lang === "ru"
-                    ? "GoMVP отвечает за технический инжиниринг, Few Hands — за аудит, обучение и абонентскую поддержку"
+                    ? "GoMVP отвечает за технический инжиниринг, Few Hands — за аудит, обучение и сопровождение (Retainer)"
                     : "GoMVP powers core engineering; Few Hands handles audits, staff onboarding, and ongoing retainer support"}
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#585068] mt-1 max-w-2xl leading-relaxed">
                   {lang === "ru"
                     ? "Вы получаете уровень разработки от senior-архитекторов GoMVP и заботливый сервис Few Hands: понятные консультации, видео-инструкции для контентщиков и надежное сопровождение 24/7."
                     : "Clients benefit from senior-level microservice engineering combined with hands-on human support, staff walkthroughs, and dependable monthly maintenance."}
@@ -242,7 +242,7 @@ export const MigrateHubView: React.FC = () => {
             </div>
             <Link
               href="/estimate?service=migration"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-semibold shadow-md shadow-indigo-600/20 shrink-0 transition"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] text-xs sm:text-sm font-semibold shadow-md shadow-[#2d263b]/20 shrink-0 transition"
             >
               <span>{lang === "ru" ? "Рассчитать смету" : "Calculate Migration"}</span>
               <ArrowRight className="w-4 h-4" />
@@ -269,20 +269,20 @@ export const MigrateHubView: React.FC = () => {
                 <Link
                   key={p.slug}
                   href={`/migrate/${p.slug}`}
-                  className="group p-6 rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-md hover:bg-white shadow-sm hover:shadow-xl hover:border-indigo-300 transition-all duration-300 flex flex-col justify-between"
+                  className="group p-6 rounded-3xl border border-[#2d263b]/10 bg-white/90 backdrop-blur-md hover:bg-white shadow-sm hover:shadow-xl hover:border-[#386161]/40 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition">
+                      <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-[#f1f0f5] text-[#2d263b] group-hover:bg-[#edf5f5] group-hover:text-[#386161] transition">
                         {p.title[lang]} → Next.js
                       </span>
-                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#386161] group-hover:translate-x-1 transition-all" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="text-xl font-bold text-[#2d263b] group-hover:text-[#386161] transition-colors">
                       {p.title[lang]}
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#585068] mt-2 line-clamp-3 leading-relaxed">
                       {p.metaDescription[lang]}
                     </p>
 
@@ -299,7 +299,7 @@ export const MigrateHubView: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-indigo-600">
+                  <div className="mt-6 pt-4 border-t border-[#f1f0f5] flex items-center justify-between text-xs font-semibold text-[#386161]">
                     <span>{lang === "ru" ? "Читать разбор миграции" : "Explore Blueprint"}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </div>
@@ -327,32 +327,32 @@ export const MigrateHubView: React.FC = () => {
               </p>
             </div>
 
-            <div className="overflow-x-auto rounded-3xl border border-slate-200/80 bg-white shadow-md">
+            <div className="overflow-x-auto rounded-3xl border border-[#2d263b]/10 bg-white shadow-md">
               <table className="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 bg-slate-50/80">
-                    <th className="p-4 sm:p-5 font-bold text-slate-900">
+                  <tr className="border-b border-[#2d263b]/10 bg-[#faf9fb]">
+                    <th className="p-4 sm:p-5 font-bold text-[#2d263b]">
                       {lang === "ru" ? "Критерий оценки" : "Evaluation Metric"}
                     </th>
-                    <th className="p-4 sm:p-5 font-bold text-slate-500">
+                    <th className="p-4 sm:p-5 font-bold text-[#585068]">
                       {lang === "ru" ? "Текущая CMS (WordPress / Tilda / Bitrix)" : "Legacy Monolithic CMS / Builder"}
                     </th>
-                    <th className="p-4 sm:p-5 font-bold text-indigo-600 bg-indigo-50/40">
+                    <th className="p-4 sm:p-5 font-bold text-[#386161] bg-[#edf5f5]/60">
                       {lang === "ru" ? "Few Hands (Next.js 15 + Edge CDN)" : "Few Hands (Next.js 15 + Edge CDN)"}
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-[#2d263b]/5">
                   {comparisonRows.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50/50 transition">
-                      <td className="p-4 sm:p-5 font-semibold text-slate-900">
+                    <tr key={idx} className="hover:bg-[#faf9fb] transition">
+                      <td className="p-4 sm:p-5 font-semibold text-[#2d263b]">
                         {row.metric}
                       </td>
-                      <td className="p-4 sm:p-5 text-slate-600">
+                      <td className="p-4 sm:p-5 text-[#585068]">
                         {row.legacy}
                       </td>
-                      <td className="p-4 sm:p-5 font-semibold text-indigo-900 bg-indigo-50/30 flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <td className="p-4 sm:p-5 font-semibold text-[#2d263b] bg-[#edf5f5]/40 flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#7ea368] shrink-0" />
                         <span>{row.nextjs}</span>
                       </td>
                     </tr>
@@ -385,14 +385,14 @@ export const MigrateHubView: React.FC = () => {
               {seoProtocols.map((step, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between"
+                  className="p-5 rounded-3xl bg-white border border-[#2d263b]/10 shadow-sm flex flex-col justify-between"
                 >
                   <div>
-                    <div className="font-mono text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md inline-block mb-3">
+                    <div className="font-mono text-xs font-bold text-[#386161] bg-[#edf5f5] px-2 py-0.5 rounded-md inline-block mb-3">
                       STEP {step.step}
                     </div>
-                    <h3 className="font-bold text-sm text-slate-900">{step.title}</h3>
-                    <p className="text-xs text-slate-500 mt-2 leading-relaxed">{step.desc}</p>
+                    <h3 className="font-bold text-sm text-[#2d263b]">{step.title}</h3>
+                    <p className="text-xs text-[#585068] mt-2 leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -400,29 +400,29 @@ export const MigrateHubView: React.FC = () => {
           </section>
 
           {/* Retainer & Support Pillars */}
-          <section className="mt-24 pt-16 border-t border-slate-200">
+          <section className="mt-24 pt-16 border-t border-[#2d263b]/10">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold mb-4">
-                <Headphones className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/10 text-[#2d263b] text-xs font-semibold mb-4">
+                <Headphones className="w-3.5 h-3.5 text-[#386161]" />
                 <span>{lang === "ru" ? "После релиза" : "Post-Launch Care"}</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] tracking-tight">
                 {lang === "ru"
-                  ? "Мы не бросаем проект после релиза: обучение и абонентская поддержка"
+                  ? "Мы не бросаем проект после релиза: обучение и сопровождение (Retainer)"
                   : "End-to-End Handover: Team Training & Monthly Retainers"}
               </h2>
             </div>
 
             <div className="grid sm:grid-cols-3 gap-6">
-              <div className="p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm flex items-start gap-4">
-                <div className="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+              <div className="p-6 rounded-3xl bg-white border border-[#2d263b]/10 shadow-sm flex items-start gap-4">
+                <div className="w-10 h-10 rounded-2xl bg-[#edf5f5] text-[#386161] flex items-center justify-center shrink-0">
                   <GraduationCap className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-base text-slate-900">
+                  <h3 className="font-bold text-base text-[#2d263b]">
                     {lang === "ru" ? "Обучение сотрудников" : "Staff Onboarding"}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                  <p className="text-xs text-[#585068] mt-1 leading-relaxed">
                     {lang === "ru"
                       ? "Записываем пошаговые видео-инструкции по управлению контентом и проводим персональные онлайн-сессии для менеджеров."
                       : "We record bespoke Loom screencasts for your content editors and conduct interactive walkthrough sessions."}
@@ -480,17 +480,17 @@ export const MigrateHubView: React.FC = () => {
                 >
                   <button
                     onClick={() => toggleFaq(idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 text-sm sm:text-base hover:text-indigo-600 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-[#2d263b] text-sm sm:text-base hover:text-[#386161] transition-colors"
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        openFaq === idx ? "rotate-180 text-indigo-600" : ""
+                      className={`w-5 h-5 text-[#585068]/50 shrink-0 transition-transform duration-200 ${
+                        openFaq === idx ? "rotate-180 text-[#386161]" : ""
                       }`}
                     />
                   </button>
                   {openFaq === idx && (
-                    <div className="p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                    <div className="p-5 pt-0 text-xs sm:text-sm text-[#585068] leading-relaxed border-t border-[#2d263b]/5">
                       {faq.a}
                     </div>
                   )}
@@ -500,11 +500,11 @@ export const MigrateHubView: React.FC = () => {
           </section>
 
           {/* CTA Section */}
-          <footer className="mt-20 p-8 sm:p-12 rounded-3xl border border-slate-200/80 bg-gradient-to-b from-white/90 to-slate-100/90 text-center max-w-3xl mx-auto shadow-sm">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          <footer className="mt-20 p-8 sm:p-12 rounded-3xl border border-[#2d263b]/10 bg-gradient-to-b from-white/90 to-[#f1f0f5]/90 text-center max-w-3xl mx-auto shadow-sm">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b]">
               {lang === "ru" ? "Хотите узнать точные сроки миграции вашего сайта?" : "Ready to Audit and Plan Your Migration?"}
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm text-[#585068] mt-2 max-w-xl mx-auto">
               {lang === "ru"
                 ? "Воспользуйтесь нашим интерактивным калькулятором или свяжитесь с нами для бесплатного экспресс-аудита структуры сайта."
                 : "Submit your existing website URL for a complimentary code & architecture evaluation or calculate estimate instantly."}
@@ -512,13 +512,13 @@ export const MigrateHubView: React.FC = () => {
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Link
                 href="/estimate?service=migration"
-                className="px-6 py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-indigo-600/20 transition"
+                className="px-6 py-3.5 rounded-2xl bg-[#2d263b] hover:bg-[#1e1927] text-[#faf9fb] font-semibold text-xs sm:text-sm shadow-md shadow-[#2d263b]/20 transition"
               >
                 {lang === "ru" ? "Рассчитать стоимость миграции" : "Calculate Migration Estimate"}
               </Link>
               <a
                 href="mailto:web@fewhands.com"
-                className="px-6 py-3.5 rounded-2xl border border-slate-200 bg-white text-slate-700 hover:text-slate-900 font-semibold text-xs sm:text-sm shadow-sm transition"
+                className="px-6 py-3.5 rounded-2xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-xs sm:text-sm shadow-sm transition"
               >
                 {lang === "ru" ? "Написать на web@fewhands.com" : "Email web@fewhands.com"}
               </a>
