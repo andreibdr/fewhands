@@ -18,6 +18,14 @@ import {
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
+import {
+  DoodleArrowCTA,
+  EditorialStyleCard,
+  ScientificAuditCard,
+  SpeedRatingStamp,
+  PSFootnoteCard,
+  SketchedCallout,
+} from "./HandDrawnDecorations";
 
 export const HomeView: React.FC = () => {
   const { lang } = useLanguage();
@@ -151,85 +159,122 @@ export const HomeView: React.FC = () => {
         <section className="relative overflow-hidden pt-12 pb-20 sm:pt-24 sm:pb-28">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-[#7ea368]/10 via-[#9c386d]/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             
-            {/* Studio Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#e5e1eb] text-[#2d263b] text-xs font-semibold mb-6 shadow-sm backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-[#7ea368] animate-pulse" />
-              <span>
+            {/* Desktop Left Hand-drawn card: Empirical Audit (Visible on XL screens) */}
+            <div className="hidden xl:block absolute -left-2 2xl:-left-6 top-16 w-60 z-20">
+              <ScientificAuditCard />
+            </div>
+
+            {/* Desktop Right Hand-drawn card: Style & Clean Code (Visible on XL screens) */}
+            <div className="hidden xl:block absolute -right-2 2xl:-right-6 top-10 w-60 z-20">
+              <EditorialStyleCard />
+            </div>
+
+            <div className="text-center max-w-4xl mx-auto">
+              
+              {/* Studio Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#e5e1eb] text-[#2d263b] text-xs font-semibold mb-6 shadow-sm backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-[#7ea368] animate-pulse" />
+                <span>
+                  {lang === "ru"
+                    ? "Boutique Web Engineering · Est. 2008 · Партнёр GoMVP"
+                    : "Boutique Web Engineering · Est. 2008 · GoMVP Partner"}
+                </span>
+              </div>
+
+              {/* Main Title */}
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#2d263b] leading-[1.12] max-w-4xl mx-auto">
+                {lang === "ru" ? (
+                  <>
+                    Освобождаем сайты от{" "}
+                    <span className="text-[#386161] decoration-[#7ea368]/50 underline decoration-2 underline-offset-8">
+                      устаревших CMS
+                    </span>{" "}
+                    и создаём чистые веб-продукты
+                  </>
+                ) : (
+                  <>
+                    Freeing web platforms from{" "}
+                    <span className="text-[#386161] decoration-[#7ea368]/50 underline decoration-2 underline-offset-8">
+                      legacy CMS bloat
+                    </span>{" "}
+                    to engineer pure web products
+                  </>
+                )}
+              </h1>
+
+              {/* Subtitle */}
+              <p className="mt-6 text-base sm:text-xl text-[#585068] leading-relaxed max-w-3xl mx-auto">
                 {lang === "ru"
-                  ? "Boutique Web Engineering · Est. 2008 · Партнёр GoMVP"
-                  : "Boutique Web Engineering · Est. 2008 · GoMVP Partner"}
-              </span>
-            </div>
+                  ? "Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром GoMVP. Онбординг персонала, регулярное сопровождение (Retainer) и фотореалистичные AI-аватары."
+                  : "Engineering migrations from WordPress, Tilda, Webflow, and monolithic CMSs to Next.js in partnership with GoMVP. Staff onboarding, monthly retainer maintenance, and photorealistic AI avatars."}
+              </p>
 
-            {/* Main Title */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#2d263b] leading-[1.12] max-w-4xl mx-auto">
-              {lang === "ru" ? (
-                <>
-                  Освобождаем сайты от{" "}
-                  <span className="text-[#386161] decoration-[#7ea368]/50 underline decoration-2 underline-offset-8">
-                    устаревших CMS
-                  </span>{" "}
-                  и создаём чистые веб-продукты
-                </>
-              ) : (
-                <>
-                  Freeing web platforms from{" "}
-                  <span className="text-[#386161] decoration-[#7ea368]/50 underline decoration-2 underline-offset-8">
-                    legacy CMS bloat
-                  </span>{" "}
-                  to engineer pure web products
-                </>
-              )}
-            </h1>
+              {/* Quick Action CTAs with Hand-drawn Doodle Arrow */}
+              <div className="mt-8 flex flex-col items-center">
+                <div className="relative inline-flex flex-wrap justify-center items-center gap-4">
+                  {/* Hand-drawn arrow pointing to button (Desktop/Tablet) */}
+                  <div className="hidden md:block absolute -left-56 top-2">
+                    <DoodleArrowCTA />
+                  </div>
 
-            {/* Subtitle */}
-            <p className="mt-6 text-base sm:text-xl text-[#585068] leading-relaxed max-w-3xl mx-auto">
-              {lang === "ru"
-                ? "Инженерная миграция с WordPress, Tilda, Webflow и Битрикс на чистый Next.js совместно с партнёром GoMVP. Онбординг персонала, регулярное сопровождение (Retainer) и фотореалистичные AI-аватары."
-                : "Engineering migrations from WordPress, Tilda, Webflow, and monolithic CMSs to Next.js in partnership with GoMVP. Staff onboarding, monthly retainer maintenance, and photorealistic AI avatars."}
-            </p>
-
-            {/* Quick Action CTAs */}
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link
-                href="/estimate"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-bold text-sm sm:text-base shadow-lg shadow-[#2d263b]/15 transition-all hover:-translate-y-0.5"
-              >
-                <span>{lang === "ru" ? "Оценить стоимость проекта" : "Estimate Project Budget"}</span>
-                <ArrowRight className="w-4 h-4 text-[#e5e1eb]" />
-              </Link>
-              <Link
-                href="/migrate"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl border border-[#e5e1eb] bg-white/90 text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-bold text-sm sm:text-base shadow-sm hover:bg-white transition-all"
-              >
-                <span>{lang === "ru" ? "Хаб миграции CMS" : "CMS Migration Hub"}</span>
-              </Link>
-            </div>
-
-            {/* Key Trust Metrics */}
-            <div className="mt-14 pt-10 border-t border-[#e5e1eb] max-w-4xl mx-auto grid grid-cols-3 gap-6">
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-[#2d263b]">
-                  {lang === "ru" ? "16+ лет" : "16+ Yrs"}
-                </div>
-                <div className="text-xs text-[#585068] mt-1">
-                  {lang === "ru" ? "Опыт разработки (с 2008 г.)" : "Engineering heritage (since 2008)"}
+                  <Link
+                    href="/estimate"
+                    className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl bg-[#2d263b] hover:bg-[#1a1622] text-[#faf9fb] font-bold text-sm sm:text-base shadow-lg shadow-[#2d263b]/15 transition-all hover:-translate-y-0.5"
+                  >
+                    <span>{lang === "ru" ? "Оценить стоимость проекта" : "Estimate Project Budget"}</span>
+                    <ArrowRight className="w-4 h-4 text-[#e5e1eb]" />
+                  </Link>
+                  <Link
+                    href="/migrate"
+                    className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl border border-[#e5e1eb] bg-white/90 text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 font-bold text-sm sm:text-base shadow-sm hover:bg-white transition-all"
+                  >
+                    <span>{lang === "ru" ? "Хаб миграции CMS" : "CMS Migration Hub"}</span>
+                  </Link>
                 </div>
               </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-[#2d263b]">50+</div>
-                <div className="text-xs text-[#585068] mt-1">
-                  {lang === "ru" ? "Проектов в США, ЕС и СНГ" : "Delivered in US, EU & worldwide"}
+
+              {/* Key Trust Metrics */}
+              <div className="mt-14 pt-10 border-t border-[#e5e1eb] max-w-4xl mx-auto grid grid-cols-3 gap-6 relative">
+                <div>
+                  <div className="text-2xl sm:text-3xl font-black text-[#2d263b]">
+                    {lang === "ru" ? "16+ лет" : "16+ Yrs"}
+                  </div>
+                  <div className="text-xs text-[#585068] mt-1">
+                    {lang === "ru" ? "Опыт разработки (с 2008 г.)" : "Engineering heritage (since 2008)"}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-black text-[#2d263b]">50+</div>
+                  <div className="text-xs text-[#585068] mt-1">
+                    {lang === "ru" ? "Проектов в США, ЕС и СНГ" : "Delivered in US, EU & worldwide"}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl font-black text-[#7ea368]">100/100</div>
+                  <div className="text-xs text-[#585068] mt-1">
+                    {lang === "ru" ? "Google PageSpeed рейтинг" : "Google PageSpeed benchmark"}
+                  </div>
                 </div>
               </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-black text-[#7ea368]">100/100</div>
-                <div className="text-xs text-[#585068] mt-1">
-                  {lang === "ru" ? "Google PageSpeed рейтинг" : "Google PageSpeed benchmark"}
+
+              {/* Responsive Cards Row for Tablet & Mobile where sidebars are hidden */}
+              <div className="xl:hidden mt-10 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-left">
+                <ScientificAuditCard className="rotate-0 hover:rotate-1" />
+                <EditorialStyleCard className="rotate-0 hover:-rotate-1" />
+              </div>
+
+              {/* Editorial Stamp & P.S. Footer Callout */}
+              <div className="mt-10 max-w-3xl mx-auto grid sm:grid-cols-12 gap-4 items-center">
+                <div className="sm:col-span-5 flex justify-center sm:justify-start">
+                  <SpeedRatingStamp className="w-full" />
+                </div>
+                <div className="sm:col-span-7">
+                  <PSFootnoteCard className="w-full" />
                 </div>
               </div>
+
             </div>
 
           </div>
@@ -253,10 +298,16 @@ export const HomeView: React.FC = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               
               {/* DOOR 1: MIGRATION (Petrol / Sage) */}
-              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#edf5f5] border border-[#386161]/25 text-[#386161] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Repeat className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#edf5f5] border border-[#386161]/25 text-[#386161] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Repeat className="w-6 h-6" />
+                    </div>
+                    {/* Hand-drawn craft tag */}
+                    <span className="font-handwriting text-sm text-[#386161] font-bold px-2 py-0.5 rounded border border-[#386161]/30 bg-[#edf5f5] rotate-2">
+                      {lang === "ru" ? "100% SEO гарантия" : "100% SEO saved"}
+                    </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#386161] font-bold">
                     {lang === "ru" ? "01. Перенос CMS" : "01. CMS Migration"}
@@ -282,10 +333,16 @@ export const HomeView: React.FC = () => {
               </div>
 
               {/* DOOR 2: CUSTOM DEVELOPMENT (Slate Denim) */}
-              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#edf3f8] border border-[#4b6c8c]/25 text-[#4b6c8c] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Code2 className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#edf3f8] border border-[#4b6c8c]/25 text-[#4b6c8c] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Code2 className="w-6 h-6" />
+                    </div>
+                    {/* Hand-drawn craft tag */}
+                    <span className="font-handwriting text-sm text-[#4b6c8c] font-bold px-2 py-0.5 rounded border border-[#4b6c8c]/30 bg-[#edf3f8] -rotate-1">
+                      {lang === "ru" ? "React 19 + TypeScript" : "React 19 + TypeScript"}
+                    </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#4b6c8c] font-bold">
                     {lang === "ru" ? "02. Разработка с нуля" : "02. Custom Web"}
@@ -311,10 +368,16 @@ export const HomeView: React.FC = () => {
               </div>
 
               {/* DOOR 3: MAINTENANCE RETAINER (Warm Ochre) */}
-              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#fef7f0] border border-[#c6814b]/25 text-[#c6814b] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Headphones className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#fef7f0] border border-[#c6814b]/25 text-[#c6814b] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Headphones className="w-6 h-6" />
+                    </div>
+                    {/* Hand-drawn craft tag */}
+                    <span className="font-handwriting text-sm text-[#c6814b] font-bold px-2 py-0.5 rounded border border-[#c6814b]/30 bg-[#fef7f0] rotate-2">
+                      {lang === "ru" ? "SLA 1 час · без штата" : "1h SLA · dedicated lead"}
+                    </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#c6814b] font-bold">
                     {lang === "ru" ? "03. Поддержка сайтов" : "03. Retainer Care"}
@@ -340,10 +403,16 @@ export const HomeView: React.FC = () => {
               </div>
 
               {/* DOOR 4: AI VIDEO & AVATARS (Plum Magenta) */}
-              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 relative">
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-[#fcf0f6] border border-[#9c386d]/25 text-[#9c386d] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Sparkles className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#fcf0f6] border border-[#9c386d]/25 text-[#9c386d] flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Sparkles className="w-6 h-6" />
+                    </div>
+                    {/* Hand-drawn craft tag */}
+                    <span className="font-handwriting text-sm text-[#9c386d] font-bold px-2 py-0.5 rounded border border-[#9c386d]/30 bg-[#fcf0f6] -rotate-2">
+                      {lang === "ru" ? "Ролики за 24-48 ч" : "Ready in 24-48h"}
+                    </span>
                   </div>
                   <span className="text-[11px] font-mono uppercase tracking-wider text-[#9c386d] font-bold">
                     {lang === "ru" ? "04. AI Видеопродакшн" : "04. AI Video"}

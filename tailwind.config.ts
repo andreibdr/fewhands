@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        handwriting: ["var(--font-caveat)", "cursive"],
+      },
       colors: {
         studio: {
           ink: "#2d263b",         // Deep slate ink from logo banner outline & text

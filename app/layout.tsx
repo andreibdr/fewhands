@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
+import { Caveat } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { LogoProvider } from "@/components/LogoContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
+
+const caveat = Caveat({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-caveat",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Few Hands — Boutique Web Engineering, CMS Migration & AI Media",
@@ -50,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen flex flex-col antialiased text-[#2d263b] bg-[#faf9fb] selection:bg-[#352f44] selection:text-[#faf9fb]">
+      <body className={`min-h-screen flex flex-col antialiased text-[#2d263b] bg-[#faf9fb] selection:bg-[#352f44] selection:text-[#faf9fb] ${caveat.variable}`}>
         <AnimatedBackground />
         <LanguageProvider>
           <LogoProvider>
