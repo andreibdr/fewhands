@@ -19,12 +19,12 @@ import {
   UserCheck,
   Zap,
   Repeat,
-  Sliders,
   DollarSign,
   TrendingUp,
-  MessageCircle,
   Camera,
-  Layers,
+  Film,
+  Scissors,
+  Wand2,
 } from "lucide-react";
 import {
   CraftCard,
@@ -49,31 +49,103 @@ export const AiVideoView: React.FC = () => {
       id: "M8g2gJlwH7M",
       title:
         lang === "ru"
-          ? "Цифровой двойник эксперта - Презентация"
+          ? "Цифровой двойник эксперта - Презентация продукта"
           : lang === "sr"
-          ? "Digitalni dvojnik stručnjaka - Prezentacija"
-          : "Digital Twin Presenter - Product Showcase",
+          ? "Digitalni dvojnik stručnjaka - Prezentacija proizvoda"
+          : "Digital Twin Presenter - Product Explainer",
       badge: lang === "ru" ? "Русский оригинал" : lang === "sr" ? "Original" : "Original Voice",
     },
     {
       id: "9_jdjXBknOw",
       title:
         lang === "ru"
-          ? "Англоязычная версия с сохранением голоса"
+          ? "Англоязычная версия с сохранением тембра голоса"
           : lang === "sr"
-          ? "Engleska verzija sa očuvanim tonom"
-          : "English Localization with Native Voice Tone",
+          ? "Engleska verzija sa očuvanom bojom glasa"
+          : "English Localization with Native Voice Timbre",
       badge: lang === "ru" ? "Клон голоса (EN)" : lang === "sr" ? "AI Klon (EN)" : "Voice Clone (EN)",
     },
     {
       id: "-UE0CTWQwD4",
       title:
         lang === "ru"
-          ? "Короткий лид-ролик для соцсетей и сайта"
+          ? "Лид-магнит ролик для соцсетей и сайта"
           : lang === "sr"
-          ? "Kratki video za sajt i društvene mreže"
-          : "Lead Generation Short for Web & Social",
-      badge: lang === "ru" ? "Конверсионный ролик" : lang === "sr" ? "Video za sajt" : "High Conversion",
+          ? "Video za generisanje lidova za sajt i mreže"
+          : "Social Lead Hook & Website Presenter",
+      badge: lang === "ru" ? "Высокая конверсия" : lang === "sr" ? "Visoka konverzija" : "High Conversion",
+    },
+  ];
+
+  const youtubeVideos = [
+    {
+      id: "KjhW0NmL2v0",
+      title:
+        lang === "ru"
+          ? "YouTube Production - Полный монтаж выпуска"
+          : lang === "sr"
+          ? "YouTube produkcija - Kompletna montaža epizode"
+          : "YouTube Production - Full Episode Edit",
+      category: lang === "ru" ? "Подкаст / Выпуск" : lang === "sr" ? "Podkast / Emisija" : "Podcast / Episode",
+    },
+    {
+      id: "wm9bt16QY_Q",
+      title:
+        lang === "ru"
+          ? "YouTube Production - Экспертное интервью"
+          : lang === "sr"
+          ? "YouTube produkcija - Stručni intervju"
+          : "YouTube Production - In-Depth Interview",
+      category: lang === "ru" ? "Интервью" : lang === "sr" ? "Intervju" : "Interview",
+    },
+    {
+      id: "_9Z-gfKJRBU",
+      title:
+        lang === "ru"
+          ? "YouTube Production - Коммерческий шоукейс"
+          : lang === "sr"
+          ? "YouTube produkcija - Komercijalni video"
+          : "YouTube Production - Commercial Showcase",
+      category: lang === "ru" ? "Коммерческое видео" : lang === "sr" ? "Komercijalni video" : "Commercial Showcase",
+    },
+  ];
+
+  const editingFeatures = [
+    {
+      icon: Scissors,
+      titleRu: "Динамическая нарезка и ритм",
+      titleEn: "Pacing & Cutdowns",
+      titleSr: "Dinamična montaža i ritam",
+      descRu: "Удаляем длинные паузы, оговорки и слова-паразиты. Выстраиваем плотный захватывающий темпоритм без просадок внимания.",
+      descEn: "Eliminating dead pauses, filler words, and awkward takes. Tight narrative pacing engineered for high viewer retention.",
+      descSr: "Uklanjamo duge pauze, greške i poštapalice. Gradimo dinamičan tempo koji drži pažnju gledalaca od prve sekunde.",
+    },
+    {
+      icon: Wand2,
+      titleRu: "Кинетические субтитры и B-roll",
+      titleEn: "Kinetic Captions & B-Roll",
+      titleSr: "Animirani titlovi i B-roll",
+      descRu: "Яркие анимированные титры в стиле лучших YouTube-каналов, наложение иллюстраций, графиков и перебивок под слова спикера.",
+      descEn: "High-contrast animated captions, relevant stock and bespoke B-roll insertions, graphs, and visual metaphors.",
+      descSr: "Privlačni animirani titlovi po uzoru na najbolje YouTube kanale, dodavanje grafike, animacija i tematskih inserata.",
+    },
+    {
+      icon: Zap,
+      titleRu: "Саунд-дизайн и мастеринг",
+      titleEn: "Sound Design & Mastering",
+      titleSr: "Dizajn zvuka i mastering",
+      descRu: "Шумоподавление, выравнивание громкости голоса, звуковые эффекты (whoosh, pop, click) и лицензированная фоновая музыка.",
+      descEn: "Noise suppression, vocal EQ and compression, sound effects (whooshes, pops, impacts), and licensed background audio.",
+      descSr: "Uklanjanje šuma, kompresija i čišćenje glasa, zvučni efekti i licencirana pozadinska muzika prilagođena temi.",
+    },
+    {
+      icon: TrendingUp,
+      titleRu: "CTR-обложки и хуки первых секунд",
+      titleEn: "High-CTR Thumbnails & Hooks",
+      titleSr: "CTR naslovne sličice i uvod",
+      descRu: "Разрабатываем зацепляющие обложки с высоким процентом кликов и упаковываем первые 5 секунд ролика под максимальный просмотр.",
+      descEn: "Designing click-worthy custom YouTube thumbnails and front-loading the opening 5-second hook for peak retention.",
+      descSr: "Dizajniramo privlačne naslovne sličice sa visokom stopom klikova i osmišljavamo uvodnih 5 sekundi za maksimalnu gledanost.",
     },
   ];
 
@@ -81,47 +153,47 @@ export const AiVideoView: React.FC = () => {
     {
       step: "01",
       titleRu: "Заявка и бриф",
-      titleEn: "Brief & Objectives",
+      titleEn: "Brief & Strategy",
       titleSr: "Prijava i brif",
-      descRu: "Обсуждаем задачи: выход за рубеж, уроки для онлайн-школы, регулярные Reels/Shorts или видео-двойник на сайт.",
-      descEn: "We determine goals: global audience reach, course lessons, high-cadence Reels/Shorts, or website video presenters.",
-      descSr: "Definišemo ciljeve: inostrana tržišta, lekcije za kurseve, redovni Reels/Shorts ili video dvojnik za sajt.",
+      descRu: "Обсуждаем задачи: создание цифрового двойника, монтаж серии Shorts/Reels или YouTube-выпусков под ключ.",
+      descEn: "We align on scope: custom digital twin training, ongoing Shorts/Reels pipelines, or turnkey YouTube episode editing.",
+      descSr: "Definišemo ciljeve: izrada digitalnog dvojnika, montaža serije Shorts/Reels ili produkcija YouTube emisija.",
     },
     {
       step: "02",
-      titleRu: "Съемка эталонного видео (2-5 мин)",
+      titleRu: "Съемка эталона (2-5 мин)",
       titleEn: "5-Minute Phone Recording",
       titleSr: "Snimanje etalona (2-5 min)",
-      descRu: "Вы записываете 2-5 минут на смартфон по нашей пошаговой инструкции. В запись обязательно входит ваше личное видео-согласие.",
-      descEn: "You record 2-5 minutes on your phone using our quick checklist, including your personal consent statement.",
-      descSr: "Snimate 2-5 minuta na telefonu po našem uputstvu. Snimak obavezno uključuje i vašu video saglasnost.",
+      descRu: "Вы записываете короткое видео на телефон по нашей инструкции. В запись входит ваше личное видео-согласие.",
+      descEn: "You record 2-5 minutes on your phone using our quick checklist, including your personal video consent statement.",
+      descSr: "Snimate kratak video na telefonu po našem uputstvu. Snimak uključuje i vašu ličnu video saglasnost.",
     },
     {
       step: "03",
-      titleRu: "Создание двойника и клонирование голоса",
-      titleEn: "Avatar Training & Voice Cloning",
-      titleSr: "Kreiranje dvojnika i klon glasa",
-      descRu: "Обучаем нейросеть на платформе HeyGen, калибруем микромимику, синхронизацию губ и создаем студийный клон вашего тембра.",
-      descEn: "We train neural models on HeyGen, fine-tune lip-sync accuracy, and build a studio-grade clone of your vocal cadence.",
-      descSr: "Obučavamo AI na HeyGen platformi, kalibrišemo mikromimiku i kreiramo studijski klon vaše boje glasa.",
+      titleRu: "Синтез двойника и клон голоса",
+      titleEn: "Neural Synthesis & Voice Cloning",
+      titleSr: "Sinteza dvojnika i klon glasa",
+      descRu: "Обучаем модель на HeyGen, калибруем артикуляцию и создаем студийный клон тембра голоса на 30+ языках.",
+      descEn: "We train neural models on HeyGen, fine-tune lip-sync phonemes, and generate a studio vocal clone in 30+ languages.",
+      descSr: "Obučavamo model na HeyGen platformi, kalibrišemo artikulaciju i kreiramo studijski klon glasa na 30+ jezika.",
     },
     {
       step: "04",
-      titleRu: "Проверка тестового ролика",
-      titleEn: "Pilot Review & Calibration",
-      titleSr: "Provera testnog videa",
-      descRu: "Вы смотрите первый сгенерированный ролик, оцениваете естественность и подачу, вносим финальные корректировки.",
-      descEn: "You review the first generated pilot video, evaluate facial dynamics, and request adjustments before bulk production.",
-      descSr: "Pregledate prvi generisani video, procenjujete prirodnost i unosimo završne korekcije.",
+      titleRu: "Пост-продакшн и монтаж",
+      titleEn: "Post-Production Polish",
+      titleSr: "Post-produkcija i montaža",
+      descRu: "Монтируем ролики: накладываем B-roll, кинетические титры, саунд-дизайн, цветокоррекцию и графику.",
+      descEn: "Our editors assemble masters: dynamic captions, contextual B-roll, sound design, color grading, and assets.",
+      descSr: "Montiramo materijal: dodajemo B-roll, dinamične titlove, dizajn zvuka, korekciju boja i grafičke elemente.",
     },
     {
       step: "05",
       titleRu: "Готовые видео по расписанию",
       titleEn: "Turnkey Video Pipeline",
-      titleSr: "Gotovi video zapisi po planu",
-      descRu: "Вы просто присылаете текст - через 24-48 часов получаете готовые ролики со звуком, субтитрами и монтажом.",
-      descEn: "Simply send script copy - within 24-48 hours you receive finished videos with dynamic captions, sound, and b-roll.",
-      descSr: "Jednostavno pošaljete tekst - za 24-48 sati dobijate gotove video snimke sa titlovima, zvukom i grafikom.",
+      titleSr: "Isporuka gotovih videa",
+      descRu: "Вы просто присылаете текст сценария - через 24-48 часов получаете готовый ролик под ключ для публикации.",
+      descEn: "Send script copy and receive finished broadcast-ready videos delivered to your schedule within 24-48 hours.",
+      descSr: "Jednostavno pošaljete tekst scenarija - za 24-48 sati dobijate gotov profesionalni video spreman za objavu.",
     },
   ];
 
@@ -138,10 +210,10 @@ export const AiVideoView: React.FC = () => {
       tagSr: "Bez snimanja u studiju",
     },
     {
-      titleRu: "Онлайн-школы и курсы",
+      titleRu: "Онлайн-школы и EdTech",
       titleEn: "EdTech & Online Academies",
       titleSr: "Online škole i kursevi",
-      descRu: "Обновление устаревших уроков за час без пересъемки всего курса. Достаточно просто отредактировать абзац текста.",
+      descRu: "Обновление уроков за час без пересъемки всего курса. Достаточно отредактировать абзац текста в сценарии.",
       descEn: "Update outdated course lessons in 1 hour without reshooting. Simply edit the script text and re-render the segment.",
       descSr: "Ažuriranje lekcija za sat vremena bez ponovnog snimanja. Dovoljno je samo promeniti pasus teksta u skripti.",
       tagRu: "Экономия до 90% бюджета",
@@ -149,95 +221,32 @@ export const AiVideoView: React.FC = () => {
       tagSr: "90% ušteda budžeta",
     },
     {
-      titleRu: "Бизнес и руководители",
+      titleRu: "Бизнес и фаундеры",
       titleEn: "Founders & Corporate Leaders",
-      titleSr: "Osnivači i menadžment",
+      titleSr: "Osnivači i kompanije",
       descRu: "Интерактивный видео-двойник на сайте, регулярные обращения к команде, онбординг сотрудников и видеовизитки.",
       descEn: "Interactive website video avatar, executive all-hands updates, employee onboarding, and personalized B2B pitch videos.",
-      descSr: "Interaktivni video dvojnik na sajtu, poruke zaposlenima, obuka novih radnika i video vizitkarte.",
+      descSr: "Interaktivni video dvojnik na sajtu, poruke zaposlenima, obuka novih radnika i video prezentacije.",
       tagRu: "+35-50% к конверсии сайта",
       tagEn: "+35-50% Conversion Lift",
       tagSr: "+35-50% veća konverzija",
     },
     {
-      titleRu: "Частные клиенты",
-      titleEn: "Personal Brand & Keepsakes",
-      titleSr: "Privatni klijenti",
-      descRu: "Видеовизитки, цифровой портрет, поздравления близких на любых языках мира и масштабирование личного бренда.",
-      descEn: "High-end video resumes, digital portraits, multi-language holiday greetings, and scalable personal brand media.",
-      descSr: "Video biografije, digitalni portret, čestitke na svim jezicima sveta i građenje ličnog brenda.",
-      tagRu: "Личный бренд в цифре",
-      tagEn: "Personal Digital Legacy",
-      tagSr: "Lični brend u digitalu",
-    },
-  ];
-
-  const caseStudies = [
-    {
-      num: "01",
-      titleRu: "Эксперт: выход на рынок США и Европы",
-      titleEn: "Case 1: Global Market Expansion for Coach",
-      titleSr: "Slučaj 1: Izlazak na globalno tržište za kouča",
-      problemRu: "Русскоязычный эксперт хотел запустить YouTube и LinkedIn на английском, но стеснялся акцента и не успевал снимать.",
-      problemEn: "Coach wanted to launch an English YouTube channel and LinkedIn brand, but lacked native accent and film time.",
-      problemSr: "Stručnjak je želeo da pokrene YouTube na engleskom, ali je imao jezičku barijeru i nedostatak vremena za snimanje.",
-      solutionRu: "Создан персональный двойник + клон голоса с нативным произношением. Выпуск 8 роликов в месяц по готовым текстам.",
-      solutionEn: "Crafted personal digital twin + neural voice clone with native cadence. Output: 8 polished videos monthly.",
-      solutionSr: "Kreiran digitalni dvojnik sa kloniranim glasom bez akcenta. Proizvodnja: 8 mesečnih videa po pripremljenim tekstovima.",
-      resultRu: "Сэкономлено 3 съемочных дня в месяц, просмотры из США выросли в 4 раза.",
-      resultEn: "Saved 3 shoot days monthly; US view retention increased 4x.",
-      resultSr: "Ušteđena 3 dana snimanja mesečno, pregledi iz SAD-a porasli 4 puta.",
-    },
-    {
-      num: "02",
-      titleRu: "Онлайн-школа: точечное обновление курса",
-      titleEn: "Case 2: Course Updates Without Re-shoots",
-      titleSr: "Slučaj 2: Ažuriranje online kursa bez ponovnog snimanja",
-      problemRu: "В 12 уроках изменился интерфейс и регламент. Спикер живет за границей, аренда студии и пересъемка стоили бы от $1,500.",
-      problemEn: "Platform UI and regulations changed across 12 lessons. Instructor was abroad; traditional reshoot quoted at $1,500+.",
-      problemSr: "U 12 lekcija su se promenila pravila. Predavač živi u inostranstvu, ponovno snimanje bi koštalo preko $1.500.",
-      solutionRu: "Использовали обученного двойника спикера: заменили устаревшие 2-минутные блоки за 2 часа работы с текстом.",
-      solutionEn: "Leveraged the instructor's verified twin to regenerate outdated 2-minute segments in under 2 hours.",
-      solutionSr: "Upotrebom digitalnog dvojnika predavača zamenjeni su zastareli blokovi za svega 2 sata rada na tekstu.",
-      resultRu: "Курс обновлен за 24 часа. Экономия бюджета: $1,250.",
-      resultEn: "Course refreshed in 24 hours. Net budget saved: $1,250.",
-      resultSr: "Kurs ažuriran za 24 sata. Ušteda budžeta: $1.250.",
-    },
-    {
-      num: "03",
-      titleRu: "Фаундер IT-стартапа: видео-двойник на сайте",
-      titleEn: "Case 3: Founder Video Bubble on SaaS Website",
-      titleSr: "Slučaj 3: Video dvojnik osnivača na SaaS sajtu",
-      problemRu: "Холодные посетители лендинга уходили через 15 секунд, не понимая ценность сложного продукта.",
-      problemEn: "Cold visitors bounced after 15 seconds without grasping the core value of a complex technical product.",
-      problemSr: "Posetioci su napuštali sajt nakon 15 sekundi ne razumevajući vrednost tehnički složenog softvera.",
-      solutionRu: "Встроили в правый угол легковесный виджет FewHands с двойником основателя: за 40 сек объясняет пользу и зовет в демо.",
-      solutionEn: "Integrated FewHands lightweight video bubble: founder explains core value in 40 seconds and offers demo walkthrough.",
-      solutionSr: "Ugrađen lagani FewHands video vidžet: osnivač za 40 sekundi objašnjava prednosti i vodi korisnika ka demo verziji.",
-      resultRu: "Конверсия в заявку выросла на +42%, время на сайте увеличилось на 1.8 мин.",
-      resultEn: "Lead form conversions jumped +42%; on-page dwell time lifted by 1.8 min.",
-      resultSr: "Konverzija u upite skočila za +42%, a vreme na sajtu poraslo za 1.8 min.",
-    },
-    {
-      num: "04",
-      titleRu: "Блогер: конвейер ежедневных Shorts/Reels",
-      titleEn: "Case 4: Daily Content Machine for Creator",
-      titleSr: "Slučaj 4: Svakodnevni Shorts/Reels za blogera",
-      problemRu: "Выгорание от постоянной подготовки к съемкам: свет, фон, прическа, дубли, монтаж съедали все выходные.",
-      problemEn: "Creator burnout: studio lights, styling, endless retakes, and manual editing consumed every weekend.",
-      problemSr: "Iscrpljenost od stalnih priprema za snimanje: svetlo, pozadina, frizura, ponavljanja i montaža oduzimali su vikende.",
-      solutionRu: "Один эталонный съемочный день - и переход на конвейер: генерация пачек по 10-15 вертикальных роликов за вечер.",
-      solutionEn: "One reference shoot day unlocked a weekly assembly line: 10-15 vertical Shorts generated in a single evening.",
-      solutionSr: "Jedan jedini dan snimanja etalona i prelazak na automatizaciju: paketi od 10-15 vertikalnih videa po večeri.",
-      resultRu: "30 роликов в месяц выходят строго по графику без единого съемочного дня.",
-      resultEn: "30 high-CTR videos published monthly on strict cadence with zero filming fatigue.",
-      resultSr: "30 videa mesečno izlazi tačno po rasporedu bez ijednog dodatnog snimanja.",
+      titleRu: "YouTube-каналы и подкасты",
+      titleEn: "YouTube Channels & Podcasters",
+      titleSr: "YouTube kanali i podkasti",
+      descRu: "Комплексный монтаж длинных выпусков (16:9), нарезка лучших моментов на Shorts/Reels и создание обложек с высоким CTR.",
+      descEn: "Turnkey full-length YouTube episode editing (16:9), multi-angle cutdowns, viral Shorts extraction, and high-CTR thumbnails.",
+      descSr: "Kompletna montaža dugih emisija (16:9), izvlačenje najboljih momenata za Shorts/Reels i dizajn naslovnih sličica.",
+      tagRu: "YouTube под ключ",
+      tagEn: "Turnkey YouTube",
+      tagSr: "YouTube po sistemu ključ u ruke",
     },
   ];
 
   const pricingTiers = [
     {
-      nameRu: "Пробный",
+      nameRu: "Пробный пилот",
       nameEn: "Starter Pilot",
       nameSr: "Probni paket",
       price: "$190",
@@ -247,8 +256,9 @@ export const AiVideoView: React.FC = () => {
       featuresRu: [
         "Создание персонального двойника",
         "Базовое клонирование голоса",
-        "1 готовый ролик (до 60 секунд)",
+        "1 готовый ролик под ключ (до 60 сек)",
         "Обязательное видео-согласие",
+        "Базовый монтаж и титры",
         "1 круг правок и калибровки",
       ],
       featuresEn: [
@@ -256,6 +266,7 @@ export const AiVideoView: React.FC = () => {
         "Baseline neural voice cloning",
         "1 finished video master (up to 60 sec)",
         "Verified personal video consent",
+        "Essential captions and edit",
         "1 revision & calibration cycle",
       ],
       featuresSr: [
@@ -263,14 +274,15 @@ export const AiVideoView: React.FC = () => {
         "Osnovno kloniranje glasa",
         "1 gotov video (do 60 sekundi)",
         "Obavezna video saglasnost",
+        "Osnovni titlovi i montaža",
         "1 krug izmena i kalibracije",
       ],
       recommended: false,
     },
     {
-      nameRu: "Персональный двойник",
+      nameRu: "Персональный двойник Pro",
       nameEn: "Studio Twin Pro",
-      nameSr: "Personalni dvojnik",
+      nameSr: "Personalni dvojnik Pro",
       price: "$450",
       timeRu: "3-5 раб. дней",
       timeEn: "3-5 business days",
@@ -278,8 +290,8 @@ export const AiVideoView: React.FC = () => {
       featuresRu: [
         "Создание студийного двойника высокой точности",
         "Studio Voice Clone с интонациями и дыханием",
-        "3 готовых видеоролика (Reels / Shorts / Презентация)",
-        "Субтитры, саунд-дизайн и монтаж",
+        "3 готовых ролика (Reels / Shorts / Презентация)",
+        "Динамичный монтаж, B-roll и саунд-дизайн",
         "Опция дубляжа на английский язык с вашим тембром",
         "2 круга правок на ролик",
       ],
@@ -295,25 +307,25 @@ export const AiVideoView: React.FC = () => {
         "Kreiranje studijskog dvojnika visoke rezolucije",
         "Studio Voice Clone sa prirodnim intonacijama",
         "3 gotova videa (Reels / Shorts / Prezentacija)",
-        "Animirani titlovi, dizajn zvuka i montaža",
+        "Dinamična montaža, B-roll i dizajn zvuka",
         "Mogućnost sinhronizacije na engleski sa vašim glasom",
         "2 kruga izmena po videu",
       ],
       recommended: true,
-      badgeRu: "Самый популярный",
+      badgeRu: "Топ продаж",
       badgeEn: "Most Popular",
       badgeSr: "Najpopularniji",
     },
     {
-      nameRu: "Двойник + Контент",
+      nameRu: "Двойник + Контент-машина",
       nameEn: "Scale Machine",
-      nameSr: "Dvojnik + Sadržaj",
+      nameSr: "Dvojnik + Video mašina",
       price: "$980",
       timeRu: "По графику",
       timeEn: "Weekly Cadence",
       timeSr: "Po rasporedu",
       featuresRu: [
-        "Студийный двойник + расширенная калибровка жестов",
+        "Студийный двойник + расширенная калибровка",
         "Studio Voice Clone высшего качества",
         "10 готовых роликов под ключ (сценарии, титры, монтаж)",
         "Перевод и дубляж на 2 иностранных языка",
@@ -342,6 +354,22 @@ export const AiVideoView: React.FC = () => {
 
   const faqs = [
     {
+      qRu: "В чем преимущество связки «Цифровой двойник + Видеомонтаж»?",
+      qEn: "What is the advantage of pairing a Digital Twin with full Video Post-Production?",
+      qSr: "Koja je prednost kombinacije digitalnog dvojnika i profesionalne video montaže?",
+      aRu: "Сам по себе сырой аватар - это просто говорящая голова. Мы упаковываем его в полноценный коммерческий контент: накладываем кинетическую графику, иллюстрации, примеры интерфейсов (B-roll), динамичные субтитры и звуковые эффекты. В результате ролик удерживает зрителя так же сильно, как видео топовых мировых блогеров.",
+      aEn: "A raw avatar on its own is merely a static talking head. We elevate it into high-converting media: layering kinetic typography, contextual B-roll footage, animated diagrams, sound effects, and music. The resulting video retains viewer attention with the polished standards of leading global channels.",
+      aSr: "Sam po sebi avatar je samo statičan lik koji govori. Mi ga pretvaramo u vrhunski komercijalni video: dodajemo animirane titlove, tematske B-roll inserte, zvučne efekte i muziku. Krajnji rezultat drži pažnju gledalaca jednako efikasno kao video sadržaj najuspešnijih kanala.",
+    },
+    {
+      qRu: "Монтируете ли вы обычные длинные YouTube-выпуски, снятые на камеру?",
+      qEn: "Do you also edit traditional full-length YouTube episodes shot on real cameras?",
+      qSr: "Da li montirate i standardne duge YouTube emisije snimljene kamerom?",
+      aRu: "Да, абсолютно! Мы занимаемся полноценным монтажом горизонтальных YouTube-выпусков (16:9): подкастов, интервью, обучающих видео и шоукейсов. Делаем динамичную нарезку, чистим звук, выравниваем цвет, добавляем плашки и рисуем кликабельные превью.",
+      aEn: "Yes, definitely! We provide complete end-to-end post-production for traditional 16:9 YouTube videos: podcasts, interviews, tutorials, and corporate showcases. This includes multi-cam cutdowns, audio mastering, color grading, animated lower thirds, and high-CTR thumbnails.",
+      aSr: "Da, naravno! Radimo kompletnu montažu horizontalnih YouTube emisija (16:9): podkasta, intervjua, edukativnih materijala i prezentacija. Pružamo dinamično sečenje, obradu zvuka, korekciju boja i dizajn privlačnih naslovnih sličica.",
+    },
+    {
       qRu: "Двойник будет выглядеть неестественно или роботизировано?",
       qEn: "Will the digital twin look robotic or unnatural?",
       qSr: "Da li će digitalni dvojnik izgledati neprirodno ili robotski?",
@@ -358,14 +386,6 @@ export const AiVideoView: React.FC = () => {
       aSr: "Kategorično ne. To je temelj naše etičke i bezbednosne politike: avatar se kreira ISKLJUČIVO uz vašu ličnu video saglasnost snimljenu na kameri po protokolu platforme. Ne pravimo avatare trećih lica.",
     },
     {
-      qRu: "А если цифровой двойник скажет что-то не то?",
-      qEn: "What if the digital twin hallucinates or says something off-brand?",
-      qSr: "Šta ako digitalni dvojnik kaže nešto neprimereno ili pogrešno?",
-      aRu: "Двойник озвучивает исключительно тот текст, который вы утвердили в сценарии. Он не является автономным чат-ботом и физически не способен придумать слова от себя. Вы всегда контролируете каждое сказанное слово.",
-      aEn: "The digital twin speaks strictly the script copy you inspect and approve. It is a deterministic neural synthesis engine, not an unguided bot. It cannot improvise or generate unauthorized statements.",
-      aSr: "Dvojnik izgovara isključivo tekst koji ste vi prethodno odobrili u scenariju. Nije reč o nekontrolisanom botu - on tehnički ne može samostalno izmisliti nijednu reč.",
-    },
-    {
       qRu: "Кому юридически принадлежат права на двойника и готовые ролики?",
       qEn: "Who owns the intellectual property and commercial usage rights?",
       qSr: "Kome pravno pripadaju autorska i komercijalna prava na dvojnika i video?",
@@ -374,79 +394,12 @@ export const AiVideoView: React.FC = () => {
       aSr: "100% autorskih i komercijalnih prava pripada vama. Vaši izvorni materijali se koriste isključivo za vaš projekat i brišu se na vaš zahtev. Nikada ne koristimo vaš lik u promotivne svrhe bez pismene saglasnosti.",
     },
     {
-      qRu: "Что конкретно нужно для съёмки эталона?",
-      qEn: "What equipment is required for the baseline recording?",
-      qSr: "Šta je tačno potrebno za snimanje etalona?",
-      aRu: "Обычный смартфон с хорошей камерой, тихое помещение без эха, ровный дневной свет из окна и 10-15 минут свободного времени. Никакой аренды студий и профессиональной техники не требуется. Подробная памятка отправляется вам перед записью.",
-      aEn: "A standard smartphone with a decent camera, a quiet room without echo, even daylight from a window, and 10-15 minutes of your time. Zero studio rental or expensive gear needed. A quick checklist is provided beforehand.",
-      aSr: "Standardni pametni telefon, tiha soba bez odjeka, ravnomerno dnevno svetlo sa prozora i 10-15 minuta vašeg vremena. Nije potreban zakup studija niti profesionalna oprema. Detaljan podsetnik dobijate pre snimanja.",
-    },
-    {
-      qRu: "На каких языках двойник может говорить моим голосом?",
-      qEn: "Which languages can my digital twin speak in my natural voice?",
-      qSr: "Na kojim jezicima dvojnik može govoriti mojim glasom?",
-      aRu: "Поддерживается 30+ основных языков мира: английский (US/UK/AU), немецкий, испанский, французский, сербский, португальский, итальянский, арабский, китайский и другие. Нейросеть сохраняет ваш естественный тембр, интонации и синхронизирует артикуляцию губ под каждый язык.",
-      aEn: "Over 30 major languages are supported: English (US/UK/AU), German, Spanish, French, Serbian, Portuguese, Italian, Arabic, Japanese, and more. The engine preserves your authentic vocal timbre while articulating native phonemes.",
-      aSr: "Podržano je preko 30 svetskih jezika: engleski, nemački, španski, francuski, srpski, italijanski, arapski i drugi. AI čuva vaš prirodni vokalni tembr i sinhronizuje pokrete usana prema svakom jeziku.",
-    },
-    {
       qRu: "Не будет ли тормозить сайт при установке видео-виджета с двойником?",
       qEn: "Will the website slow down if we embed the founder video bubble?",
       qSr: "Da li će ugradnja video vidžeta sa dvojnikom usporiti sajt?",
       aRu: "Абсолютно нет. Мы инженеры, поэтому используем наш собственный легковесный компонент FewHands (Вариант А): он весит всего 3-4 КБ, не загружает видео при старте страницы и не влияет на показатели Google PageSpeed (98-100 баллов). Видео подгружается только после первого клика пользователя.",
       aEn: "Zero performance drop. As engineering specialists, we deploy our proprietary FewHands lightweight widget (Option A): weighing just 3-4 KB, it performs zero video preloading during initial page render, ensuring 98-100 Google PageSpeed scores.",
       aSr: "Apsolutno ne. Kao inženjerski studio koristimo naš sopstveni lagani FewHands vidžet (Varijanta A): ima samo 3-4 KB, ne učitava video dok se stranica otvara i ne utiče na Google PageSpeed (98-100 bodova). Video se pokreće tek na klik.",
-    },
-  ];
-
-  const shootingGuide = [
-    {
-      ruleRu: "Камера на уровне глаз",
-      ruleEn: "Camera at Eye Level",
-      ruleSr: "Kamera u visini očiju",
-      descRu: "Установите телефон на штатив или подставку на уровне глаз. Горизонтально или вертикально в зависимости от формата.",
-      descEn: "Mount phone on tripod or stand directly at eye level. Avoid low angles looking upwards.",
-      descSr: "Postavite telefon na stalak u visini očiju. Izbegavajte snimanje odozdo.",
-    },
-    {
-      ruleRu: "Равномерный мягкий свет спереди",
-      ruleEn: "Even Front Lighting",
-      ruleSr: "Ravnomerno prednje svetlo",
-      descRu: "Сядьте лицом к окну или используйте софтбокс. Лицо должно быть освещено ровно, без жестких теней под носом и глазами.",
-      descEn: "Face a large window or diffused softbox. Ensure no harsh shadows fall under eyes or nose.",
-      descSr: "Okrenite se licem ka prozoru ili koristite meko svetlo. Lice mora biti ravnomerno osvetljeno.",
-    },
-    {
-      ruleRu: "Чистый звук без эха",
-      ruleEn: "Quiet Room & Zero Echo",
-      ruleSr: "Čist zvuk bez odjeka",
-      descRu: "Снимайте в тихой комнате с мебелью и ковром (не в пустом помещении). Идеально использовать петличку или гарнитуру.",
-      descEn: "Record in a furnished room (avoid empty tiled spaces). A simple lavalier microphone yields optimal results.",
-      descSr: "Snimajte u opremljenoj sobi sa tepihom (izbegavajte prazne prostorije). Preporučuje se mala bubica mikrofon.",
-    },
-    {
-      ruleRu: "Однотонный фон",
-      ruleEn: "Clean Neutral Backdrop",
-      ruleSr: "Jednobojna pozadina",
-      descRu: "Нейтральная стена или аккуратный офис. Сзади не должно быть движения людей, кошек или мелькающих экранов.",
-      descEn: "Neutral solid wall or calm interior. Ensure zero background motion, walking colleagues, or flickering TVs.",
-      descSr: "Neutralan zid ili mirna kancelarija. Iza vas ne sme biti kretanja ljudi niti treperavih ekrana.",
-    },
-    {
-      ruleRu: "Живая мимика и паузы",
-      ruleEn: "Natural Pauses & Articulation",
-      ruleSr: "Prirodna mimika i pauze",
-      descRu: "Говорите спокойно и естественно, смотрите в глазок камеры. Делайте микропаузы между фразами для чистоты нарезки.",
-      descEn: "Speak calmly, look directly into camera lens. Make short micro-pauses between sentences for clean training segments.",
-      descSr: "Govorite prirodno i gledajte u sočivo kamere. Pravite kratke pauze između rečenica.",
-    },
-    {
-      ruleRu: "Видео-согласие (Consent Statement)",
-      ruleEn: "Video Consent Statement",
-      ruleSr: "Video saglasnost",
-      descRu: "В конце записи вы четко зачитываете по нашему шаблону личное согласие на использование вашего образа для вашего проекта.",
-      descEn: "Conclude recording by reciting our verified 15-second consent script authorizing avatar synthesis.",
-      descSr: "Na kraju snimka jasno izgovarate tekst saglasnosti za kreiranje avatara po našem šablonu.",
     },
   ];
 
@@ -470,69 +423,66 @@ export const AiVideoView: React.FC = () => {
               <Sparkles className="w-3.5 h-3.5 text-[#9c386d]" />
               <span>
                 {lang === "ru"
-                  ? "HeyGen Enterprise Pipeline · Этичный AI"
+                  ? "Цифровые двойники (HeyGen) & Видеомонтаж под ключ"
                   : lang === "sr"
-                  ? "HeyGen Enterprise Pipeline · Etički AI"
-                  : "HeyGen Enterprise Pipeline · Ethical AI"}
+                  ? "Digitalni dvojnici (HeyGen) & Video montaža"
+                  : "Custom Digital Twins (HeyGen) & Turnkey Video Editing"}
               </span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#2d263b] leading-[1.15]">
               {lang === "ru"
-                ? "Ваш цифровой двойник: говорит вашим лицом и голосом, пока вы развиваете бизнес"
+                ? "Цифровой двойник с вашим лицом и голосом + видеомонтаж под ключ"
                 : lang === "sr"
-                ? "Vaš digitalni dvojnik: govori vašim licem i glasom dok vi razvijate biznis"
-                : "Your Digital Twin: Speaks with your face and voice while you focus on business"}
+                ? "Digitalni dvojnik vašim licem i glasom + video montaža po meri"
+                : "Your Custom Digital Twin & High-Impact Turnkey Video Production"}
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-[#585068] leading-relaxed max-w-2xl">
               {lang === "ru"
-                ? "Один раз записываете себя на телефон за 5 минут. Дальше получаете неограниченное количество видео для соцсетей, сайта и зарубежного рынка без студии, операторов и монтажа. На русском, английском и других языках, с вашим собственным голосом."
+                ? "Объединяем создание персональных цифровых аватаров с профессиональным пост-продакшном: от вирусных Shorts и Reels со звуковым дизайном до длинных экспертных YouTube-выпусков (16:9). Запишите себя один раз за 5 минут - дальше получайте регулярный поток готовых видео без студии и операторов."
                 : lang === "sr"
-                ? "Snimite sebe telefonom za 5 minuta. Nakon toga dobijate neograničen broj video snimaka za društvene mreže, sajt i strana tržišta bez studija, snimatelja i montaže. Na engleskom, srpskom i 30+ jezika, sa vašim autentičnim glasom."
-                : "Record yourself once on your phone for 5 minutes. From then on, produce unlimited video content for socials, websites, and international audiences with zero studio or camera crew. Fluent in English, Spanish, and 30+ languages in your authentic voice."}
+                ? "Spajamo izradu personalnih digitalnih avatara sa profesionalnom montažom: od dinamičnih Shorts i Reels videa do dugih YouTube emisija (16:9). Snimite sebe jednom za 5 minuta - a zatim dobijajte redovan video sadržaj bez studija i snimatelja."
+                : "We integrate custom digital twin synthesis with broadcast-grade post-production: from viral retention-engineered Shorts & Reels to full-length YouTube episodes (16:9). Record yourself once in 5 minutes - then generate high-converting video pipelines with zero studio stress."}
             </p>
 
             <div className="mt-8 flex flex-col items-start gap-2">
               <DoodlePointer
                 text={
                   lang === "ru"
-                    ? "получите тестовый ролик вашим голосом ↘"
+                    ? "рассчитайте смету за 1 минуту ↘"
                     : lang === "sr"
-                    ? "dobijte testni video sa vašim glasom ↘"
-                    : "preview your digital twin voice sample ↘"
+                    ? "izračunajte procenu za 1 minut ↘"
+                    : "itemized quote in 1 minute ↘"
                 }
                 direction="curved-down-right"
                 className="mb-1"
               />
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://t.me/andreibdr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#6d244c] hover:opacity-95 text-white font-semibold text-sm shadow-lg shadow-[#9c386d]/20 transition-all"
-                >
-                  <MessageCircle className="w-4 h-4 text-white" />
-                  <span>
-                    {lang === "ru"
-                      ? "Получить превью двойника"
-                      : lang === "sr"
-                      ? "Zatražite demo dvojnika"
-                      : "Get Twin Voice Preview"}
-                  </span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-
                 <Link
                   href="/estimate?service=video"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#6d244c] hover:opacity-95 text-white font-semibold text-sm shadow-lg shadow-[#9c386d]/20 transition-all"
+                >
+                  <span>
+                    {lang === "ru"
+                      ? "Рассчитать стоимость сметы"
+                      : lang === "sr"
+                      ? "Izračunajte procenu cene"
+                      : "Calculate Production Cost"}
+                  </span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-[#2d263b]/15 bg-white text-[#2d263b] hover:bg-[#f1f0f5] font-semibold text-sm shadow-sm transition-all"
                 >
                   <span>
                     {lang === "ru"
-                      ? "Рассчитать смету в калькуляторе"
+                      ? "Обсудить проект со студией"
                       : lang === "sr"
-                      ? "Izračunajte procenu"
-                      : "Calculate Production Cost"}
+                      ? "Konsultacije sa studiom"
+                      : "Discuss Project with Studio"}
                   </span>
                 </Link>
               </div>
@@ -563,24 +513,24 @@ export const AiVideoView: React.FC = () => {
             <CraftCard
               tag={
                 lang === "ru"
-                  ? "БЕЗ ДИПФЕЙКОВ"
+                  ? "2 В 1: ДВОЙНИК + МОНТАЖ"
                   : lang === "sr"
-                  ? "ETIČKI AI"
-                  : "ETHICAL AI ONLY"
+                  ? "2 U 1: DVOJNIK + MONTAŽA"
+                  : "2-IN-1: TWIN + EDITING"
               }
               question={
                 lang === "ru"
-                  ? "Можно ли создать двойника без согласия? НЕТ [X]"
+                  ? "Скучная «говорящая голова»? НЕТ [X]"
                   : lang === "sr"
-                  ? "Može li se napraviti avatar bez saglasnosti? NE [X]"
-                  : "Can avatars be forged without consent? NO [X]"
+                  ? "Monotona glava koja priča? NE [X]"
+                  : "Boring static talking head? NO [X]"
               }
               reason={
                 lang === "ru"
-                  ? "Мы никогда не создаем двойников по чужим фото или аудиозаписям. Только ваше личное видео-согласие и 100% авторских прав у вас."
+                  ? "Мы упаковываем двойника в динамичный видеоряд: кинетические субтитры, B-roll кадры, звуковые эффекты и монтаж под ключ."
                   : lang === "sr"
-                  ? "Nikada ne pravimo avatare na osnovu tuđih fotografija ili snimaka. Isključivo uz vašu ličnu video saglasnost i 100% prava vama."
-                  : "We strictly reject third-party synthesis. Digital twins require verified personal video consent with 100% IP rights transferred to you."
+                  ? "Spajamo digitalnog dvojnika sa dinamičnom montažom: animirani titlovi, B-roll kadrovi, zvučni efekti i obrada."
+                  : "We package custom avatars into high-retention media: kinetic typography, contextual B-roll, sound design, and broadcast polish."
               }
               checked={false}
               rotate="rotate-1"
@@ -589,7 +539,7 @@ export const AiVideoView: React.FC = () => {
           </div>
         </div>
 
-        {/* TRUST & SECURITY PILLAR BANNER (CRITICAL ETHICS BLOCK) */}
+        {/* TRUST & SECURITY PILLAR BANNER (ETHICS) */}
         <div className="mt-16 p-8 sm:p-10 rounded-3xl border border-[#386161]/25 bg-gradient-to-br from-[#edf5f5]/80 via-white to-[#edf5f5]/50 shadow-sm">
           <div className="max-w-3xl mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#386161]/10 text-[#386161] text-xs font-bold mb-2">
@@ -685,29 +635,29 @@ export const AiVideoView: React.FC = () => {
           </div>
         </div>
 
-        {/* INTERACTIVE VIDEO SHOWCASE */}
+        {/* SHOWCASE 1: VERTICAL FORMAT (9:16 SHORTS & REELS) */}
         <div className="mt-16 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/95 backdrop-blur-md shadow-sm">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-mono font-bold text-[#9c386d] uppercase tracking-wider">
               {lang === "ru"
-                ? "Примеры работы цифровых двойников"
+                ? "Направление 1: Вертикальные ролики 9:16 (Shorts, Reels, Сайты)"
                 : lang === "sr"
-                ? "Primeri rada digitalnih dvojnika"
-                : "Digital Twin Interactive Showcase"}
+                ? "Pravac 1: Vertikalni formati 9:16 (Shorts, Reels, Sajtovi)"
+                : "Focus 1: 9:16 Vertical Video (Shorts, Reels, Web Presenters)"}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] mt-1">
               {lang === "ru"
-                ? "Посмотрите, как говорит цифровой двойник"
+                ? "Примеры работы цифровых двойников с динамичным монтажом"
                 : lang === "sr"
-                ? "Pogledajte kako govori digitalni dvojnik"
-                : "Experience Photorealistic Digital Presenters in Action"}
+                ? "Primeri digitalnih dvojnika sa dinamičnom montažom"
+                : "Digital Twins Paired with Dynamic Kinetic Editing"}
             </h2>
             <p className="text-sm text-[#585068] mt-2">
               {lang === "ru"
-                ? "Нажмите на ролик, чтобы воспроизвести интерактивный образец с живой мимикой и клоном голоса."
+                ? "Нажмите на ролик, чтобы воспроизвести образец с живой мимикой, клоном голоса и монтажом."
                 : lang === "sr"
-                ? "Kliknite na video za interaktivni prikaz sa prirodnom mikromimikom i kloniranim glasom."
-                : "Click any preview below to experience realistic facial articulation and multilingual vocal cloning."}
+                ? "Kliknite na video za prikaz uzorka sa prirodnom mikromimikom, kloniranim glasom i montažom."
+                : "Click any preview below to experience realistic facial articulation, multilingual voice cloning, and tight post-production."}
             </p>
           </div>
 
@@ -756,84 +706,94 @@ export const AiVideoView: React.FC = () => {
           </div>
         </div>
 
-        {/* SECTION: КАК ЭТО РАБОТАЕТ (5 ШАГОВ) */}
-        <div className="mt-20">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-mono font-bold text-[#9c386d] uppercase tracking-wider">
-              {lang === "ru" ? "Простой понятный процесс" : lang === "sr" ? "Jednostavan proces" : "Streamlined Process"}
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] mt-1">
-              {lang === "ru"
-                ? "Как создается ваш персональный цифровой двойник"
-                : lang === "sr"
-                ? "Kako se kreira vaš personalni digitalni dvojnik"
-                : "How Your Custom Digital Twin is Engineered"}
-            </h2>
-            <p className="text-sm text-[#585068] mt-2">
-              {lang === "ru"
-                ? "Всего 5 шагов от первой заявки до регулярного выпуска контента вашим лицом и голосом."
-                : lang === "sr"
-                ? "Samo 5 koraka od prvog razgovora do redovnog kreiranja videa vašim licem i glasom."
-                : "5 straightforward steps from initial onboarding to automated multi-channel video delivery."}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {workflowSteps.map((ws, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:border-[#9c386d]/40 transition-colors"
-              >
-                <div>
-                  <span className="text-xl font-mono font-black text-[#9c386d]">
-                    {ws.step}
-                  </span>
-                  <h3 className="font-bold text-sm text-[#2d263b] mt-2 mb-1.5">
-                    {lang === "ru" ? ws.titleRu : lang === "sr" ? ws.titleSr : ws.titleEn}
-                  </h3>
-                  <p className="text-xs text-[#585068] leading-relaxed">
-                    {lang === "ru" ? ws.descRu : lang === "sr" ? ws.descSr : ws.descEn}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* SECTION: ДЛЯ КОГО (4 ЦЕЛЕВЫЕ АУДИТОРИИ) */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl bg-[#f1f0f5]/60 border border-[#2d263b]/10">
+        {/* SHOWCASE 2: HORIZONTAL YOUTUBE PRODUCTION (16:9) */}
+        <div className="mt-16 p-8 sm:p-10 rounded-3xl border border-slate-200/80 bg-white/95 backdrop-blur-md shadow-sm">
           <div className="max-w-3xl mb-8">
-            <span className="text-xs font-mono font-bold text-[#386161] uppercase tracking-wider">
-              {lang === "ru" ? "Сферы применения" : lang === "sr" ? "Primena u praksi" : "Target Audiences"}
+            <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-wider">
+              {lang === "ru"
+                ? "Направление 2: Горизонтальный YouTube-монтаж (16:9)"
+                : lang === "sr"
+                ? "Pravac 2: Horizontalna YouTube montaža (16:9)"
+                : "Focus 2: Full-Length YouTube Post-Production (16:9)"}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] mt-1">
               {lang === "ru"
-                ? "Для кого цифровой двойник окупается в первый же месяц"
+                ? "Монтаж длинных YouTube-выпусков, подкастов и интервью"
                 : lang === "sr"
-                ? "Za koga se digitalni dvojnik isplati već u prvom mesecu"
-                : "Who Generates Immediate ROI from a Digital Twin"}
+                ? "Montaža dugih YouTube emisija, podkasta i intervjua"
+                : "Turnkey YouTube Episodes, Podcasts & Commercial Shows"}
             </h2>
+            <p className="text-sm text-[#585068] mt-2">
+              {lang === "ru"
+                ? "Комплексный пост-продакшн для авторов и бизнеса: вы присылаете отснятый материал - мы отдаем готовый выпуск с нарезкой, чисткой звука и обложкой."
+                : lang === "sr"
+                ? "Kompletna postprodukcija za autore i kompanije: pošaljete sirovi snimak - mi isporučujemo gotovu emisiju sa obradom zvuka i naslovnom sličicom."
+                : "End-to-end post-production for channels and brands: send raw footage and receive dynamic broadcast-ready cuts, polished sound, and high-CTR thumbnails."}
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {targetAudiences.map((aud, idx) => (
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {youtubeVideos.map((yt) => (
               <div
-                key={idx}
-                className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between"
+                key={yt.id}
+                className="relative aspect-video rounded-2xl overflow-hidden shadow-sm bg-black group border border-slate-200"
               >
-                <div>
-                  <span className="inline-block px-2.5 py-1 rounded-md bg-[#edf5f5] text-[#386161] text-[11px] font-bold mb-3">
-                    {lang === "ru" ? aud.tagRu : lang === "sr" ? aud.tagSr : aud.tagEn}
-                  </span>
-                  <h3 className="text-base font-bold text-[#2d263b] mb-2">
-                    {lang === "ru" ? aud.titleRu : lang === "sr" ? aud.titleSr : aud.titleEn}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
-                    {lang === "ru" ? aud.descRu : lang === "sr" ? aud.descSr : aud.descEn}
-                  </p>
-                </div>
+                {activeIframe === yt.id ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${yt.id}?autoplay=1`}
+                    title={yt.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                ) : (
+                  <div
+                    onClick={() => setActiveIframe(yt.id)}
+                    className="w-full h-full cursor-pointer relative"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://i.ytimg.com/vi/${yt.id}/hqdefault.jpg`}
+                      alt={yt.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-bold text-white border border-white/20">
+                        {yt.category}
+                      </span>
+                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+                      <div className="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="w-5 h-5 fill-white translate-x-0.5" />
+                      </div>
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/90 via-black/50 to-transparent">
+                      <span className="text-xs font-semibold text-white line-clamp-1">{yt.title}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
+          </div>
+
+          {/* EDITING CAPABILITIES GRID */}
+          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 border-t border-slate-100 pt-8">
+            {editingFeatures.map((ef, idx) => {
+              const IconComp = ef.icon;
+              return (
+                <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/70">
+                  <div className="w-8 h-8 rounded-lg bg-[#2d263b] text-white flex items-center justify-center mb-2.5">
+                    <IconComp className="w-4 h-4" />
+                  </div>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#2d263b] mb-1">
+                    {lang === "ru" ? ef.titleRu : lang === "sr" ? ef.titleSr : ef.titleEn}
+                  </h4>
+                  <p className="text-[11px] sm:text-xs text-[#585068] leading-relaxed">
+                    {lang === "ru" ? ef.descRu : lang === "sr" ? ef.descSr : ef.descEn}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -940,61 +900,81 @@ export const AiVideoView: React.FC = () => {
           </div>
         </div>
 
-        {/* SECTION: 4 КЕЙСА ДЛЯ ПОРТФОЛИО */}
+        {/* SECTION: КАК ЭТО РАБОТАЕТ (5 ШАГОВ) */}
         <div className="mt-20">
-          <div className="max-w-2xl mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-mono font-bold text-[#9c386d] uppercase tracking-wider">
-              {lang === "ru" ? "Реальные сценарии внедрения" : lang === "sr" ? "Primeri iz prakse" : "Production Case Studies"}
+              {lang === "ru" ? "Простой понятный процесс" : lang === "sr" ? "Jednostavan proces" : "Streamlined Process"}
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] mt-1">
+              {lang === "ru"
+                ? "Как мы создаем контент от эталона до готового монтажа"
+                : lang === "sr"
+                ? "Kako kreiramo video od etalona do gotove montaže"
+                : "How We Engineer Media from Baseline to Master Edit"}
+            </h2>
+            <p className="text-sm text-[#585068] mt-2">
+              {lang === "ru"
+                ? "5 понятных этапов от первой заявки до регулярного выпуска контента вашим лицом и голосом."
+                : lang === "sr"
+                ? "5 jednostavnih koraka od prvog razgovora do redovnog kreiranja videa vašim licem i glasom."
+                : "5 straightforward steps from initial onboarding to automated multi-channel video delivery."}
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {workflowSteps.map((ws, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between hover:border-[#9c386d]/40 transition-colors"
+              >
+                <div>
+                  <span className="text-xl font-mono font-black text-[#9c386d]">
+                    {ws.step}
+                  </span>
+                  <h3 className="font-bold text-sm text-[#2d263b] mt-2 mb-1.5">
+                    {lang === "ru" ? ws.titleRu : lang === "sr" ? ws.titleSr : ws.titleEn}
+                  </h3>
+                  <p className="text-xs text-[#585068] leading-relaxed">
+                    {lang === "ru" ? ws.descRu : lang === "sr" ? ws.descSr : ws.descEn}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION: ДЛЯ КОГО (4 ЦЕЛЕВЫЕ АУДИТОРИИ) */}
+        <div className="mt-20 p-8 sm:p-10 rounded-3xl bg-[#f1f0f5]/60 border border-[#2d263b]/10">
+          <div className="max-w-3xl mb-8">
+            <span className="text-xs font-mono font-bold text-[#386161] uppercase tracking-wider">
+              {lang === "ru" ? "Сферы применения" : lang === "sr" ? "Primena u praksi" : "Target Audiences"}
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] mt-1">
               {lang === "ru"
-                ? "4 примера: как цифровой двойник решает конкретные бизнес-задачи"
+                ? "Для кого окупается медиа-продакшн полного цикла"
                 : lang === "sr"
-                ? "4 primera: kako digitalni dvojnik rešava konkretne poslovne zadatke"
-                : "4 Scenarios: How Digital Twins Solve Core Commercial Bottlenecks"}
+                ? "Za koga se isplati video produkcija punog ciklusa"
+                : "Who Generates Immediate ROI from Media Pipelines"}
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {caseStudies.map((cs, idx) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {targetAudiences.map((aud, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-[#9c386d]/40 transition-colors flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono font-bold text-[#9c386d] px-2 py-0.5 rounded bg-[#f8edf3]">
-                      Кейс {cs.num}
-                    </span>
-                    <span className="text-[11px] text-[#585068]">
-                      {lang === "ru" ? "Демо-проект" : lang === "sr" ? "Demo projekat" : "Verified Demo"}
-                    </span>
-                  </div>
-
-                  <h3 className="text-base font-bold text-[#2d263b] mb-3">
-                    {lang === "ru" ? cs.titleRu : lang === "sr" ? cs.titleSr : cs.titleEn}
-                  </h3>
-
-                  <div className="space-y-2.5 text-xs sm:text-sm text-[#585068]">
-                    <div>
-                      <strong className="text-[#2d263b] font-semibold">
-                        {lang === "ru" ? "Задача: " : lang === "sr" ? "Problem: " : "Challenge: "}
-                      </strong>
-                      {lang === "ru" ? cs.problemRu : lang === "sr" ? cs.problemSr : cs.problemEn}
-                    </div>
-                    <div>
-                      <strong className="text-[#386161] font-semibold">
-                        {lang === "ru" ? "Решение: " : lang === "sr" ? "Rešenje: " : "Solution: "}
-                      </strong>
-                      {lang === "ru" ? cs.solutionRu : lang === "sr" ? cs.solutionSr : cs.solutionEn}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg">
-                    {lang === "ru" ? cs.resultRu : lang === "sr" ? cs.resultSr : cs.resultEn}
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-[#edf5f5] text-[#386161] text-[11px] font-bold mb-3">
+                    {lang === "ru" ? aud.tagRu : lang === "sr" ? aud.tagSr : aud.tagEn}
                   </span>
+                  <h3 className="text-base font-bold text-[#2d263b] mb-2">
+                    {lang === "ru" ? aud.titleRu : lang === "sr" ? aud.titleSr : aud.titleEn}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#585068] leading-relaxed">
+                    {lang === "ru" ? aud.descRu : lang === "sr" ? aud.descSr : aud.descEn}
+                  </p>
                 </div>
               </div>
             ))}
@@ -1009,14 +989,14 @@ export const AiVideoView: React.FC = () => {
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#2d263b] mt-1">
               {lang === "ru"
-                ? "Тарифы на создание цифрового двойника"
+                ? "Тарифы на цифровых двойников и монтаж"
                 : lang === "sr"
-                ? "Paketi za kreiranje digitalnog dvojnika"
-                : "Digital Twin Production Packages"}
+                ? "Paketi za digitalne dvojnike i video montažu"
+                : "Production & Video Editing Packages"}
             </h2>
             <p className="text-sm text-[#585068] mt-2">
               {lang === "ru"
-                ? "Без скрытых доплат. Все права на двойника и готовые ролики переходят вам."
+                ? "Без скрытых доплат. Все коммерческие права на двойника и готовые ролики переходят вам."
                 : lang === "sr"
                 ? "Bez skrivenih troškova. Sva prava na dvojnika i video materijale pripadaju vama."
                 : "No recurring vendor lock-in. Full commercial IP rights transferred upon delivery."}
@@ -1122,32 +1102,30 @@ export const AiVideoView: React.FC = () => {
                 <Repeat className="w-3.5 h-3.5" />
                 <span>
                   {lang === "ru"
-                    ? "Ежемесячный абонемент на контент (Retainer)"
+                    ? "Ежемесячный абонемент на монтаж и контент (Retainer)"
                     : lang === "sr"
-                    ? "Mesečna pretplata na sadržaj (Retainer)"
+                    ? "Mesečna pretplata na montažu i sadržaj (Retainer)"
                     : "Monthly Retainer Subscription"}
                 </span>
               </div>
               <h3 className="text-lg font-bold text-[#2d263b]">
                 {lang === "ru"
-                  ? "Нужен регулярный поток роликов для эксперта или онлайн-школы?"
+                  ? "Нужен регулярный поток роликов для YouTube-канала, блога или онлайн-школы?"
                   : lang === "sr"
-                  ? "Potreban vam je redovan tok video sadržaja za školu ili eksperta?"
-                  : "Need a high-cadence video pipeline for an online academy or creator?"}
+                  ? "Potreban vam je redovan tok video sadržaja za YouTube, blog ili školu?"
+                  : "Need a regular high-cadence video pipeline for YouTube, creators or academies?"}
               </h3>
               <p className="text-xs sm:text-sm text-[#585068] mt-1 max-w-2xl">
                 {lang === "ru"
-                  ? "После создания двойника вы можете заказать абонемент: от 10 роликов в месяц со сценариями, монтажом и субтитрами по фиксированной цене от $390/мес."
+                  ? "Возьмем на себя регулярный монтаж длинных YouTube-выпусков или генерацию от 10 роликов Shorts/Reels в месяц со звуком, графикой и субтитрами по фиксированной цене от $390/мес."
                   : lang === "sr"
-                  ? "Nakon kreiranja dvojnika možete aktivirati mesečni paket: od 10 videa mesečno sa scenarijom, titlovima i montažom već od $390/mes."
-                  : "Once your twin is created, activate our monthly retainer: from 10 polished Shorts monthly with kinetic subtitles and sound design starting at $390/mo."}
+                  ? "Preuzimamo redovnu montažu YouTube emisija ili generisanje od 10 Shorts/Reels videa mesečno sa zvukom, grafikom i titlovima već od $390/mes."
+                  : "We manage your ongoing YouTube episode editing or automated 10+ Shorts/Reels monthly with kinetic captions, sound design, and B-roll starting at $390/mo."}
               </p>
             </div>
 
-            <a
-              href="https://t.me/andreibdr"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="px-6 py-3 rounded-xl bg-[#386161] hover:bg-[#2b4c4c] text-white font-bold text-xs sm:text-sm shrink-0 transition-colors shadow-sm"
             >
               {lang === "ru"
@@ -1155,60 +1133,7 @@ export const AiVideoView: React.FC = () => {
                 : lang === "sr"
                 ? "Dogovorite pretplatu"
                 : "Discuss Retainer"}
-            </a>
-          </div>
-        </div>
-
-        {/* SECTION: ПАМЯТКА КЛИЕНТУ ПО СЪЕМКЕ ЭТАЛОНА */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-sm">
-          <div className="max-w-2xl mb-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f8edf3] text-[#9c386d] text-xs font-semibold mb-2">
-              <Camera className="w-3.5 h-3.5" />
-              <span>
-                {lang === "ru"
-                  ? "Чек-лист для клиента"
-                  : lang === "sr"
-                  ? "Kontrolna lista za snimanje"
-                  : "Client Shooting Checklist"}
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] mt-1">
-              {lang === "ru"
-                ? "Как снять эталонное видео на смартфон за 10 минут"
-                : lang === "sr"
-                ? "Kako snimiti etalonski video na telefonu za 10 minuta"
-                : "How to Record Reference Footage on Your Phone in 10 Minutes"}
-            </h2>
-            <p className="text-sm text-[#585068] mt-2">
-              {lang === "ru"
-                ? "Соблюдение этих простых правил гарантирует естественный живой результат и одобрение видео-согласия."
-                : lang === "sr"
-                ? "Poštovanje ovih jednostavnih smernica obezbeđuje savršeno prirodan rezultat i odobrenje saglasnosti."
-                : "Following these straightforward guidelines guarantees natural facial dynamics and instant consent approval."}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {shootingGuide.map((sg, idx) => (
-              <div
-                key={idx}
-                className="p-5 rounded-2xl bg-slate-50/70 border border-slate-200/70 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="w-6 h-6 rounded-full bg-[#9c386d] text-white text-xs font-bold flex items-center justify-center shrink-0">
-                      {idx + 1}
-                    </span>
-                    <h3 className="font-bold text-sm text-[#2d263b]">
-                      {lang === "ru" ? sg.ruleRu : lang === "sr" ? sg.ruleSr : sg.ruleEn}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-[#585068] leading-relaxed pl-8">
-                    {lang === "ru" ? sg.descRu : lang === "sr" ? sg.descSr : sg.descEn}
-                  </p>
-                </div>
-              </div>
-            ))}
+            </Link>
           </div>
         </div>
 
@@ -1221,17 +1146,17 @@ export const AiVideoView: React.FC = () => {
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] mt-1">
               {lang === "ru"
-                ? "Все ответы о создании персональных цифровых двойников"
+                ? "Все ответы о цифровых двойниках и видеомонтаже"
                 : lang === "sr"
-                ? "Svi odgovori o kreiranju personalnih digitalnih dvojnika"
-                : "Everything You Need to Know About Custom Digital Twins"}
+                ? "Svi odgovori o digitalnim dvojnicima i video montaži"
+                : "Frequently Asked Questions About AI Media & Editing"}
             </h2>
             <p className="text-sm text-[#585068] mt-2">
               {lang === "ru"
-                ? "Этика, естественность мимики, права, требования к съемке и клонирование голоса."
+                ? "Этика, естественность мимики, права, YouTube-монтаж и клонирование голоса."
                 : lang === "sr"
-                ? "Etika, prirodnost mimike, autorska prava i kloniranje glasa."
-                : "Ethics, natural facial dynamics, licensing, recording setup, and voice cloning."}
+                ? "Etika, prirodnost mimike, autorska prava i YouTube montaža."
+                : "Ethics, natural facial dynamics, licensing, YouTube post-production, and voice cloning."}
             </p>
           </div>
 
@@ -1267,7 +1192,7 @@ export const AiVideoView: React.FC = () => {
           </div>
         </div>
 
-        {/* SECTION: ФИНАЛЬНЫЙ CTA */}
+        {/* SECTION: ФИНАЛЬНЫЙ СТУДИЙНЫЙ CTA */}
         <div className="mt-16 p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-white via-slate-50 to-slate-100 border border-slate-200 text-center max-w-3xl mx-auto shadow-sm">
           <div className="w-12 h-12 rounded-2xl bg-[#f8edf3] text-[#9c386d] flex items-center justify-center mx-auto mb-4">
             <Sparkles className="w-6 h-6 text-[#9c386d]" />
@@ -1275,56 +1200,54 @@ export const AiVideoView: React.FC = () => {
 
           <h3 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b]">
             {lang === "ru"
-              ? "Хотите услышать, как звучит ваш голос на английском?"
+              ? "Готовы протестировать видео-двойника или заказать монтаж?"
               : lang === "sr"
-              ? "Želite da čujete kako vaš glas zvuči na engleskom?"
-              : "Ready to Hear Your Cloned Voice in English or Spanish?"}
+              ? "Spremni da testirate video dvojnika ili naručite montažu?"
+              : "Ready to Prototype Your Digital Twin or Order Video Post-Production?"}
           </h3>
           <p className="text-xs sm:text-sm text-[#585068] mt-2 max-w-xl mx-auto leading-relaxed">
             {lang === "ru"
-              ? "Отправьте 30-секундное голосовое сообщение в Telegram - мы пришлем вам фрагмент на английском с сохранением вашего естественного тембра!"
+              ? "Рассчитайте стоимость ролика в онлайн-калькуляторе за 1 минуту или отправьте заявку на бесплатную консультацию со студией."
               : lang === "sr"
-              ? "Pošaljite glasovnu poruku od 30 sekundi na Telegram - poslaćemo vam demo na engleskom sa vašom prirodnom bojom glasa!"
-              : "Send a 30-second voice note in Telegram - we will return a synthesized audio clip in English preserving your natural timbre!"}
+              ? "Izračunajte procenu cene u online kalkulatoru za 1 minut ili nam pošaljite upit za besplatne konsultacije."
+              : "Calculate production costs in our online estimator in 1 minute or reach out directly for a complimentary studio consultation."}
           </p>
 
           <div className="mt-8 flex flex-col items-center">
             <DoodlePointer
               text={
                 lang === "ru"
-                  ? "экспресс-тест без обязательств ↘"
+                  ? "расчет сметы без обязательств ↘"
                   : lang === "sr"
-                  ? "ekspresni demo bez obaveza ↘"
-                  : "zero-commitment audio pilot ↘"
+                  ? "procena bez obaveza ↘"
+                  : "zero-commitment quote ↘"
               }
               direction="curved-down-right"
               className="mb-2"
             />
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="https://t.me/andreibdr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#6d244c] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
-              >
-                <MessageCircle className="w-4 h-4 text-white" />
-                <span>
-                  {lang === "ru"
-                    ? "Отправить аудио в Telegram"
-                    : lang === "sr"
-                    ? "Pošaljite poruku na Telegram"
-                    : "Send Voice Note in Telegram"}
-                </span>
-              </a>
               <Link
                 href="/estimate?service=video"
+                className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#6d244c] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+              >
+                <span>
+                  {lang === "ru"
+                    ? "Рассчитать смету в калькуляторе"
+                    : lang === "sr"
+                    ? "Izračunajte procenu cene"
+                    : "Calculate Turnkey Quote"}
+                </span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/contact"
                 className="px-6 py-3.5 rounded-xl border border-slate-300 bg-white text-[#2d263b] hover:bg-slate-100 font-bold text-xs sm:text-sm shadow-sm transition-all"
               >
                 {lang === "ru"
-                  ? "Рассчитать стоимость сметы"
+                  ? "Связаться со студией"
                   : lang === "sr"
-                  ? "Izračunajte procenu cene"
-                  : "Calculate Turnkey Quote"}
+                  ? "Kontaktirajte studio"
+                  : "Contact Studio"}
               </Link>
             </div>
           </div>
