@@ -32,23 +32,26 @@ export const Header: React.FC = () => {
         </Link>
 
         {/* Desktop Navigation in Studio Palette */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-[#585068]">
-          <Link href="/migrate" className="hover:text-[#386161] transition-colors">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-7 text-xs xl:text-sm font-medium text-[#585068]">
+          <Link href="/migrate" className="hover:text-[#386161] transition-colors whitespace-nowrap">
             {lang === "ru" ? "Миграция CMS" : lang === "sr" ? "Migracija CMS-a" : "CMS Migration"}
           </Link>
-          <Link href="/development" className="hover:text-[#4b6c8c] transition-colors">
+          <Link href="/development" className="hover:text-[#4b6c8c] transition-colors whitespace-nowrap">
             {lang === "ru" ? "Разработка" : lang === "sr" ? "Razvoj veba" : "Development"}
           </Link>
-          <Link href="/maintenance" className="hover:text-[#c6814b] transition-colors">
-            {lang === "ru" ? "Поддержка сайтов" : lang === "sr" ? "Održavanje sajtova" : "Support & Retainer"}
+          <Link href="/maintenance" className="hover:text-[#c6814b] transition-colors whitespace-nowrap">
+            {lang === "ru" ? "Поддержка" : lang === "sr" ? "Održavanje" : "Support"}
           </Link>
-          <Link href="/ai-video" className="hover:text-[#9c386d] transition-colors">
+          <Link href="/ai-video" className="hover:text-[#9c386d] transition-colors whitespace-nowrap">
             {lang === "ru" ? "AI & Видео" : lang === "sr" ? "AI & Video" : "AI & Video"}
           </Link>
-          <Link href="/portfolio" className="hover:text-[#2d263b] transition-colors">
+          <Link href="/portfolio" className="hover:text-[#2d263b] transition-colors whitespace-nowrap">
             {lang === "ru" ? "Портфолио" : lang === "sr" ? "Portfolio" : "Portfolio"}
           </Link>
-          <Link href="/contact" className="hover:text-[#2d263b] transition-colors">
+          <Link href="/about" className="hover:text-[#386161] transition-colors whitespace-nowrap">
+            {lang === "ru" ? "О студии" : lang === "sr" ? "O studiju" : "About"}
+          </Link>
+          <Link href="/contact" className="hover:text-[#2d263b] transition-colors whitespace-nowrap">
             {lang === "ru" ? "Контакты" : lang === "sr" ? "Kontakt" : "Contact"}
           </Link>
         </nav>
@@ -185,6 +188,13 @@ export const Header: React.FC = () => {
             className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#2d263b] hover:bg-[#f1f0f5]"
           >
             {lang === "ru" ? "Портфолио" : lang === "sr" ? "Portfolio" : "Portfolio"}
+          </Link>
+          <Link
+            href="/about"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2.5 rounded-xl text-base font-medium text-[#2d263b] hover:bg-[#f1f0f5]"
+          >
+            {lang === "ru" ? "О студии & Манифест" : lang === "sr" ? "O studiju & Manifest" : "About Studio & Manifesto"}
           </Link>
           <Link
             href="/estimate"

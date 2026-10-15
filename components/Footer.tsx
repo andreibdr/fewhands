@@ -139,6 +139,11 @@ export const Footer: React.FC = () => {
                   {lang === "ru" ? "Портфолио кейсов" : lang === "sr" ? "Portfolio projekata" : "Case Studies Portfolio"}
                 </Link>
               </li>
+              <li>
+                <Link href="/about" className="hover:text-[#386161] transition font-semibold text-[#2d263b]">
+                  {lang === "ru" ? "О студии & Манифест" : lang === "sr" ? "O studiju & Manifest" : "About Studio & Manifesto"}
+                </Link>
+              </li>
             </ul>
 
             <div className="pt-3 border-t border-[#e5e1eb]">

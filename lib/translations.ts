@@ -6,6 +6,7 @@ export interface TranslationContent {
     development: string;
     video: string;
     portfolio: string;
+    about: string;
     calculator: string;
     contact: string;
     cta: string;
@@ -106,6 +107,7 @@ export const translations: Record<Language, TranslationContent> = {
       development: "Разработка",
       video: "Видео & AI",
       portfolio: "Портфолио",
+      about: "О студии",
       calculator: "Калькулятор",
       contact: "Контакты",
       cta: "Обсудить проект",
@@ -264,6 +266,7 @@ export const translations: Record<Language, TranslationContent> = {
       development: "Development",
       video: "Video & AI",
       portfolio: "Portfolio",
+      about: "About",
       calculator: "Estimator",
       contact: "Contact",
       cta: "Discuss Project",
@@ -422,6 +425,7 @@ export const translations: Record<Language, TranslationContent> = {
       development: "Razvoj veba",
       video: "Video & AI",
       portfolio: "Portfolio",
+      about: "O studiju",
       calculator: "Kalkulator",
       contact: "Kontakt",
       cta: "Zakažite konsultaciju",
