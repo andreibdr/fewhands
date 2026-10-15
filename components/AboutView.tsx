@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "./LanguageContext";
 import {
   CraftCard,
@@ -309,81 +310,113 @@ export const AboutView: React.FC = () => {
           </header>
 
           {/* 1.5. FOUNDER'S NOTE: Andrei Ryzhenko (Андрей Рыженко) */}
-          <section className="mb-20 max-w-4xl mx-auto">
-            <div className="relative p-7 sm:p-10 bg-[#faf6ed] border border-[#2d263b]/30 rounded-3xl shadow-[4px_6px_0px_rgba(45,38,59,0.12)]">
+          <section className="mb-20 max-w-5xl mx-auto">
+            <div className="relative p-6 sm:p-9 lg:p-10 bg-[#faf6ed] border border-[#2d263b]/30 rounded-3xl shadow-[4px_6px_0px_rgba(45,38,59,0.12)]">
               {/* Tape strip illusion at top */}
               <div className="absolute -top-3 left-10 sm:left-14 w-20 h-5 bg-[#e8dec8]/90 backdrop-blur-[1px] border border-[#2d263b]/15 -rotate-1 pointer-events-none" />
 
-              {/* Header row: Stamp badge & Author label */}
-              <div className="flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 border-b border-[#2d263b]/15">
-                <div className="flex items-center gap-3.5">
-                  {/* Avatar / Monogram placeholder */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#2d263b] text-[#faf9fb] flex items-center justify-center font-mono font-bold text-lg sm:text-xl shadow-inner border border-[#2d263b]/20 shrink-0">
-                    <span>AR</span>
-                  </div>
-                  <div>
-                    <div className="font-bold text-base sm:text-lg text-[#2d263b] leading-tight">
-                      {lang === "ru" ? "Андрей Рыженко (Andrei Ryzhenko)" : lang === "sr" ? "Andrei Ryzhenko (Andrej Riženko)" : "Andrei Ryzhenko"}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start">
+                {/* Photo Column: Polaroid / analog photo card */}
+                <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-none md:col-span-4 shrink-0 mx-auto md:mx-0">
+                  <div className="relative group">
+                    {/* Washi tape strip pinned on top right */}
+                    <div className="absolute -top-2.5 right-4 w-14 h-4 bg-[#e8dec8]/95 border border-[#2d263b]/20 rotate-3 z-10 shadow-xs pointer-events-none" />
+
+                    <div className="bg-white p-3 sm:p-3.5 pb-4 sm:pb-5 rounded-2xl border border-[#2d263b]/20 shadow-[3px_4px_0px_rgba(45,38,59,0.1)] -rotate-1 group-hover:rotate-0 transition-all duration-300">
+                      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#2d263b]/5 border border-[#2d263b]/10">
+                        <Image
+                          src="/andrei-ryzhenko.webp"
+                          alt={lang === "ru" ? "Андрей Рыженко - основатель Few Hands Studio" : lang === "sr" ? "Andrei Ryzhenko - osnivač Few Hands Studio" : "Andrei Ryzhenko - Founder of Few Hands Studio"}
+                          width={819}
+                          height={1024}
+                          className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
+                          priority
+                        />
+                      </div>
+                      <div className="mt-3 text-center">
+                        <div className="font-bold text-sm text-[#2d263b]">
+                          {lang === "ru" ? "Андрей Рыженко" : lang === "sr" ? "Andrej Riženko" : "Andrei Ryzhenko"}
+                        </div>
+                        <div className="text-[11px] font-mono text-[#585068] mt-0.5">
+                          {lang === "ru" ? "в вебе с 1998 года" : lang === "sr" ? "u vebu od 1998." : "in web since 1998"}
+                        </div>
+                        <div className="mt-2.5 pt-2.5 border-t border-[#2d263b]/10 flex items-center justify-center gap-1.5 text-[11px] font-mono text-[#386161] font-semibold">
+                          <ShieldCheck className="w-3.5 h-3.5" />
+                          <span>{lang === "ru" ? "Личная ответственность" : lang === "sr" ? "Lična odgovornost" : "Personal Guarantee"}</span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-xs text-[#585068] font-mono mt-0.5">
+                  </div>
+                </div>
+
+                {/* Content Column: Editorial letter & signature */}
+                <div className="md:col-span-8 flex flex-col justify-between h-full">
+                  {/* Header row: Stamp badge & Author label */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-5 border-b border-[#2d263b]/15">
+                    <div>
+                      <div className="font-bold text-base sm:text-lg text-[#2d263b] leading-tight">
+                        {lang === "ru" ? "Андрей Рыженко (Andrei Ryzhenko)" : lang === "sr" ? "Andrei Ryzhenko (Andrej Riženko)" : "Andrei Ryzhenko"}
+                      </div>
+                      <div className="text-xs text-[#585068] font-mono mt-0.5">
+                        {lang === "ru"
+                          ? "Основатель и ведущий инженер Few Hands Studio"
+                          : lang === "sr"
+                          ? "Osnivač i vodeći inženjer Few Hands Studio"
+                          : "Founder & Lead Architect, Few Hands Studio"}
+                      </div>
+                    </div>
+
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/15 text-[11px] font-mono font-bold text-[#386161]">
+                      <span>★</span>
+                      <span>{lang === "ru" ? "КОЛОНКА ОСНОВАТЕЛЯ" : lang === "sr" ? "REČ OSNIVAČA" : "FOUNDER'S NOTE"}</span>
+                    </div>
+                  </div>
+
+                  {/* Body text in authentic editorial voice */}
+                  <div className="space-y-4 text-sm sm:text-base text-[#2d263b] leading-relaxed">
+                    <p>
                       {lang === "ru"
-                        ? "Основатель и ведущий инженер Few Hands Studio · в вебе с 1998 года"
+                        ? "«Мой путь в веб-инженерии начался ещё в 1998 году - с вёрстки на чистом HTML в обычном блокноте Windows, когда интернет только зарождался. Долгие годы я работал в различных веб-студиях, совмещая это как увлечённое хобби и инженерную практику, изучая изнутри все скрытые болезни заказной разработки. Со временем я увидел, как индустрия свернула на опасный путь конвейера: агентства превратились в фабрики, где проект вам продаёт харизматичный сейлз, а пилят уставшие стажёры на субподряде. Клиент платит за раздутый офис и цепочку из пяти менеджеров, получая на выходе медленный монолит, набитый чужими плагинами»."
                         : lang === "sr"
-                        ? "Osnivač i vodeći inženjer Few Hands Studio · u vebu od 1998. godine"
-                        : "Founder & Lead Architect, Few Hands Studio · Web Engineering since 1998"}
+                        ? "«Moj put u veb inženjeringu počeo je još 1998. godine - pisanjem čistog HTML-a u običnom Notepad-u, u vreme kada je moderni internet tek nastajao. Godinama sam radio u različitim veb studijima, spajajući strastveni hobi i inženjersku praksu, i iznutra upoznao sve slabosti agencijskog razvoja. Vremenom sam video kako je industrija skrenula na fabričku traku: agencije su postale mašine gde projekat prodaje harizmatični prodavac, a stvarni kod pišu preopterećeni pripravnici. Klijent plaća ogroman kancelarijski aparat i lanac menadžera, a zauzvrat dobija spor monolit pun nasumičnih dodataka»."
+                        : "«My journey in web engineering started back in 1998 - hand-coding raw HTML in Windows Notepad during the dawn of the commercial web. For years, I worked across various digital studios, treating it as both an intense hobby and a dedicated craft, learning every internal dysfunction of agency production. Over time, I watched the industry degenerate into an impersonal assembly line: digital agencies turned into factories where smooth sales reps close deals, but overworked junior contractors write the actual code. Clients pay for sprawling office overhead and five management layers, only to receive a sluggish monolith choked with third-party plugins»."}
+                    </p>
+
+                    <p>
+                      {lang === "ru"
+                        ? "«В 2008 году я принял осознанное решение основать собственную независимую студию - Few Hands - с принципиально другим подходом: оставаться инженерным бутиком. Название Few Hands - это наше профессиональное кредо: мало рук, но каждая рука - сеньорного уровня. Я лично отвечаю за архитектуру каждого проекта, общаюсь с клиентами напрямую без секретарей и посредников и гарантирую, что ваш веб-продукт будет открываться за доли секунды, не сломается от обновлений и навсегда останется вашим личным активом с безупречной кодовой базой»."
+                        : lang === "sr"
+                        ? "«Zato sam 2008. godine doneo svesnu odluku da osnujem sopstveni nezavisni studio - Few Hands - sa suštinski drugačijim pristupom: da ostanemo inženjerski butik. Ime Few Hands je naš kredo: malo ruku, ali svaka ruka je seniorskog ranga. Lično odgovaram za arhitekturu svakog projekta, komuniciram sa klijentima direktno bez posrednika i garantujem da će se vaš sajt otvarati u deliću sekunde, bez rušenja pri ažuriranjima i sa 100% čistim vlasništvom nad bazom koda»."
+                        : "«In 2008, I made the conscious decision to establish my own independent studio - Few Hands - built on a fundamentally different standard: an uncompromising engineering boutique. The name Few Hands is our operational creed: few hands, but every single hand is senior-grade. I personally architect every platform, collaborate with clients directly without account gatekeepers, and guarantee your web product renders in sub-second speed, withstands breaking updates, and remains your enduring unencumbered asset with a pristine codebase»."}
+                    </p>
+                  </div>
+
+                  {/* Signature footer */}
+                  <div className="mt-6 pt-5 border-t border-[#2d263b]/15 flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="font-handwriting text-2xl sm:text-3xl text-[#2d263b] font-bold -rotate-2">
+                        Andrei Ryzhenko
+                      </div>
+                      <span className="text-xs font-mono text-[#8c829c]">
+                        / Few Hands Lead Architect
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="mailto:web@fewhands.com"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-[#2d263b]/15 text-xs font-semibold text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 shadow-sm transition"
+                      >
+                        <span>web@fewhands.com</span>
+                      </a>
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#2d263b] text-[#faf9fb] hover:bg-[#1a1622] text-xs font-semibold shadow-sm transition"
+                      >
+                        <span>{lang === "ru" ? "Написать напрямую" : lang === "sr" ? "Direktan kontakt" : "Direct Message"}</span>
+                      </Link>
                     </div>
                   </div>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f1f0f5] border border-[#2d263b]/15 text-[11px] font-mono font-bold text-[#386161]">
-                  <span>★</span>
-                  <span>{lang === "ru" ? "КОЛОНКА ОСНОВАТЕЛЯ" : lang === "sr" ? "REČ OSNIVAČA" : "FOUNDER'S NOTE"}</span>
-                </div>
-              </div>
-
-              {/* Body text in authentic editorial voice */}
-              <div className="space-y-4 text-sm sm:text-base text-[#2d263b] leading-relaxed">
-                <p>
-                  {lang === "ru"
-                    ? "«Мой путь в веб-инженерии начался ещё в 1998 году - с вёрстки на чистом HTML в обычном блокноте Windows, когда интернет только зарождался. Долгие годы я работал в различных веб-студиях, совмещая это как увлечённое хобби и инженерную практику, изучая изнутри все скрытые болезни заказной разработки. Со временем я увидел, как индустрия свернула на опасный путь конвейера: агентства превратились в фабрики, где проект вам продаёт харизматичный сейлз, а пилят уставшие стажёры на субподряде. Клиент платит за раздутый офис и цепочку из пяти менеджеров, получая на выходе медленный монолит, набитый чужими плагинами»."
-                    : lang === "sr"
-                    ? "«Moj put u veb inženjeringu počeo je još 1998. godine - pisanjem čistog HTML-a u običnom Notepad-u, u vreme kada je moderni internet tek nastajao. Godinama sam radio u različitim veb studijima, spajajući strastveni hobi i inženjersku praksu, i iznutra upoznao sve slabosti agencijskog razvoja. Vremenom sam video kako je industrija skrenula na fabričku traku: agencije su postale mašine gde projekat prodaje harizmatični prodavac, a stvarni kod pišu preopterećeni pripravnici. Klijent plaća ogroman kancelarijski aparat i lanac menadžera, a zauzvrat dobija spor monolit pun nasumičnih dodataka»."
-                    : "«My journey in web engineering started back in 1998 - hand-coding raw HTML in Windows Notepad during the dawn of the commercial web. For years, I worked across various digital studios, treating it as both an intense hobby and a dedicated craft, learning every internal dysfunction of agency production. Over time, I watched the industry degenerate into an impersonal assembly line: digital agencies turned into factories where smooth sales reps close deals, but overworked junior contractors write the actual code. Clients pay for sprawling office overhead and five management layers, only to receive a sluggish monolith choked with third-party plugins»."}
-                </p>
-
-                <p>
-                  {lang === "ru"
-                    ? "«В 2008 году я принял осознанное решение основать собственную независимую студию - Few Hands - с принципиально другим подходом: оставаться инженерным бутиком. Название Few Hands - это наше профессиональное кредо: мало рук, но каждая рука - сеньорного уровня. Я лично отвечаю за архитектуру каждого проекта, общаюсь с клиентами напрямую без секретарей и посредников и гарантирую, что ваш веб-продукт будет открываться за доли секунды, не сломается от обновлений и навсегда останется вашим личным активом с безупречной кодовой базой»."
-                    : lang === "sr"
-                    ? "«Zato sam 2008. godine doneo svesnu odluku da osnujem sopstveni nezavisni studio - Few Hands - sa suštinski drugačijim pristupom: da ostanemo inženjerski butik. Ime Few Hands je naš kredo: malo ruku, ali svaka ruka je seniorskog ranga. Lično odgovaram za arhitekturu svakog projekta, komuniciram sa klijentima direktno bez posrednika i garantujem da će se vaš sajt otvarati u deliću sekunde, bez rušenja pri ažuriranjima i sa 100% čistim vlasništvom nad bazom koda»."
-                    : "«In 2008, I made the conscious decision to establish my own independent studio - Few Hands - built on a fundamentally different standard: an uncompromising engineering boutique. The name Few Hands is our operational creed: few hands, but every single hand is senior-grade. I personally architect every platform, collaborate with clients directly without account gatekeepers, and guarantee your web product renders in sub-second speed, withstands breaking updates, and remains your enduring unencumbered asset with a pristine codebase»."}
-                </p>
-              </div>
-
-              {/* Signature footer */}
-              <div className="mt-6 pt-5 border-t border-[#2d263b]/15 flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="font-handwriting text-2xl sm:text-3xl text-[#2d263b] font-bold -rotate-2">
-                    Andrei Ryzhenko
-                  </div>
-                  <span className="text-xs font-mono text-[#8c829c]">
-                    / Few Hands Lead Architect
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <a
-                    href="mailto:web@fewhands.com"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-[#2d263b]/15 text-xs font-semibold text-[#2d263b] hover:text-[#386161] hover:border-[#386161]/40 shadow-sm transition"
-                  >
-                    <span>web@fewhands.com</span>
-                  </a>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#2d263b] text-[#faf9fb] hover:bg-[#1a1622] text-xs font-semibold shadow-sm transition"
-                  >
-                    <span>{lang === "ru" ? "Написать напрямую" : lang === "sr" ? "Direktan kontakt" : "Direct Message"}</span>
-                  </Link>
                 </div>
               </div>
             </div>
