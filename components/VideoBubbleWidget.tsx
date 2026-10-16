@@ -232,25 +232,25 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
                 setIsOpen(true);
               }}
               aria-label="Open interactive video presenter"
-              className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-white shadow-2xl bg-slate-900 cursor-pointer transform group-hover:scale-105 active:scale-95 transition-all flex items-center justify-center"
+              className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-white shadow-2xl bg-slate-900 cursor-pointer transform group-hover:scale-105 active:scale-95 transition-all"
             >
-              {/* Perfectly Centered Portrait - No black sidebars */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={avatarImage}
-                alt="Digital Twin Video Presenter"
-                className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
-              />
-
-              {/* Play Badge Overlay */}
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 flex items-center justify-center transition-colors">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#9c386d]/90 text-white flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-                  <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white translate-x-0.5" />
-                </div>
+              <div className="w-full h-full rounded-full overflow-hidden">
+                {/* Perfectly Centered Portrait - No black sidebars */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={avatarImage}
+                  alt="Digital Twin Video Presenter"
+                  className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
 
-              {/* Online Indicator */}
-              <span className="absolute bottom-1 right-2 flex h-2.5 w-2.5">
+              {/* Mini Play Badge at bottom-right - face is 100% visible */}
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-md border-2 border-white transform group-hover:scale-115 transition-transform">
+                <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white translate-x-0.2" />
+              </div>
+
+              {/* Online Indicator at top right */}
+              <span className="absolute top-0 right-1 flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 border border-white"></span>
               </span>

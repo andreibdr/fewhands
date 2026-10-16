@@ -886,17 +886,18 @@ export const AiVideoView: React.FC = () => {
 
             <div className="lg:col-span-5 flex justify-center">
               <div className="p-6 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-md max-w-xs text-center">
-                <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white/30 shadow-2xl mb-4 bg-slate-900 flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/andrei-ryzhenko.webp"
-                    alt="FewHands Video Bubble Presenter"
-                    className="w-full h-full object-cover object-top"
-                  />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-                    <div className="w-10 h-10 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-lg">
-                      <Play className="w-5 h-5 fill-white translate-x-0.5" />
-                    </div>
+                <div className="relative w-32 h-32 mx-auto mb-4 cursor-pointer group" onClick={handleOpenWidget}>
+                  <div className="w-full h-full rounded-full overflow-hidden border-4 border-white/30 shadow-2xl bg-slate-900">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/andrei-ryzhenko.webp"
+                      alt="FewHands Video Bubble Presenter"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  {/* Neat Play Badge at bottom-right corner - face is 100% visible */}
+                  <div className="absolute bottom-0 right-0 w-10 h-10 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-110 transition-transform">
+                    <Play className="w-4 h-4 fill-white translate-x-0.5" />
                   </div>
                 </div>
                 <h4 className="text-base font-bold text-white">
