@@ -895,9 +895,9 @@ export const AiVideoView: React.FC = () => {
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  {/* Neat Play Badge at bottom-right corner - face is 100% visible */}
-                  <div className="absolute bottom-0 right-0 w-10 h-10 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-110 transition-transform">
-                    <Play className="w-4 h-4 fill-white translate-x-0.5" />
+                  {/* Perfectly Centered Play Badge */}
+                  <div className="absolute bottom-1 right-1 w-9 h-9 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-110 transition-transform">
+                    <Play className="w-4 h-4 fill-white" />
                   </div>
                 </div>
                 <h4 className="text-base font-bold text-white">

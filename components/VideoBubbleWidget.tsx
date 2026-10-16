@@ -246,7 +246,7 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
 
               {/* Mini Play Badge at bottom-right - face is 100% visible */}
               <div className="absolute -bottom-1 -right-1 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-md border-2 border-white transform group-hover:scale-115 transition-transform">
-                <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white translate-x-0.2" />
+                <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white" />
               </div>
 
               {/* Online Indicator at top right */}
