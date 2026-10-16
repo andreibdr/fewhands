@@ -839,7 +839,7 @@ export const AiVideoView: React.FC = () => {
 
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 text-xs">
                 <div>
-                  <div className="text-emerald-400 font-extrabold text-lg sm:text-xl">+35-50%</div>
+                  <div className="text-cyan-400 font-extrabold text-lg sm:text-xl">+35-50%</div>
                   <div className="text-slate-300">
                     {lang === "ru" ? "Рост конверсии лендинга" : lang === "sr" ? "Veća konverzija sajta" : "Conversion Lift"}
                   </div>
@@ -851,7 +851,7 @@ export const AiVideoView: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="text-amber-300 font-extrabold text-lg sm:text-xl">100 / 100</div>
+                  <div className="text-emerald-400 font-extrabold text-lg sm:text-xl">100 / 100</div>
                   <div className="text-slate-300">
                     {lang === "ru" ? "Google Core Web Vitals" : lang === "sr" ? "Google PageSpeed ocena" : "Google PageSpeed Score"}
                   </div>
