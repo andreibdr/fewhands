@@ -8,7 +8,7 @@ import {
   Volume2,
   VolumeX,
   X,
-  MessageCircle,
+  Mail,
   ArrowRight,
   Sparkles,
   ShieldCheck,
@@ -18,7 +18,6 @@ interface VideoBubbleWidgetProps {
   videoId?: string; // YouTube Shorts or video ID
   videoSrc?: string; // Optional direct MP4/WebM URL
   avatarImage?: string; // Portrait image for circle bubble (defaults to /andrei-ryzhenko.webp)
-  telegramUrl?: string; // Direct Telegram link (defaults to https://t.me/Strashilamudry)
   titleRu?: string;
   titleEn?: string;
   titleSr?: string;
@@ -33,7 +32,6 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
   videoId = "M8g2gJlwH7M",
   videoSrc,
   avatarImage = "/andrei-ryzhenko.webp",
-  telegramUrl = "https://t.me/Strashilamudry",
   titleRu = "Привет! Я цифровой двойник FewHands",
   titleEn = "Hi! I am the FewHands digital twin",
   titleSr = "Zdravo! Ja sam FewHands digitalni dvojnik",
@@ -177,15 +175,14 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
                 <span>{ctaText}</span>
                 <ArrowRight className="w-3 h-3" />
               </Link>
-              <a
-                href={telegramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/contact"
+                onClick={() => setIsOpen(false)}
                 className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs border border-white/10 transition-all text-center"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#229ED9]" />
-                <span>Telegram</span>
-              </a>
+                <Mail className="w-3.5 h-3.5 text-slate-300" />
+                <span>{lang === "ru" ? "Связаться" : lang === "sr" ? "Kontakt" : "Contact"}</span>
+              </Link>
             </div>
           </div>
         </div>
