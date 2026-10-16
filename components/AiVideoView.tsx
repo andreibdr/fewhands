@@ -44,6 +44,13 @@ export const AiVideoView: React.FC = () => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
+  const handleOpenWidget = () => {
+    setDemoWidgetActive(true);
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("open-video-bubble"));
+    }
+  };
+
   const sampleShorts = [
     {
       id: "M8g2gJlwH7M",
@@ -490,16 +497,16 @@ export const AiVideoView: React.FC = () => {
               {/* Instant Widget Trigger Button */}
               <div className="mt-4 pt-3 border-t border-slate-200/80 flex items-center gap-3">
                 <button
-                  onClick={() => setDemoWidgetActive(true)}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#386161] bg-[#edf5f5] hover:bg-[#dfeeee] px-3 py-1.5 rounded-lg border border-[#386161]/30 transition-colors"
+                  onClick={handleOpenWidget}
+                  className="inline-flex items-center gap-2 text-xs font-bold text-[#386161] bg-[#edf5f5] hover:bg-[#dfeeee] px-3.5 py-2 rounded-xl border border-[#386161]/30 transition-colors shadow-sm"
                 >
                   <Play className="w-3.5 h-3.5 fill-[#386161]" />
                   <span>
                     {lang === "ru"
-                      ? "Запустить демо видео-двойника в углу экрана"
+                      ? "Посмотреть живой видео-виджет"
                       : lang === "sr"
-                      ? "Pokrenite demo video dvojnika u uglu ekrana"
-                      : "Test live on-site video avatar bubble"}
+                      ? "Pogledajte video vidžet uživo"
+                      : "Watch Live Video Bubble"}
                   </span>
                 </button>
                 <span className="text-[11px] text-[#585068]">
@@ -853,16 +860,16 @@ export const AiVideoView: React.FC = () => {
 
               <div className="mt-8 flex flex-wrap gap-4">
                 <button
-                  onClick={() => setDemoWidgetActive(true)}
-                  className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#7f2656] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2"
+                  onClick={handleOpenWidget}
+                  className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#7f2656] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Play className="w-4 h-4 fill-white" />
                   <span>
                     {lang === "ru"
-                      ? "Протестировать виджет прямо сейчас"
+                      ? "Посмотреть живой видео-виджет"
                       : lang === "sr"
-                      ? "Isprobajte vidžet odmah"
-                      : "Trigger Live Demo Bubble"}
+                      ? "Pogledajte video vidžet uživo"
+                      : "Watch Live Video Bubble"}
                   </span>
                 </button>
                 <Link
@@ -879,12 +886,19 @@ export const AiVideoView: React.FC = () => {
 
             <div className="lg:col-span-5 flex justify-center">
               <div className="p-6 rounded-3xl bg-white/10 border border-white/20 backdrop-blur-md max-w-xs text-center">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="https://i.ytimg.com/vi/M8g2gJlwH7M/hqdefault.jpg"
-                  alt="Website Video Bubble"
-                  className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white/30 shadow-2xl mb-4"
-                />
+                <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-white/30 shadow-2xl mb-4 bg-slate-900 flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/andrei-ryzhenko.webp"
+                    alt="FewHands Video Bubble Presenter"
+                    className="w-full h-full object-cover object-top"
+                  />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-lg">
+                      <Play className="w-5 h-5 fill-white translate-x-0.5" />
+                    </div>
+                  </div>
+                </div>
                 <h4 className="text-base font-bold text-white">
                   {lang === "ru" ? "Видео-виджет FewHands" : lang === "sr" ? "FewHands video vidžet" : "FewHands Video Bubble"}
                 </h4>

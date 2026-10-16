@@ -58,6 +58,24 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (startOpened) {
+      setMounted(true);
+      setIsDismissed(false);
+      setIsOpen(true);
+    }
+  }, [startOpened]);
+
+  useEffect(() => {
+    const handleOpenWidget = () => {
+      setMounted(true);
+      setIsDismissed(false);
+      setIsOpen(true);
+    };
+    window.addEventListener("open-video-bubble", handleOpenWidget);
+    return () => window.removeEventListener("open-video-bubble", handleOpenWidget);
+  }, []);
+
   if (!mounted || isDismissed) {
     return null;
   }
