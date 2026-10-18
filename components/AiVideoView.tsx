@@ -86,34 +86,19 @@ export const AiVideoView: React.FC = () => {
 
   const youtubeVideos = [
     {
-      id: "KjhW0NmL2v0",
-      title:
-        lang === "ru"
-          ? "YouTube Production - Полный монтаж выпуска"
-          : lang === "sr"
-          ? "YouTube produkcija - Kompletna montaža epizode"
-          : "YouTube Production - Full Episode Edit",
-      category: lang === "ru" ? "Подкаст / Выпуск" : lang === "sr" ? "Podkast / Emisija" : "Podcast / Episode",
+      id: "_YHj2zE5i-0",
+      title: "Eureka Valley San Francisco | What It's Really Like to Live Here",
+      category: lang === "ru" ? "Районный обзор · 16:9" : lang === "sr" ? "Pregled lokacije · 16:9" : "Neighborhood Guide · 16:9",
     },
     {
-      id: "wm9bt16QY_Q",
-      title:
-        lang === "ru"
-          ? "YouTube Production - Экспертное интервью"
-          : lang === "sr"
-          ? "YouTube produkcija - Stručni intervju"
-          : "YouTube Production - In-Depth Interview",
-      category: lang === "ru" ? "Интервью" : lang === "sr" ? "Intervju" : "Interview",
+      id: "lhWRookt06g",
+      title: "Parque Towers Sunny Isles: Is This $137,000 Discount a Trap?",
+      category: lang === "ru" ? "Инвестиционный анализ · 16:9" : lang === "sr" ? "Investiciona analiza · 16:9" : "Investment Analysis · 16:9",
     },
     {
-      id: "_9Z-gfKJRBU",
-      title:
-        lang === "ru"
-          ? "YouTube Production - Коммерческий шоукейс"
-          : lang === "sr"
-          ? "YouTube produkcija - Komercijalni video"
-          : "YouTube Production - Commercial Showcase",
-      category: lang === "ru" ? "Коммерческое видео" : lang === "sr" ? "Komercijalni video" : "Commercial Showcase",
+      id: "_DdbQeit5po",
+      title: "San Francisco Buyer's Guide: Which Neighborhoods Match Your Market Strategy",
+      category: lang === "ru" ? "Стратегический гид · 16:9" : lang === "sr" ? "Stručni vodič · 16:9" : "Market Strategy · 16:9",
     },
   ];
 

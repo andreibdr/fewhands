@@ -15,9 +15,9 @@ export const VideoAvatarSection: React.FC = () => {
   ];
 
   const youtubeVideos = [
-    { id: "KjhW0NmL2v0", title: "YouTube Production 1" },
-    { id: "wm9bt16QY_Q", title: "YouTube Production 2" },
-    { id: "_9Z-gfKJRBU", title: "YouTube Production 3" },
+    { id: "_YHj2zE5i-0", title: "Eureka Valley San Francisco | Neighborhood Guide" },
+    { id: "lhWRookt06g", title: "Parque Towers Sunny Isles | Investment Breakdown" },
+    { id: "_DdbQeit5po", title: "San Francisco Buyer's Guide | Market Strategy" },
   ];
 
   return (
