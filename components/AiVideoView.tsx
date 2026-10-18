@@ -537,36 +537,6 @@ export const AiVideoView: React.FC = () => {
                 : "Click any preview below to experience realistic facial articulation, multilingual voice cloning, and tight post-production."}
             </p>
 
-            {/* JOINEE PARTNERSHIP PILL */}
-            <div className="mt-4 inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f8edf3] border border-[#9c386d]/20 text-xs text-[#2d263b]">
-              <span className="flex items-center gap-1.5 font-semibold text-[#9c386d]">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>
-                  {lang === "ru"
-                    ? "Официальный партнер Joinee"
-                    : lang === "sr"
-                    ? "Zvanični partner Joinee"
-                    : "Official Joinee Partner"}
-                </span>
-              </span>
-              <span className="text-slate-300">·</span>
-              <span className="text-[#585068]">
-                {lang === "ru"
-                  ? "в услуге создания гиперреалистичных цифровых аватаров"
-                  : lang === "sr"
-                  ? "u kreiranju digitalnih avatara"
-                  : "in photorealistic digital avatar creation"}
-              </span>
-              <a
-                href="https://www.joinee.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[#9c386d] hover:underline font-semibold ml-1"
-              >
-                <span>joinee.io</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
