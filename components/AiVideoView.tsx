@@ -591,11 +591,22 @@ export const AiVideoView: React.FC = () => {
           </div>
 
           {/* JOINEE PARTNERSHIP TRUST CARD */}
-          <div className="mt-8 p-4 rounded-2xl bg-gradient-to-r from-slate-50 via-[#fcf8fa] to-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs max-w-5xl mx-auto">
-            <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-[#2d263b] text-white flex items-center justify-center font-bold tracking-tight text-base shrink-0 shadow-sm">
-                J
-              </div>
+          <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-50 via-[#fcf8fa] to-slate-50 border border-slate-200/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs max-w-5xl mx-auto">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <a
+                href="https://www.joinee.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 hover:opacity-90 transition-opacity"
+                title="Joinee - AI Digital Avatars"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/portfolio/joinee-badge.webp"
+                  alt="AI Video Created by Joinee"
+                  className="h-9 sm:h-11 w-auto object-contain"
+                />
+              </a>
               <div>
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-[#2d263b] text-xs sm:text-sm">
@@ -618,7 +629,7 @@ export const AiVideoView: React.FC = () => {
               href="https://www.joinee.io/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 text-[#2d263b] font-semibold border border-slate-200 transition-colors shrink-0 shadow-xs"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-slate-100 text-[#2d263b] font-semibold border border-slate-200 transition-colors shrink-0 shadow-xs self-start md:self-auto"
             >
               <span>joinee.io</span>
               <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
