@@ -22,3 +22,6 @@ yarn-error.log*
 *.bak
 .DS_Store
 Thumbs.db
+
+# Working video files in root
+/AN_promo*.mp4

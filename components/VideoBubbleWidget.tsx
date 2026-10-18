@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageContext";
 import {
@@ -30,7 +30,7 @@ interface VideoBubbleWidgetProps {
 
 export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
   videoId = "M8g2gJlwH7M",
-  videoSrc,
+  videoSrc = "/video-bubble-intro.mp4",
   avatarImage = "/andrei-ryzhenko.webp",
   titleRu = "Привет! Я цифровой двойник FewHands",
   titleEn = "Hi! I am the FewHands digital twin",
@@ -46,6 +46,7 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
   const [isDismissed, setIsDismissed] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [bubbleHover, setBubbleHover] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Auto-delay appearance so it does NOT affect Initial LCP / Core Web Vitals
   const [mounted, setMounted] = useState(false);
@@ -73,6 +74,21 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
     window.addEventListener("open-video-bubble", handleOpenWidget);
     return () => window.removeEventListener("open-video-bubble", handleOpenWidget);
   }, []);
+
+  useEffect(() => {
+    if (isOpen && videoRef.current) {
+      videoRef.current.muted = isMuted;
+      videoRef.current.play().catch(() => {
+        if (videoRef.current) {
+          videoRef.current.muted = true;
+          setIsMuted(true);
+          videoRef.current.play().catch(() => {});
+        }
+      });
+    } else if (!isOpen && videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, [isOpen]);
 
   if (!mounted || isDismissed) {
     return null;
@@ -122,6 +138,7 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
           <div className="relative aspect-[9/14] w-full bg-black flex items-center justify-center overflow-hidden">
             {videoSrc ? (
               <video
+                ref={videoRef}
                 src={videoSrc}
                 autoPlay
                 playsInline
@@ -154,7 +171,13 @@ export const VideoBubbleWidget: React.FC<VideoBubbleWidgetProps> = ({
                 </span>
               </span>
               <button
-                onClick={() => setIsMuted(!isMuted)}
+                onClick={() => {
+                  const nextMuted = !isMuted;
+                  setIsMuted(nextMuted);
+                  if (videoRef.current) {
+                    videoRef.current.muted = nextMuted;
+                  }
+                }}
                 className="p-1 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors"
                 title={isMuted ? "Включить звук" : "Выключить звук"}
               >

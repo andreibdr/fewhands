@@ -415,6 +415,7 @@ export const AiVideoView: React.FC = () => {
       {/* Floating Interactive Widget Demo */}
       <VideoBubbleWidget
         videoId="M8g2gJlwH7M"
+        videoSrc="/video-bubble-intro.mp4"
         startOpened={demoWidgetActive}
         titleRu="Привет! Я цифровой двойник FewHands. Могу встречать ваших клиентов на сайте и отвечать на вопросы без потери скорости!"
         titleEn="Hi! I am the FewHands digital twin. I greet visitors directly on your site with zero page load impact!"
