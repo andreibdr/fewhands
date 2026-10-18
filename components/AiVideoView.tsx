@@ -53,34 +53,19 @@ export const AiVideoView: React.FC = () => {
 
   const sampleShorts = [
     {
-      id: "M8g2gJlwH7M",
-      title:
-        lang === "ru"
-          ? "Цифровой двойник эксперта - Презентация продукта"
-          : lang === "sr"
-          ? "Digitalni dvojnik stručnjaka - Prezentacija proizvoda"
-          : "Digital Twin Presenter - Product Explainer",
-      badge: lang === "ru" ? "Русский оригинал" : lang === "sr" ? "Original" : "Original Voice",
+      id: "nMmu9whtzZs",
+      title: "San Francisco Buyer Goes $150K Over Asking and Still Loses",
+      badge: lang === "ru" ? "Рыночный кейс · 9:16" : lang === "sr" ? "Tržišni slučaj · 9:16" : "Market Case · 9:16",
     },
     {
-      id: "9_jdjXBknOw",
-      title:
-        lang === "ru"
-          ? "Англоязычная версия с сохранением тембра голоса"
-          : lang === "sr"
-          ? "Engleska verzija sa očuvanom bojom glasa"
-          : "English Localization with Native Voice Timbre",
-      badge: lang === "ru" ? "Клон голоса (EN)" : lang === "sr" ? "AI Klon (EN)" : "Voice Clone (EN)",
+      id: "XNY-zo4ZoUk",
+      title: "A whole generation of abandoned avatars 👾",
+      badge: lang === "ru" ? "AI-двойник · 9:16" : lang === "sr" ? "AI avatar · 9:16" : "AI Avatar · 9:16",
     },
     {
-      id: "-UE0CTWQwD4",
-      title:
-        lang === "ru"
-          ? "Лид-магнит ролик для соцсетей и сайта"
-          : lang === "sr"
-          ? "Video za generisanje lidova za sajt i mreže"
-          : "Social Lead Hook & Website Presenter",
-      badge: lang === "ru" ? "Высокая конверсия" : lang === "sr" ? "Visoka konverzija" : "High Conversion",
+      id: "utJbl0MRfa0",
+      title: "Script 3 - Thank you to partners",
+      badge: lang === "ru" ? "Партнерский питч · 9:16" : lang === "sr" ? "Partnerski pitch · 9:16" : "Partner Pitch · 9:16",
     },
   ];
 
@@ -399,7 +384,7 @@ export const AiVideoView: React.FC = () => {
     <div className="py-12 sm:py-20">
       {/* Floating Interactive Widget Demo */}
       <VideoBubbleWidget
-        videoId="M8g2gJlwH7M"
+        videoId="nMmu9whtzZs"
         videoSrc="/video-bubble-intro.mp4"
         startOpened={demoWidgetActive}
         titleRu="Привет! Я цифровой двойник FewHands. Могу встречать ваших клиентов на сайте и отвечать на вопросы без потери скорости!"

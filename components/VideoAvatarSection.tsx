@@ -9,9 +9,9 @@ export const VideoAvatarSection: React.FC = () => {
   const [activeIframe, setActiveIframe] = useState<string | null>(null);
 
   const shorts = [
-    { id: "M8g2gJlwH7M", title: "AI Avatar Presenter 1" },
-    { id: "9_jdjXBknOw", title: "AI Avatar Presenter 2" },
-    { id: "-UE0CTWQwD4", title: "AI Avatar Presenter 3" },
+    { id: "nMmu9whtzZs", title: "San Francisco Buyer Goes $150K Over Asking and Still Loses" },
+    { id: "XNY-zo4ZoUk", title: "A whole generation of abandoned avatars 👾" },
+    { id: "utJbl0MRfa0", title: "Script 3 - Thank you to partners" },
   ];
 
   const youtubeVideos = [
