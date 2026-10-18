@@ -350,8 +350,22 @@ export const portfolioItems: PortfolioItem[] = [
       en: "Short partner gratitude and investor pitch featuring an on-screen AI presenter.",
       sr: "Kratko obraćanje partnerima i investitorima uz pomoć AI prezentera.",
     },
-    youtubeId: "utJbl0MRfa0",
+    youtubeId: "ZIfLdTPtJzg",
     image: "/portfolio/short-partner-pitch.webp",
+    isShort: true,
+  },
+  {
+    id: "avatar-4",
+    title: "Deep Tech & Angel Investors Pitch",
+    category: "video",
+    tags: ["AI Technology", "Shorts 9:16", "Venture"],
+    description: {
+      ru: "Динамичный вертикальный ролик для венчурного фонда и сообщества бизнес-ангелов.",
+      en: "Dynamic vertical video engineered for deep tech venture syndicates and angel investors.",
+      sr: "Dinamičan vertikalni video za investitore i poslovne anđele u oblasti tehnologije.",
+    },
+    youtubeId: "e7CKuwVvGrs",
+    image: "/portfolio/short-deeptech-angels.webp",
     isShort: true,
   },
   {

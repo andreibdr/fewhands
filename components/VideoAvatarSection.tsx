@@ -11,7 +11,8 @@ export const VideoAvatarSection: React.FC = () => {
   const shorts = [
     { id: "nMmu9whtzZs", title: "San Francisco Buyer Goes $150K Over Asking and Still Loses", thumbnail: "/portfolio/short-sf-buyer.webp" },
     { id: "XNY-zo4ZoUk", title: "A whole generation of abandoned avatars 👾", thumbnail: "/portfolio/short-abandoned-avatars.webp" },
-    { id: "utJbl0MRfa0", title: "Script 3 - Thank you to partners", thumbnail: "/portfolio/short-partner-pitch.webp" },
+    { id: "ZIfLdTPtJzg", title: "Script 3 - Thank you to partners", thumbnail: "/portfolio/short-partner-pitch.webp" },
+    { id: "e7CKuwVvGrs", title: "We aren't just funding deep tech - we are raising angel investors", thumbnail: "/portfolio/short-deeptech-angels.webp" },
   ];
 
   const youtubeVideos = [
@@ -62,7 +63,7 @@ export const VideoAvatarSection: React.FC = () => {
           </div>
 
           {/* 9:16 Shorts Grid */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {shorts.map((item) => (
               <div
                 key={item.id}
@@ -87,12 +88,13 @@ export const VideoAvatarSection: React.FC = () => {
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-4">
                       <span className="text-xs font-medium text-white line-clamp-1">{item.title}</span>
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 fill-white translate-x-0.5" />
+                    {/* Play button positioned in lower third to avoid covering face */}
+                    <div className="absolute bottom-20 inset-x-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-12 h-12 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                        <Play className="w-5 h-5 fill-white translate-x-0.5" />
                       </div>
                     </div>
                   </div>

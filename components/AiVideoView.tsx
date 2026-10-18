@@ -65,10 +65,16 @@ export const AiVideoView: React.FC = () => {
       thumbnail: "/portfolio/short-abandoned-avatars.webp",
     },
     {
-      id: "utJbl0MRfa0",
+      id: "ZIfLdTPtJzg",
       title: "Script 3 - Thank you to partners",
       badge: lang === "ru" ? "Партнерский питч · 9:16" : lang === "sr" ? "Partnerski pitch · 9:16" : "Partner Pitch · 9:16",
       thumbnail: "/portfolio/short-partner-pitch.webp",
+    },
+    {
+      id: "e7CKuwVvGrs",
+      title: "We aren't just funding deep tech - we are raising angel investors",
+      badge: lang === "ru" ? "Deep Tech & Ангелы · 9:16" : lang === "sr" ? "Deep Tech & Investicije · 9:16" : "Deep Tech & Angels · 9:16",
+      thumbnail: "/portfolio/short-deeptech-angels.webp",
     },
   ];
 
@@ -539,7 +545,7 @@ export const AiVideoView: React.FC = () => {
 
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
             {sampleShorts.map((item) => (
               <div
                 key={item.id}
@@ -569,12 +575,13 @@ export const AiVideoView: React.FC = () => {
                         {item.badge}
                       </span>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-4">
                       <span className="text-xs font-semibold text-white line-clamp-2">{item.title}</span>
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-[#9c386d] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 fill-white translate-x-0.5" />
+                    {/* Play button positioned in lower third to avoid covering face */}
+                    <div className="absolute bottom-20 inset-x-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-12 h-12 rounded-full bg-[#9c386d]/95 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform backdrop-blur-xs">
+                        <Play className="w-5 h-5 fill-white translate-x-0.5" />
                       </div>
                     </div>
                   </div>
@@ -584,7 +591,7 @@ export const AiVideoView: React.FC = () => {
           </div>
 
           {/* JOINEE PARTNERSHIP TRUST CARD */}
-          <div className="mt-8 p-4 rounded-2xl bg-gradient-to-r from-slate-50 via-[#fcf8fa] to-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs max-w-4xl mx-auto">
+          <div className="mt-8 p-4 rounded-2xl bg-gradient-to-r from-slate-50 via-[#fcf8fa] to-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs max-w-5xl mx-auto">
             <div className="flex items-center gap-3.5">
               <div className="w-10 h-10 rounded-xl bg-[#2d263b] text-white flex items-center justify-center font-bold tracking-tight text-base shrink-0 shadow-sm">
                 J
