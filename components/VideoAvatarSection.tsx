@@ -9,15 +9,15 @@ export const VideoAvatarSection: React.FC = () => {
   const [activeIframe, setActiveIframe] = useState<string | null>(null);
 
   const shorts = [
-    { id: "nMmu9whtzZs", title: "San Francisco Buyer Goes $150K Over Asking and Still Loses" },
-    { id: "XNY-zo4ZoUk", title: "A whole generation of abandoned avatars 👾" },
-    { id: "utJbl0MRfa0", title: "Script 3 - Thank you to partners" },
+    { id: "nMmu9whtzZs", title: "San Francisco Buyer Goes $150K Over Asking and Still Loses", thumbnail: "/portfolio/short-sf-buyer.webp" },
+    { id: "XNY-zo4ZoUk", title: "A whole generation of abandoned avatars 👾", thumbnail: "/portfolio/short-abandoned-avatars.webp" },
+    { id: "utJbl0MRfa0", title: "Script 3 - Thank you to partners", thumbnail: "/portfolio/short-partner-pitch.webp" },
   ];
 
   const youtubeVideos = [
-    { id: "_YHj2zE5i-0", title: "Eureka Valley San Francisco | Neighborhood Guide" },
-    { id: "lhWRookt06g", title: "Parque Towers Sunny Isles | Investment Breakdown" },
-    { id: "_DdbQeit5po", title: "San Francisco Buyer's Guide | Market Strategy" },
+    { id: "_YHj2zE5i-0", title: "Eureka Valley San Francisco | Neighborhood Guide", thumbnail: "/portfolio/yt-sf-eureka.webp" },
+    { id: "lhWRookt06g", title: "Parque Towers Sunny Isles | Investment Breakdown", thumbnail: "/portfolio/yt-parque-towers.webp" },
+    { id: "_DdbQeit5po", title: "San Francisco Buyer's Guide | Market Strategy", thumbnail: "/portfolio/yt-sf-buyers-guide.webp" },
   ];
 
   return (
@@ -62,7 +62,7 @@ export const VideoAvatarSection: React.FC = () => {
           </div>
 
           {/* 9:16 Shorts Grid */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {shorts.map((item) => (
               <div
                 key={item.id}
@@ -83,7 +83,7 @@ export const VideoAvatarSection: React.FC = () => {
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={`https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`}
+                      src={item.thumbnail || `https://i.ytimg.com/vi/${item.id}/oar2.jpg`}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
                     />
@@ -145,7 +145,7 @@ export const VideoAvatarSection: React.FC = () => {
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={`https://i.ytimg.com/vi/${yt.id}/hqdefault.jpg`}
+                      src={yt.thumbnail || `https://i.ytimg.com/vi/${yt.id}/maxresdefault.jpg`}
                       alt={yt.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

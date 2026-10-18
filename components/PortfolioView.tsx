@@ -253,7 +253,7 @@ export const PortfolioView: React.FC = () => {
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
+                          src={item.image || (item.isShort ? `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg` : `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`)}
                           alt={lang === "ru" ? `${item.title} - видео продакшн Few Hands` : lang === "sr" ? `${item.title} - Few Hands video produkcija` : `${item.title} - Few Hands Video Production`}
                           className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
                         />

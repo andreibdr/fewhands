@@ -323,6 +323,7 @@ export const portfolioItems: PortfolioItem[] = [
       sr: "Dinamična vertikalna analiza slučaja na tržištu nekretnina u San Francisku sa titlovima.",
     },
     youtubeId: "nMmu9whtzZs",
+    image: "/portfolio/short-sf-buyer.webp",
     isShort: true,
   },
   {
@@ -336,6 +337,7 @@ export const portfolioItems: PortfolioItem[] = [
       sr: "Video sa digitalnim avatarom i neuronskim glasom sa prirodnom mimikom.",
     },
     youtubeId: "XNY-zo4ZoUk",
+    image: "/portfolio/short-abandoned-avatars.webp",
     isShort: true,
   },
   {
@@ -349,6 +351,7 @@ export const portfolioItems: PortfolioItem[] = [
       sr: "Kratko obraćanje partnerima i investitorima uz pomoć AI prezentera.",
     },
     youtubeId: "utJbl0MRfa0",
+    image: "/portfolio/short-partner-pitch.webp",
     isShort: true,
   },
   {
@@ -362,6 +365,7 @@ export const portfolioItems: PortfolioItem[] = [
       sr: "Kompletna montaža YouTube emisije o San Francisku: grafika, obrada zvuka i kolor korekcija.",
     },
     youtubeId: "_YHj2zE5i-0",
+    image: "/portfolio/yt-sf-eureka.webp",
     isShort: false,
   },
   {
@@ -375,6 +379,7 @@ export const portfolioItems: PortfolioItem[] = [
       sr: "Investiciona analiza nekretnina u Majamiju: infografika, dinamična montaža i naslovna sličica.",
     },
     youtubeId: "lhWRookt06g",
+    image: "/portfolio/yt-parque-towers.webp",
     isShort: false,
   },
   {
@@ -388,6 +393,7 @@ export const portfolioItems: PortfolioItem[] = [
       sr: "Strateški vodič za kupce nekretnina u San Francisku: vizuelizacija podataka i audio dizajn.",
     },
     youtubeId: "_DdbQeit5po",
+    image: "/portfolio/yt-sf-buyers-guide.webp",
     isShort: false,
   },
 ];

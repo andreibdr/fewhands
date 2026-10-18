@@ -104,7 +104,7 @@ export const PortfolioSection: React.FC = () => {
                     >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={`https://i.ytimg.com/vi/${item.youtubeId}/hqdefault.jpg`}
+                        src={item.image || (item.isShort ? `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg` : `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`)}
                         alt={item.title}
                         className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
                       />

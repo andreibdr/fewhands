@@ -56,16 +56,19 @@ export const AiVideoView: React.FC = () => {
       id: "nMmu9whtzZs",
       title: "San Francisco Buyer Goes $150K Over Asking and Still Loses",
       badge: lang === "ru" ? "Рыночный кейс · 9:16" : lang === "sr" ? "Tržišni slučaj · 9:16" : "Market Case · 9:16",
+      thumbnail: "/portfolio/short-sf-buyer.webp",
     },
     {
       id: "XNY-zo4ZoUk",
       title: "A whole generation of abandoned avatars 👾",
       badge: lang === "ru" ? "AI-двойник · 9:16" : lang === "sr" ? "AI avatar · 9:16" : "AI Avatar · 9:16",
+      thumbnail: "/portfolio/short-abandoned-avatars.webp",
     },
     {
       id: "utJbl0MRfa0",
       title: "Script 3 - Thank you to partners",
       badge: lang === "ru" ? "Партнерский питч · 9:16" : lang === "sr" ? "Partnerski pitch · 9:16" : "Partner Pitch · 9:16",
+      thumbnail: "/portfolio/short-partner-pitch.webp",
     },
   ];
 
@@ -74,16 +77,19 @@ export const AiVideoView: React.FC = () => {
       id: "_YHj2zE5i-0",
       title: "Eureka Valley San Francisco | What It's Really Like to Live Here",
       category: lang === "ru" ? "Районный обзор · 16:9" : lang === "sr" ? "Pregled lokacije · 16:9" : "Neighborhood Guide · 16:9",
+      thumbnail: "/portfolio/yt-sf-eureka.webp",
     },
     {
       id: "lhWRookt06g",
       title: "Parque Towers Sunny Isles: Is This $137,000 Discount a Trap?",
       category: lang === "ru" ? "Инвестиционный анализ · 16:9" : lang === "sr" ? "Investiciona analiza · 16:9" : "Investment Analysis · 16:9",
+      thumbnail: "/portfolio/yt-parque-towers.webp",
     },
     {
       id: "_DdbQeit5po",
       title: "San Francisco Buyer's Guide: Which Neighborhoods Match Your Market Strategy",
       category: lang === "ru" ? "Стратегический гид · 16:9" : lang === "sr" ? "Stručni vodič · 16:9" : "Market Strategy · 16:9",
+      thumbnail: "/portfolio/yt-sf-buyers-guide.webp",
     },
   ];
 
@@ -639,7 +645,7 @@ export const AiVideoView: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {sampleShorts.map((item) => (
               <div
                 key={item.id}
@@ -660,7 +666,7 @@ export const AiVideoView: React.FC = () => {
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={`https://i.ytimg.com/vi/${item.id}/hqdefault.jpg`}
+                      src={item.thumbnail || `https://i.ytimg.com/vi/${item.id}/oar2.jpg`}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
                     />
@@ -731,7 +737,7 @@ export const AiVideoView: React.FC = () => {
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={`https://i.ytimg.com/vi/${yt.id}/hqdefault.jpg`}
+                      src={yt.thumbnail || `https://i.ytimg.com/vi/${yt.id}/maxresdefault.jpg`}
                       alt={yt.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
