@@ -921,57 +921,47 @@ export const AiVideoView: React.FC = () => {
         </div>
 
         {/* SECTION: ОНЛАЙН-КАЛЬКУЛЯТОР СМЕТЫ */}
-        <div className="mt-20">
-          <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#2d263b] via-[#372d47] to-[#2d263b] text-white shadow-xl relative overflow-hidden">
-            <div className="absolute right-0 top-0 w-80 h-80 bg-[#9c386d]/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="relative z-10 max-w-2xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#f8edf3] text-xs font-semibold mb-4 border border-white/15">
-                <Calculator className="w-3.5 h-3.5 text-emerald-400" />
-                <span>
-                  {lang === "ru"
-                    ? "Прозрачный онлайн-расчет"
-                    : lang === "sr"
-                    ? "Onlajn kalkulator cene"
-                    : "Transparent Online Estimator"}
-                </span>
+        <div className="mt-14">
+          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-[#2d263b] via-[#372d47] to-[#2d263b] text-white border border-[#9c386d]/20 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-5 relative overflow-hidden">
+            <div className="absolute right-0 top-0 w-60 h-60 bg-[#9c386d]/15 rounded-full blur-2xl pointer-events-none" />
+            <div className="flex items-start sm:items-center gap-4 relative z-10">
+              <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 text-emerald-400 flex items-center justify-center shrink-0">
+                <Calculator className="w-5 h-5" />
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                {lang === "ru"
-                  ? "Рассчитайте точную смету под ваши задачи"
-                  : lang === "sr"
-                  ? "Izračunajte tačnu cenu za vaš video projekat"
-                  : "Calculate the Exact Estimate for Your Project"}
-              </h2>
-              <p className="text-sm text-slate-300 mt-3 leading-relaxed">
-                {lang === "ru"
-                  ? "Никаких жестких тарифов и переплат. Выберите формат роликов, хронометраж, клонирование голоса или видео-виджет в нашем интерактивном калькуляторе."
-                  : lang === "sr"
-                  ? "Bez fiksnih paketa i nepotrebnih troškova. Izaberite format, trajanje ili video vidžet u našem interaktivnom kalkulatoru."
-                  : "No rigid bundle markups. Choose video format, runtime, neural voice cloning, or on-site presenter in our interactive calculator."}
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Link
-                  href="/estimate?service=video"
-                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#6d244c] hover:opacity-95 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
-                >
-                  <Calculator className="w-4 h-4" />
-                  <span>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
                     {lang === "ru"
-                      ? "Открыть калькулятор сметы"
+                      ? "Точный онлайн-расчет сметы видео"
                       : lang === "sr"
-                      ? "Otvorite kalkulator cene"
-                      : "Open Interactive Estimator"}
-                  </span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition-all"
-                >
-                  {lang === "ru" ? "Обсудить проект лично" : lang === "sr" ? "Direktan kontakt" : "Direct Consultation"}
-                </Link>
+                      ? "Onlajn kalkulator cene video projekta"
+                      : "Interactive Video Cost Estimator"}
+                  </h3>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed">
+                  {lang === "ru"
+                    ? "Настройте формат, хронометраж, клонирование голоса и видео-виджет без жестких тарифов и переплат."
+                    : lang === "sr"
+                    ? "Izaberite format, trajanje i opcije u kalkulatoru bez fiksnih paketa i skrivenih troškova."
+                    : "Configure format, runtime, neural voice cloning, and web avatars with zero rigid bundle markups."}
+                </p>
               </div>
             </div>
+
+            <Link
+              href="/estimate?service=video"
+              className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#6d244c] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-2 shrink-0 self-stretch sm:self-auto justify-center relative z-10"
+            >
+              <Calculator className="w-4 h-4" />
+              <span>
+                {lang === "ru"
+                  ? "Открыть калькулятор"
+                  : lang === "sr"
+                  ? "Otvorite kalkulator"
+                  : "Open Estimator"}
+              </span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           {/* RETAINER BANNER */}
