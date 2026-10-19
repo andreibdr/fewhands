@@ -284,8 +284,64 @@ export const AiVideoView: React.FC = () => {
     },
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://fewhands.com/ai-video#service",
+        name:
+          lang === "ru"
+            ? "AI Видеопродакшн и цифровые аватары"
+            : lang === "sr"
+            ? "AI video produkcija i digitalni avatari"
+            : "Generative AI Video Production & Digital Avatars",
+        serviceType: "AI Video Production",
+        provider: {
+          "@type": "Organization",
+          name: "Few Hands",
+          url: "https://fewhands.com",
+        },
+        url: "https://fewhands.com/ai-video",
+        description:
+          lang === "ru"
+            ? "Создание фотореалистичных цифровых двойников, нейросетевое клонирование голоса на 30+ языках и видеомонтаж под ключ."
+            : "Turnkey generative AI video, photorealistic digital twin presenters, and multilingual video production for business.",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://fewhands.com/ai-video#faq",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: lang === "ru" ? f.qRu : lang === "sr" ? f.qSr : f.qEn,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: lang === "ru" ? f.aRu : lang === "sr" ? f.aSr : f.aEn,
+          },
+        })),
+      },
+      ...sampleShorts.map((short) => ({
+        "@type": "VideoObject",
+        name: short.title,
+        description: `${short.badge} - ${short.title}`,
+        thumbnailUrl: [
+          short.thumbnail
+            ? `https://fewhands.com${short.thumbnail}`
+            : `https://i.ytimg.com/vi/${short.id}/maxresdefault.jpg`,
+        ],
+        uploadDate: "2024-01-01T08:00:00+00:00",
+        embedUrl: `https://www.youtube-nocookie.com/embed/${short.id}`,
+      })),
+    ],
+  };
+
   return (
-    <div className="py-12 sm:py-20">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="py-12 sm:py-20">
       {/* Floating Interactive Widget Demo */}
       <VideoBubbleWidget
         videoId="nMmu9whtzZs"
@@ -1081,5 +1137,6 @@ export const AiVideoView: React.FC = () => {
 
       </div>
     </div>
+    </>
   );
 };
