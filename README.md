@@ -12,7 +12,7 @@
 ---
 
 ## 🧭 Core Funnel Structure
-1. **Hero Hub:** Value proposition, social proof (16+ years experience, 50+ projects in US/EU), client showcase.
+1. **Hero Hub:** Value proposition, social proof (16+ years experience, 150+ projects in US/EU), client showcase.
 2. **Platform Migration Hub:** Turnkey migration from legacy CMS & builders (WordPress/WooCommerce, Tilda, Webflow, Bitrix, InSales, legacy PHP) to Next.js.
    - Technology Partnership with [gomvp.dev](https://gomvp.dev/en/migrate).
 3. **Bespoke Web Development:** High-converting landing pages, catalogs, and enterprise hubs.

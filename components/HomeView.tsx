@@ -451,7 +451,7 @@ export const HomeView: React.FC = () => {
                 </div>
               </div>
               <div>
-                <div className="text-2xl sm:text-4xl font-black text-[#2d263b]">50+</div>
+                <div className="text-2xl sm:text-4xl font-black text-[#2d263b]">150+</div>
                 <div className="text-xs sm:text-sm text-[#585068] mt-1">
                   {lang === "ru" ? "Проектов в США, ЕС и СНГ" : lang === "sr" ? "Projekata u SAD, EU i svetu" : "Delivered in US, EU & worldwide"}
                 </div>
