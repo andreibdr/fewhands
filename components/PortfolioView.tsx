@@ -63,6 +63,9 @@ export const PortfolioView: React.FC = () => {
     return true;
   });
 
+  const standardItems = filteredItems.filter((item) => !item.isShort);
+  const verticalShorts = filteredItems.filter((item) => item.isShort);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -191,7 +194,7 @@ export const PortfolioView: React.FC = () => {
 
           {/* Portfolio Grid */}
           <main className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item) => (
+            {standardItems.map((item) => (
               <article
                 key={item.id}
                 className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
@@ -208,30 +211,14 @@ export const PortfolioView: React.FC = () => {
                         <img
                           src={
                             item.image ||
-                            (item.isShort
-                              ? `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`
-                              : `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`)
+                            `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`
                           }
                           alt={lang === "ru" ? `${item.title} - видео Few Hands` : `${item.title} - Few Hands Video`}
-                          className={`w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500 ${
-                            item.isShort ? "object-[center_20%]" : "object-center"
-                          }`}
+                          className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500 object-center"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover/media:opacity-90 transition-opacity" />
 
-                        {item.isShort && (
-                          <div className="absolute top-2.5 left-2.5 z-10">
-                            <span className="px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
-                              9:16 Shorts
-                            </span>
-                          </div>
-                        )}
-
-                        <div
-                          className={`absolute inset-x-0 flex items-center justify-center pointer-events-none z-10 ${
-                            item.isShort ? "bottom-3" : "inset-y-0"
-                          }`}
-                        >
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
                           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#9c386d]/95 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform backdrop-blur-xs border border-white/20">
                             <Play className="w-4 h-4 fill-white translate-x-0.5" />
                           </div>
@@ -331,13 +318,7 @@ export const PortfolioView: React.FC = () => {
                     >
                       <Play className="w-3.5 h-3.5 fill-current" />
                       <span>
-                        {item.isShort
-                          ? lang === "ru"
-                            ? "Смотреть Shorts"
-                            : lang === "sr"
-                            ? "Gledajte Shorts"
-                            : "Watch Shorts"
-                          : lang === "ru"
+                        {lang === "ru"
                           ? "Смотреть ролик"
                           : lang === "sr"
                           ? "Gledajte video"
@@ -378,6 +359,124 @@ export const PortfolioView: React.FC = () => {
               </article>
             ))}
           </main>
+
+          {/* Dedicated Section for Vertical 9:16 Shorts (Bottom of Portfolio) */}
+          {verticalShorts.length > 0 && (
+            <section className="mt-16 sm:mt-20 pt-12 sm:pt-16 border-t border-[#e5e1eb]">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#fcf0f6] border border-[#9c386d]/25 text-[#9c386d] text-xs font-semibold mb-3">
+                    <Smartphone className="w-3.5 h-3.5" />
+                    <span>{lang === "ru" ? "Формат 9:16" : lang === "sr" ? "Format 9:16" : "9:16 Format"}</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#2d263b] tracking-tight">
+                    {lang === "ru"
+                      ? "AI-аватары и вертикальные видео"
+                      : lang === "sr"
+                      ? "AI avatari i vertikalni video klipovi"
+                      : "AI Avatars & Vertical Shorts"}
+                  </h2>
+                  <p className="mt-2 text-xs sm:text-sm text-[#585068] max-w-2xl leading-relaxed">
+                    {lang === "ru"
+                      ? "Короткие ролики для соцсетей, Reels, Shorts и питчей с реалистичными цифровыми аватарами и нейросетевым синтезом голоса."
+                      : lang === "sr"
+                      ? "Kratki video klipovi za Reels, Shorts i prezentacije sa realističnim digitalnim avatarima i sintezom glasa."
+                      : "Engineered for Reels, Shorts, and investor pitches featuring realistic digital twins and neural voice synthesis."}
+                  </p>
+                </div>
+                <Link
+                  href="/ai-video"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#e5e1eb] text-xs font-semibold text-[#9c386d] hover:bg-[#fcf0f6] hover:border-[#9c386d]/30 transition-all shrink-0 self-start sm:self-auto shadow-sm"
+                >
+                  <span>{lang === "ru" ? "Страница AI-видеопродакшна" : lang === "sr" ? "AI video produkcija" : "Explore AI Video Studio"}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+
+              {/* 4-column row of narrow 9:16 cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {verticalShorts.map((item) => (
+                  <article
+                    key={item.id}
+                    className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1.5"
+                  >
+                    <div>
+                      {/* 9:16 Media Preview */}
+                      <div
+                        onClick={() => setModalVideo(item.youtubeId || null)}
+                        className="relative aspect-[9/16] w-full bg-slate-950 overflow-hidden cursor-pointer group/media"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`}
+                          alt={lang === "ru" ? `${item.title} - Few Hands Shorts` : `${item.title} - Few Hands Shorts`}
+                          className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 group-hover/media:opacity-90 transition-opacity" />
+
+                        {/* Top Badge */}
+                        <div className="absolute top-3 left-3 z-10">
+                          <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                            9:16 Shorts
+                          </span>
+                        </div>
+
+                        {/* Play button */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                          <div className="w-12 h-12 rounded-full bg-[#9c386d]/95 text-white flex items-center justify-center shadow-xl group-hover/media:scale-110 transition-transform backdrop-blur-xs border border-white/25">
+                            <Play className="w-5 h-5 fill-white translate-x-0.5" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-5">
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-1.5 mb-2.5">
+                          {item.tags.map((tag, ti) => (
+                            <span
+                              key={ti}
+                              className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-md bg-[#f1f0f5] text-[#585068]"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <h3
+                          onClick={() => setModalVideo(item.youtubeId || null)}
+                          className="text-sm sm:text-base font-bold text-[#2d263b] group-hover:text-[#9c386d] transition-colors cursor-pointer line-clamp-2 leading-snug"
+                        >
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-2 text-xs text-[#585068] leading-relaxed line-clamp-3">
+                          {item.description[lang]}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Action Link */}
+                    <div className="p-5 pt-0">
+                      <button
+                        onClick={() => setModalVideo(item.youtubeId || null)}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
+                      >
+                        <Play className="w-3.5 h-3.5 fill-current" />
+                        <span>
+                          {lang === "ru"
+                            ? "Смотреть Shorts"
+                            : lang === "sr"
+                            ? "Gledajte Shorts"
+                            : "Watch Shorts"}
+                        </span>
+                      </button>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Deep SEO Section 1: Performance Benchmarks & Business Results */}
           <section className="mt-24 pt-16 border-t border-[#e5e1eb]">

@@ -18,6 +18,9 @@ export const PortfolioSection: React.FC = () => {
     return item.category === activeTab;
   });
 
+  const standardItems = filteredItems.filter((item) => !item.isShort);
+  const verticalShorts = filteredItems.filter((item) => item.isShort);
+
   return (
     <section id="portfolio" className="py-20 sm:py-28 border-t border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +59,7 @@ export const PortfolioSection: React.FC = () => {
 
         {/* Portfolio Grid */}
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.slice(0, 9).map((item) => (
+          {standardItems.slice(0, 9).map((item) => (
             <div
               key={item.id}
               className="group rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
@@ -73,30 +76,14 @@ export const PortfolioSection: React.FC = () => {
                       <img
                         src={
                           item.image ||
-                          (item.isShort
-                            ? `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`
-                            : `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`)
+                          `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`
                         }
                         alt={item.title}
-                        className={`w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500 ${
-                          item.isShort ? "object-[center_20%]" : "object-center"
-                        }`}
+                        className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500 object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover/media:opacity-90 transition-opacity" />
 
-                      {item.isShort && (
-                        <div className="absolute top-2.5 left-2.5 z-10">
-                          <span className="px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
-                            9:16 Shorts
-                          </span>
-                        </div>
-                      )}
-
-                      <div
-                        className={`absolute inset-x-0 flex items-center justify-center pointer-events-none z-10 ${
-                          item.isShort ? "bottom-3" : "inset-y-0"
-                        }`}
-                      >
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
                         <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform backdrop-blur-xs border border-white/20">
                           <Play className="w-4 h-4 fill-white translate-x-0.5" />
                         </div>
@@ -181,11 +168,7 @@ export const PortfolioSection: React.FC = () => {
                   >
                     <Play className="w-3.5 h-3.5 fill-current" />
                     <span>
-                      {item.isShort
-                        ? lang === "ru"
-                          ? "Смотреть Shorts"
-                          : "Watch Shorts"
-                        : lang === "ru"
+                      {lang === "ru"
                         ? "Смотреть видео"
                         : "Watch Video"}
                     </span>
@@ -224,6 +207,94 @@ export const PortfolioSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Dedicated Row for Vertical 9:16 Shorts */}
+        {verticalShorts.length > 0 && (
+          <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-xs font-semibold mb-2">
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>{lang === "ru" ? "Формат 9:16" : "9:16 Format"}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                  {lang === "ru" ? "AI-аватары и вертикальные видео" : "AI Avatars & Vertical Shorts"}
+                </h3>
+              </div>
+              <Link
+                href="/ai-video"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-sky-600 dark:text-sky-400 hover:underline"
+              >
+                <span>{lang === "ru" ? "Все возможности AI-видео" : "Explore AI Video"}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {verticalShorts.map((item) => (
+                <div
+                  key={item.id}
+                  className="group rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
+                >
+                  <div>
+                    <div
+                      onClick={() => setModalVideo(item.youtubeId || null)}
+                      className="relative aspect-[9/16] w-full bg-slate-950 overflow-hidden cursor-pointer group/media"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 group-hover/media:opacity-90 transition-opacity" />
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                          9:16 Shorts
+                        </span>
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        <div className="w-12 h-12 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform backdrop-blur-xs border border-white/20">
+                          <Play className="w-5 h-5 fill-white translate-x-0.5" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-5">
+                      <div className="flex flex-wrap gap-1.5 mb-2.5">
+                        {item.tags.map((tag, ti) => (
+                          <span
+                            key={ti}
+                            className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h4
+                        onClick={() => setModalVideo(item.youtubeId || null)}
+                        className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors cursor-pointer line-clamp-2"
+                      >
+                        {item.title}
+                      </h4>
+                      <p className="mt-2 text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
+                        {item.description[lang]}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="p-5 pt-0">
+                    <button
+                      onClick={() => setModalVideo(item.youtubeId || null)}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                      <span>{lang === "ru" ? "Смотреть Shorts" : "Watch Shorts"}</span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA to Full Portfolio */}
         <div className="mt-14 text-center">

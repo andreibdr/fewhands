@@ -551,10 +551,6 @@ export const AiVideoView: React.FC = () => {
                 className="relative aspect-[9/16] w-full rounded-[2.25rem] sm:rounded-[2.5rem] p-2 sm:p-2.5 bg-gradient-to-b from-[#ffffff] via-[#f7f5fa] to-[#ede8f5] border border-[#d8d3e2] shadow-[0_12px_32px_-6px_rgba(45,38,59,0.12),0_2px_8px_-1px_rgba(45,38,59,0.06)] hover:shadow-[0_20px_44px_-8px_rgba(45,38,59,0.2)] transition-all duration-300 hover:-translate-y-1.5 group ring-1 ring-white/90 ring-inset"
               >
                 <div className="relative w-full h-full rounded-[1.75rem] sm:rounded-[1.85rem] overflow-hidden bg-slate-950">
-                  {/* Dynamic Island */}
-                  <div className="absolute top-2.5 inset-x-0 mx-auto w-14 sm:w-16 h-3 bg-black/85 rounded-full z-20 flex items-center justify-end pr-2 pointer-events-none">
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-700/80" />
-                  </div>
 
                   {activeIframe === item.id ? (
                     <iframe
