@@ -13,7 +13,16 @@ function escapeHtml(text: string): string {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, contact, message } = body;
+    const { name, contact, message, honeypot } = body;
+
+    // Silent rejection for automated spam bots filling hidden honeypot fields
+    if (honeypot) {
+      return NextResponse.json({ success: true, message: "Lead processed" });
+    }
+
+    const safeName = typeof name === "string" ? name.slice(0, 150) : "";
+    const safeContact = typeof contact === "string" ? contact.slice(0, 150) : "";
+    const safeMessage = typeof message === "string" ? message.slice(0, 3000) : "";
 
     const dateStr = new Date().toLocaleString("ru-RU", {
       timeZone: "Europe/Moscow",
@@ -23,9 +32,9 @@ export async function POST(request: Request) {
 
     console.log("New FewHands Lead Received:", {
       timestamp: new Date().toISOString(),
-      name,
-      contact,
-      message,
+      name: safeName,
+      contact: safeContact,
+      message: safeMessage,
     });
 
     // Sanitize credentials from environment variables
@@ -36,11 +45,11 @@ export async function POST(request: Request) {
       const htmlText = [
         `⚡ <b>Новая заявка с сайта fewhands.com</b>`,
         ``,
-        `👤 <b>Имя:</b> ${escapeHtml(name || "Не указано")}`,
-        `📞 <b>Контакт:</b> <code>${escapeHtml(contact || "Не указан")}</code>`,
+        `👤 <b>Имя:</b> ${escapeHtml(safeName || "Не указано")}`,
+        `📞 <b>Контакт:</b> <code>${escapeHtml(safeContact || "Не указан")}</code>`,
         `🕒 <b>Время:</b> ${dateStr}`,
         ``,
-        `📝 <b>Детали проекта:</b>\n${escapeHtml(message || "Без комментария")}`,
+        `📝 <b>Детали проекта:</b>\n${escapeHtml(safeMessage || "Без комментария")}`,
       ].join("\n");
 
       const tgRes = await fetch(

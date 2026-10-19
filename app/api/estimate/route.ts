@@ -13,7 +13,15 @@ function escapeHtml(text: string): string {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { calculator, result, clientName, contact, lang } = body;
+    const { calculator, result, clientName, contact, lang, honeypot } = body;
+
+    // Silent rejection for automated spam bots filling hidden honeypot fields
+    if (honeypot) {
+      return NextResponse.json({ success: true, message: "Estimate received" });
+    }
+
+    const safeClientName = typeof clientName === "string" ? clientName.slice(0, 150) : "";
+    const safeContact = typeof contact === "string" ? contact.slice(0, 150) : "";
 
     const dateStr = new Date().toLocaleString("ru-RU", {
       timeZone: "Europe/Moscow",
@@ -25,8 +33,8 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
       calculator,
       result,
-      clientName,
-      contact,
+      clientName: safeClientName,
+      contact: safeContact,
       lang,
     });
 
@@ -100,8 +108,8 @@ export async function POST(request: Request) {
       const htmlText = [
         `📊 <b>Новый расчет сметы с сайта fewhands.com</b>`,
         ``,
-        `👤 <b>Имя:</b> ${escapeHtml(clientName || "Не указано")}`,
-        `📞 <b>Контакт:</b> <code>${escapeHtml(contact || "Не указан")}</code>`,
+        `👤 <b>Имя:</b> ${escapeHtml(safeClientName || "Не указано")}`,
+        `📞 <b>Контакт:</b> <code>${escapeHtml(safeContact || "Не указан")}</code>`,
         `🕒 <b>Время:</b> ${dateStr}`,
         `📁 <b>Направление:</b> ${escapeHtml(categoryName)}`,
         ``,
