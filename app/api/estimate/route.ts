@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isValidEmailOrPhone } from "@/lib/validation";
 
 function escapeHtml(text: string): string {
   if (!text) return "";
@@ -22,6 +23,13 @@ export async function POST(request: Request) {
 
     const safeClientName = typeof clientName === "string" ? clientName.slice(0, 150) : "";
     const safeContact = typeof contact === "string" ? contact.slice(0, 150) : "";
+
+    if (!isValidEmailOrPhone(safeContact)) {
+      return NextResponse.json(
+        { error: "Invalid contact: please provide a valid email or phone number" },
+        { status: 400 }
+      );
+    }
 
     const dateStr = new Date().toLocaleString("ru-RU", {
       timeZone: "Europe/Moscow",

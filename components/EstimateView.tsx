@@ -29,6 +29,7 @@ import {
   CustomPSCard,
   DoodlePointer,
 } from "./HandDrawnDecorations";
+import { isValidEmailOrPhone } from "@/lib/validation";
 
 function EstimatorInner() {
   const { lang } = useLanguage();
@@ -54,8 +55,9 @@ function EstimatorInner() {
   }, [searchParams]);
 
   // Form states
-  const [name, setName] = useState<string>("" );
+  const [name, setName] = useState<string>("");
   const [contact, setContact] = useState<string>("");
+  const [contactError, setContactError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
@@ -418,6 +420,19 @@ function EstimatorInner() {
 
   const handleSendEstimate = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidEmailOrPhone(contact)) {
+      setContactError(
+        lang === "ru"
+          ? "Укажите корректный email или номер телефона"
+          : lang === "sr"
+          ? "Unesite validan email ili broj telefona"
+          : "Please enter a valid email or phone number"
+      );
+      return;
+    }
+
+    setContactError(null);
     setSubmitting(true);
 
     const estimateData = {
@@ -1357,7 +1372,7 @@ function EstimatorInner() {
                   </span>
                 </div>
               ) : (
-                <form onSubmit={handleSendEstimate} className="grid sm:grid-cols-12 gap-3 items-center">
+                <form onSubmit={handleSendEstimate} className="grid sm:grid-cols-12 gap-3 items-start">
                   <div className="sm:col-span-4">
                     <input
                       type="text"
@@ -1373,7 +1388,10 @@ function EstimatorInner() {
                       type="text"
                       required
                       value={contact}
-                      onChange={(e) => setContact(e.target.value)}
+                      onChange={(e) => {
+                        setContact(e.target.value);
+                        if (contactError) setContactError(null);
+                      }}
                       placeholder={
                         lang === "ru"
                           ? "Email или телефон для связи"
@@ -1381,8 +1399,17 @@ function EstimatorInner() {
                           ? "Imejl ili telefon za kontakt"
                           : "Work email or phone"
                       }
-                      className="w-full px-4 py-3 rounded-xl border border-[#2d263b]/20 bg-white text-[#2d263b] placeholder:text-[#585068]/50 text-sm outline-none focus:ring-2 focus:ring-[#2d263b]/20 focus:border-[#2d263b] shadow-sm"
+                      className={`w-full px-4 py-3 rounded-xl border bg-white text-[#2d263b] placeholder:text-[#585068]/50 text-sm outline-none transition shadow-sm ${
+                        contactError
+                          ? "border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
+                          : "border-[#2d263b]/20 focus:ring-2 focus:ring-[#2d263b]/20 focus:border-[#2d263b]"
+                      }`}
                     />
+                    {contactError && (
+                      <p className="text-xs text-rose-500 font-medium mt-1.5 pl-1">
+                        {contactError}
+                      </p>
+                    )}
                   </div>
                   <div className="sm:col-span-3">
                     <button

@@ -9,11 +9,13 @@ import {
   CustomPSCard,
   DoodlePointer,
 } from "./HandDrawnDecorations";
+import { isValidEmailOrPhone } from "@/lib/validation";
 
 export const ContactForm: React.FC = () => {
   const { lang } = useLanguage();
   const [copied, setCopied] = useState<boolean>(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [contactError, setContactError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,6 +31,19 @@ export const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!isValidEmailOrPhone(formData.email)) {
+      setContactError(
+        lang === "ru"
+          ? "Укажите корректный email или номер телефона"
+          : lang === "sr"
+          ? "Unesite validan email ili broj telefona"
+          : "Please enter a valid email or phone number"
+      );
+      return;
+    }
+
+    setContactError(null);
     setStatus("loading");
 
     try {
@@ -181,10 +196,28 @@ export const ContactForm: React.FC = () => {
                 type="text"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="name@company.com"
-                className="w-full px-4 py-3 rounded-xl border border-[#2d263b]/20 bg-white text-[#2d263b] placeholder:text-[#585068]/50 focus:ring-2 focus:ring-[#2d263b]/20 focus:border-[#2d263b] outline-none transition text-sm shadow-sm"
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                  if (contactError) setContactError(null);
+                }}
+                placeholder={
+                  lang === "ru"
+                    ? "name@company.com или +7 (999) 000-00-00"
+                    : lang === "sr"
+                    ? "name@company.com ili +381 60 000-0000"
+                    : "name@company.com or +1 (555) 000-0000"
+                }
+                className={`w-full px-4 py-3 rounded-xl border bg-white text-[#2d263b] placeholder:text-[#585068]/50 focus:ring-2 outline-none transition text-sm shadow-sm ${
+                  contactError
+                    ? "border-rose-400 focus:border-rose-500 focus:ring-rose-200"
+                    : "border-[#2d263b]/20 focus:ring-[#2d263b]/20 focus:border-[#2d263b]"
+                }`}
               />
+              {contactError && (
+                <p className="text-xs text-rose-500 font-medium mt-1.5 pl-1">
+                  {contactError}
+                </p>
+              )}
             </div>
 
             <div>
