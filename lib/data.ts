@@ -20,9 +20,9 @@ export const portfolioItems: PortfolioItem[] = [
     category: "web",
     tags: ["Fintech/Proptech", "Analytics", "USA Portal"],
     description: {
-      ru: "Аналитическая платформа рынка недвижимости Майами: прогнозирование цен, инвестиционные дашборды и метрики доходности.",
-      en: "Miami real estate market analytics platform: price trend prediction, investment dashboards, and ROI yield metrics.",
-      sr: "Analitička platforma za tržište nekretnina u Majamiju: predviđanje kretanja cena, investicioni kontrolni paneli i metrički pokazatelji prinosa.",
+      ru: "Аналитическая платформа рынка недвижимости Флориды и Калифорнии: прогнозирование цен, инвестиционные дашборды и метрики доходности.",
+      en: "Florida and California real estate market analytics platform: price trend prediction, investment dashboards, and ROI yield metrics.",
+      sr: "Analitička platforma za tržište nekretnina na Floridi i u Kaliforniji: predviđanje kretanja cena, investicioni kontrolni paneli i metrički pokazatelji prinosa.",
     },
     image: "/portfolio/bigdatarealty.webp",
     url: "https://bigdatarealty.com",

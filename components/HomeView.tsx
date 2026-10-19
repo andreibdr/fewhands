@@ -40,9 +40,9 @@ export const HomeView: React.FC = () => {
       tag: "USA / Proptech",
       image: "/portfolio/bigdatarealty.webp",
       desc: {
-        ru: "Аналитический портал и блог о трендах на рынке недвижимости США.",
-        en: "Analytics portal & research platform tracking US real estate market data.",
-        sr: "Analitički portal i istraživačka platforma za tržište nekretnina u SAD.",
+        ru: "Аналитический портал и тренды рынка недвижимости Флориды и Калифорнии.",
+        en: "Analytics portal & market trend platform covering Florida and California real estate.",
+        sr: "Analitički portal i trendovi na tržištu nekretnina Floride i Kalifornije.",
       },
       url: "https://bigdatarealty.com",
     },
