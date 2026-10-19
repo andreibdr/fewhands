@@ -64,40 +64,7 @@ export const PortfolioSection: React.FC = () => {
               <div>
                 {/* Media Preview */}
                 <div className="relative aspect-video w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                  {item.image ? (
-                    <div
-                      onClick={() => setModalItem(item)}
-                      className="relative w-full h-full cursor-pointer group/media"
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover object-top group-hover/media:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover/media:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/media:opacity-100">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-slate-900 text-xs font-bold shadow-lg">
-                          <Eye className="w-3.5 h-3.5 text-sky-500" />
-                          <span>{lang === "ru" ? "Открыть макет" : "View Design"}</span>
-                        </span>
-                      </div>
-                      {/* Status badge in top right */}
-                      <div className="absolute top-2.5 right-2.5 z-10">
-                        {item.status === "live" ? (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-200 dark:border-emerald-800 backdrop-blur-sm">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            Live
-                          </span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-amber-700 dark:text-amber-400 shadow-sm border border-amber-200 dark:border-amber-800 backdrop-blur-sm">
-                            <Archive className="w-2.5 h-2.5" />
-                            {lang === "ru" ? "Архив" : "Archive"}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  ) : item.youtubeId ? (
+                  {item.youtubeId ? (
                     <div
                       onClick={() => setModalVideo(item.youtubeId || null)}
                       className="relative w-full h-full cursor-pointer group/media flex items-center justify-center bg-slate-950 overflow-hidden"
@@ -149,6 +116,39 @@ export const PortfolioSection: React.FC = () => {
                         </>
                       )}
                     </div>
+                  ) : item.image ? (
+                    <div
+                      onClick={() => setModalItem(item)}
+                      className="relative w-full h-full cursor-pointer group/media"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover object-top group-hover/media:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover/media:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/media:opacity-100">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-slate-900 text-xs font-bold shadow-lg">
+                          <Eye className="w-3.5 h-3.5 text-sky-500" />
+                          <span>{lang === "ru" ? "Открыть макет" : "View Design"}</span>
+                        </span>
+                      </div>
+                      {/* Status badge in top right */}
+                      <div className="absolute top-2.5 right-2.5 z-10">
+                        {item.status === "live" ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-200 dark:border-emerald-800 backdrop-blur-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Live
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-amber-700 dark:text-amber-400 shadow-sm border border-amber-200 dark:border-amber-800 backdrop-blur-sm">
+                            <Archive className="w-2.5 h-2.5" />
+                            {lang === "ru" ? "Архив" : "Archive"}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   ) : null}
                 </div>
 
@@ -167,10 +167,14 @@ export const PortfolioSection: React.FC = () => {
                   </div>
 
                   <h3
-                    onClick={() => item.image && setModalItem(item)}
-                    className={`text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors flex items-center justify-between ${
-                      item.image ? "cursor-pointer" : ""
-                    }`}
+                    onClick={() => {
+                      if (item.youtubeId) {
+                        setModalVideo(item.youtubeId);
+                      } else if (item.image) {
+                        setModalItem(item);
+                      }
+                    }}
+                    className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors flex items-center justify-between cursor-pointer"
                   >
                     <span>{item.title}</span>
                     {item.url && <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-sky-500" />}
@@ -184,7 +188,15 @@ export const PortfolioSection: React.FC = () => {
 
               {/* Bottom Link */}
               <div className="p-6 pt-0 flex items-center justify-between">
-                {item.status === "live" && item.url ? (
+                {item.youtubeId ? (
+                  <button
+                    onClick={() => setModalVideo(item.youtubeId || null)}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600 dark:hover:text-sky-400"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current" />
+                    <span>{lang === "ru" ? "Смотреть видео" : "Watch Video"}</span>
+                  </button>
+                ) : item.status === "live" && item.url ? (
                   <a
                     href={item.url}
                     target="_blank"
@@ -203,17 +215,9 @@ export const PortfolioSection: React.FC = () => {
                     <Eye className="w-3.5 h-3.5" />
                     <span>{lang === "ru" ? "Посмотреть макет" : "View Design"}</span>
                   </button>
-                ) : item.youtubeId ? (
-                  <button
-                    onClick={() => setModalVideo(item.youtubeId || null)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600 dark:hover:text-sky-400"
-                  >
-                    <Play className="w-3.5 h-3.5 fill-current" />
-                    <span>{lang === "ru" ? "Смотреть видео" : "Watch Video"}</span>
-                  </button>
                 ) : null}
 
-                {item.image && (
+                {!item.youtubeId && item.image && (
                   <button
                     onClick={() => setModalItem(item)}
                     title={lang === "ru" ? "Увеличить" : "Zoom"}

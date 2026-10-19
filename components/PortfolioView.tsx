@@ -197,55 +197,7 @@ export const PortfolioView: React.FC = () => {
               >
                 <div>
                   {/* Media Preview */}
-                  {item.image ? (
-                    <div className="w-full bg-[#f1f0f5] border-b border-[#e5e1eb] overflow-hidden">
-                      {/* Browser Bar with Status Badge */}
-                      <div className="px-3.5 py-2 bg-[#f1f0f5] border-b border-[#e5e1eb] flex items-center justify-between">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-[#ba5d60]/80" />
-                          <span className="w-2 h-2 rounded-full bg-[#c6814b]/80" />
-                          <span className="w-2 h-2 rounded-full bg-[#7ea368]/80" />
-                        </div>
-                        
-                        <div className="text-[10px] font-mono text-[#585068] truncate max-w-[180px] bg-white px-2 py-0.5 rounded border border-[#e5e1eb]">
-                          {item.url ? item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : item.title}
-                        </div>
-
-                        {/* Status pill */}
-                        {item.status === "live" ? (
-                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                            Live
-                          </span>
-                        ) : (
-                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
-                            <Archive className="w-2.5 h-2.5" />
-                            {lang === "ru" ? "Архив" : lang === "sr" ? "Arhiva" : "Archive"}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Screenshot Container - Clickable to open Lightbox */}
-                      <div
-                        onClick={() => setModalItem(item)}
-                        className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden cursor-pointer group/screen"
-                      >
-                        <Image
-                          src={item.image}
-                          alt={lang === "ru" ? `${item.title} - кейс студии Few Hands` : lang === "sr" ? `${item.title} - Few Hands portfolio` : `${item.title} - Few Hands Case Study`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="object-cover object-top group-hover/screen:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-black/0 group-hover/screen:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/screen:opacity-100">
-                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#2d263b] text-xs font-bold shadow-lg backdrop-blur-sm">
-                            <Eye className="w-3.5 h-3.5 text-[#386161]" />
-                            <span>{lang === "ru" ? "Открыть макет" : lang === "sr" ? "Pogledajte dizajn" : "View Screenshot"}</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  ) : item.youtubeId ? (
+                  {item.youtubeId ? (
                     <div className="relative aspect-video w-full bg-slate-950 overflow-hidden">
                       <div
                         onClick={() => setModalVideo(item.youtubeId || null)}
@@ -299,6 +251,54 @@ export const PortfolioView: React.FC = () => {
                         )}
                       </div>
                     </div>
+                  ) : item.image ? (
+                    <div className="w-full bg-[#f1f0f5] border-b border-[#e5e1eb] overflow-hidden">
+                      {/* Browser Bar with Status Badge */}
+                      <div className="px-3.5 py-2 bg-[#f1f0f5] border-b border-[#e5e1eb] flex items-center justify-between">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-[#ba5d60]/80" />
+                          <span className="w-2 h-2 rounded-full bg-[#c6814b]/80" />
+                          <span className="w-2 h-2 rounded-full bg-[#7ea368]/80" />
+                        </div>
+                        
+                        <div className="text-[10px] font-mono text-[#585068] truncate max-w-[180px] bg-white px-2 py-0.5 rounded border border-[#e5e1eb]">
+                          {item.url ? item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : item.title}
+                        </div>
+
+                        {/* Status pill */}
+                        {item.status === "live" ? (
+                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Live
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
+                            <Archive className="w-2.5 h-2.5" />
+                            {lang === "ru" ? "Архив" : lang === "sr" ? "Arhiva" : "Archive"}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Screenshot Container - Clickable to open Lightbox */}
+                      <div
+                        onClick={() => setModalItem(item)}
+                        className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden cursor-pointer group/screen"
+                      >
+                        <Image
+                          src={item.image}
+                          alt={lang === "ru" ? `${item.title} - кейс студии Few Hands` : lang === "sr" ? `${item.title} - Few Hands portfolio` : `${item.title} - Few Hands Case Study`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover object-top group-hover/screen:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover/screen:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/screen:opacity-100">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#2d263b] text-xs font-bold shadow-lg backdrop-blur-sm">
+                            <Eye className="w-3.5 h-3.5 text-[#386161]" />
+                            <span>{lang === "ru" ? "Открыть макет" : lang === "sr" ? "Pogledajte dizajn" : "View Screenshot"}</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   ) : null}
 
                   {/* Content */}
@@ -316,10 +316,14 @@ export const PortfolioView: React.FC = () => {
                     </div>
 
                     <h2
-                      onClick={() => item.image && setModalItem(item)}
-                      className={`text-lg font-bold text-[#2d263b] group-hover:text-[#386161] transition-colors flex items-center justify-between ${
-                        item.image ? "cursor-pointer" : ""
-                      }`}
+                      onClick={() => {
+                        if (item.youtubeId) {
+                          setModalVideo(item.youtubeId);
+                        } else if (item.image) {
+                          setModalItem(item);
+                        }
+                      }}
+                      className="text-lg font-bold text-[#2d263b] group-hover:text-[#386161] transition-colors flex items-center justify-between cursor-pointer"
                     >
                       <span>{item.title}</span>
                       {item.url && <ExternalLink className="w-4 h-4 text-[#8c829c] group-hover:text-[#386161]" />}
@@ -333,7 +337,15 @@ export const PortfolioView: React.FC = () => {
 
                 {/* Action Links */}
                 <div className="p-6 pt-0 flex items-center justify-between gap-3">
-                  {item.status === "live" && item.url ? (
+                  {item.youtubeId ? (
+                    <button
+                      onClick={() => setModalVideo(item.youtubeId || null)}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                      <span>{lang === "ru" ? "Смотреть ролик" : lang === "sr" ? "Gledajte video" : "Watch Full Video"}</span>
+                    </button>
+                  ) : item.status === "live" && item.url ? (
                     <a
                       href={item.url}
                       target="_blank"
@@ -352,17 +364,9 @@ export const PortfolioView: React.FC = () => {
                       <Eye className="w-3.5 h-3.5" />
                       <span>{lang === "ru" ? "Посмотреть макет в архиве" : lang === "sr" ? "Pogledajte arhivirani dizajn" : "View Archived Design"}</span>
                     </button>
-                  ) : item.youtubeId ? (
-                    <button
-                      onClick={() => setModalVideo(item.youtubeId || null)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
-                    >
-                      <Play className="w-3.5 h-3.5 fill-current" />
-                      <span>{lang === "ru" ? "Смотреть ролик" : lang === "sr" ? "Gledajte video" : "Watch Full Video"}</span>
-                    </button>
                   ) : null}
 
-                  {item.image && (
+                  {!item.youtubeId && item.image && (
                     <button
                       onClick={() => setModalItem(item)}
                       title={lang === "ru" ? "Увеличить скриншот" : lang === "sr" ? "Povećajte snimak ekrana" : "Zoom Screenshot"}
