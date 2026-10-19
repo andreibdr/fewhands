@@ -548,43 +548,50 @@ export const AiVideoView: React.FC = () => {
             {sampleShorts.map((item) => (
               <div
                 key={item.id}
-                className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-md bg-black group border border-slate-200"
+                className="relative aspect-[9/16] w-full rounded-[2.25rem] sm:rounded-[2.5rem] p-2 sm:p-2.5 bg-gradient-to-b from-[#ffffff] via-[#f7f5fa] to-[#ede8f5] border border-[#d8d3e2] shadow-[0_12px_32px_-6px_rgba(45,38,59,0.12),0_2px_8px_-1px_rgba(45,38,59,0.06)] hover:shadow-[0_20px_44px_-8px_rgba(45,38,59,0.2)] transition-all duration-300 hover:-translate-y-1.5 group ring-1 ring-white/90 ring-inset"
               >
-                {activeIframe === item.id ? (
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1`}
-                    title={item.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full border-0"
-                  />
-                ) : (
-                  <div
-                    onClick={() => setActiveIframe(item.id)}
-                    className="w-full h-full cursor-pointer relative"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.thumbnail || `https://i.ytimg.com/vi/${item.id}/oar2.jpg`}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                <div className="relative w-full h-full rounded-[1.75rem] sm:rounded-[1.85rem] overflow-hidden bg-slate-950">
+                  {/* Dynamic Island */}
+                  <div className="absolute top-2.5 inset-x-0 mx-auto w-14 sm:w-16 h-3 bg-black/85 rounded-full z-20 flex items-center justify-end pr-2 pointer-events-none">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-700/80" />
+                  </div>
+
+                  {activeIframe === item.id ? (
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${item.id}?autoplay=1`}
+                      title={item.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full border-0"
                     />
-                    <div className="absolute top-3 left-3 z-10">
-                      <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-bold text-white border border-white/20">
-                        {item.badge}
-                      </span>
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-4">
-                      <span className="text-xs font-semibold text-white line-clamp-2">{item.title}</span>
-                    </div>
-                    {/* Play button positioned in lower third to avoid covering face */}
-                    <div className="absolute bottom-20 inset-x-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-12 h-12 rounded-full bg-[#9c386d]/95 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform backdrop-blur-xs">
-                        <Play className="w-5 h-5 fill-white translate-x-0.5" />
+                  ) : (
+                    <div
+                      onClick={() => setActiveIframe(item.id)}
+                      className="w-full h-full cursor-pointer relative"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={item.thumbnail || `https://i.ytimg.com/vi/${item.id}/oar2.jpg`}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] sm:text-[11px] font-bold text-white border border-white/20">
+                          {item.badge}
+                        </span>
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-4">
+                        <span className="text-xs font-semibold text-white line-clamp-2">{item.title}</span>
+                      </div>
+                      {/* Play button positioned in lower third to avoid covering face */}
+                      <div className="absolute bottom-16 sm:bottom-20 inset-x-0 flex items-center justify-center pointer-events-none">
+                        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#9c386d]/95 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform backdrop-blur-xs border border-white/25">
+                          <Play className="w-5 h-5 fill-white translate-x-0.5" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             ))}
           </div>

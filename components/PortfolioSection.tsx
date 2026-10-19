@@ -18,9 +18,6 @@ export const PortfolioSection: React.FC = () => {
     return item.category === activeTab;
   });
 
-  const verticalShorts = filteredItems.filter((item) => item.category === "video" && item.isShort);
-  const standardItems = filteredItems.filter((item) => !(item.category === "video" && item.isShort));
-
   return (
     <section id="portfolio" className="py-20 sm:py-28 border-t border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,262 +54,176 @@ export const PortfolioSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Vertical Shorts Showcase (9:16) */}
-        {verticalShorts.length > 0 && (
-          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        {/* Portfolio Grid */}
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredItems.slice(0, 9).map((item) => (
+            <div
+              key={item.id}
+              className="group rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
+            >
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-xs font-bold mb-2">
-                  <Smartphone className="w-3.5 h-3.5" />
-                  <span>9:16 Shorts & Reels</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
-                  {lang === "ru" ? "Вертикальные ролики и цифровые аватары" : "Vertical Video & AI Avatars"}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl">
-                  {lang === "ru"
-                    ? "Форматы 9:16 для соцсетей и видео-виджетов: клон голоса, естественная мимика и динамичный монтаж."
-                    : "High-retention mobile formats engineered for social media and website video bubbles."}
-                </p>
-              </div>
-              <Link
-                href="/ai-video"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-700 transition-colors shrink-0"
-              >
-                <span>{lang === "ru" ? "Подробнее об услуге AI-видео" : "Explore AI Video Studio"}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            {/* 4-column smartphone grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-              {verticalShorts.map((item) => (
-                <div key={item.id} className="flex flex-col h-full group">
-                  {/* Smartphone Mockup */}
-                  <div
-                    onClick={() => setModalVideo(item.youtubeId || null)}
-                    className="relative aspect-[9/16] w-full rounded-[2.5rem] p-2 sm:p-2.5 bg-gradient-to-b from-white via-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 border border-slate-200 dark:border-slate-700 shadow-[0_14px_36px_-8px_rgba(15,23,42,0.14)] hover:shadow-[0_24px_50px_-10px_rgba(15,23,42,0.22)] transition-all duration-300 hover:-translate-y-1.5 cursor-pointer ring-1 ring-white/90 dark:ring-slate-700 ring-inset"
-                  >
-                    <div className="relative w-full h-full rounded-[1.85rem] overflow-hidden bg-slate-950">
-                      {/* Dynamic Island */}
-                      <div className="absolute top-2.5 inset-x-0 mx-auto w-14 sm:w-16 h-3 bg-black/85 rounded-full z-20 flex items-center justify-end pr-2 pointer-events-none">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-700/80" />
-                      </div>
-
+                {/* Media Preview */}
+                <div className="relative aspect-video w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                  {item.youtubeId ? (
+                    <div
+                      onClick={() => setModalVideo(item.youtubeId || null)}
+                      className="relative w-full h-full cursor-pointer group/media flex items-center justify-center bg-slate-950 overflow-hidden"
+                    >
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`}
+                        src={
+                          item.image ||
+                          (item.isShort
+                            ? `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`
+                            : `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`)
+                        }
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className={`w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500 ${
+                          item.isShort ? "object-[center_20%]" : "object-center"
+                        }`}
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover/media:opacity-90 transition-opacity" />
 
-                      <div className="absolute top-3 left-3 z-10">
-                        <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-bold text-white border border-white/20">
-                          9:16 Shorts
-                        </span>
-                      </div>
+                      {item.isShort && (
+                        <div className="absolute top-2.5 left-2.5 z-10">
+                          <span className="px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                            9:16 Shorts
+                          </span>
+                        </div>
+                      )}
 
-                      <div className="absolute bottom-6 inset-x-0 flex items-center justify-center pointer-events-none z-10">
-                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform backdrop-blur-xs border border-white/25">
+                      <div
+                        className={`absolute inset-x-0 flex items-center justify-center pointer-events-none z-10 ${
+                          item.isShort ? "bottom-3" : "inset-y-0"
+                        }`}
+                      >
+                        <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform backdrop-blur-xs border border-white/20">
                           <Play className="w-4 h-4 fill-white translate-x-0.5" />
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Info */}
-                  <div className="mt-3.5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex flex-wrap gap-1 mb-2">
-                        {item.tags.slice(0, 2).map((tag, ti) => (
-                          <span
-                            key={ti}
-                            className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                  ) : item.image ? (
+                    <div
+                      onClick={() => setModalItem(item)}
+                      className="relative w-full h-full cursor-pointer group/media"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover object-top group-hover/media:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover/media:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/media:opacity-100">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-slate-900 text-xs font-bold shadow-lg">
+                          <Eye className="w-3.5 h-3.5 text-sky-500" />
+                          <span>{lang === "ru" ? "Открыть макет" : "View Design"}</span>
+                        </span>
                       </div>
-                      <h4
-                        onClick={() => setModalVideo(item.youtubeId || null)}
-                        className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white group-hover:text-sky-500 transition-colors cursor-pointer line-clamp-2 leading-snug"
-                      >
-                        {item.title}
-                      </h4>
-                      <p className="mt-1 text-[11px] sm:text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2">
-                        {item.description[lang]}
-                      </p>
+                      {/* Status badge in top right */}
+                      <div className="absolute top-2.5 right-2.5 z-10">
+                        {item.status === "live" ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-200 dark:border-emerald-800 backdrop-blur-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Live
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-amber-700 dark:text-amber-400 shadow-sm border border-amber-200 dark:border-amber-800 backdrop-blur-sm">
+                            <Archive className="w-2.5 h-2.5" />
+                            {lang === "ru" ? "Архив" : "Archive"}
+                          </span>
+                        )}
+                      </div>
                     </div>
-
-                    <div className="mt-2.5 pt-1">
-                      <button
-                        onClick={() => setModalVideo(item.youtubeId || null)}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600 transition-colors"
-                      >
-                        <Play className="w-3.5 h-3.5 fill-current" />
-                        <span>{lang === "ru" ? "Смотреть Shorts" : "Watch Shorts"}</span>
-                      </button>
-                    </div>
-                  </div>
+                  ) : null}
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
 
-        {/* Standard Projects Grid */}
-        {standardItems.length > 0 && (
-          <div className="mt-12">
-            {activeTab === "all" && verticalShorts.length > 0 && (
-              <div className="mb-8">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
-                  {lang === "ru" ? "Веб-проекты и YouTube-выпуски (16:9)" : "Web Projects & YouTube (16:9)"}
-                </h3>
+                {/* Content */}
+                <div className="p-6">
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {item.tags.map((tag, ti) => (
+                      <span
+                        key={ti}
+                        className="text-[11px] font-mono font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <h3
+                    onClick={() => {
+                      if (item.youtubeId) {
+                        setModalVideo(item.youtubeId);
+                      } else if (item.image) {
+                        setModalItem(item);
+                      }
+                    }}
+                    className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors flex items-center justify-between cursor-pointer"
+                  >
+                    <span>{item.title}</span>
+                    {item.url && <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-sky-500" />}
+                  </h3>
+
+                  <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {item.description[lang]}
+                  </p>
+                </div>
               </div>
-            )}
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {standardItems.slice(0, 9).map((item) => (
-                <div
-                  key={item.id}
-                  className="group rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
-                >
-                  <div>
-                    {/* Media Preview */}
-                    <div className="relative aspect-video w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                      {item.youtubeId ? (
-                        <div
-                          onClick={() => setModalVideo(item.youtubeId || null)}
-                          className="relative w-full h-full cursor-pointer group/media flex items-center justify-center bg-slate-950 overflow-hidden"
-                        >
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`}
-                            alt={item.title}
-                            className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/media:bg-black/10 transition-colors">
-                            <div className="w-12 h-12 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform">
-                              <Play className="w-5 h-5 fill-white translate-x-0.5" />
-                            </div>
-                          </div>
-                        </div>
-                      ) : item.image ? (
-                        <div
-                          onClick={() => setModalItem(item)}
-                          className="relative w-full h-full cursor-pointer group/media"
-                        >
-                          <Image
-                            src={item.image}
-                            alt={item.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover object-top group-hover/media:scale-105 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover/media:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/media:opacity-100">
-                            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-slate-900 text-xs font-bold shadow-lg">
-                              <Eye className="w-3.5 h-3.5 text-sky-500" />
-                              <span>{lang === "ru" ? "Открыть макет" : "View Design"}</span>
-                            </span>
-                          </div>
-                          {/* Status badge in top right */}
-                          <div className="absolute top-2.5 right-2.5 z-10">
-                            {item.status === "live" ? (
-                              <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-emerald-600 dark:text-emerald-400 shadow-sm border border-emerald-200 dark:border-emerald-800 backdrop-blur-sm">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                Live
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/95 dark:bg-slate-900/95 text-amber-700 dark:text-amber-400 shadow-sm border border-amber-200 dark:border-amber-800 backdrop-blur-sm">
-                                <Archive className="w-2.5 h-2.5" />
-                                {lang === "ru" ? "Архив" : "Archive"}
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      ) : null}
-                    </div>
+              {/* Bottom Link */}
+              <div className="p-6 pt-0 flex items-center justify-between">
+                {item.youtubeId ? (
+                  <button
+                    onClick={() => setModalVideo(item.youtubeId || null)}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600 dark:hover:text-sky-400"
+                  >
+                    <Play className="w-3.5 h-3.5 fill-current" />
+                    <span>
+                      {item.isShort
+                        ? lang === "ru"
+                          ? "Смотреть Shorts"
+                          : "Watch Shorts"
+                        : lang === "ru"
+                        ? "Смотреть видео"
+                        : "Watch Video"}
+                    </span>
+                  </button>
+                ) : item.status === "live" && item.url ? (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600 dark:hover:text-sky-400"
+                  >
+                    <Globe className="w-3.5 h-3.5" />
+                    <span>{lang === "ru" ? "Перейти на сайт" : "Visit Live Website"}</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                ) : item.status === "archived" ? (
+                  <button
+                    onClick={() => setModalItem(item)}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-600 hover:text-amber-700 dark:text-amber-400"
+                  >
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>{lang === "ru" ? "Посмотреть макет" : "View Design"}</span>
+                  </button>
+                ) : null}
 
-                    {/* Content */}
-                    <div className="p-6">
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-1.5 mb-3">
-                        {item.tags.map((tag, ti) => (
-                          <span
-                            key={ti}
-                            className="text-[11px] font-mono font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      <h3
-                        onClick={() => {
-                          if (item.youtubeId) {
-                            setModalVideo(item.youtubeId);
-                          } else if (item.image) {
-                            setModalItem(item);
-                          }
-                        }}
-                        className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors flex items-center justify-between cursor-pointer"
-                      >
-                        <span>{item.title}</span>
-                        {item.url && <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-sky-500" />}
-                      </h3>
-
-                      <p className="mt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                        {item.description[lang]}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Bottom Link */}
-                  <div className="p-6 pt-0 flex items-center justify-between">
-                    {item.youtubeId ? (
-                      <button
-                        onClick={() => setModalVideo(item.youtubeId || null)}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600 dark:hover:text-sky-400"
-                      >
-                        <Play className="w-3.5 h-3.5 fill-current" />
-                        <span>{lang === "ru" ? "Смотреть видео" : "Watch Video"}</span>
-                      </button>
-                    ) : item.status === "live" && item.url ? (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-500 hover:text-sky-600 dark:hover:text-sky-400"
-                      >
-                        <Globe className="w-3.5 h-3.5" />
-                        <span>{lang === "ru" ? "Перейти на сайт" : "Visit Live Website"}</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    ) : item.status === "archived" ? (
-                      <button
-                        onClick={() => setModalItem(item)}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-600 hover:text-amber-700 dark:text-amber-400"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>{lang === "ru" ? "Посмотреть макет" : "View Design"}</span>
-                      </button>
-                    ) : null}
-
-                    {!item.youtubeId && item.image && (
-                      <button
-                        onClick={() => setModalItem(item)}
-                        title={lang === "ru" ? "Увеличить" : "Zoom"}
-                        className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-                      >
-                        <Eye className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ))}
+                {!item.youtubeId && item.image && (
+                  <button
+                    onClick={() => setModalItem(item)}
+                    title={lang === "ru" ? "Увеличить" : "Zoom"}
+                    className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                  >
+                    <Eye className="w-4 h-4" />
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        )}
+          ))}
+        </div>
 
         {/* CTA to Full Portfolio */}
         <div className="mt-14 text-center">

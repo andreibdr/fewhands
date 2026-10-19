@@ -63,9 +63,6 @@ export const PortfolioView: React.FC = () => {
     return true;
   });
 
-  const verticalShorts = filteredItems.filter((item) => item.category === "video" && item.isShort);
-  const standardItems = filteredItems.filter((item) => !(item.category === "video" && item.isShort));
-
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -192,296 +189,195 @@ export const PortfolioView: React.FC = () => {
             </div>
           )}
 
-          {/* Vertical Shorts Showcase (9:16) */}
-          {verticalShorts.length > 0 && (
-            <section className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-[#faf9fc] to-white border border-[#e5e1eb] shadow-sm">
-              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          {/* Portfolio Grid */}
+          <main className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredItems.map((item) => (
+              <article
+                key={item.id}
+                className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
+              >
                 <div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9c386d]/10 text-[#9c386d] text-xs font-bold mb-2">
-                    <Smartphone className="w-3.5 h-3.5" />
-                    <span>{lang === "ru" ? "Формат 9:16 · Shorts, Reels, Аватары" : lang === "sr" ? "Format 9:16 · Shorts, Reels, Avatari" : "9:16 Format · Shorts, Reels & Avatars"}</span>
-                  </div>
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#2d263b]">
-                    {lang === "ru" ? "Вертикальные ролики и цифровые двойники" : lang === "sr" ? "Vertikalni video formati i digitalni avatari" : "Vertical Video Production & AI Presenters"}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-[#585068] mt-1 max-w-2xl">
-                    {lang === "ru"
-                      ? "Динамичные ролики для соцсетей и видео-виджетов на сайтах: кинетический монтаж, клон голоса и естественная мимика."
-                      : lang === "sr"
-                      ? "Dinamični formati za društvene mreže i veb vidžete: kinetička montaža, klonirani glas i prirodna mimika."
-                      : "High-retention mobile formats engineered for social media and website video bubbles: voice cloning and tight post-production."}
-                  </p>
-                </div>
-                <Link
-                  href="/ai-video"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#9c386d] hover:text-[#7f2856] transition-colors shrink-0"
-                >
-                  <span>{lang === "ru" ? "Подробнее об услуге AI-видео" : lang === "sr" ? "Više o usluzi AI videa" : "Explore AI Video Studio"}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-
-              {/* 4-column smartphone grid */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-                {verticalShorts.map((item) => (
-                  <div key={item.id} className="flex flex-col h-full group">
-                    {/* Smartphone Mockup with light silhouette and soft shadow */}
-                    <div
-                      onClick={() => setModalVideo(item.youtubeId || null)}
-                      className="relative aspect-[9/16] w-full rounded-[2.5rem] p-2 sm:p-2.5 bg-gradient-to-b from-[#ffffff] via-[#f7f5fa] to-[#ede8f5] border border-[#d8d3e2] shadow-[0_14px_36px_-8px_rgba(45,38,59,0.14),0_2px_8px_-1px_rgba(45,38,59,0.06)] hover:shadow-[0_24px_50px_-10px_rgba(45,38,59,0.22)] transition-all duration-300 hover:-translate-y-1.5 cursor-pointer ring-1 ring-white/90 ring-inset"
-                    >
-                      <div className="relative w-full h-full rounded-[1.85rem] overflow-hidden bg-slate-950">
-                        {/* Dynamic Island */}
-                        <div className="absolute top-2.5 inset-x-0 mx-auto w-14 sm:w-16 h-3 bg-black/85 rounded-full z-20 flex items-center justify-end pr-2 pointer-events-none">
-                          <span className="w-1.5 h-1.5 rounded-full bg-slate-700/80" />
-                        </div>
-
-                        {/* Cover Image */}
+                  {/* Media Preview */}
+                  {item.youtubeId ? (
+                    <div className="relative aspect-video w-full bg-slate-950 overflow-hidden">
+                      <div
+                        onClick={() => setModalVideo(item.youtubeId || null)}
+                        className="relative w-full h-full cursor-pointer group/media flex items-center justify-center"
+                      >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`}
-                          alt={item.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          src={
+                            item.image ||
+                            (item.isShort
+                              ? `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`
+                              : `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`)
+                          }
+                          alt={lang === "ru" ? `${item.title} - видео Few Hands` : `${item.title} - Few Hands Video`}
+                          className={`w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500 ${
+                            item.isShort ? "object-[center_20%]" : "object-center"
+                          }`}
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent group-hover/media:opacity-90 transition-opacity" />
 
-                        {/* Format Badge */}
-                        <div className="absolute top-3 left-3 z-10">
-                          <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-bold text-white border border-white/20">
-                            9:16 Shorts
-                          </span>
-                        </div>
+                        {item.isShort && (
+                          <div className="absolute top-2.5 left-2.5 z-10">
+                            <span className="px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono font-bold text-white border border-white/20">
+                              9:16 Shorts
+                            </span>
+                          </div>
+                        )}
 
-                        {/* Play Button in lower third */}
-                        <div className="absolute bottom-6 inset-x-0 flex items-center justify-center pointer-events-none z-10">
-                          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#9c386d]/95 text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform backdrop-blur-xs border border-white/25">
+                        <div
+                          className={`absolute inset-x-0 flex items-center justify-center pointer-events-none z-10 ${
+                            item.isShort ? "bottom-3" : "inset-y-0"
+                          }`}
+                        >
+                          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#9c386d]/95 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform backdrop-blur-xs border border-white/20">
                             <Play className="w-4 h-4 fill-white translate-x-0.5" />
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    {/* Metadata under phone */}
-                    <div className="mt-3.5 flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex flex-wrap gap-1 mb-2">
-                          {item.tags.slice(0, 2).map((tag, ti) => (
-                            <span
-                              key={ti}
-                              className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-md bg-[#f1f0f5] text-[#585068]"
-                            >
-                              {tag}
-                            </span>
-                          ))}
+                  ) : item.image ? (
+                    <div className="w-full bg-[#f1f0f5] border-b border-[#e5e1eb] overflow-hidden">
+                      {/* Browser Bar with Status Badge */}
+                      <div className="px-3.5 py-2 bg-[#f1f0f5] border-b border-[#e5e1eb] flex items-center justify-between">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-[#ba5d60]/80" />
+                          <span className="w-2 h-2 rounded-full bg-[#c6814b]/80" />
+                          <span className="w-2 h-2 rounded-full bg-[#7ea368]/80" />
                         </div>
-                        <h3
-                          onClick={() => setModalVideo(item.youtubeId || null)}
-                          className="text-xs sm:text-sm font-bold text-[#2d263b] group-hover:text-[#9c386d] transition-colors cursor-pointer line-clamp-2 leading-snug"
-                        >
-                          {item.title}
-                        </h3>
-                        <p className="mt-1 text-[11px] sm:text-xs text-[#585068] leading-relaxed line-clamp-2">
-                          {item.description[lang]}
-                        </p>
+                        
+                        <div className="text-[10px] font-mono text-[#585068] truncate max-w-[180px] bg-white px-2 py-0.5 rounded border border-[#e5e1eb]">
+                          {item.url ? item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : item.title}
+                        </div>
+
+                        {/* Status pill */}
+                        {item.status === "live" ? (
+                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                            Live
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
+                            <Archive className="w-2.5 h-2.5" />
+                            {lang === "ru" ? "Архив" : lang === "sr" ? "Arhiva" : "Archive"}
+                          </span>
+                        )}
                       </div>
 
-                      <div className="mt-2.5 pt-1">
-                        <button
-                          onClick={() => setModalVideo(item.youtubeId || null)}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
-                        >
-                          <Play className="w-3.5 h-3.5 fill-current" />
-                          <span>{lang === "ru" ? "Смотреть Shorts" : lang === "sr" ? "Gledajte Shorts" : "Watch Shorts"}</span>
-                        </button>
+                      {/* Screenshot Container - Clickable to open Lightbox */}
+                      <div
+                        onClick={() => setModalItem(item)}
+                        className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden cursor-pointer group/screen"
+                      >
+                        <Image
+                          src={item.image}
+                          alt={lang === "ru" ? `${item.title} - кейс студии Few Hands` : lang === "sr" ? `${item.title} - Few Hands portfolio` : `${item.title} - Few Hands Case Study`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover object-top group-hover/screen:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover/screen:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/screen:opacity-100">
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#2d263b] text-xs font-bold shadow-lg backdrop-blur-sm">
+                            <Eye className="w-3.5 h-3.5 text-[#386161]" />
+                            <span>{lang === "ru" ? "Открыть макет" : lang === "sr" ? "Pogledajte dizajn" : "View Screenshot"}</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
+                  ) : null}
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {item.tags.map((tag, ti) => (
+                        <span
+                          key={ti}
+                          className="text-[11px] font-mono font-medium px-2 py-0.5 rounded-md bg-[#f1f0f5] text-[#585068]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <h2
+                      onClick={() => {
+                        if (item.youtubeId) {
+                          setModalVideo(item.youtubeId);
+                        } else if (item.image) {
+                          setModalItem(item);
+                        }
+                      }}
+                      className="text-lg font-bold text-[#2d263b] group-hover:text-[#386161] transition-colors flex items-center justify-between cursor-pointer"
+                    >
+                      <span>{item.title}</span>
+                      {item.url && <ExternalLink className="w-4 h-4 text-[#8c829c] group-hover:text-[#386161]" />}
+                    </h2>
+
+                    <p className="mt-2 text-xs sm:text-sm text-[#585068] leading-relaxed">
+                      {item.description[lang]}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Standard Projects Grid (Websites & 16:9 YouTube) */}
-          {standardItems.length > 0 && (
-            <section className="mt-12">
-              {activeTab === "all" && verticalShorts.length > 0 && (
-                <div className="mb-8">
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#2d263b]">
-                    {lang === "ru" ? "Веб-проекты и YouTube-выпуски (16:9)" : lang === "sr" ? "Veb projekti i YouTube emisije (16:9)" : "Web Projects & YouTube Longform (16:9)"}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-[#585068] mt-1">
-                    {lang === "ru" ? "Действующие сайты клиентов, интернет-магазины и полноформатный видеомонтаж." : lang === "sr" ? "Aktivni sajtovi klijenata, prodavnice i video produkcija." : "Active client websites, e-commerce stores, and horizontal video production."}
-                  </p>
                 </div>
-              )}
 
-              {activeTab === "video" && (
-                <div className="mb-8">
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#2d263b]">
-                    {lang === "ru" ? "Горизонтальные видео и YouTube-выпуски (16:9)" : lang === "sr" ? "Horizontalni video i YouTube emisije (16:9)" : "Horizontal YouTube Videos (16:9)"}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-[#585068] mt-1">
-                    {lang === "ru" ? "Монтаж длинных выпусков, подкастов и обзоров с инфографикой и саунд-дизайном." : lang === "sr" ? "Kompletna montaža dugih emisija i podkasta." : "Turnkey post-production for horizontal episodes, podcasts, and guides."}
-                  </p>
+                {/* Action Links */}
+                <div className="p-6 pt-0 flex items-center justify-between gap-3">
+                  {item.youtubeId ? (
+                    <button
+                      onClick={() => setModalVideo(item.youtubeId || null)}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-current" />
+                      <span>
+                        {item.isShort
+                          ? lang === "ru"
+                            ? "Смотреть Shorts"
+                            : lang === "sr"
+                            ? "Gledajte Shorts"
+                            : "Watch Shorts"
+                          : lang === "ru"
+                          ? "Смотреть ролик"
+                          : lang === "sr"
+                          ? "Gledajte video"
+                          : "Watch Full Video"}
+                      </span>
+                    </button>
+                  ) : item.status === "live" && item.url ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#386161] hover:text-[#2a4949] transition-colors"
+                    >
+                      <Globe className="w-3.5 h-3.5" />
+                      <span>{lang === "ru" ? "Перейти на сайт" : lang === "sr" ? "Posetite sajt" : "Visit Live Website"}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : item.status === "archived" ? (
+                    <button
+                      onClick={() => setModalItem(item)}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7a2552] transition-colors"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>{lang === "ru" ? "Посмотреть макет в архиве" : lang === "sr" ? "Pogledajte arhivirani dizajn" : "View Archived Design"}</span>
+                    </button>
+                  ) : null}
+
+                  {!item.youtubeId && item.image && (
+                    <button
+                      onClick={() => setModalItem(item)}
+                      title={lang === "ru" ? "Увеличить скриншот" : lang === "sr" ? "Povećajte snimak ekrana" : "Zoom Screenshot"}
+                      className="p-1.5 rounded-lg text-[#8c829c] hover:text-[#2d263b] hover:bg-[#f1f0f5] transition-all"
+                    >
+                      <Eye className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
-              )}
-
-              <main className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {standardItems.map((item) => (
-                  <article
-                    key={item.id}
-                    className="group rounded-3xl border border-[#e5e1eb] bg-white/90 backdrop-blur-md hover:bg-white shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
-                  >
-                    <div>
-                      {/* Media Preview */}
-                      {item.youtubeId ? (
-                        <div className="relative aspect-video w-full bg-slate-950 overflow-hidden">
-                          <div
-                            onClick={() => setModalVideo(item.youtubeId || null)}
-                            className="relative w-full h-full cursor-pointer group/media flex items-center justify-center"
-                          >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                              src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`}
-                              alt={lang === "ru" ? `${item.title} - видео продакшн Few Hands` : lang === "sr" ? `${item.title} - Few Hands video produkcija` : `${item.title} - Few Hands Video Production`}
-                              className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/media:bg-black/10 transition-colors">
-                              <div className="w-12 h-12 rounded-full bg-[#2d263b] text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform">
-                                <Play className="w-5 h-5 fill-white translate-x-0.5" />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ) : item.image ? (
-                        <div className="w-full bg-[#f1f0f5] border-b border-[#e5e1eb] overflow-hidden">
-                          {/* Browser Bar with Status Badge */}
-                          <div className="px-3.5 py-2 bg-[#f1f0f5] border-b border-[#e5e1eb] flex items-center justify-between">
-                            <div className="flex items-center gap-1.5">
-                              <span className="w-2 h-2 rounded-full bg-[#ba5d60]/80" />
-                              <span className="w-2 h-2 rounded-full bg-[#c6814b]/80" />
-                              <span className="w-2 h-2 rounded-full bg-[#7ea368]/80" />
-                            </div>
-                            
-                            <div className="text-[10px] font-mono text-[#585068] truncate max-w-[180px] bg-white px-2 py-0.5 rounded border border-[#e5e1eb]">
-                              {item.url ? item.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : item.title}
-                            </div>
-
-                            {/* Status pill */}
-                            {item.status === "live" ? (
-                              <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                Live
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center gap-1 text-[9px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
-                                <Archive className="w-2.5 h-2.5" />
-                                {lang === "ru" ? "Архив" : lang === "sr" ? "Arhiva" : "Archive"}
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Screenshot Container - Clickable to open Lightbox */}
-                          <div
-                            onClick={() => setModalItem(item)}
-                            className="relative aspect-[16/10] w-full bg-slate-50 overflow-hidden cursor-pointer group/screen"
-                          >
-                            <Image
-                              src={item.image}
-                              alt={lang === "ru" ? `${item.title} - кейс студии Few Hands` : lang === "sr" ? `${item.title} - Few Hands portfolio` : `${item.title} - Few Hands Case Study`}
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                              className="object-cover object-top group-hover/screen:scale-105 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover/screen:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover/screen:opacity-100">
-                              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 text-[#2d263b] text-xs font-bold shadow-lg backdrop-blur-sm">
-                                <Eye className="w-3.5 h-3.5 text-[#386161]" />
-                                <span>{lang === "ru" ? "Открыть макет" : lang === "sr" ? "Pogledajte dizajn" : "View Screenshot"}</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      ) : null}
-
-                      {/* Content */}
-                      <div className="p-6">
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-1.5 mb-3">
-                          {item.tags.map((tag, ti) => (
-                            <span
-                              key={ti}
-                              className="text-[11px] font-mono font-medium px-2 py-0.5 rounded-md bg-[#f1f0f5] text-[#585068]"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        <h2
-                          onClick={() => {
-                            if (item.youtubeId) {
-                              setModalVideo(item.youtubeId);
-                            } else if (item.image) {
-                              setModalItem(item);
-                            }
-                          }}
-                          className="text-lg font-bold text-[#2d263b] group-hover:text-[#386161] transition-colors flex items-center justify-between cursor-pointer"
-                        >
-                          <span>{item.title}</span>
-                          {item.url && <ExternalLink className="w-4 h-4 text-[#8c829c] group-hover:text-[#386161]" />}
-                        </h2>
-
-                        <p className="mt-2 text-xs sm:text-sm text-[#585068] leading-relaxed">
-                          {item.description[lang]}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Action Links */}
-                    <div className="p-6 pt-0 flex items-center justify-between gap-3">
-                      {item.youtubeId ? (
-                        <button
-                          onClick={() => setModalVideo(item.youtubeId || null)}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7f2856] transition-colors"
-                        >
-                          <Play className="w-3.5 h-3.5 fill-current" />
-                          <span>{lang === "ru" ? "Смотреть ролик" : lang === "sr" ? "Gledajte video" : "Watch Full Video"}</span>
-                        </button>
-                      ) : item.status === "live" && item.url ? (
-                        <a
-                          href={item.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#386161] hover:text-[#2a4949] transition-colors"
-                        >
-                          <Globe className="w-3.5 h-3.5" />
-                          <span>{lang === "ru" ? "Перейти на сайт" : lang === "sr" ? "Posetite sajt" : "Visit Live Website"}</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
-                      ) : item.status === "archived" ? (
-                        <button
-                          onClick={() => setModalItem(item)}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9c386d] hover:text-[#7a2552] transition-colors"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>{lang === "ru" ? "Посмотреть макет в архиве" : lang === "sr" ? "Pogledajte arhivirani dizajn" : "View Archived Design"}</span>
-                        </button>
-                      ) : null}
-
-                      {!item.youtubeId && item.image && (
-                        <button
-                          onClick={() => setModalItem(item)}
-                          title={lang === "ru" ? "Увеличить скриншот" : lang === "sr" ? "Povećajte snimak ekrana" : "Zoom Screenshot"}
-                          className="p-1.5 rounded-lg text-[#8c829c] hover:text-[#2d263b] hover:bg-[#f1f0f5] transition-all"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </button>
-                      )}
-                    </div>
-                  </article>
-                ))}
-              </main>
-            </section>
-          )}
+              </article>
+            ))}
+          </main>
 
           {/* Deep SEO Section 1: Performance Benchmarks & Business Results */}
           <section className="mt-24 pt-16 border-t border-[#e5e1eb]">
