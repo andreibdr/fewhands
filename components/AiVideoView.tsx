@@ -23,7 +23,6 @@ import {
   Film,
   Scissors,
   Wand2,
-  Calculator,
   ExternalLink,
 } from "lucide-react";
 import {
@@ -920,90 +919,45 @@ export const AiVideoView: React.FC = () => {
           </div>
         </div>
 
-        {/* SECTION: ОНЛАЙН-КАЛЬКУЛЯТОР СМЕТЫ */}
-        <div className="mt-14">
-          <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-[#2d263b] via-[#372d47] to-[#2d263b] text-white border border-[#9c386d]/20 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-5 relative overflow-hidden">
-            <div className="absolute right-0 top-0 w-60 h-60 bg-[#9c386d]/15 rounded-full blur-2xl pointer-events-none" />
-            <div className="flex items-start sm:items-center gap-4 relative z-10">
-              <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 text-emerald-400 flex items-center justify-center shrink-0">
-                <Calculator className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="flex items-center gap-2">
-                  <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                    {lang === "ru"
-                      ? "Точный онлайн-расчет сметы видео"
-                      : lang === "sr"
-                      ? "Onlajn kalkulator cene video projekta"
-                      : "Interactive Video Cost Estimator"}
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed">
-                  {lang === "ru"
-                    ? "Настройте формат, хронометраж, клонирование голоса и видео-виджет без жестких тарифов и переплат."
-                    : lang === "sr"
-                    ? "Izaberite format, trajanje i opcije u kalkulatoru bez fiksnih paketa i skrivenih troškova."
-                    : "Configure format, runtime, neural voice cloning, and web avatars with zero rigid bundle markups."}
-                </p>
-              </div>
-            </div>
-
-            <Link
-              href="/estimate?service=video"
-              className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#9c386d] to-[#6d244c] hover:opacity-95 text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-2 shrink-0 self-stretch sm:self-auto justify-center relative z-10"
-            >
-              <Calculator className="w-4 h-4" />
+        {/* RETAINER BANNER */}
+        <div className="mt-16 p-6 sm:p-8 rounded-2xl bg-[#edf5f5] border border-[#386161]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#386161] text-xs font-bold mb-2 border border-[#386161]/20">
+              <Repeat className="w-3.5 h-3.5" />
               <span>
                 {lang === "ru"
-                  ? "Открыть калькулятор"
+                  ? "Ежемесячный абонемент на монтаж и контент (Retainer)"
                   : lang === "sr"
-                  ? "Otvorite kalkulator"
-                  : "Open Estimator"}
+                  ? "Mesečna pretplata na montažu i sadržaj (Retainer)"
+                  : "Monthly Retainer Subscription"}
               </span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          {/* RETAINER BANNER */}
-          <div className="mt-8 p-6 sm:p-8 rounded-2xl bg-[#edf5f5] border border-[#386161]/30 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#386161] text-xs font-bold mb-2 border border-[#386161]/20">
-                <Repeat className="w-3.5 h-3.5" />
-                <span>
-                  {lang === "ru"
-                    ? "Ежемесячный абонемент на монтаж и контент (Retainer)"
-                    : lang === "sr"
-                    ? "Mesečna pretplata na montažu i sadržaj (Retainer)"
-                    : "Monthly Retainer Subscription"}
-                </span>
-              </div>
-              <h3 className="text-lg font-bold text-[#2d263b]">
-                {lang === "ru"
-                  ? "Нужен регулярный поток роликов для YouTube-канала, блога или онлайн-школы?"
-                  : lang === "sr"
-                  ? "Potreban vam je redovan tok video sadržaja za YouTube, blog ili školu?"
-                  : "Need a regular high-cadence video pipeline for YouTube, creators or academies?"}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#585068] mt-1 max-w-2xl">
-                {lang === "ru"
-                  ? "Возьмем на себя регулярный монтаж длинных YouTube-выпусков или генерацию от 10 роликов Shorts/Reels в месяц со звуком, графикой и субтитрами по фиксированной цене от $390/мес."
-                  : lang === "sr"
-                  ? "Preuzimamo redovnu montažu YouTube emisija ili generisanje od 10 Shorts/Reels videa mesečno sa zvukom, grafikom i titlovima već od $390/mes."
-                  : "We manage your ongoing YouTube episode editing or automated 10+ Shorts/Reels monthly with kinetic captions, sound design, and B-roll starting at $390/mo."}
-              </p>
             </div>
-
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-xl bg-[#386161] hover:bg-[#2b4c4c] text-white font-bold text-xs sm:text-sm shrink-0 transition-colors shadow-sm"
-            >
+            <h3 className="text-lg font-bold text-[#2d263b]">
               {lang === "ru"
-                ? "Обсудить абонемент"
+                ? "Нужен регулярный поток роликов для YouTube-канала, блога или онлайн-школы?"
                 : lang === "sr"
-                ? "Dogovorite pretplatu"
-                : "Discuss Retainer"}
-            </Link>
+                ? "Potreban vam je redovan tok video sadržaja za YouTube, blog ili školu?"
+                : "Need a regular high-cadence video pipeline for YouTube, creators or academies?"}
+            </h3>
+            <p className="text-xs sm:text-sm text-[#585068] mt-1 max-w-2xl">
+              {lang === "ru"
+                ? "Возьмем на себя регулярный монтаж длинных YouTube-выпусков или генерацию от 10 роликов Shorts/Reels в месяц со звуком, графикой и субтитрами по фиксированной цене от $390/мес."
+                : lang === "sr"
+                ? "Preuzimamo redovnu montažu YouTube emisija ili generisanje od 10 Shorts/Reels videa mesečno sa zvukom, grafikom i titlovima već od $390/mes."
+                : "We manage your ongoing YouTube episode editing or automated 10+ Shorts/Reels monthly with kinetic captions, sound design, and B-roll starting at $390/mo."}
+            </p>
           </div>
+
+          <Link
+            href="/contact"
+            className="px-6 py-3 rounded-xl bg-[#386161] hover:bg-[#2b4c4c] text-white font-bold text-xs sm:text-sm shrink-0 transition-colors shadow-sm"
+          >
+            {lang === "ru"
+              ? "Обсудить абонемент"
+              : lang === "sr"
+              ? "Dogovorite pretplatu"
+              : "Discuss Retainer"}
+          </Link>
         </div>
 
         {/* SECTION: РАЗВЕРНУТЫЙ FAQ */}
