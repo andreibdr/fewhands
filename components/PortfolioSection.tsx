@@ -210,28 +210,8 @@ export const PortfolioSection: React.FC = () => {
 
         {/* Dedicated Row for Vertical 9:16 Shorts */}
         {verticalShorts.length > 0 && (
-          <div className="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-xs font-semibold mb-2">
-                  <Smartphone className="w-3.5 h-3.5" />
-                  <span>{lang === "ru" ? "Формат 9:16" : "9:16 Format"}</span>
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  {lang === "ru" ? "AI-аватары и вертикальные видео" : "AI Avatars & Vertical Shorts"}
-                </h3>
-              </div>
-              <Link
-                href="/ai-video"
-                className="inline-flex items-center gap-2 text-xs font-semibold text-sky-600 dark:text-sky-400 hover:underline"
-              >
-                <span>{lang === "ru" ? "Все возможности AI-видео" : "Explore AI Video"}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {verticalShorts.map((item) => (
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {verticalShorts.map((item) => (
                 <div
                   key={item.id}
                   className="group rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
@@ -293,7 +273,6 @@ export const PortfolioSection: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div>
         )}
 
         {/* CTA to Full Portfolio */}
