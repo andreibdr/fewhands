@@ -100,19 +100,54 @@ export const PortfolioSection: React.FC = () => {
                   ) : item.youtubeId ? (
                     <div
                       onClick={() => setModalVideo(item.youtubeId || null)}
-                      className="relative w-full h-full cursor-pointer group/media"
+                      className="relative w-full h-full cursor-pointer group/media flex items-center justify-center bg-slate-950 overflow-hidden"
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={item.image || (item.isShort ? `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg` : `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`)}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/media:bg-black/10 transition-colors">
-                        <div className="w-12 h-12 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform">
-                          <Play className="w-5 h-5 fill-white translate-x-0.5" />
-                        </div>
-                      </div>
+                      {item.isShort ? (
+                        <>
+                          {/* Ambient blurred backdrop */}
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`}
+                            alt=""
+                            aria-hidden="true"
+                            className="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-35 brightness-75"
+                          />
+                          {/* Centered vertical 9:16 smartphone frame */}
+                          <div className="relative h-full aspect-[9/16] shadow-2xl rounded-sm overflow-hidden z-10 border-x border-white/10 group-hover/media:scale-105 transition-transform duration-300">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/oar2.jpg`}
+                              alt={item.title}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute top-2 left-2">
+                              <span className="px-1.5 py-0.5 rounded bg-black/75 text-[9px] font-mono font-bold text-white border border-white/20">
+                                9:16
+                              </span>
+                            </div>
+                            <div className="absolute bottom-3 inset-x-0 flex items-center justify-center pointer-events-none">
+                              <div className="w-8 h-8 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform">
+                                <Play className="w-3.5 h-3.5 fill-white translate-x-0.5" />
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          {/* Horizontal 16:9 Video */}
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={item.image || `https://i.ytimg.com/vi/${item.youtubeId}/maxresdefault.jpg`}
+                            alt={item.title}
+                            className="w-full h-full object-cover group-hover/media:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover/media:bg-black/10 transition-colors">
+                            <div className="w-12 h-12 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-lg group-hover/media:scale-110 transition-transform">
+                              <Play className="w-5 h-5 fill-white translate-x-0.5" />
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   ) : null}
                 </div>
@@ -313,31 +348,36 @@ export const PortfolioSection: React.FC = () => {
         )}
 
         {/* Video Lightbox Modal */}
-        {modalVideo && (
-          <div
-            onClick={() => setModalVideo(null)}
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
-          >
+        {modalVideo && (() => {
+          const isModalShort = portfolioItems.find((p) => p.youtubeId === modalVideo)?.isShort;
+          return (
             <div
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-4xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border border-slate-800"
+              onClick={() => setModalVideo(null)}
+              className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
             >
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${modalVideo}?autoplay=1`}
-                title="Video Preview"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
-              <button
-                onClick={() => setModalVideo(null)}
-                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-slate-800"
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className={`relative w-full ${
+                  isModalShort ? "max-w-xs sm:max-w-sm aspect-[9/16]" : "max-w-4xl aspect-video"
+                } bg-black rounded-3xl overflow-hidden shadow-2xl border border-slate-800`}
               >
-                <X className="w-5 h-5" />
-              </button>
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${modalVideo}?autoplay=1`}
+                  title="Video Preview"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full border-0"
+                />
+                <button
+                  onClick={() => setModalVideo(null)}
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 text-white flex items-center justify-center hover:bg-slate-800 z-10"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
       </div>
     </section>
