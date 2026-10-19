@@ -85,6 +85,9 @@ export const metadata: Metadata = {
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
+  verification: {
+    yandex: "e8981cf59d5d38bb",
+  },
 };
 
 const rootStructuredData = {
@@ -186,6 +189,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <meta name="yandex-verification" content="e8981cf59d5d38bb" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(rootStructuredData) }}
