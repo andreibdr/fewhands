@@ -38,7 +38,7 @@ export const HomeView: React.FC = () => {
     {
       title: "Big Data Realty",
       tag: "USA / Proptech",
-      image: "/portfolio/bigdatarealty.jpg",
+      image: "/portfolio/bigdatarealty.webp",
       desc: {
         ru: "Аналитический портал и блог о трендах на рынке недвижимости США.",
         en: "Analytics portal & research platform tracking US real estate market data.",

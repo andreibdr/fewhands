@@ -24,7 +24,7 @@ export const portfolioItems: PortfolioItem[] = [
       en: "Miami real estate market analytics platform: price trend prediction, investment dashboards, and ROI yield metrics.",
       sr: "Analitička platforma za tržište nekretnina u Majamiju: predviđanje kretanja cena, investicioni kontrolni paneli i metrički pokazatelji prinosa.",
     },
-    image: "/portfolio/bigdatarealty.jpg",
+    image: "/portfolio/bigdatarealty.webp",
     url: "https://bigdatarealty.com",
     status: "live",
   },
