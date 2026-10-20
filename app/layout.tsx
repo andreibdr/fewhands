@@ -6,6 +6,7 @@ import { LogoProvider } from "@/components/LogoContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 const caveat = Caveat({
   subsets: ["latin", "cyrillic"],
@@ -202,6 +203,7 @@ export default function RootLayout({
             <Header />
             <main className="flex-1 relative z-10">{children}</main>
             <Footer />
+            <Analytics />
           </LogoProvider>
         </LanguageProvider>
       </body>
