@@ -25,3 +25,7 @@ Thumbs.db
 
 # Working video files in root
 /AN_promo*.mp4
+
+# Local scratch and temp files
+scratch/
+
