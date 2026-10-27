@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Caveat } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
@@ -206,6 +207,18 @@ export default function RootLayout({
             <Analytics />
           </LogoProvider>
         </LanguageProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-72W06KDJEZ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-72W06KDJEZ');
+          `}
+        </Script>
       </body>
     </html>
   );
