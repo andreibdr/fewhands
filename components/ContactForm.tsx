@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLanguage } from "./LanguageContext";
 import { Send, Check, Copy, MessageSquare, Mail, Globe, Clock } from "lucide-react";
 import {
@@ -16,6 +16,13 @@ export const ContactForm: React.FC = () => {
   const [copied, setCopied] = useState<boolean>(false);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [contactError, setContactError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState<string>("");
+  const [formLoadedAt, setFormLoadedAt] = useState<number>(0);
+
+  useEffect(() => {
+    setFormLoadedAt(Date.now());
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,6 +61,8 @@ export const ContactForm: React.FC = () => {
           name: formData.name,
           contact: formData.email,
           message: `${formData.message} (Website: ${formData.website || "not specified"})`,
+          honeypot: honeypot,
+          formLoadedAt: formLoadedAt,
         }),
       });
 
@@ -173,7 +182,20 @@ export const ContactForm: React.FC = () => {
 
         {/* Right Form Column */}
         <div className="p-8 sm:p-10 rounded-3xl border border-[#2d263b]/10 bg-white/95 backdrop-blur-md shadow-sm">
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 relative">
+            {/* Anti-spam honeypot field: invisible to humans, trap for automated bot crawlers */}
+            <div className="absolute opacity-0 pointer-events-none -z-50 h-0 w-0 overflow-hidden" tabIndex={-1} aria-hidden="true">
+              <label htmlFor="cnt_company_fax">Leave empty</label>
+              <input
+                type="text"
+                id="cnt_company_fax"
+                name="company_fax"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
             <div>
               <label className="block text-xs uppercase tracking-wider font-bold text-[#2d263b] mb-1.5">
                 {lang === "ru" ? "Ваше имя" : lang === "sr" ? "Vaše ime" : "Your Name"} *

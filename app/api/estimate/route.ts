@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { isValidEmailOrPhone } from "@/lib/validation";
+import { isValidEmailOrPhone, isLikelyBotSubmission } from "@/lib/validation";
 
 function escapeHtml(text: string): string {
   if (!text) return "";
@@ -14,10 +14,24 @@ function escapeHtml(text: string): string {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { calculator, result, clientName, contact, lang, honeypot } = body;
+    const { calculator, result, clientName, contact, lang, honeypot, formLoadedAt } = body;
 
-    // Silent rejection for automated spam bots filling hidden honeypot fields
-    if (honeypot) {
+    // Multi-layer anti-bot validation (honeypot, sub-second submission, dot-trick alias spam, gibberish)
+    const botCheck = isLikelyBotSubmission({
+      name: clientName,
+      contact,
+      honeypot,
+      formLoadedAt,
+    });
+
+    if (botCheck.isBot) {
+      console.warn("Automated bot estimate submission suppressed:", {
+        reason: botCheck.reason,
+        clientName,
+        contact,
+        timestamp: new Date().toISOString(),
+      });
+      // Return 200 OK so bots think submission was delivered and stop retrying
       return NextResponse.json({ success: true, message: "Estimate received" });
     }
 

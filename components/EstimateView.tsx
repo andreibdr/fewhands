@@ -60,6 +60,12 @@ function EstimatorInner() {
   const [contactError, setContactError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [honeypot, setHoneypot] = useState<string>("");
+  const [formLoadedAt, setFormLoadedAt] = useState<number>(0);
+
+  useEffect(() => {
+    setFormLoadedAt(Date.now());
+  }, []);
 
   // --- Calculator 1: Migration & Maintenance States ---
   const [migPlatform, setMigPlatform] = useState<string>("wordpress");
@@ -441,6 +447,8 @@ function EstimatorInner() {
       clientName: name,
       contact: contact,
       lang: lang,
+      honeypot: honeypot,
+      formLoadedAt: formLoadedAt,
     };
 
     try {
@@ -1372,7 +1380,20 @@ function EstimatorInner() {
                   </span>
                 </div>
               ) : (
-                <form onSubmit={handleSendEstimate} className="grid sm:grid-cols-12 gap-3 items-start">
+                <form onSubmit={handleSendEstimate} className="grid sm:grid-cols-12 gap-3 items-start relative">
+                  {/* Anti-spam honeypot field: invisible to humans, trap for automated bot crawlers */}
+                  <div className="absolute opacity-0 pointer-events-none -z-50 h-0 w-0 overflow-hidden" tabIndex={-1} aria-hidden="true">
+                    <label htmlFor="est_company_fax">Leave empty</label>
+                    <input
+                      type="text"
+                      id="est_company_fax"
+                      name="company_fax"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </div>
                   <div className="sm:col-span-4">
                     <input
                       type="text"
